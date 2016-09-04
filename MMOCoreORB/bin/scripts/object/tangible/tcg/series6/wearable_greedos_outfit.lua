@@ -1,0 +1,7 @@
+--Copyright 2015 Nightwing
+
+object_tangible_tcg_series6_wearable_greedos_outfit = object_tangible_tcg_series6_shared_wearable_greedos_outfit:new {
+
+}
+
+ObjectTemplates:addTemplate(object_tangible_tcg_series6_wearable_greedos_outfit, "object/tangible/tcg/series6/wearable_greedos_outfit.iff")

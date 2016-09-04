@@ -1,0 +1,397 @@
+sh-4.3$ quit
+sh: quit: command not found
+sh-4.3$ quit
+sh: quit: command not found
+sh-4.3$ ^C
+sh-4.3$ screen -d
+[1518.swgemu-server detached.]
+
+sh-4.3$ quit
+sh: quit: command not found
+sh-4.3$ exit
+exit
+Server running on 21400, uptime: 00:01
+
+vagrant@rising:~/workspace/Core3/MMOCoreORB/bin$ mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 251
+Server version: 5.5.50-0+deb8u1 (Debian)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> s[Kuse swgemu;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from accounts;
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+| account_id | username   | password                                                         | station_id | created             | active | admin_level | salt                             |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+|          1 | c0pp3r     | 7d08041cc5d322f1cb7932e901c2ac127c36ce637b2cd93fd242e89000c49e34 |          0 | 2016-09-01 14:44:47 |      1 |          15 | 581a25883232b3f316acbd1eeb09195b |
+|          2 | thumper    | 3bdb35d84d48fde7bb850cf4ec0453aae45d63734197ad8932f7ba66ad035ecd | 2776906277 | 2016-09-02 15:17:44 |      1 |           0 | ddfdcd049eb6dce2eb46356e6e61fcb0 |
+|          3 | thumper1   | dfbeb1f1f15543f7171f33d86e58801e679c424f9e3bf92a31f6e1106894aef5 | 1651402389 | 2016-09-02 16:36:37 |      1 |           0 | e7c47dc405ac5484d72c6c2d292d9e35 |
+|          4 | acck01     | 8387194f5a98654d7175271a4e457f81dbea0c90f3db76b396913c38a1b75d4d | 4126473359 | 2016-09-02 17:27:02 |      1 |           0 | f6e646ff8a422a427d94334f823d9358 |
+|          5 | acck02     | ee21190b4cc1a611b5041cbe8298e17bf4444a7e8480df309e59015e219b134d |    9660232 | 2016-09-02 18:13:54 |      1 |           0 | a5c9d9b1418dbf88cbdfcd16082db442 |
+|          6 | Farstar159 | cebc7dfb1bc12a61a7e99a7ba6612ff542a302d9c3dedad4b199ba682ed8bdf8 |  197034493 | 2016-09-02 18:27:04 |      1 |           0 | 747d09c2a29d13764764cd6575012e53 |
+|          7 | Farstar160 | ab41a4178e90150451b008a4e9532abcf663681d7bc93bb2e3bab1bbdb8e911c | 1270075387 | 2016-09-02 18:31:45 |      1 |           0 | ecc412a4567ea4a6a60ab9cc6f29e366 |
+|          8 | thumper2   | 3c273f7fc9c09655c665116943f819e0540da83910640b1a116a426a5a3c1a8d |  288652917 | 2016-09-02 20:44:53 |      1 |           0 | c0b039db36dc4d5935a722266b26a4d8 |
+|          9 | ric        | fc542646100645d69384883cbd303552657d9557d22e2f4f4709ecc480f0146c | 3141818317 | 2016-09-02 22:12:07 |      1 |           0 | a245ffa0a0c8d009e0b25fb6a3e2623e |
+|         10 | ric2       | 80cae1a7496ee2e7c1e5aded275d556b910307d9634115f042c4bd769e0cfb1c |  923224119 | 2016-09-02 22:21:18 |      1 |           0 | fc1767383c09526f6414ca899d6fcac2 |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+10 rows in set (0.00 sec)
+
+mysql> select 8 from a[K[K[K[K[K[K[K[K* from accouns[Kts;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    254
+Current database: swgemu
+
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+| account_id | username   | password                                                         | station_id | created             | active | admin_level | salt                             |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+|          1 | c0pp3r     | 7d08041cc5d322f1cb7932e901c2ac127c36ce637b2cd93fd242e89000c49e34 |          0 | 2016-09-01 14:44:47 |      1 |          15 | 581a25883232b3f316acbd1eeb09195b |
+|          2 | thumper    | 3bdb35d84d48fde7bb850cf4ec0453aae45d63734197ad8932f7ba66ad035ecd | 2776906277 | 2016-09-02 15:17:44 |      1 |           0 | ddfdcd049eb6dce2eb46356e6e61fcb0 |
+|          3 | thumper1   | dfbeb1f1f15543f7171f33d86e58801e679c424f9e3bf92a31f6e1106894aef5 | 1651402389 | 2016-09-02 16:36:37 |      1 |           0 | e7c47dc405ac5484d72c6c2d292d9e35 |
+|          4 | acck01     | 8387194f5a98654d7175271a4e457f81dbea0c90f3db76b396913c38a1b75d4d | 4126473359 | 2016-09-02 17:27:02 |      1 |           0 | f6e646ff8a422a427d94334f823d9358 |
+|          5 | acck02     | ee21190b4cc1a611b5041cbe8298e17bf4444a7e8480df309e59015e219b134d |    9660232 | 2016-09-02 18:13:54 |      1 |           0 | a5c9d9b1418dbf88cbdfcd16082db442 |
+|          6 | Farstar159 | cebc7dfb1bc12a61a7e99a7ba6612ff542a302d9c3dedad4b199ba682ed8bdf8 |  197034493 | 2016-09-02 18:27:04 |      1 |           0 | 747d09c2a29d13764764cd6575012e53 |
+|          7 | Farstar160 | ab41a4178e90150451b008a4e9532abcf663681d7bc93bb2e3bab1bbdb8e911c | 1270075387 | 2016-09-02 18:31:45 |      1 |           0 | ecc412a4567ea4a6a60ab9cc6f29e366 |
+|          8 | thumper2   | 3c273f7fc9c09655c665116943f819e0540da83910640b1a116a426a5a3c1a8d |  288652917 | 2016-09-02 20:44:53 |      1 |           0 | c0b039db36dc4d5935a722266b26a4d8 |
+|          9 | ric        | fc542646100645d69384883cbd303552657d9557d22e2f4f4709ecc480f0146c | 3141818317 | 2016-09-02 22:12:07 |      1 |           0 | a245ffa0a0c8d009e0b25fb6a3e2623e |
+|         10 | ric2       | 80cae1a7496ee2e7c1e5aded275d556b910307d9634115f042c4bd769e0cfb1c |  923224119 | 2016-09-02 22:21:18 |      1 |           0 | fc1767383c09526f6414ca899d6fcac2 |
+|         11 | ric3       | aa0c876012d651f7736822f6153ea7dd14a705d4a961a7a424525542dd098ff5 |  239218323 | 2016-09-02 22:38:16 |      1 |           0 | def6fadbacc32b82d7dd563002a8d874 |
+|         12 | c0pp3r2    | f219f6614c0e1a96a769027fb66adfeb4e3f3db09f2b82359128c5f247c70eb8 | 1510309479 | 2016-09-02 23:00:43 |      1 |           0 | cf617dec600a06c8e18b7f51f25d9c8f |
+|         13 | c0pp3r3    | 127058510597057c2ad449b28d5522d3584837f04e55d649414a08a9a7214d08 | 3826341362 | 2016-09-02 23:15:09 |      1 |           0 | 97f4443b87d2ddc0a9f68ad02a995527 |
+|         14 | gohankou92 | c3ce0bf9cd0fbb7066a2d0a5f9a345db60df245073e47c8dc40e67be84362823 | 4220666975 | 2016-09-03 01:01:45 |      1 |           0 | 2090feeaffb4aee0dcbd016cad743e1e |
+|         15 | debrica    | b7865cb92114498e53783f5d394808c3772790f92a3fd1fd3609d9975db3e3d5 | 2494124046 | 2016-09-03 01:58:46 |      1 |           0 | a0e3a614e6e5006e0bfd373d83222661 |
+|         16 | debrica2   | 490adebeaef5cbd82bb2462aaa4673d1a996913d0e7529e3cc2c3e104a9a11fe |  933834548 | 2016-09-03 02:04:01 |      1 |           0 | c3e2a5565fceba7507b1646f3df8e5c3 |
+|         17 | wizefool   | 4de5294a3cc13d7b8f111b1223ec59e9e304479e3ca1a4f766951d2772ff0f60 | 3078368026 | 2016-09-03 07:32:23 |      1 |           0 | ac4c3b47984d5366c417fc3af7e5fa00 |
+|         18 | wizefool1  | cea15ce4e6dca4efb32d2af5a15b7348fa11a3961557e47b8709d39349979065 | 2019272893 | 2016-09-03 07:41:53 |      1 |           0 | a8e96b287c1719d3024bd3bd7419ba36 |
+|         19 | astrology  | 8fbe03f81a3e703966df60d67042dc6093aca6dcbc1d0c9e049d280c62eac38e | 2623470523 | 2016-09-03 10:56:49 |      1 |           0 | 44295a122093a860c7ffa223c349ee71 |
+|         20 | Snubbz     | 76e9448573ac936a72f0698d625a9ac9a5f47898d7453455d646b9ac553dcaff | 2754210312 | 2016-09-03 12:08:32 |      1 |           0 | f2aa71b778b664959e4d9329b4fc9404 |
+|         21 | Snubbz1    | 04ac0f51988b5351dccc7bfdbe40c7f331efba978eb90d3836cda793d9983766 | 3349952266 | 2016-09-03 12:24:17 |      1 |           0 | cef3b32c3f02c1eec513d3d2f9bfc23f |
+|         22 | SnubbzCSR  | aafb01d78c55867624a8162e2677b967ba6883ceb9d1562393c7b09d5a74ded9 | 1312789104 | 2016-09-03 12:50:29 |      1 |           0 | 81d8bc47e090b714cfeb18a235ee31b0 |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+22 rows in set (0.01 sec)
+
+mysql> select * from chraf[K[K[Karacters;
++-----------------+------------+-----------+-------------+------------+------+--------+--------------------------------------------+---------------------+
+| character_oid   | account_id | galaxy_id | firstname   | surname    | race | gender | template                                   | creation_date       |
++-----------------+------------+-----------+-------------+------------+------+--------+--------------------------------------------+---------------------+
+| 281474993642837 |          1 |         2 | Cesta       |            |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-02 14:27:14 |
+| 281474993829135 |          2 |         2 | Equalizer   |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 15:21:03 |
+| 281474993832605 |          3 |         2 | Tuna        |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-02 16:41:36 |
+| 281474993833103 |          4 |         2 | Chuck       |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 17:31:57 |
+| 281474993834620 |          5 |         2 | Billy       | Ray        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:17:15 |
+| 281474993834658 |          6 |         2 | Kumo        | Juza       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:32:22 |
+| 281474993834685 |          7 |         2 | Suzi        |            |    0 |      0 | object/creature/player/twilek_female.iff   | 2016-09-02 18:37:24 |
+| 281474993835321 |          7 |         2 | MrFixit     |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 19:52:54 |
+| 281474993835483 |          3 |         2 | nobuffs     | forjoo     |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-02 20:23:07 |
+| 281474993835577 |          4 |         2 | Blue        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:28:09 |
+| 281474993835603 |          5 |         2 | Chicken     | Tendies    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:33:11 |
+| 281474993835858 |          8 |         2 | Blasto      | Noto       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:48:17 |
+| 281474993836080 |          6 |         2 | DrHouse     |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 21:13:27 |
+| 281474993837010 |          7 |         2 | Hoot        |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-02 21:28:33 |
+| 281474993902440 |          9 |         2 | Zygon       |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:16:13 |
+| 281474993902709 |         10 |         2 | Ramsey      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:26:20 |
+| 281474993903408 |         11 |         2 | Yoduh       |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-02 22:41:26 |
+| 281474993903467 |          6 |         2 | Corbin      | Dallas     |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:41:26 |
+| 281474993904197 |         12 |         2 | Ambian      |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:16:41 |
+| 281474993904325 |         13 |         2 | Tamra       |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:21:43 |
+| 281474993904725 |          9 |         2 | Frodo       |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 23:31:47 |
+| 281474993906967 |         10 |         2 | Zukonis     |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 00:02:00 |
+| 281474993910679 |          5 |         2 | Beast       |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 01:02:25 |
+| 281474993911046 |         14 |         2 | Android     |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:02:25 |
+| 281474993911149 |          4 |         2 | Chumbawamba |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:07:27 |
+| 281474993917249 |         15 |         2 | Chani       |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 02:02:51 |
+| 281474993917701 |         16 |         2 | Spectre     |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 02:07:53 |
+| 281474993919561 |         14 |         2 | Buff        | Train      |    0 |      0 | object/creature/player/twilek_male.iff     | 2016-09-03 02:23:00 |
+| 281474993924453 |         15 |         2 | Shooter     |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:18:24 |
+| 281474993925225 |         16 |         2 | Spooky      |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:43:34 |
+| 281474993925705 |          3 |         2 | Sting       | ray        |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 03:58:40 |
+| 281474993926394 |         17 |         2 | ruce        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:35:09 |
+| 281474993926453 |         18 |         2 | Ninja       |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:45:13 |
+| 281474993927864 |         17 |         2 | Fuzzball    |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 09:10:48 |
+| 281474993927887 |         18 |         2 | Spec        | Ops        |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 09:15:50 |
+| 281474993927966 |         10 |         2 | Zyganis     |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:41:00 |
+| 281474993928007 |          9 |         2 | Ricven      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:51:04 |
+| 281474993928232 |         15 |         2 | Viper       |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 10:01:09 |
+| 281474993930075 |         14 |         2 | Quigon      | Jinn       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993930414 |         19 |         2 | Boba        | Fet        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993932167 |         16 |         2 | Phantom     |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 11:36:49 |
+| 281474993933329 |         20 |         2 | Baba        | Yaga       |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 12:12:03 |
+| 281474993933766 |         21 |         2 | Juggernaut  | Protection |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:27:09 |
+| 281474993935121 |         22 |         2 | Ninjago     | TheSly     |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:52:20 |
++-----------------+------------+-----------+-------------+------------+------+--------+--------------------------------------------+---------------------+
+44 rows in set (0.00 sec)
+
+mysql> select * from characters;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    267
+Current database: swgemu
+
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+| character_oid   | account_id | galaxy_id | firstname      | surname    | race | gender | template                                   | creation_date       |
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+| 281474993642837 |          1 |         2 | Cesta          |            |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-02 14:27:14 |
+| 281474993829135 |          2 |         2 | Equalizer      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 15:21:03 |
+| 281474993832605 |          3 |         2 | Tuna           |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-02 16:41:36 |
+| 281474993833103 |          4 |         2 | Chuck          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 17:31:57 |
+| 281474993834620 |          5 |         2 | Billy          | Ray        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:17:15 |
+| 281474993834658 |          6 |         2 | Kumo           | Juza       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:32:22 |
+| 281474993834685 |          7 |         2 | Suzi           |            |    0 |      0 | object/creature/player/twilek_female.iff   | 2016-09-02 18:37:24 |
+| 281474993835321 |          7 |         2 | MrFixit        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 19:52:54 |
+| 281474993835483 |          3 |         2 | nobuffs        | forjoo     |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-02 20:23:07 |
+| 281474993835577 |          4 |         2 | Blue           |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:28:09 |
+| 281474993835603 |          5 |         2 | Chicken        | Tendies    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:33:11 |
+| 281474993835858 |          8 |         2 | Blasto         | Noto       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:48:17 |
+| 281474993836080 |          6 |         2 | DrHouse        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 21:13:27 |
+| 281474993837010 |          7 |         2 | Hoot           |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-02 21:28:33 |
+| 281474993902440 |          9 |         2 | Zygon          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:16:13 |
+| 281474993902709 |         10 |         2 | Ramsey         |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:26:20 |
+| 281474993903408 |         11 |         2 | Yoduh          |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-02 22:41:26 |
+| 281474993903467 |          6 |         2 | Corbin         | Dallas     |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:41:26 |
+| 281474993904197 |         12 |         2 | Ambian         |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:16:41 |
+| 281474993904325 |         13 |         2 | Tamra          |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:21:43 |
+| 281474993904725 |          9 |         2 | Frodo          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 23:31:47 |
+| 281474993906967 |         10 |         2 | Zukonis        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 00:02:00 |
+| 281474993910679 |          5 |         2 | Beast          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 01:02:25 |
+| 281474993911046 |         14 |         2 | Android        |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:02:25 |
+| 281474993911149 |          4 |         2 | Chumbawamba    |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:07:27 |
+| 281474993917249 |         15 |         2 | Chani          |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 02:02:51 |
+| 281474993917701 |         16 |         2 | Spectre        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 02:07:53 |
+| 281474993919561 |         14 |         2 | Buff           | Train      |    0 |      0 | object/creature/player/twilek_male.iff     | 2016-09-03 02:23:00 |
+| 281474993924453 |         15 |         2 | Shooter        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:18:24 |
+| 281474993925225 |         16 |         2 | Spooky         |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:43:34 |
+| 281474993925705 |          3 |         2 | Sting          | ray        |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 03:58:40 |
+| 281474993926394 |         17 |         2 | ruce           |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:35:09 |
+| 281474993926453 |         18 |         2 | Ninja          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:45:13 |
+| 281474993927864 |         17 |         2 | Fuzzball       |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 09:10:48 |
+| 281474993927887 |         18 |         2 | Spec           | Ops        |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 09:15:50 |
+| 281474993927966 |         10 |         2 | Zyganis        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:41:00 |
+| 281474993928007 |          9 |         2 | Ricven         |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:51:04 |
+| 281474993928232 |         15 |         2 | Viper          |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 10:01:09 |
+| 281474993930075 |         14 |         2 | Quigon         | Jinn       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993930414 |         19 |         2 | Boba           | Fet        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993932167 |         16 |         2 | Phantom        |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 11:36:49 |
+| 281474993933329 |         20 |         2 | Baba           | Yaga       |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 12:12:03 |
+| 281474993933766 |         21 |         2 | Juggernaut     | Protection |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:27:09 |
+| 281474993935121 |         22 |         2 | Ninjago        | TheSly     |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:52:20 |
+| 281474993939844 |         21 |         2 | Manta          | Ray        |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 14:38:04 |
+| 281474993944726 |         20 |         2 | Nightcrawler   | Vertigo    |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 15:03:15 |
+| 281474993951882 |         24 |         2 | Jerktroop      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 16:03:42 |
+| 281474993952016 |         20 |         2 | ElGranLoboMalo |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 16:03:42 |
+| 281474993952900 |         21 |         2 | DayWalker      | Vertigo    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 16:18:48 |
+| 281474993956921 |         24 |         2 | Ockive         |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 17:49:26 |
+| 281474993966256 |         24 |         2 | Rumm           | Iroo       |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-03 19:30:09 |
+| 281474993971872 |         25 |         2 | Tolik          |            |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-03 21:20:56 |
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+52 rows in set (0.01 sec)
+
+mysql> select * from accounts:[Kl[K;
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+| account_id | username   | password                                                         | station_id | created             | active | admin_level | salt                             |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+|          1 | c0pp3r     | 7d08041cc5d322f1cb7932e901c2ac127c36ce637b2cd93fd242e89000c49e34 |          0 | 2016-09-01 14:44:47 |      1 |          15 | 581a25883232b3f316acbd1eeb09195b |
+|          2 | thumper    | 3bdb35d84d48fde7bb850cf4ec0453aae45d63734197ad8932f7ba66ad035ecd | 2776906277 | 2016-09-02 15:17:44 |      1 |           0 | ddfdcd049eb6dce2eb46356e6e61fcb0 |
+|          3 | thumper1   | dfbeb1f1f15543f7171f33d86e58801e679c424f9e3bf92a31f6e1106894aef5 | 1651402389 | 2016-09-02 16:36:37 |      1 |           0 | e7c47dc405ac5484d72c6c2d292d9e35 |
+|          4 | acck01     | 8387194f5a98654d7175271a4e457f81dbea0c90f3db76b396913c38a1b75d4d | 4126473359 | 2016-09-02 17:27:02 |      1 |           0 | f6e646ff8a422a427d94334f823d9358 |
+|          5 | acck02     | ee21190b4cc1a611b5041cbe8298e17bf4444a7e8480df309e59015e219b134d |    9660232 | 2016-09-02 18:13:54 |      1 |           0 | a5c9d9b1418dbf88cbdfcd16082db442 |
+|          6 | Farstar159 | cebc7dfb1bc12a61a7e99a7ba6612ff542a302d9c3dedad4b199ba682ed8bdf8 |  197034493 | 2016-09-02 18:27:04 |      1 |           0 | 747d09c2a29d13764764cd6575012e53 |
+|          7 | Farstar160 | ab41a4178e90150451b008a4e9532abcf663681d7bc93bb2e3bab1bbdb8e911c | 1270075387 | 2016-09-02 18:31:45 |      1 |           0 | ecc412a4567ea4a6a60ab9cc6f29e366 |
+|          8 | thumper2   | 3c273f7fc9c09655c665116943f819e0540da83910640b1a116a426a5a3c1a8d |  288652917 | 2016-09-02 20:44:53 |      1 |           0 | c0b039db36dc4d5935a722266b26a4d8 |
+|          9 | ric        | fc542646100645d69384883cbd303552657d9557d22e2f4f4709ecc480f0146c | 3141818317 | 2016-09-02 22:12:07 |      1 |           0 | a245ffa0a0c8d009e0b25fb6a3e2623e |
+|         10 | ric2       | 80cae1a7496ee2e7c1e5aded275d556b910307d9634115f042c4bd769e0cfb1c |  923224119 | 2016-09-02 22:21:18 |      1 |           0 | fc1767383c09526f6414ca899d6fcac2 |
+|         11 | ric3       | aa0c876012d651f7736822f6153ea7dd14a705d4a961a7a424525542dd098ff5 |  239218323 | 2016-09-02 22:38:16 |      1 |           0 | def6fadbacc32b82d7dd563002a8d874 |
+|         12 | c0pp3r2    | f219f6614c0e1a96a769027fb66adfeb4e3f3db09f2b82359128c5f247c70eb8 | 1510309479 | 2016-09-02 23:00:43 |      1 |           0 | cf617dec600a06c8e18b7f51f25d9c8f |
+|         13 | c0pp3r3    | 127058510597057c2ad449b28d5522d3584837f04e55d649414a08a9a7214d08 | 3826341362 | 2016-09-02 23:15:09 |      1 |           0 | 97f4443b87d2ddc0a9f68ad02a995527 |
+|         14 | gohankou92 | c3ce0bf9cd0fbb7066a2d0a5f9a345db60df245073e47c8dc40e67be84362823 | 4220666975 | 2016-09-03 01:01:45 |      1 |           0 | 2090feeaffb4aee0dcbd016cad743e1e |
+|         15 | debrica    | b7865cb92114498e53783f5d394808c3772790f92a3fd1fd3609d9975db3e3d5 | 2494124046 | 2016-09-03 01:58:46 |      1 |           0 | a0e3a614e6e5006e0bfd373d83222661 |
+|         16 | debrica2   | 490adebeaef5cbd82bb2462aaa4673d1a996913d0e7529e3cc2c3e104a9a11fe |  933834548 | 2016-09-03 02:04:01 |      1 |           0 | c3e2a5565fceba7507b1646f3df8e5c3 |
+|         17 | wizefool   | 4de5294a3cc13d7b8f111b1223ec59e9e304479e3ca1a4f766951d2772ff0f60 | 3078368026 | 2016-09-03 07:32:23 |      1 |           0 | ac4c3b47984d5366c417fc3af7e5fa00 |
+|         18 | wizefool1  | cea15ce4e6dca4efb32d2af5a15b7348fa11a3961557e47b8709d39349979065 | 2019272893 | 2016-09-03 07:41:53 |      1 |           0 | a8e96b287c1719d3024bd3bd7419ba36 |
+|         19 | astrology  | 8fbe03f81a3e703966df60d67042dc6093aca6dcbc1d0c9e049d280c62eac38e | 2623470523 | 2016-09-03 10:56:49 |      1 |           0 | 44295a122093a860c7ffa223c349ee71 |
+|         20 | Snubbz     | 76e9448573ac936a72f0698d625a9ac9a5f47898d7453455d646b9ac553dcaff | 2754210312 | 2016-09-03 12:08:32 |      1 |           0 | f2aa71b778b664959e4d9329b4fc9404 |
+|         21 | Snubbz1    | 04ac0f51988b5351dccc7bfdbe40c7f331efba978eb90d3836cda793d9983766 | 3349952266 | 2016-09-03 12:24:17 |      1 |           0 | cef3b32c3f02c1eec513d3d2f9bfc23f |
+|         22 | SnubbzCSR  | aafb01d78c55867624a8162e2677b967ba6883ceb9d1562393c7b09d5a74ded9 | 1312789104 | 2016-09-03 12:50:29 |      1 |           0 | 81d8bc47e090b714cfeb18a235ee31b0 |
+|         23 | will007    | dcbdf98418f8d528857906ebd8decc8657d764b1784b041aef7281a29eb5c2b2 | 1876344562 | 2016-09-03 14:27:02 |      1 |           0 | ec452dd94e36076c04a7fdcf1b50e9ce |
+|         24 | Gactroop   | bb0df392f6b9ebbd205293695b08581cac352e78decfe86b1e5970be96b525a2 | 3833443218 | 2016-09-03 15:48:51 |      1 |           0 | dbbadcd6a0dc7247637a6f1f58aeccd8 |
+|         25 | Gactroop1  | 4c6d91a098776d95920ee3b539f5321ef34c6d4e07fdb933fdd1198c2e2b2bb6 | 2714276382 | 2016-09-03 21:18:17 |      1 |           0 | ec5341d1a610d416b17ee7bcf5e58e9f |
+|         26 | deltaloko  | 6fcc5f37417cd1fbd6105b9ca45c0514141f0014359f1564b70162cb9273b68a | 3037221247 | 2016-09-03 21:24:14 |      1 |           0 | 332d3622971aa32d0d50e835c76c497d |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+26 rows in set (0.00 sec)
+
+mysql> select * from accounts;
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+| account_id | username   | password                                                         | station_id | created             | active | admin_level | salt                             |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+|          1 | c0pp3r     | 7d08041cc5d322f1cb7932e901c2ac127c36ce637b2cd93fd242e89000c49e34 |          0 | 2016-09-01 14:44:47 |      1 |          15 | 581a25883232b3f316acbd1eeb09195b |
+|          2 | thumper    | 3bdb35d84d48fde7bb850cf4ec0453aae45d63734197ad8932f7ba66ad035ecd | 2776906277 | 2016-09-02 15:17:44 |      1 |           0 | ddfdcd049eb6dce2eb46356e6e61fcb0 |
+|          3 | thumper1   | dfbeb1f1f15543f7171f33d86e58801e679c424f9e3bf92a31f6e1106894aef5 | 1651402389 | 2016-09-02 16:36:37 |      1 |           0 | e7c47dc405ac5484d72c6c2d292d9e35 |
+|          4 | acck01     | 8387194f5a98654d7175271a4e457f81dbea0c90f3db76b396913c38a1b75d4d | 4126473359 | 2016-09-02 17:27:02 |      1 |           0 | f6e646ff8a422a427d94334f823d9358 |
+|          5 | acck02     | ee21190b4cc1a611b5041cbe8298e17bf4444a7e8480df309e59015e219b134d |    9660232 | 2016-09-02 18:13:54 |      1 |           0 | a5c9d9b1418dbf88cbdfcd16082db442 |
+|          6 | Farstar159 | cebc7dfb1bc12a61a7e99a7ba6612ff542a302d9c3dedad4b199ba682ed8bdf8 |  197034493 | 2016-09-02 18:27:04 |      1 |           0 | 747d09c2a29d13764764cd6575012e53 |
+|          7 | Farstar160 | ab41a4178e90150451b008a4e9532abcf663681d7bc93bb2e3bab1bbdb8e911c | 1270075387 | 2016-09-02 18:31:45 |      1 |           0 | ecc412a4567ea4a6a60ab9cc6f29e366 |
+|          8 | thumper2   | 3c273f7fc9c09655c665116943f819e0540da83910640b1a116a426a5a3c1a8d |  288652917 | 2016-09-02 20:44:53 |      1 |           0 | c0b039db36dc4d5935a722266b26a4d8 |
+|          9 | ric        | fc542646100645d69384883cbd303552657d9557d22e2f4f4709ecc480f0146c | 3141818317 | 2016-09-02 22:12:07 |      1 |           0 | a245ffa0a0c8d009e0b25fb6a3e2623e |
+|         10 | ric2       | 80cae1a7496ee2e7c1e5aded275d556b910307d9634115f042c4bd769e0cfb1c |  923224119 | 2016-09-02 22:21:18 |      1 |           0 | fc1767383c09526f6414ca899d6fcac2 |
+|         11 | ric3       | aa0c876012d651f7736822f6153ea7dd14a705d4a961a7a424525542dd098ff5 |  239218323 | 2016-09-02 22:38:16 |      1 |           0 | def6fadbacc32b82d7dd563002a8d874 |
+|         12 | c0pp3r2    | f219f6614c0e1a96a769027fb66adfeb4e3f3db09f2b82359128c5f247c70eb8 | 1510309479 | 2016-09-02 23:00:43 |      1 |           0 | cf617dec600a06c8e18b7f51f25d9c8f |
+|         13 | c0pp3r3    | 127058510597057c2ad449b28d5522d3584837f04e55d649414a08a9a7214d08 | 3826341362 | 2016-09-02 23:15:09 |      1 |           0 | 97f4443b87d2ddc0a9f68ad02a995527 |
+|         14 | gohankou92 | c3ce0bf9cd0fbb7066a2d0a5f9a345db60df245073e47c8dc40e67be84362823 | 4220666975 | 2016-09-03 01:01:45 |      1 |           0 | 2090feeaffb4aee0dcbd016cad743e1e |
+|         15 | debrica    | b7865cb92114498e53783f5d394808c3772790f92a3fd1fd3609d9975db3e3d5 | 2494124046 | 2016-09-03 01:58:46 |      1 |           0 | a0e3a614e6e5006e0bfd373d83222661 |
+|         16 | debrica2   | 490adebeaef5cbd82bb2462aaa4673d1a996913d0e7529e3cc2c3e104a9a11fe |  933834548 | 2016-09-03 02:04:01 |      1 |           0 | c3e2a5565fceba7507b1646f3df8e5c3 |
+|         17 | wizefool   | 4de5294a3cc13d7b8f111b1223ec59e9e304479e3ca1a4f766951d2772ff0f60 | 3078368026 | 2016-09-03 07:32:23 |      1 |           0 | ac4c3b47984d5366c417fc3af7e5fa00 |
+|         18 | wizefool1  | cea15ce4e6dca4efb32d2af5a15b7348fa11a3961557e47b8709d39349979065 | 2019272893 | 2016-09-03 07:41:53 |      1 |           0 | a8e96b287c1719d3024bd3bd7419ba36 |
+|         19 | astrology  | 8fbe03f81a3e703966df60d67042dc6093aca6dcbc1d0c9e049d280c62eac38e | 2623470523 | 2016-09-03 10:56:49 |      1 |           0 | 44295a122093a860c7ffa223c349ee71 |
+|         20 | Snubbz     | 76e9448573ac936a72f0698d625a9ac9a5f47898d7453455d646b9ac553dcaff | 2754210312 | 2016-09-03 12:08:32 |      1 |           0 | f2aa71b778b664959e4d9329b4fc9404 |
+|         21 | Snubbz1    | 04ac0f51988b5351dccc7bfdbe40c7f331efba978eb90d3836cda793d9983766 | 3349952266 | 2016-09-03 12:24:17 |      1 |           0 | cef3b32c3f02c1eec513d3d2f9bfc23f |
+|         22 | SnubbzCSR  | aafb01d78c55867624a8162e2677b967ba6883ceb9d1562393c7b09d5a74ded9 | 1312789104 | 2016-09-03 12:50:29 |      1 |           0 | 81d8bc47e090b714cfeb18a235ee31b0 |
+|         23 | will007    | dcbdf98418f8d528857906ebd8decc8657d764b1784b041aef7281a29eb5c2b2 | 1876344562 | 2016-09-03 14:27:02 |      1 |           0 | ec452dd94e36076c04a7fdcf1b50e9ce |
+|         24 | Gactroop   | bb0df392f6b9ebbd205293695b08581cac352e78decfe86b1e5970be96b525a2 | 3833443218 | 2016-09-03 15:48:51 |      1 |           0 | dbbadcd6a0dc7247637a6f1f58aeccd8 |
+|         25 | Gactroop1  | 4c6d91a098776d95920ee3b539f5321ef34c6d4e07fdb933fdd1198c2e2b2bb6 | 2714276382 | 2016-09-03 21:18:17 |      1 |           0 | ec5341d1a610d416b17ee7bcf5e58e9f |
+|         26 | deltaloko  | 6fcc5f37417cd1fbd6105b9ca45c0514141f0014359f1564b70162cb9273b68a | 3037221247 | 2016-09-03 21:24:14 |      1 |           0 | 332d3622971aa32d0d50e835c76c497d |
++------------+------------+------------------------------------------------------------------+------------+---------------------+--------+-------------+----------------------------------+
+26 rows in set (0.00 sec)
+
+mysql> select * from accounts;characters;
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+| character_oid   | account_id | galaxy_id | firstname      | surname    | race | gender | template                                   | creation_date       |
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+| 281474993642837 |          1 |         2 | Cesta          |            |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-02 14:27:14 |
+| 281474993829135 |          2 |         2 | Equalizer      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 15:21:03 |
+| 281474993832605 |          3 |         2 | Tuna           |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-02 16:41:36 |
+| 281474993833103 |          4 |         2 | Chuck          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 17:31:57 |
+| 281474993834620 |          5 |         2 | Billy          | Ray        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:17:15 |
+| 281474993834658 |          6 |         2 | Kumo           | Juza       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:32:22 |
+| 281474993834685 |          7 |         2 | Suzi           |            |    0 |      0 | object/creature/player/twilek_female.iff   | 2016-09-02 18:37:24 |
+| 281474993835321 |          7 |         2 | MrFixit        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 19:52:54 |
+| 281474993835483 |          3 |         2 | nobuffs        | forjoo     |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-02 20:23:07 |
+| 281474993835577 |          4 |         2 | Blue           |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:28:09 |
+| 281474993835603 |          5 |         2 | Chicken        | Tendies    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:33:11 |
+| 281474993835858 |          8 |         2 | Blasto         | Noto       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:48:17 |
+| 281474993836080 |          6 |         2 | DrHouse        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 21:13:27 |
+| 281474993837010 |          7 |         2 | Hoot           |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-02 21:28:33 |
+| 281474993902440 |          9 |         2 | Zygon          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:16:13 |
+| 281474993902709 |         10 |         2 | Ramsey         |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:26:20 |
+| 281474993903408 |         11 |         2 | Yoduh          |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-02 22:41:26 |
+| 281474993903467 |          6 |         2 | Corbin         | Dallas     |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:41:26 |
+| 281474993904197 |         12 |         2 | Ambian         |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:16:41 |
+| 281474993904325 |         13 |         2 | Tamra          |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:21:43 |
+| 281474993904725 |          9 |         2 | Frodo          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 23:31:47 |
+| 281474993906967 |         10 |         2 | Zukonis        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 00:02:00 |
+| 281474993910679 |          5 |         2 | Beast          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 01:02:25 |
+| 281474993911046 |         14 |         2 | Android        |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:02:25 |
+| 281474993911149 |          4 |         2 | Chumbawamba    |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:07:27 |
+| 281474993917249 |         15 |         2 | Chani          |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 02:02:51 |
+| 281474993917701 |         16 |         2 | Spectre        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 02:07:53 |
+| 281474993919561 |         14 |         2 | Buff           | Train      |    0 |      0 | object/creature/player/twilek_male.iff     | 2016-09-03 02:23:00 |
+| 281474993924453 |         15 |         2 | Shooter        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:18:24 |
+| 281474993925225 |         16 |         2 | Spooky         |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:43:34 |
+| 281474993925705 |          3 |         2 | Sting          | ray        |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 03:58:40 |
+| 281474993926394 |         17 |         2 | ruce           |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:35:09 |
+| 281474993926453 |         18 |         2 | Ninja          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:45:13 |
+| 281474993927864 |         17 |         2 | Fuzzball       |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 09:10:48 |
+| 281474993927887 |         18 |         2 | Spec           | Ops        |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 09:15:50 |
+| 281474993927966 |         10 |         2 | Zyganis        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:41:00 |
+| 281474993928007 |          9 |         2 | Ricven         |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:51:04 |
+| 281474993928232 |         15 |         2 | Viper          |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 10:01:09 |
+| 281474993930075 |         14 |         2 | Quigon         | Jinn       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993930414 |         19 |         2 | Boba           | Fet        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993932167 |         16 |         2 | Phantom        |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 11:36:49 |
+| 281474993933329 |         20 |         2 | Baba           | Yaga       |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 12:12:03 |
+| 281474993933766 |         21 |         2 | Juggernaut     | Protection |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:27:09 |
+| 281474993935121 |         22 |         2 | Ninjago        | TheSly     |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:52:20 |
+| 281474993939844 |         21 |         2 | Manta          | Ray        |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 14:38:04 |
+| 281474993944726 |         20 |         2 | Nightcrawler   | Vertigo    |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 15:03:15 |
+| 281474993951882 |         24 |         2 | Jerktroop      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 16:03:42 |
+| 281474993952016 |         20 |         2 | ElGranLoboMalo |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 16:03:42 |
+| 281474993952900 |         21 |         2 | DayWalker      | Vertigo    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 16:18:48 |
+| 281474993956921 |         24 |         2 | Ockive         |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 17:49:26 |
+| 281474993966256 |         24 |         2 | Rumm           | Iroo       |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-03 19:30:09 |
+| 281474993971872 |         25 |         2 | Tolik          |            |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-03 21:20:56 |
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+52 rows in set (0.00 sec)
+
+mysql> select * from characters;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    286
+Current database: swgemu
+
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+| character_oid   | account_id | galaxy_id | firstname      | surname    | race | gender | template                                   | creation_date       |
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+| 281474993642837 |          1 |         2 | Cesta          |            |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-02 14:27:14 |
+| 281474993829135 |          2 |         2 | Equalizer      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 15:21:03 |
+| 281474993832605 |          3 |         2 | Tuna           |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-02 16:41:36 |
+| 281474993833103 |          4 |         2 | Chuck          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 17:31:57 |
+| 281474993834620 |          5 |         2 | Billy          | Ray        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:17:15 |
+| 281474993834658 |          6 |         2 | Kumo           | Juza       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 18:32:22 |
+| 281474993834685 |          7 |         2 | Suzi           |            |    0 |      0 | object/creature/player/twilek_female.iff   | 2016-09-02 18:37:24 |
+| 281474993835321 |          7 |         2 | MrFixit        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 19:52:54 |
+| 281474993835483 |          3 |         2 | nobuffs        | forjoo     |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-02 20:23:07 |
+| 281474993835577 |          4 |         2 | Blue           |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:28:09 |
+| 281474993835603 |          5 |         2 | Chicken        | Tendies    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:33:11 |
+| 281474993835858 |          8 |         2 | Blasto         | Noto       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 20:48:17 |
+| 281474993836080 |          6 |         2 | DrHouse        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 21:13:27 |
+| 281474993837010 |          7 |         2 | Hoot           |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-02 21:28:33 |
+| 281474993902440 |          9 |         2 | Zygon          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:16:13 |
+| 281474993902709 |         10 |         2 | Ramsey         |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:26:20 |
+| 281474993903408 |         11 |         2 | Yoduh          |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-02 22:41:26 |
+| 281474993903467 |          6 |         2 | Corbin         | Dallas     |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 22:41:26 |
+| 281474993904197 |         12 |         2 | Ambian         |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:16:41 |
+| 281474993904325 |         13 |         2 | Tamra          |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-02 23:21:43 |
+| 281474993904725 |          9 |         2 | Frodo          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-02 23:31:47 |
+| 281474993906967 |         10 |         2 | Zukonis        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 00:02:00 |
+| 281474993910679 |          5 |         2 | Beast          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 01:02:25 |
+| 281474993911046 |         14 |         2 | Android        |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:02:25 |
+| 281474993911149 |          4 |         2 | Chumbawamba    |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 01:07:27 |
+| 281474993917249 |         15 |         2 | Chani          |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 02:02:51 |
+| 281474993917701 |         16 |         2 | Spectre        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 02:07:53 |
+| 281474993919561 |         14 |         2 | Buff           | Train      |    0 |      0 | object/creature/player/twilek_male.iff     | 2016-09-03 02:23:00 |
+| 281474993924453 |         15 |         2 | Shooter        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:18:24 |
+| 281474993925225 |         16 |         2 | Spooky         |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-03 03:43:34 |
+| 281474993925705 |          3 |         2 | Sting          | ray        |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 03:58:40 |
+| 281474993926394 |         17 |         2 | ruce           |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:35:09 |
+| 281474993926453 |         18 |         2 | Ninja          |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 07:45:13 |
+| 281474993927864 |         17 |         2 | Fuzzball       |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 09:10:48 |
+| 281474993927887 |         18 |         2 | Spec           | Ops        |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 09:15:50 |
+| 281474993927966 |         10 |         2 | Zyganis        |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:41:00 |
+| 281474993928007 |          9 |         2 | Ricven         |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 09:51:04 |
+| 281474993928232 |         15 |         2 | Viper          |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 10:01:09 |
+| 281474993930075 |         14 |         2 | Quigon         | Jinn       |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993930414 |         19 |         2 | Boba           | Fet        |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 11:01:34 |
+| 281474993932167 |         16 |         2 | Phantom        |            |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-03 11:36:49 |
+| 281474993933329 |         20 |         2 | Baba           | Yaga       |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-03 12:12:03 |
+| 281474993933766 |         21 |         2 | Juggernaut     | Protection |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:27:09 |
+| 281474993935121 |         22 |         2 | Ninjago        | TheSly     |    0 |      0 | object/creature/player/bothan_male.iff     | 2016-09-03 12:52:20 |
+| 281474993939844 |         21 |         2 | Manta          | Ray        |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 14:38:04 |
+| 281474993944726 |         20 |         2 | Nightcrawler   | Vertigo    |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 15:03:15 |
+| 281474993951882 |         24 |         2 | Jerktroop      |            |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 16:03:42 |
+| 281474993952016 |         20 |         2 | ElGranLoboMalo |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-03 16:03:42 |
+| 281474993952900 |         21 |         2 | DayWalker      | Vertigo    |    0 |      0 | object/creature/player/human_male.iff      | 2016-09-03 16:18:48 |
+| 281474993956921 |         24 |         2 | Ockive         |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-03 17:49:26 |
+| 281474993966256 |         24 |         2 | Rumm           | Iroo       |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-03 19:30:09 |
+| 281474994106814 |         28 |         2 | Deathstroke    |            |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-04 02:54:44 |
+| 281474994106927 |         29 |         2 | Rygaard        |            |    0 |      0 | object/creature/player/moncal_male.iff     | 2016-09-04 03:04:48 |
+| 281474994107138 |         30 |         2 | Zim            |            |    0 |      0 | object/creature/player/rodian_male.iff     | 2016-09-04 03:24:56 |
+| 281474994107692 |         31 |         2 | Brolly         |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-04 03:50:07 |
+| 281474994109182 |         25 |         2 | Peegann        | Frax       |    0 |      0 | object/creature/player/zabrak_male.iff     | 2016-09-04 07:01:25 |
+| 281474994109342 |         28 |         2 | Roxxy          | Bird       |    0 |      0 | object/creature/player/zabrak_female.iff   | 2016-09-04 07:21:33 |
+| 281474994109394 |         29 |         2 | Deadshot       |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-04 07:26:35 |
+| 281474994110851 |         29 |         2 | Rhino          |            |    0 |      0 | object/creature/player/trandoshan_male.iff | 2016-09-04 09:07:16 |
+| 281474994111026 |         28 |         2 | Black          |            |    0 |      0 | object/creature/player/wookiee_male.iff    | 2016-09-04 09:17:20 |
+| 281474994117073 |          8 |         2 | kricket        |            |    0 |      0 | object/creature/player/human_female.iff    | 2016-09-04 10:22:48 |
++-----------------+------------+-----------+----------------+------------+------+--------+--------------------------------------------+---------------------+
+61 rows in set (0.00 sec)
+
+mysql> 

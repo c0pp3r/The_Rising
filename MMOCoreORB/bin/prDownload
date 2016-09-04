@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Downloading Production's Latest Backup"
+scp nwadmin@167.114.103.16:/home/nwadmin/nightwingBackup/testcenter/1/* ~/workspace/Core3/MMOCoreORB/bin/databases/
+echo "Restoring Production's Database"
+zcat ~/workspace/Core3/MMOCoreORB/bin/databases/swgemu.sql.gz | mysql swgemu

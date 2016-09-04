@@ -1,0 +1,29 @@
+#!/bin/bash
+export CLASSPATH=/home/swgemu/workspace/Core3/MMOEngine/bin/idlc.jar
+
+cd ~/workspace/Core3/MMOCoreORB/
+
+# make IDL?
+read -p "Build IDL? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	make idl
+fi
+
+
+# make config
+read -p "Build Config? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+        make config
+fi
+
+# make build
+read -p "Build build? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+        make build
+fi
