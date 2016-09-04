@@ -42,7 +42,8 @@ rebel_gungan_war_chief = Creature:new {
 				{group = "clothing_attachments", chance = 300000},
 				{group = "armor_attachments", chance = 300000},
 				{group = "rebel_officer_common", chance = 400000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_medium"},

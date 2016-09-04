@@ -38,7 +38,8 @@ nightsister_sentry = Creature:new {
 				{group = "clothing_attachments", chance = 250000},
 				{group = "melee_weapons", chance = 2500000},
 				{group = "rifles", chance = 1000000},
-				{group = "pistols", chance = 1000000},
+				{group = "pistols", chance = 500000},
+				{group = "axkva_min", chance = 500000},
 				{group = "carbines", chance = 1000000},
 				{group = "wearables_common", chance = 500000},
 				{group = "tailor_components", chance = 500000}

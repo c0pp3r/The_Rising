@@ -68,6 +68,7 @@ lok_regions = {
 	{"four_arches_and_pillar",281,-5599,{1,30},NOSPAWNAREA + NOBUILDZONEAREA},
 	{"four_pillars",-5190,-4823,{1,30},NOSPAWNAREA + NOBUILDZONEAREA},
 	{"four_pillars_and_flagpole",-320,-3223,{1,30},NOSPAWNAREA + NOBUILDZONEAREA},
+	{"generals_bunker",3760,-3080,{1,450},NOSPAWNAREA + NOBUILDZONEAREA},
 	{"generator",3883,-5512,{1,50},NOSPAWNAREA + NOBUILDZONEAREA},
 	{"great_maze",3825,-540,{1,100},NOSPAWNAREA + NOBUILDZONEAREA},
 	{"grendin_waste_1",0,0,{1,0},UNDEFINEDAREA},

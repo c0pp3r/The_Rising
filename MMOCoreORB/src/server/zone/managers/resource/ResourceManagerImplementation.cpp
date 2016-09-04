@@ -15,7 +15,10 @@
 #include "server/zone/objects/player/sui/listbox/SuiListBox.h"
 
 void ResourceManagerImplementation::initialize() {
-	if (!loadConfigData()) {
+	lua = new Lua();
+	lua->init();
+
+	if(!loadConfigData()) {
 
 		loadDefaultConfig();
 
@@ -28,6 +31,9 @@ void ResourceManagerImplementation::initialize() {
 	loadSurveyData();
 }
 
+bool ResourceManagerImplementation::loadConfigFile() {
+	return lua->runFile("scripts/managers/resource_manager.lua");
+}
 void ResourceManagerImplementation::loadSurveyData() {
 	info("Loading survey data form surveys.db");
 	ObjectDatabaseManager* dbManager = ObjectDatabaseManager::instance();
@@ -83,13 +89,8 @@ int ResourceManagerImplementation::notifyObserverEvent(uint32 eventType, Observa
 }
 
 bool ResourceManagerImplementation::loadConfigData() {
-	Lua* lua = new Lua();
-	lua->init();
-
-	if (!lua->runFile("scripts/managers/resource_manager.lua")) {
-		delete lua;
+	if (!loadConfigFile())
 		return false;
-	}
 
 	bool loadFromScript = lua->getGlobalInt("buildInitialResourcesFromScript");
 
@@ -142,8 +143,6 @@ bool ResourceManagerImplementation::loadConfigData() {
 	String natpoolexc = lua->getGlobalString("nativepoolexcludes");
 	resourceSpawner->initializeNativePool(natpoolinc, natpoolexc);
 
-	delete lua;
-
 	return true;
 }
 
@@ -159,6 +158,8 @@ void ResourceManagerImplementation::loadDefaultConfig() {
 	resourceSpawner->addZone("talus");
 	resourceSpawner->addZone("tatooine");
 	resourceSpawner->addZone("endor");
+	resourceSpawner->addZone("kaas");
+
 
 	shiftInterval = 7200000;
 	resourceSpawner->setSpawningParameters(1, 86400, 90, 1000, 0);

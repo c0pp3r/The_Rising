@@ -45,7 +45,12 @@
 --Children folder includes
 
 -- Server Objects
+includeFile("tangible/deed/vehicle_deed/barc_speeder_imperial_deed.lua")
+includeFile("tangible/deed/vehicle_deed/barc_speeder_rebel_deed.lua")
 includeFile("tangible/deed/vehicle_deed/jetpack_deed.lua")
+includeFile("tangible/deed/vehicle_deed/barc_speeder_deed.lua")
+includeFile("tangible/deed/vehicle_deed/pod_racer_two_deed.lua")
+includeFile("tangible/deed/vehicle_deed/pod_racer_one_deed.lua")
 includeFile("tangible/deed/vehicle_deed/landspeeder_av21_deed.lua")
 includeFile("tangible/deed/vehicle_deed/landspeeder_x31_deed.lua")
 includeFile("tangible/deed/vehicle_deed/landspeeder_x34_deed.lua")

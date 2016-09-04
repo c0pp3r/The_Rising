@@ -48,7 +48,7 @@ bonusXP = 15
 
 -- discount percentage for side losing&winning the gcw.  negative value of increase in price (penality).  positive for a decrease (Bonus)
 
-winnerBonus = 0
+winnerBonus = 30
 loserBonus = -30
 
 -- Spawn turrets and minefields when base is placed 1=true 0=false 

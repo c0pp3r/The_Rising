@@ -39,7 +39,24 @@ public:
 			return;
 
 		// TODO: Force Rank modifiers.
-		int forceCost = param * 0.5;
+		float force_manipulation = 0.f;
+		if (playerObject->getJediState() == 4) {
+			force_manipulation = (float)creo->getSkillMod("force_manipulation_light") / 100;
+		} else if (playerObject->getJediState() == 8) {
+			force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 100;
+		}
+		int forceCost = (param * 0.5) - (force_manipulation * (param * 0.5));
+		StringBuffer forceCostInfo;
+		forceCostInfo
+		<< "Damage:"
+		<< param
+		<< " * 0.5) - (force_manipulation:"
+		<< force_manipulation
+		<< " * (Damage:"
+		<< param
+		<< " * 0.5) = "
+		<< forceCost;
+		//info(forceCostInfo);
 		if (playerObject->getForcePower() <= forceCost) { // Remove buff if not enough force.
 			Buff* buff = creo->getBuff(BuffCRC::JEDI_FORCE_ARMOR_1);
 			if (buff != NULL) {

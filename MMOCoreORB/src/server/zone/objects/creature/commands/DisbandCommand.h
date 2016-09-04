@@ -38,6 +38,7 @@ public:
 			groupManager->leaveGroup(group.get(), creature);
 		else
 			groupManager->disbandGroup(group.get(), creature);
+			creature->playEffect("clienteffect/pl_force_resist_disease_self.cef");
 
 		return SUCCESS;
 	}

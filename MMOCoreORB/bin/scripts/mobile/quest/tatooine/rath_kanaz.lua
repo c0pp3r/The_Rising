@@ -42,7 +42,7 @@ rath_kanaz = Creature:new {
 	},
 	conversationTemplate = "",
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
-	defaultAttack = "attack"
+	defaultAttack = "creaturerangedattack"
 }
 
 CreatureTemplates:addCreatureTemplate(rath_kanaz, "rath_kanaz")

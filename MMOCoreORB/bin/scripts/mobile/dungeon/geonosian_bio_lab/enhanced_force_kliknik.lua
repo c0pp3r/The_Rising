@@ -31,9 +31,11 @@ enhanced_force_kliknik = Creature:new {
 	lootGroups = {
 	 {
 	        groups = {
-				{group = "geo_kliknik", chance = 10000000}
+				{group = "geo_kliknik", chance = 5000000},
+				{group = "geonosian_common", chance = 2500000},
+				{group = "geonosian_hard", chance = 2500000}
 			},
-			lootChance = 2880000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"creature_spit_heavy_flame"},

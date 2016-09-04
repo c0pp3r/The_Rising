@@ -50,6 +50,16 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 			player->sendSystemMessage("@pet/pet_menu:private_house"); // You cannot call pets in a private building.
 			return;
 		}
+
+		if (building->isStaticObject() && (building->getObjectTemplate()->getObjectName() == "@building_name:light_enclave" || building->getObjectTemplate()->getObjectName() == "@building_name:dark_enclave")) {
+			player->sendSystemMessage("Pets are not permitted inside the Enclave.");
+			return;
+		}
+		// To disallow players from calling any PETS while inside: DWB, Geo Cave, & The Warren...
+		if (building->isStaticObject() && (building->getClientObjectCRC() == 599067335 || building->getClientObjectCRC() == 3223964695 || building->getClientObjectCRC() == 2436238099)) {
+			player->sendSystemMessage("This facility's defense system inhibits your ability to call pets while inside.");
+			return;
+		}
 	}
 
 	if (!isASubChildOf(player))
@@ -222,10 +232,10 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		Reference<CallPetTask*> callPet = new CallPetTask(_this.getReferenceUnsafeStaticCast(), player, "call_pet");
 
 		StringIdChatParameter message("pet/pet_menu", "call_pet_delay"); // Calling pet in %DI seconds. Combat will terminate pet call.
-		message.setDI(15);
+		message.setDI(3);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_pet", callPet, 15 * 1000);
+		player->addPendingTask("call_pet", callPet, 3 * 1000);
 
 		if (petControlObserver == NULL) {
 			petControlObserver = new PetControlObserver(_this.getReferenceUnsafeStaticCast());
@@ -457,14 +467,14 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 
 	Reference<StorePetTask*> task = new StorePetTask(player, pet);
 
-	// Store non-faction pets immediately.  Store faction pets after 60sec delay.
+	// Store non-faction pets immediately.  Store faction pets after 5sec delay.
 	if( petType != PetManager::FACTIONPET || force || player->getPlayerObject()->isPrivileged()){
 		task->execute();
 	}
 	else{
 		if(pet->getPendingTask("store_pet") == NULL) {
-			player->sendSystemMessage( "Storing pet in 60 seconds");
-			pet->addPendingTask("store_pet", task, 60 * 1000);
+			player->sendSystemMessage( "Storing pet in 5 seconds");
+			pet->addPendingTask("store_pet", task, 5 * 1000);
 		}
 		else{
 			Time nextExecution;

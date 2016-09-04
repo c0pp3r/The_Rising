@@ -4,8 +4,8 @@ dark_jedi_master = Creature:new {
 	randomNameTag = true,
 	socialGroup = "dark_jedi",
 	faction = "",
-	level = 291,
-	chanceHit = 27.25,
+	level = 300,
+	chanceHit = 100,
 	damageMin = 1800,
 	damageMax = 3310,
 	baseXp = 27849,
@@ -48,7 +48,7 @@ dark_jedi_master = Creature:new {
 	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(lightsabermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(dark_jedi_master, "dark_jedi_master")

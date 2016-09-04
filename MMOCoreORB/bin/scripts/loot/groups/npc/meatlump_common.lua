@@ -8,20 +8,20 @@ meatlump_common = {
 		{itemTemplate = "droid_body_schematic", weight = 800000},
 		{itemTemplate = "radio_schematic", weight = 800000},
 		{itemTemplate = "streetlamp_schematic", weight = 800000},
-		{itemTemplate = "skill_buff_carbine_accuracy", weight = 400000},
-		{itemTemplate = "skill_buff_carbine_speed", weight = 400000},
+		{itemTemplate = "composite_armor", weight = 400000},
+		{itemTemplate = "bone_armor", weight = 400000},
 		{itemTemplate = "skill_buff_heavy_weapon_accuracy", weight = 400000},
 		{itemTemplate = "skill_buff_heavy_weapon_speed", weight = 400000},
-		{itemTemplate = "skill_buff_melee_accuracy", weight = 400000},
-		{itemTemplate = "skill_buff_melee_defense", weight = 400000},
-		{itemTemplate = "skill_buff_pistol_accuracy", weight = 400000},
-		{itemTemplate = "skill_buff_pistol_speed", weight = 400000},
-		{itemTemplate = "skill_buff_ranged_accuracy", weight = 400000},
-		{itemTemplate = "skill_buff_ranged_defense", weight = 400000},
-		{itemTemplate = "skill_buff_thrown_accuracy", weight = 400000},
-		{itemTemplate = "skill_buff_thrown_speed", weight = 400000},
-		{itemTemplate = "skill_buff_twohandmelee_accuracy", weight = 400000},
-		{itemTemplate = "skill_buff_twohandmelee_speed", weight = 400000}
+		{itemTemplate = "ithorian_defender_armor", weight = 400000},
+		{itemTemplate = "ithorian_guardian_armor", weight = 400000},
+		{itemTemplate = "ithorian_sentinel_armor", weight = 400000},
+		{itemTemplate = "kashyyykian_black_mtn_armor", weight = 400000},
+		{itemTemplate = "kashyyykian_ceremonial_armor", weight = 400000},
+		{itemTemplate = "ubese_armor", weight = 400000},
+		{itemTemplate = "padded_armor", weight = 400000},
+		{itemTemplate = "mabari_armor", weight = 400000},
+		{itemTemplate = "kashyyykian_hunting_armor", weight = 400000},
+		{itemTemplate = "chitin_armor", weight = 400000}
 	}
 }
 

@@ -2,11 +2,11 @@ axkva_min = Creature:new {
 	objectName = "@mob/creature_names:axkva_min",
 	socialGroup = "nightsister",
 	faction = "nightsister",
-	level = 302,
+	level = 300,
 	chanceHit = 30,
 	damageMin = 1645,
 	damageMax = 3000,
-	specialDamageMult = 7.5,
+	specialDamageMult = 10,
 	baseXp = 28549,
 	baseHAM = 385000,
 	baseHAMmax = 471000,
@@ -30,27 +30,29 @@ axkva_min = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "crystals_premium", chance = 900000},
-				{group = "nightsister_common", chance = 2600000},
-				{group = "pistols", chance = 1000000},
-				{group = "rifles", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "melee_weapons", chance = 2000000},
-				{group = "armor_attachments", chance = 500000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "wearables_rare", chance = 500000}
+				{group = "crystals_premium",  chance = 1000000},
+				{group = "nightsister_common",  chance = 1000000},
+				{group = "pistols",  chance = 1000000},
+				{group = "rifles",  chance = 1000000},
+				{group = "carbines",  chance = 1000000},
+				{group = "melee_weapons",  chance = 1000000},
+				{group = "armor_attachments",  chance = 1000000},
+				{group = "clothing_attachments",  chance = 1000000},
+				{group = "redeed1",  chance = 1000000},
+				{group = "redeed2",  chance = 1000000}
 			}
 		},
 		{
 			groups = {
-				{group = "axkva_min", chance = 10000000},
+				{group = "axkva_min", chance = 5000000},
+				{group = "nightsister2",  chance = 5000000}
 			},
-			lootChance = 5000000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(fencermaster,swordsmanmaster,tkamaster,pikemanmaster,brawlermaster,forcepowermaster)
+	attacks = merge(fencermaster,swordsmanmaster,tkamaster,pikemanmaster,brawlermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(axkva_min, "axkva_min")

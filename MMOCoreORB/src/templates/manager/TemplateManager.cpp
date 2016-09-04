@@ -179,6 +179,12 @@ TemplateManager::~TemplateManager() {
 	delete floorMeshMap;
 	floorMeshMap = NULL;
 
+	HashTableIterator<String, AppearanceTemplate* > iterator = appearanceMap->iterator();
+
+	while (iterator.hasNext()) {
+		delete iterator.getNextValue();
+	}
+
 	delete appearanceMap;
 	appearanceMap = NULL;
 }

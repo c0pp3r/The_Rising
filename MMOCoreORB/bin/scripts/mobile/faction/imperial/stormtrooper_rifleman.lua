@@ -42,7 +42,8 @@ stormtrooper_rifleman = Creature:new {
 				{group = "armor_attachments", chance = 250000},
 				{group = "stormtrooper_common", chance = 700000},
 				{group = "wearables_common", chance = 1000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"st_rifleman_weapons"},

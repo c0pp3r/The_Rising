@@ -24,7 +24,7 @@ chassis_dealer = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = INVULNERABLE + CONVERSABLE + JTLINTERESTING,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
 	templates = {

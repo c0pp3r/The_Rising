@@ -21,8 +21,10 @@ public:
 	}
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
-		if (!checkStateMask(creature))
+		if (!checkStateMask(creature)) {
+			creature->sendSystemMessage("You must clear your states before you may purchase a ticket!");
 			return INVALIDSTATE;
+		}
 
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;

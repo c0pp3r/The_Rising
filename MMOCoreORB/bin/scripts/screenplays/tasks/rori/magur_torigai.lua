@@ -4,7 +4,7 @@ magur_torigai_missions =
 		missionType = "assassinate",
 		primarySpawns = 
 		{ 
-			{ npcTemplate = "giant_gubbur", npcName = "" }
+			{ npcTemplate = "giant_gubbur", planetName = "rori", npcName = "" }
 		}, 
 		secondarySpawns =
 		{
@@ -23,7 +23,7 @@ magur_torigai_missions =
 		missionType = "assassinate", 
 		primarySpawns = 
 		{ 
-			{ npcTemplate = "guf_drolg", npcName = "" }	
+			{ npcTemplate = "guf_drolg", planetName = "rori", npcName = "" }	
 		}, 
 		secondarySpawns =
 		{
@@ -43,7 +43,7 @@ magur_torigai_missions =
 npcMapMagurTorigai = 
 { 
 	{ 
-		spawnData = { npcTemplate = "magur_torigai", x = 5132, z = 80, y = 5729, direction = 0, cellID = 0, position = STAND },
+		spawnData = { planetName = "rori", npcTemplate = "magur_torigai", x = 5132, z = 80, y = 5729, direction = 0, cellID = 0, position = STAND },
 		npcNumber = 1,
 		stfFile = "@static_npc/rori/rori_restuss_magur_torigai",
 		missions = magur_torigai_missions
@@ -51,10 +51,11 @@ npcMapMagurTorigai =
 }
 
 MagurTorigai = ThemeParkLogic:new {
+	numberOfActs = 1,
 	npcMap = npcMapMagurTorigai,
+	permissionMap = {},
 	className = "MagurTorigai",
 	screenPlayState = "magur_torigai_quest",
-	planetName = "rori",
 	distance = 800
 }
 

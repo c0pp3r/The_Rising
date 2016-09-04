@@ -13,8 +13,8 @@ OldManIntroEncounter = Encounter:new {
 	-- Encounter properties
 	--minimumTimeUntilEncounter = 12 * 60 * 60 * 1000, -- 12 hours
 	--maximumTimeUntilEncounter = 24 * 60 * 60 * 1000, -- 24 hours
-	minimumTimeUntilEncounter = 5 * 60 * 1000, -- 12 hours
-	maximumTimeUntilEncounter = 10 * 60 * 1000, -- 24 hours
+	minimumTimeUntilEncounter = 3 * 60 * 1000, -- 3 minutes
+	maximumTimeUntilEncounter = 5 * 60 * 1000, -- 5 minutes
 	encounterDespawnTime = 5 * 60 * 1000, -- 5 minutes
 	despawnMessage = "@quest/force_sensitive/intro:leave",
 	spawnObjectList = {

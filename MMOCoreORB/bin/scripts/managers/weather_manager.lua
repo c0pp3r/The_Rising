@@ -106,9 +106,9 @@ corellia = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 90, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 50, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -118,7 +118,7 @@ tatooine = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
 	weatherStability = 70, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 
@@ -135,9 +135,9 @@ dantooine = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 85, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 40, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -147,9 +147,9 @@ dathomir = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 50, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 30, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -159,9 +159,9 @@ endor = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 90, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 30, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -171,9 +171,9 @@ lok = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 60, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 70, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 
 	hasDamagingSandstorms = 0,
 
@@ -187,9 +187,9 @@ naboo = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 90, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 50, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -199,9 +199,9 @@ rori = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 30, -- In seconds
 
-	weatherStability = 80, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 30, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -211,9 +211,9 @@ talus = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 80, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 30, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
 -----------------
@@ -223,13 +223,19 @@ yavin4 = {
 
 	defaultWeather = 0, -- Sunny
 
-	averageWeatherDuration = 3600, -- In seconds
+	averageWeatherDuration = 1200, -- In seconds
 
-	weatherStability = 70, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+	weatherStability = 40, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
 }
 
+-----------------
+--    Kaas
+-----------------
+kaas = {
 
+	defaultWeather = 0, -- Sunny
 
+	averageWeatherDuration = 1200, -- In seconds
 
-
-
+	weatherStability = 20, -- Range 0 - 100, Higher = Less weather changes, Overall better weather
+}

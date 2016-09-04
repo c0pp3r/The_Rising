@@ -40,7 +40,8 @@ mokk_soothsayer = Creature:new {
 				{group = "wearables_common", chance = 1000000},
 				{group = "wearables_uncommon", chance = 1000000},
 				{group = "color_crystals", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"primitive_weapons"},

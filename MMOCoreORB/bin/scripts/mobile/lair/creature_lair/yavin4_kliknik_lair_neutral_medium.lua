@@ -10,4 +10,3 @@ yavin4_kliknik_lair_neutral_medium = Lair:new {
 }
 
 addLairTemplate("yavin4_kliknik_lair_neutral_medium", yavin4_kliknik_lair_neutral_medium)
-

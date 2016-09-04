@@ -3,7 +3,7 @@ sith_shadow_mercenary = Creature:new {
 	socialGroup = "sith_shadow",
 	faction = "sith_shadow",
 	level = 69,
-	chanceHit = 0.6,
+	chanceHit = 100,
 	damageMin = 495,
 	damageMax = 700,
 	baseXp = 6655,
@@ -67,7 +67,7 @@ sith_shadow_mercenary = Creature:new {
 		}
 	},
 
-	weapons = {"pirate_weapons_heavy"},
+	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = merge(riflemanmaster,pistoleermaster,carbineermaster,marksmanmaster,brawlermaster)
 }

@@ -2,8 +2,6 @@ local ObjectManager = require("managers.object.object_manager")
 local QuestManager = require("managers.quest.quest_manager")
 local SpawnMobiles = require("utils.spawn_mobiles")
 require("utils.helpers")
-local READ_DISK_2_STRING = "@quest/force_sensitive/intro:read_disk2"
-local READ_DISK_ERROR_STRING = "@quest/force_sensitive/intro:read_disk_error"
 
 SithShadowIntroTheater = GoToTheater:new {
 	-- Task properties
@@ -19,7 +17,7 @@ SithShadowIntroTheater = GoToTheater:new {
 		{ template = "object/static/structure/general/camp_lawn_chair_s01.iff", xDiff =3.74, zDiff = 0, yDiff = 2.42, heading = -47.74 },
 		{ template = "object/static/structure/general/camp_lawn_chair_s01.iff", xDiff =2.04, zDiff = 0, yDiff = 1.55, heading = 0.39 },
 		{ template = "object/static/structure/general/camp_lawn_chair_s01.iff", xDiff =-0.26, zDiff = 0, yDiff = 5.28, heading = 111.15 },
-		{ template = "object/static/structure/general/campfire_fresh.iff", xDiff =2.30, zDiff = 0, yDiff = 4.01, heading = 0 },
+		{ template = "object/tangible/jedi/force_shrine_stone.iff", xDiff =2.30, zDiff = 0, yDiff = 4.01, heading = 0 },
 		{ template = "object/static/structure/general/camp_spit_s01.iff", xDiff =1.72, zDiff = 0, yDiff = 3.92, heading = 83.59 },
 		{ template = "object/static/structure/general/camp_spit_s01.iff", xDiff =2.76, zDiff = 0, yDiff = 4.21, heading = 63.79 },
 		{ template = "object/static/structure/general/camp_spit_s01.iff", xDiff =2.33, zDiff = 0, yDiff = 3.3, heading = -24.13 },
@@ -37,154 +35,320 @@ SithShadowIntroTheater = GoToTheater:new {
 		{ template = "object/static/structure/tatooine/debris_tatt_crate_metal_1.iff", xDiff =1.92, zDiff = 0, yDiff = -1.88, heading = -12.03 },
 		{ template = "object/static/item/item_container_organic_food.iff", xDiff =-3.13, zDiff = 0, yDiff = 1.086, heading = 137.69 },
 	},
-	waypointDescription = "@quest/force_sensitive/intro:theater_sum",
+	waypointDescription = "@quest/force_sensitive/exit:exit_sum",
 	mobileList = {
-		{ template = "sith_shadow_outlaw_mission", minimumDistance = 12, maximumDistance = 24, referencePoint = 0 },
-		{ template = "sith_shadow_outlaw_mission", minimumDistance = 12, maximumDistance = 24, referencePoint = 0 }
+		{ template = "mellichae", minimumDistance = 3, maximumDistance = 6, referencePoint = 0 },
+		{ template = "daktar_bloodmoon", minimumDistance = 3, maximumDistance = 6, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_mercenary", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 },
+		{ template = "sith_shadow_thug", minimumDistance = 32, maximumDistance = 64, referencePoint = 0 }
 	},
-	despawnTime = 2 * 60* 60* 1000, -- 2 hours
-	activeAreaRadius = 64,
-	onFailedSpawn = nil,
-	onSuccessfulSpawn = nil,
-	onEnteredActiveArea = nil
+	despawnTime = 5 * 60* 60* 1000, -- 5 hours  Incase People Need More Time This Is A Hard Instance
+	activeAreaRadius = 72 -- Make sure we grab the entering of radius.
 }
 
--- Check if the sith shadow is the first one spawned for the player.
--- @param pSithShadow pointer to the sith shadow.
--- @param pCreatureObject pointer to the creature object of the player.
--- @return true if the sith shadow is the first one spawned for the player.
-function SithShadowIntroTheater:isTheFirstSithShadowOfThePlayer(pSithShadow, pCreatureObject)
-	local spawnedSithShadows = self:getSpawnedMobileList(pCreatureObject)
-
-	if spawnedSithShadows ~= nil and spawnedSithShadows[1] ~= nil then
-		return CreatureObject(spawnedSithShadows[1]):getObjectID() == CreatureObject(pSithShadow):getObjectID()
-	else
-		return false
-	end
-end
-
--- Create the waypoint datapad as loot on the sith shadow.
--- @param pSithShadow pointer to the creature object of the sith shadow.
-function SithShadowIntroTheater:addWaypointDatapadAsLoot(pSithShadow)
-	local pInventory = SceneObject(pSithShadow):getSlottedObject("inventory")
-
-	if (pInventory == nil) then
-		return
-	end
-
-	createLoot(pInventory, "sith_shadow_intro_theater_datapad", 0, true)
-end
-
--- Event handler for the LOOTCREATURE event on one of the sith shadows.
--- @param pLootedCreature pointer to the sith shadow creature that is being looted.
--- @param pLooter pointer to the creature object of the looter.
--- @param nothing unused variable for the default footprint of event handlers.
--- @return 1 if the correct player looted the creature to remove the observer, 0 otherwise to keep the observer.
+-- Event handler for killing Mellichae and looting him.
 function SithShadowIntroTheater:onLoot(pLootedCreature, pLooter, nothing)
 	if (pLootedCreature == nil or pLooter == nil) then
-		return 0
+		return 1
 	end
 
-	Logger:log("Looting the sith shadow.", LT_INFO)
-	if QuestManager.hasActiveQuest(pLooter, QuestManager.quests.FS_THEATER_CAMP) then
-		if self:isTheFirstSithShadowOfThePlayer(pLootedCreature, pLooter) then
-			self:addWaypointDatapadAsLoot(pLootedCreature)
-			QuestManager.completeQuest(pLooter, QuestManager.quests.FS_THEATER_CAMP)
-			QuestManager.completeQuest(pLooter, QuestManager.quests.GOT_DATAPAD_2)
-			return 1
-		end
+	Logger:log("Mellichae Looted.", LT_INFO)
+
+	-- We need to see which player/group got loot rights...
+	local pInventory = SceneObject(pLootedCreature):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return 1
 	end
 
-	return 0
+	local ownerID = SceneObject(pInventory):getContainerOwnerID()
+	local looterID = SceneObject(pLooter):getObjectID()
+
+	if (CreatureObject(pLooter):isGrouped()) then
+		looterID = CreatureObject(pLooter):getGroupID()
+	end
+
+	if (looterID == ownerID) and (SpawnMobiles.isFromSpawn(pLooter, self.taskName, pLootedCreature)) then
+		createLoot(pInventory, "mellichae_outro", 0, true)
+		QuestManager.completeQuest(pLooter, QuestManager.quests.FS_THEATER_FINAL)
+		CreatureObject(pLooter):sendSystemMessage("@quest/force_sensitive/exit:final_complete") --	Congratulations, you have completed the Force sensitive quests! You are now qualified to begin the Jedi Padawan Trials.
+		VillageJediManagerCommon.setJediProgressionScreenPlayState(pLooter, VILLAGE_JEDI_PROGRESSION_DEFEATED_MELLIACHAE) -- Killed him.
+		deleteData(SceneObject(pLooter) .. ":totalNum:Shrines:Red")
+		deleteData(SceneObject(pLooter) .. ":totalNum:Shrines:Green")
+	end
+
+	return 1
+
 end
 
 -- Event handler for the enter active area event.
--- The event will cause all spawned Sith Shadows to attack the player.
--- @param pCreatureObject pointer to the creature object of the player.
--- @param spawnedSithShadowsList list with pointers to the spawned sith shadows.
 function SithShadowIntroTheater:onEnteredActiveArea(pCreatureObject, spawnedSithShadowsList)
-	if (pCreatureObject == nil or spawnedSithShadowsList == nil) then
+	if (pCreatureObject == nil or spawnedSithShadowsList == nil or spawnedSithShadowsList[1] == nil) then
+		return
+	end
+
+	-- Shouldn't be here...
+	if not (VillageJediManagerCommon.hasJediProgressionScreenPlayState(pCreatureObject, VILLAGE_JEDI_PROGRESSION_ACCEPTED_MELLICHAE) and SpawnMobiles.isFromSpawn(pCreatureObject, self.taskName, spawnedSithShadowsList[1])) then
 		return
 	end
 
 	foreach(spawnedSithShadowsList, function(pMobile)
 		if (pMobile ~= nil) then
-			AiAgent(pMobile):setDefender(pCreatureObject)
+			if (CreatureObject(pMobile):getFirstName() ~= "Mellichae") then
+				AiAgent(pMobile):setDefender(pCreatureObject)
+          		end
+
+			if (CreatureObject(pMobile):getFirstName() == "Daktar") then
+        			local greetingString = LuaStringIdChatParameter("@quest/force_sensitive/exit:taunt1")
+				local firstName = CreatureObject(pCreatureObject):getFirstName()
+				greetingString:setTT(firstName)
+				spatialChat(spawnedSithShadowsList[1], greetingString:_getObject()) -- %TT, You shall pay for your tresspass here - SOLDIERS - defend the crystals! Let no one leave here alive.
+        		end
 		end
 	end)
-	QuestManager.activateQuest(pCreatureObject, QuestManager.quests.LOOT_DATAPAD_2)
+
+	createObserver(OBJECTDESTRUCTION, self.taskName, "onPlayerKilled", pCreatureObject)
+	QuestManager.completeQuest(pCreatureObject, QuestManager.quests.FS_THEATER_CAMP)
+	QuestManager.activateQuest(pCreatureObject, QuestManager.quests.FS_THEATER_FINAL)
 end
 
 -- Event handler for the successful spawn event.
--- The event will activate the FS_THEATER_CAMP quest for the player.
--- @param pCreatureObject pointer to the creature object of the player.
--- @param spawnedSithShadowsList list with pointers to the spawned sith shadows.
 function SithShadowIntroTheater:onSuccessfulSpawn(pCreatureObject, spawnedSithShadowsList)
-	if (pCreatureObject == nil or spawnedSithShadowsList == nil or spawnedSithShadowsList[1] == nil) then
+	if (pCreatureObject == nil or spawnedSithShadowsList == nil or spawnedSithShadowsList[1] == nil or spawnedSithShadowsList[2] == nil) then
 		return
 	end
 
+	VillageJediManagerCommon.setJediProgressionScreenPlayState(pCreatureObject, VILLAGE_JEDI_PROGRESSION_ACCEPTED_MELLICHAE)
+
 	QuestManager.activateQuest(pCreatureObject, QuestManager.quests.FS_THEATER_CAMP)
 	createObserver(LOOTCREATURE, self.taskName, "onLoot", spawnedSithShadowsList[1])
-	createObserver(OBJECTDESTRUCTION, self.taskName, "onPlayerKilled", pCreatureObject)
+	createObserver(DAMAGERECEIVED, self.taskName, "onDamageReceived", spawnedSithShadowsList[1])
+	createObserver(DAMAGERECEIVED, self.taskName, "onDamageReceived", spawnedSithShadowsList[2])
+
+	writeData(SceneObject(spawnedSithShadowsList[1]):getObjectID() .. ":mell:encounter:belongs:to", SceneObject(pCreatureObject):getObjectID())
+	writeData(SceneObject(spawnedSithShadowsList[2]):getObjectID() .. ":mell:encounter:belongs:to", SceneObject(pCreatureObject):getObjectID())
+
+	for i=1,2 do
+		SithShadowIntroTheater:spawnScenePowerShrines(pCreatureObject, spawnedSithShadowsList[1], "red", i)
+		writeData(SceneObject(pCreatureObject):getObjectID() .. ":totalNum:Shrines:Red", i)
+
+		SithShadowIntroTheater:spawnScenePowerShrines(pCreatureObject, spawnedSithShadowsList[1], "green", i)
+		writeData(SceneObject(pCreatureObject):getObjectID() .. ":totalNum:Shrines:Green", i)
+	end
+
 end
 
--- Handle the event PLAYERKILLED.
--- @param pCreatureObject pointer to the creature object of the killed player.
--- @param pKiller pointer to the creature object of the killer.
--- @param noting unused variable for the default footprint of event handlers.
--- @return 1 if the player was killed by one of the sith shadows, otherwise 0 to keep the observer.
+-- Handle the event PLAYERKILLED, 0 keeps, 1 does not keep observer.
 function SithShadowIntroTheater:onPlayerKilled(pCreatureObject, pKiller, nothing)
 	if (pCreatureObject == nil or pKiller == nil) then
-		return 0
+		return 1
 	end
 
 	Logger:log("Player was killed.", LT_INFO)
-	if SpawnMobiles.isFromSpawn(pCreatureObject, SithShadowIntroTheater.taskName, pKiller) then
-		OldManIntroEncounter:removeForceCrystalFromPlayer(pCreatureObject)
-		spatialChat(pKiller, SITH_SHADOW_MILITARY_TAKE_CRYSTAL)
-		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.TWO_MILITARY)
-		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.LOOT_DATAPAD_1)
-		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.GOT_DATAPAD)
-		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.FS_THEATER_CAMP)
-		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.LOOT_DATAPAD_2)
-		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.GOT_DATAPAD_2)
-		return 1
-	end
-
-	return 0
-end
-
--- Handling of the activation of the theater waypoint datapad.
--- @param pSceneObject pointer to the datapad object.
--- @param pCreatureObject pointer to the creature object who activated the datapad.
-function SithShadowIntroTheater:useTheaterDatapad(pSceneObject, pCreatureObject)
-	Logger:log("Player used the looted theater datapad.", LT_INFO)
-	if QuestManager.hasCompletedQuest(pCreatureObject, QuestManager.quests.GOT_DATAPAD_2) then
-		CreatureObject(pCreatureObject):sendSystemMessage(READ_DISK_2_STRING)
-
-		SceneObject(pSceneObject):destroyObjectFromWorld()
-		SceneObject(pSceneObject):destroyObjectFromDatabase()
-
-		QuestManager.completeQuest(pCreatureObject, QuestManager.quests.LOOT_DATAPAD_2)
-		GoToDathomir:start(pCreatureObject)
-	else
-		CreatureObject(pCreatureObject):sendSystemMessage(READ_DISK_ERROR_STRING)
-	end
-end
-
-function SithShadowIntroTheater:onLoggedIn(pCreatureObject)
-	if (not self:hasTaskStarted(pCreatureObject)) then
-		return 1
-	end
-
-	if not QuestManager.hasCompletedQuest(pCreatureObject, QuestManager.quests.GOT_DATAPAD_2) then
-		-- Respawn theater
-		self:finish(pCreatureObject)
-		self:start(pCreatureObject)
-	end
-
+	CreatureObject(pCreatureObject):sendSystemMessage("@quest/force_sensitive/exit:final_fail") -- You have failed the Mellichae encounter, you will be given the oppertunity to attempt it again in the near future.
+	OldManOutroEncounter:start(pCreatureObject)
+	QuestManager.resetQuest(pCreatureObject, QuestManager.quests.FS_THEATER_CAMP)
+	QuestManager.resetQuest(pCreatureObject, QuestManager.quests.FS_THEATER_FINAL)
+	deleteData(SceneObject(pCreatureObject) .. ":totalNum:Shrines:Red")
+	deleteData(SceneObject(pCreatureObject) .. ":totalNum:Shrines:Green")
 	return 1
+end
+
+-- Handle the event object destruction for the red shrines in the camp.
+function SithShadowIntroTheater:onPowerShrineDestroyed(pSceneObject, pKiller, nothing)
+	if (pSceneObject == nil or pKiller == nil) then
+		return 1
+	end
+
+	local ownerID = readData(SceneObject(pSceneObject):getObjectID() .. ":isShrineOwned:By")
+
+
+	if (SceneObject(pSceneObject):getTemplateObjectPath() == "object/tangible/jedi/power_shrine_red.iff") then
+		Logger:log("1 Red Shrine was destroyed.", LT_INFO)
+		local numOfShrines = readData(ownerID .. ":totalNum:Shrines:Red")
+
+		if (numOfShrines ~= nil) then
+			writeData(ownerID .. ":totalNum:Shrines:Red", numOfShrines - 1)
+		end
+		SceneObject(pSceneObject):destroyObjectFromWorld()
+		deleteData(SceneObject(pSceneObject):getObjectID() .. ":isShrineOwned:By")
+		return 1
+
+	elseif (SceneObject(pSceneObject):getTemplateObjectPath() == "object/tangible/jedi/power_shrine.iff") then
+		Logger:log("1 Green Shrine was destroyed.", LT_INFO)
+		local numOfShrines = readData(ownerID .. ":totalNum:Shrines:Green")
+
+		if (numOfShrines ~= nil) then
+			writeData(ownerID .. ":totalNum:Shrines:Green", numOfShrines - 1)
+		end
+		SceneObject(pSceneObject):destroyObjectFromWorld()
+		deleteData(SceneObject(pSceneObject):getObjectID() .. ":isShrineOwned:By")
+		return 1
+
+	end
+end
+
+-- Handle the event damage done, if the shrines are still up then they will heal Mellichae/Daktar.
+function SithShadowIntroTheater:onDamageReceived(pObject, pAttacker, damage)
+	if (pObject == nil or pAttacker == nil) then
+		return 1
+	end
+
+	-- Due to how this observer is setup, we are only tracking red shrines, daktar, and mellichae.
+	-- Green shrines must be up for red healing, red must be up for Mellichae/Dak healing.
+
+	if (SceneObject(pObject):getTemplateObjectPath() == "object/tangible/jedi/power_shrine_red.iff") then
+		local creoOwnerId = readData(SceneObject(pObject):getObjectID() .. ":isShrineOwned:By")
+		local numOfShrines = readData(creoOwnerId .. ":totalNum:Shrines:Green")
+
+		if (numOfShrines ~= nil and numOfShrines > 0) then
+			TangibleObject(pObject):setConditionDamage(0)
+			SceneObject(pObject):playEffect("clienteffect/healing_healdamage.cef", "")
+			return 0
+		elseif (numOfShrines == nil or numOfShrines <= 0) then
+			return 1
+		end
+	elseif (SceneObject(pObject):isCreatureObject()) then -- Not a Shrine.
+		local creoOwnerId = readData(SceneObject(pObject):getObjectID() .. ":mell:encounter:belongs:to")
+		local numOfShrines = readData(creoOwnerId .. ":totalNum:Shrines:Red")
+
+		if (numOfShrines ~= nil and numOfShrines > 0) then
+			CreatureObject(pObject):healDamage(damage, 0)
+			CreatureObject(pObject):healDamage(damage, 3)
+			CreatureObject(pObject):healDamage(damage, 6)
+			CreatureObject(pObject):playEffect("clienteffect/healing_healdamage.cef", "")
+			return 0
+		elseif (numOfShrines == nil or numOfShrines <= 0) then
+			if (CreatureObject(pObject):getFirstName() == "Daktar") then -- Only Daktar should taunt.
+				local greetingString = LuaStringIdChatParameter("@quest/force_sensitive/exit:taunt3") -- %TT, You may have destroyed my power crystals, but now I will destroy you! SOLDIERS ATTACK!!!
+				local firstName = CreatureObject(pAttacker):getFirstName()
+				greetingString:setTT(firstName)
+				spatialChat(pObject, greetingString:_getObject())
+
+          			-- Do the extra spawn of 6 more sith shadows, only on Daktar so they don't spawn twice.
+				for i=1,3 do
+					local zoneName = CreatureObject(pObject):getZoneName()
+					local randomDistance = getRandomNumber(32)
+					local x = CreatureObject(pObject):getWorldPositionX() + randomDistance
+					local y = CreatureObject(pObject):getWorldPositionY() + randomDistance
+					local z = getTerrainHeight(pObject, x, y)
+
+					local pMobile = spawnMobile(zoneName, "sith_shadow_mercenary", 0, x, z, y, 0, 0)
+					if (pMobile ~= nil and SceneObject(pMobile):isAiAgent()) then
+						AiAgent(pMobile):setDefender(pAttacker)
+					end
+
+					x = x + randomDistance
+					y = y + randomDistance
+					z = getTerrainHeight(pObject, x, y)
+					pMobile = spawnMobile(zoneName,"sith_shadow_thug", 0, x, z, y, 0, 0)
+					if (pMobile ~= nil and SceneObject(pMobile):isAiAgent()) then
+						AiAgent(pMobile):setDefender(pAttacker)
+					end
+
+				end
+			end
+			return 1
+		end
+	end
+end
+
+-- This is called from the base module to clean up anything extra...
+function SithShadowIntroTheater:onTheaterDespawn(pCreatureObject)
+	if (pCreatureObject == nil) then
+		return
+	end
+
+	local pShrine = nil
+
+	for i=1,2 do
+		local shrineIDRed = readData(SceneObject(pCreatureObject):getObjectID() .. ":powershrine:".. "red" .. ":" .. tostring(i))
+		local pShrineR = getSceneObject(shrineIDRed)
+
+		if (pShrineR ~= nil) then
+			SceneObject(pShrineR):destroyObjectFromWorld()
+			SceneObject(pShrineR):destroyObjectFromDatabase()
+			deleteData(SceneObject(pCreatureObject):getObjectID() .. ":powershrine:".. "red" .. ":" .. tostring(i))
+			deleteData(shrineIDRed .. ":isShrineOwned:By")
+		end
+
+		local shrineIDGreen = readData(SceneObject(pCreatureObject):getObjectID() .. ":powershrine:".. "green" .. ":" .. tostring(i))
+		local pShrineG = getSceneObject(shrineIDGreen)
+
+		if (pShrineG ~= nil) then
+			SceneObject(pShrineG):destroyObjectFromWorld()
+			SceneObject(pShrineG):destroyObjectFromDatabase()
+			deleteData(SceneObject(pCreatureObject):getObjectID() .. ":powershrine:".. "green" .. ":" .. tostring(i))
+			deleteData(shrineIDGreen .. ":isShrineOwned:By")
+		end
+
+	end
+end
+
+-- For spawning the extra shrine scene objects.
+function SithShadowIntroTheater:spawnScenePowerShrines(pCreatureObject, pMellichae, color, i)
+	if (pMellichae == nil or pCreatureObject == nil) then
+		return
+	end
+
+	local planet = SceneObject(pMellichae):getZoneName()
+	local theX = SceneObject(pMellichae):getWorldPositionX()
+	local theY = SceneObject(pMellichae):getWorldPositionY()
+	local boundaryCrystalsLoc = getSpawnPoint(planet, theX, theY, 32, 64, true)
+
+	if (color == "red") then
+		local pShrine = spawnSceneObject(planet, "object/tangible/jedi/power_shrine_red.iff", boundaryCrystalsLoc[1], boundaryCrystalsLoc[2], boundaryCrystalsLoc[3], 0, 0)
+		TangibleObject(pShrine):setMaxCondition(40000)
+		createObserver(OBJECTDESTRUCTION, self.taskName, "onPowerShrineDestroyed", pShrine)
+		createObserver(DAMAGERECEIVED, self.taskName, "onDamageReceived", pShrine)
+		writeData(SceneObject(pShrine):getObjectID() .. ":isShrineOwned:By", SceneObject(pCreatureObject):getObjectID())
+		writeData(SceneObject(pCreatureObject):getObjectID() .. ":powershrines:" .. color .. ":" .. tostring(i), SceneObject(pShrine):getObjectID())
+	elseif (color == "green") then
+		local pShrine = spawnSceneObject(planet, "object/tangible/jedi/power_shrine.iff", boundaryCrystalsLoc[1], boundaryCrystalsLoc[2], boundaryCrystalsLoc[3], 0, 0)
+		TangibleObject(pShrine):setMaxCondition(40000)
+		createObserver(OBJECTDESTRUCTION, self.taskName, "onPowerShrineDestroyed", pShrine)
+		writeData(SceneObject(pShrine):getObjectID() .. ":isShrineOwned:By", SceneObject(pCreatureObject):getObjectID())
+		writeData(SceneObject(pCreatureObject):getObjectID() .. ":powershrine:".. color .. ":" .. tostring(i), SceneObject(pShrine):getObjectID())
+	end
+
 end
 
 return SithShadowIntroTheater

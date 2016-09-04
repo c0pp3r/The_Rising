@@ -9,6 +9,10 @@
 #include "FactionMap.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "templates/manager/TemplateManager.h"
+#include "server/zone/managers/loot/LootManager.h"
+#include "server/zone/managers/player/PlayerManager.h"
+#include "server/chat/ChatManager.h"
+#include "server/zone/packets/player/PlayMusicMessage.h"
 
 FactionManager::FactionManager() {
 	setLoggingName("FactionManager");
@@ -158,17 +162,50 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		ManagedReference<PlayerObject*> ghost = killerCreature->getPlayerObject();
 
 		ManagedReference<PlayerObject*> killedGhost = destructedObject->getPlayerObject();
+		ManagedReference<SceneObject*> inventory = killer->getSlottedObject("inventory");
+		ManagedReference<LootManager*> lootManager = killer->getZoneServer()->getLootManager();
+		ManagedReference<PlayerManager*> playerManager = killerCreature->getZoneServer()->getPlayerManager();
+
+		//Broadcast to Server
+		String playerName = destructedObject->getFirstName();
+		String killerName = killerCreature->getFirstName();
+		StringBuffer zBroadcast;
+		zBroadcast << "\\#00e604" << playerName << " \\#e60000 was slain in the GCW by ";
 
 		if (killer->isRebel() && destructedObject->isImperial()) {
 			ghost->increaseFactionStanding("rebel", 30);
+			killer->playEffect("clienteffect/holoemote_rebel.cef", "head");
+			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
+ 			killer->sendMessage(pmm);
+			lootManager->createLoot(inventory, "holocron_light", 300);//, playerName);
+			lootManager->createLoot(inventory, "task_loot_padawan_braid", 300);//, playerName);
+			lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
+				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("imperial", 45);
-
 			killedGhost->decreaseFactionStanding("imperial", 45);
+			zBroadcast << "\\#00cc99" << killerName;
+			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_rank_dark_novice")) {
+				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
+				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
+			}
 		} else if (killer->isImperial() && destructedObject->isRebel()) {
 			ghost->increaseFactionStanding("imperial", 30);
+			killer->playEffect("clienteffect/holoemote_imperial.cef", "head");
+			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
+ 			killer->sendMessage(pmm);
+			lootManager->createLoot(inventory, "holocron_dark", 300);//, playerName);
+			lootManager->createLoot(inventory, "task_loot_padawan_braid", 300);//, playerName);
+			lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
+				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("rebel", 45);
-
 			killedGhost->decreaseFactionStanding("rebel", 45);
+			zBroadcast << "\\#00e604" << killerName;
+			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_rank_light_novice")) {
+				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
+				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
+			}
 		}
 	}
 }
@@ -205,7 +242,7 @@ int FactionManager::getFactionPointsCap(int rank) {
 	if (rank >= factionRanks.getCount())
 		return -1;
 
-	return MAX(1000, getRankCost(rank) * 20);
+	return MAX(1000, getRankCost(rank) * 170);
 }
 
 bool FactionManager::isFaction(const String& faction) {

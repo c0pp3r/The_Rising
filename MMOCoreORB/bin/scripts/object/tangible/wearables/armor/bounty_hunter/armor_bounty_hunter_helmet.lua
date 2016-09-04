@@ -43,7 +43,7 @@
 
 object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_helmet = object_tangible_wearables_armor_bounty_hunter_shared_armor_bounty_hunter_helmet:new {
 	templateType = ARMOROBJECT,
-
+	objectMenuComponent = "ArmorObjectMenuComponent", 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -51,6 +51,10 @@ object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_helmet = objec
 				"object/creature/player/moncal_male.iff",
 				"object/creature/player/moncal_female.iff",
 				"object/creature/player/rodian_male.iff",
+				"object/creature/player/ithorian_male.iff",
+				"object/creature/player/ithorian_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/rodian_female.iff",
 				"object/creature/player/sullustan_male.iff",
 				"object/creature/player/sullustan_female.iff",
@@ -80,13 +84,14 @@ object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_helmet = objec
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
 	
-	-- The damage types in WeaponObject
-	vulnerability = STUN + HEAT + ACID + LIGHTSABER,
+	-- Damage types in WeaponObject
+	vulnerability = LIGHTSABER,
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
 	mindEncumbrance = 1,
+	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
@@ -94,8 +99,12 @@ object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_helmet = objec
 	kinetic = 15,
 	energy = 15,
 	electricity = 15,
+	stun = 15,
 	blast = 15,
+	heat = 15,
 	cold = 15,
+	acid = 15,
+	lightSaber = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_armor_bounty_hunter_armor_bounty_hunter_helmet, "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_helmet.iff")

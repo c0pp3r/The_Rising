@@ -48,7 +48,8 @@ rebel_surface_marshall = Creature:new {
 				{group = "armor_attachments", chance = 240000},
 				{group = "rebel_officer_common", chance = 450000},
 				{group = "wearables_common", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_heavy"},

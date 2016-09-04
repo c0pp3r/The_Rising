@@ -341,8 +341,8 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	ZoneClientSession* client = callback->getClient();
 
-	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 10) {
-		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 10 characters per galaxy.", 0x0);
+	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 3) {
+		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 3 characters per galaxy.", 0x0);
 		client->sendMessage(errMsg);
 
 		return false;
@@ -477,7 +477,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 				if(accountPermissionLevel > 0 && (accountPermissionLevel == 9 || accountPermissionLevel == 10 || accountPermissionLevel == 12 || accountPermissionLevel == 15)) {
 					playerManager->updatePermissionLevel(playerCreature, accountPermissionLevel);
 
-					/*
+
 					Reference<ShipControlDevice*> shipControlDevice = zoneServer->createObject(STRING_HASHCODE("object/intangible/ship/sorosuub_space_yacht_pcd.iff"), 1).castTo<ShipControlDevice*>();
 					//ShipObject* ship = (ShipObject*) server->createObject(STRING_HASHCODE("object/ship/player/player_sorosuub_space_yacht.iff"), 1);
 					Reference<ShipObject*> ship = zoneServer->createObject(STRING_HASHCODE("object/ship/player/player_basic_tiefighter.iff"), 1).castTo<ShipObject*>();
@@ -497,7 +497,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 						shipControlDevice->destroyObjectFromDatabase(true);
 						error("could not get datapad from player");
 					}
-					*/
+
 				}
 
 				if (accountPermissionLevel < 9) {
@@ -516,7 +516,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 							Time timeVal(sec);
 
 							if (timeVal.miliDifference() < 3600000) {
-								ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are only permitted to create one character per hour. Repeat attempts prior to 1 hour elapsing will reset the timer.", 0x0);
+								ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are only permitted to create one character per Hour . Repeat attempts prior to 1 hour elapsing will reset the timer.", 0x0);
 								client->sendMessage(errMsg);
 
 								playerCreature->destroyPlayerCreatureFromDatabase(true);
@@ -534,7 +534,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 						Time lastCreatedTime = lastCreatedCharacter.get(accID);
 
 						if (lastCreatedTime.miliDifference() < 3600000) {
-							ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are only permitted to create one character per hour. Repeat attempts prior to 1 hour elapsing will reset the timer.", 0x0);
+							ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are only permitted to create one character per Hour. Repeat attempts prior to 1 hour elapsing will reset the timer.", 0x0);
 							client->sendMessage(errMsg);
 
 							playerCreature->destroyPlayerCreatureFromDatabase(true);
@@ -608,9 +608,13 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID());
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
-	box->setPromptTitle("PLEASE NOTE");
-	box->setPromptText("You are limited to creating one character per hour. Attempting to create another character or deleting your character before the 1 hour timer expires will reset the timer.");
-
+	box->setPromptTitle("Welcome To The Rising");
+	box->setPromptText("Welcome to SWG The Rising, please read the forums for latest changes.");
+	//Broadcast to Server
+	String playerName = playerCreature->getFirstName();
+	StringBuffer zBroadcast;
+	zBroadcast << "\\#00ace6" << playerName << " \\#ffb90f Has Joined The Rising Server!";
+	playerCreature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
 

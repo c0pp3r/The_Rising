@@ -6,7 +6,7 @@ juvenile_canyon_krayt_dragon = Creature:new {
 	chanceHit = 4.0,
 	damageMin = 745,
 	damageMax = 1200,
-	baseXp = 11577,
+	baseXp = 115770,
 	baseHAM = 54000,
 	baseHAMmax = 64000,
 	armor = 2,
@@ -18,7 +18,7 @@ juvenile_canyon_krayt_dragon = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 410,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 20,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -31,12 +31,15 @@ juvenile_canyon_krayt_dragon = Creature:new {
 	lootGroups = {
 		{
 	        groups = {
-				{group = "krayt_tissue_common", chance = 2500000},
-				{group = "krayt_dragon_common", chance = 3500000},
-				{group = "armor_all", chance = 2000000},
-				{group = "weapons_all", chance = 2000000},
+					{group = "krayt_tissue_common", chance = 2000000},
+					{group = "krayt_dragon_common", chance = 2000000},
+					{group = "pearls_premium", chance = 3000000},
+					{group = "clothing_attachments", chance = 1000000},
+					{group = "weapons_all", chance = 1000000},
+					{group = "redeed1",  chance = 500000},
+					{group = "redeed2",  chance = 500000}
 			},
-			lootChance = 3440000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

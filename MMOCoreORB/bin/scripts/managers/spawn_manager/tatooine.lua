@@ -357,4 +357,39 @@ tatooine_static_spawns = {
 	{"rodian_clan_warchief",300,25.1612,2.6,16.6257,360.011,1153601, "conversation", "","stationary"},
 	{"smuggler",300,-17.046,2.6,17.2264,0,1153601, "conversation", "","stationary"},
 	{"trainer_imagedesigner",0,-20.9956,2.12878,73.874,90,1105854, "", "","stationary"},
+
+    {"commoner_tatooine",60,-2.42,0.18,3.85,68,4005424, "npc_sitting_chair", "","stationary"}, -- Mos Espa Hospital 
+    
+    -- Crafting Professions
+    {"trainer_architect",0,11,1.13,-14.5,0,1256021, "happy", "","stationary"}, --Guild Hall -3063 2079
+    {"trainer_artisan",0,3.29,1.13,-9.58,249,1256011, "conversation", "","stationary"}, --Guild Hall -2857 1987
+    {"trainer_armorsmith",0,-12.51,1.13,3.62,165,1256020, "calm", "","stationary"}, --Guild Hall -3063 2079
+    {"trainer_bioengineer",0,-2.62,-0.05,3.27,44,1254763, "calm", "","stationary"}, --Clone Facility
+    {"trainer_chef",0,-12.98,1.13,-10.67,40,1256012, "angry", "","stationary"}, --Guild Hall -2857 1987
+    {"trainer_droidengineer",0,-11.54,1.13,-12.64,1,1256023, "calm", "","stationary"}, --Guild Hall -3063 2079
+    {"trainer_shipwright",0,-36.32,1.64,60.27,-49,1261660, "npc_use_terminal_high", "","stationary"},
+    {"trainer_tailor",0,9.12,1.13,-11.70,-77,1256010, "happy", "","stationary"}, --Guild Hall -2857 1987
+    {"trainer_weaponsmith",0,-2.96,1.13,-8.77,109,1256022, "calm", "","stationary"}, --Guild Hall -3063 2079
+
+    -- Combat Professions
+    {"trainer_brawler",0,-8.33,1.13,-9.48,-135,1255994, "happy", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_carbine",0,-2716.84,7.5,2505.25,-175,0, "happy", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_commando",0,-2763.95,5,2030.99,0,0, "calm", "","stationary"}, -- Behind Starport
+    {"trainer_1hsword",0,-11.91,0.04,3.66,28,1255996, "calm", "","stationary"}, -- Fencer, Nado's Shop
+    {"trainer_marksman",0,2.07,1.13,-12.46,-53,1255993, "calm", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_polearm",0,-11.89,1.13,-12.36,47,1255994, "calm", "","stationary"}, -- Pikeman, Guild Hall -3015 2437
+    {"trainer_pistol",0,-2714.79,5,2507.18,65,0, "happy", "","stationary"}, --Mynocks
+    {"trainer_rifleman",0,10.04,1.13,0.65,-157,1255990, "calm", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_2hsword",0,-11.42,0.39,-6.33,64,1255998, "calm", "","stationary"}, -- Swordsman, Nado's Shop
+    {"trainer_unarmed",0,-14.49,1.13,2.24,85,1255991, "npc_sitting_ground", "","stationary"}, --Teras Kasi Artist, Guild Hall -3015 2437
+
+    -- Other Professions
+    {"trainer_bountyhunter",0,-2763.2,5,2038.57,81,0, "conversation", "","stationary"}, -- Behind Starport
+    {"trainer_creaturehandler",0,-2993.96,5,2223.91,65,0, "conversation", "","stationary"}, -- By Cantina
+    {"trainer_doctor",0,-2.06,0.18,0.62,5,4005424, "conversation", "","stationary"}, -- Hospital
+    {"trainer_medic",0,0.09,0.18,5.92,-107,4005424, "worried", "","stationary"}, -- Hospital
+    {"trainer_ranger",0,-2978.75,5,2531.99,-33,0, "calm", "","stationary"}, -- North Gate
+    {"trainer_scout",0,-2978.18,5,2533.45,-113,0, "calm", "","stationary"}, -- North Gate
+    {"trainer_smuggler",0,20.13,1.28,5.51,-126,1261018, "npc_sitting_chair", "","stationary"}, -- Hotel
+    {"trainer_squadleader",0,-2767.37,5,2035.32,132,0, "npc_sitting_chair", "","stationary"}, -- Behind Starport
 }

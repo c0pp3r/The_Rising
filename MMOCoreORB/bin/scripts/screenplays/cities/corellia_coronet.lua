@@ -159,6 +159,8 @@ function CorelliaCoronetScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "entertainer",300,24.3471,1.28309,8.93357,360.011,1855549)
 	self:setMoodString(pNpc, "conversation")
+	spawnMobile(self.planet, "grobber",60,-15.4768,1,-8.20706,245.925,1855551)
+	spawnMobile(self.planet, "zekka_thyne",60,-22.3764,1.6,-15.0418,86.3112,1855554)
 	--{"commoner",60,-24,1.6,-4,160,1855554, "calm", "Pex (an elite storyteller vendor)"},
 
 	--Cantina
@@ -289,10 +291,11 @@ function CorelliaCoronetScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "trainer_imagedesigner",0,-21.4483,2.12878,74.4461,185,2365400)
 
 	--Outside Misc
-	spawnMobile(self.planet, "businessman",60,-306.34,28,-4620.82,67.4368,0)
-	spawnMobile(self.planet, "businessman",60,-312.404,28,-4646.51,242.881,0)
-	spawnMobile(self.planet, "businessman",60,-135.995,28,-4745.63,251.824,0)
-	spawnMobile(self.planet, "cll8_binary_load_lifter",60,-146.217,28,-4738.99,346.392,0)
+	spawnMobile("corellia", "businessman",60,-306.34,28,-4620.82,67.4368,0)
+	spawnMobile("corellia", "businessman",60,-312.404,28,-4646.51,242.881,0)
+	spawnMobile("corellia", "businessman",60,-135.995,28,-4745.63,251.824,0)
+	spawnMobile("corellia", "cll8_binary_load_lifter",60,-146.217,28,-4738.99,346.392,0)
+	spawnMobile("corellia", "informant_npc_lvl_3",60,-146.217,28,-4725.99,346.392,0)
 	spawnMobile(self.planet, "commoner",60,-306.539,28,-4546.52,95.6639,0)
 	spawnMobile(self.planet, "commoner",60,-306.061,28,-4600.68,146.312,0)
 	spawnMobile(self.planet, "commoner",60,-258.479,28,-4620,198.098,0)
@@ -412,7 +415,7 @@ function CorelliaCoronetScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "calm")
 	pNpc = spawnMobile(self.planet, "r3",60,-149.754,28,-4785.34,297.928,0)
 	self:setMoodString(pNpc, "calm")
-	pNpc = spawnMobile(self.planet, "r3",60,-182.479,28,-4731.42,293.019,0)
+	pNpc = spawnMobile(self.planet, "event_promoter",60,-182.479,28,-4731.42,293.019,0)
 	self:setMoodString(pNpc, "calm")
 
 	--Ragtag's outside

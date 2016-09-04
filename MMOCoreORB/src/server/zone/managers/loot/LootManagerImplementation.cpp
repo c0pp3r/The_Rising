@@ -20,9 +20,12 @@
 #include "LootGroupMap.h"
 
 void LootManagerImplementation::initialize() {
+	lua = new Lua();
+	lua->init();
+
 	info("Loading configuration.");
 
-	if (!loadConfigData()) {
+	if(!loadConfigData()) {
 
 		loadDefaultConfig();
 
@@ -50,14 +53,13 @@ void LootManagerImplementation::initialize() {
 	info("Initialized.", true);
 }
 
-bool LootManagerImplementation::loadConfigData() {
-	Lua* lua = new Lua();
-	lua->init();
+bool LootManagerImplementation::loadConfigFile() {
+	return lua->runFile("scripts/managers/loot_manager.lua");
+}
 
-	if (!lua->runFile("scripts/managers/loot_manager.lua")) {
-		delete lua;
+bool LootManagerImplementation::loadConfigData() {
+	if (!loadConfigFile())
 		return false;
-	}
 
 	yellowChance = lua->getGlobalFloat("yellowChance");
 	yellowModifier = lua->getGlobalFloat("yellowModifier");
@@ -153,8 +155,6 @@ bool LootManagerImplementation::loadConfigData() {
 
 	modsTable = lua->getGlobalObject("lootableHeavyWeaponStatMods");
 	loadLootableMods( &modsTable, &lootableHeavyWeaponMods );
-
-	delete lua;
 
 	return true;
 }
@@ -445,8 +445,6 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 	//add some condition damage where appropriate
 	if (!maxCondition)
 		addConditionDamage(prototype, craftingValues);
-
-	delete craftingValues;
 
 	return prototype;
 }

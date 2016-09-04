@@ -9,7 +9,9 @@
 
 #include "server/zone/ZoneServer.h"
 
-#include "conf/ConfigManager.h"
+#include "../conf/ConfigManager.h"
+
+//#include "../zone/objects/tangible/attachment/Attachment.h"
 
 class StatusHandler;
 
@@ -23,6 +25,9 @@ class StatusServer: public StreamServiceThread {
 
 	Time timestamp;
 	bool lastStatus;
+
+//	Attachment* obj; //zone test object
+	uint64 oid;
 
 public:
 	StatusServer(ConfigManager* conf, ZoneServer * server);

@@ -43,7 +43,7 @@
 
 object_tangible_wearables_armor_padded_armor_padded_s01_helmet = object_tangible_wearables_armor_padded_shared_armor_padded_s01_helmet:new {
 	templateType = ARMOROBJECT,
-
+	objectMenuComponent = "ArmorObjectMenuComponent", 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -51,6 +51,10 @@ object_tangible_wearables_armor_padded_armor_padded_s01_helmet = object_tangible
 				"object/creature/player/moncal_male.iff",
 				"object/creature/player/moncal_female.iff",
 				"object/creature/player/rodian_male.iff",
+				"object/creature/player/ithorian_male.iff",
+				"object/creature/player/ithorian_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/rodian_female.iff",
 				"object/creature/player/sullustan_male.iff",
 				"object/creature/player/sullustan_female.iff",
@@ -60,8 +64,11 @@ object_tangible_wearables_armor_padded_armor_padded_s01_helmet = object_tangible
 				"object/creature/player/twilek_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff",
+				"object/mobile/vendor/aqualish_female.iff",
+				"object/mobile/vendor/aqualish_male.iff",
 				"object/mobile/vendor/bothan_female.iff",
 				"object/mobile/vendor/bothan_male.iff",
+				"object/mobile/vendor/devaronian_male.iff",
 				"object/mobile/vendor/human_female.iff",
 				"object/mobile/vendor/human_male.iff",
 				"object/mobile/vendor/moncal_female.iff",
@@ -78,12 +85,13 @@ object_tangible_wearables_armor_padded_armor_padded_s01_helmet = object_tangible
 				"object/mobile/vendor/zabrak_male.iff" },
 
 	-- Damage types in WeaponObject
-	vulnerability = HEAT + ACID + STUN + LIGHTSABER,
+	vulnerability = LIGHTSABER,
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
 	mindEncumbrance = 1,
+	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,

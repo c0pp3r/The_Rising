@@ -45,11 +45,12 @@ ForceLightningSingle2Command = {
 	name = "forcelightningsingle2",
 
 	minDamage = 1500,
-	maxDamage = 2000,
-	speed = 4.0,
+	maxDamage = 7000,
+	speed = 1.0,
 	forceCost = 150,
 	visMod = 25,
 	accuracySkillMod = "forcelightning_accuracy",
+	accuracyBonus = 95,
 
 	stateEffects = {
 	  StateEffect(
@@ -71,9 +72,9 @@ ForceLightningSingle2Command = {
 	poolsToDamage = RANDOM_ATTRIBUTE,
 
 	forceAttack = true,
-	damageType = ELECTRICITY_DAMAGE,
+	damageType = LIGHTSABER_DAMAGE,
 
-	range = 32
+	range = 60
 }
 
 AddCommand(ForceLightningSingle2Command)

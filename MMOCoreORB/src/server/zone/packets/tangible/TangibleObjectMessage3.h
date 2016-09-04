@@ -29,7 +29,7 @@ public:
 			if (ghost != NULL && ghost->hasGodMode()) {
 				UnicodeString name = tano->getCustomObjectName();
 				UnicodeString tag = PermissionLevelList::instance()->getPermissionTag(ghost->getAdminLevel());
-				insertUnicode(name + " \\#ffff00[" + tag + "]\\#.");
+				insertUnicode(name + " \\#00ace6[" + tag + "]\\#.");
 			} else {
 				insertUnicode(tano->getCustomObjectName());
 			}

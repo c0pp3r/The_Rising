@@ -42,6 +42,7 @@
 
 
 object_tangible_wearables_helmet_helmet_fighter_blacksun_ace = object_tangible_wearables_helmet_shared_helmet_fighter_blacksun_ace:new {
+	objectMenuComponent = "ArmorObjectMenuComponent",
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -49,6 +50,10 @@ object_tangible_wearables_helmet_helmet_fighter_blacksun_ace = object_tangible_w
 				"object/creature/player/moncal_male.iff",
 				"object/creature/player/moncal_female.iff",
 				"object/creature/player/rodian_male.iff",
+				"object/creature/player/ithorian_male.iff",
+				"object/creature/player/ithorian_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/rodian_female.iff",
 				"object/creature/player/sullustan_male.iff",
 				"object/creature/player/sullustan_female.iff",

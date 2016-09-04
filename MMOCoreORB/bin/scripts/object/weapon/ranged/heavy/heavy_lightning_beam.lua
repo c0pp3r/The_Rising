@@ -74,7 +74,7 @@ object_weapon_ranged_heavy_heavy_lightning_beam = object_weapon_ranged_heavy_sha
 	damageType = ELECTRICITY,
 
 	-- NONE, LIGHT, MEDIUM, HEAVY
-	armorPiercing = LIGHT,
+	armorPiercing = HEAVY,
 
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
@@ -97,7 +97,7 @@ object_weapon_ranged_heavy_heavy_lightning_beam = object_weapon_ranged_heavy_sha
 	-- See http://www.ocdsoft.com/files/speed.xls
 	speedModifiers = { "heavy_lightning_beam_speed" },
 
-	useCount = 40,
+	useCount = 1000,
 
 	combatSpam = "lightning_beam",
 	animationType = "lightning_beam",

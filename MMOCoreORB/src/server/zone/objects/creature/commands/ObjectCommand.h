@@ -67,13 +67,27 @@ public:
 
 				object->createChildObjects();
 
-				// Set Crafter name and generate serial number
-				String name = "Generated with Object Command";
-				object->setCraftersName(name);
+				ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+				// Set Player as Crafter
+				ManagedReference<CreatureObject*> player = cast<CreatureObject*>(creature);
+				//if (ghost->getAdminLevel() >= 16) {
+					String name = player->getFirstName();
+					object->setCraftersName(name);
+				/*} else {
+					//StringBuffer name;
+					//name = player->getFirstName() + " Generated with Object Command"; //find a method for this
+					String name = player->getFirstName();
+					object->setCraftersName(name);
+				}*/
 
+				// Object Name
 				StringBuffer customName;
-				customName << object->getDisplayedName() <<  " (System Generated)";
-
+				if (ghost->getAdminLevel() >= 16) {
+					customName << object->getDisplayedName(); //<< " \\#00CC00(" << player->getFirstName() << ")\\#FFFFFF";
+				} else {
+					//customName << object->getDisplayedName() <<  " (System Generated)";
+					customName << object->getDisplayedName() << " \\#00CC00(" << player->getFirstName() << ")\\#FFFFFF";
+				}
 				object->setCustomObjectName(customName.toString(), false);
 
 				String serial = craftingManager->generateSerial();
@@ -200,12 +214,26 @@ public:
 				creature->sendSystemMessage("Number of Exceptionals Looted: " + String::valueOf(lootManager->getExceptionalLooted()));
 				creature->sendSystemMessage("Number of Magical Looted: " + String::valueOf(lootManager->getYellowLooted()));
 			}
+			 else if (commandType.beginsWith("addstructure")) {
+				if (creature->getParent() != NULL){
+					creature->sendSystemMessage("You must be outside to place a structure.");
+					return GENERALERROR;
+				}
+
+				Lua* lua = DirectorManager::instance()->getLuaInstance();
+
+				Reference<LuaFunction*> adminPlaceStructure = lua->createFunction("AdminPlaceStructure", "openWindow", 0);
+				*adminPlaceStructure << creature;
+
+				adminPlaceStructure->callFunction();
+			 }
 		} catch (Exception& e) {
 			creature->sendSystemMessage("SYNTAX: /object createitem <objectTemplatePath> [<quantity>]");
 			creature->sendSystemMessage("SYNTAX: /object createresource <resourceName> [<quantity>]");
 			creature->sendSystemMessage("SYNTAX: /object createloot <loottemplate> [<level>]");
 			creature->sendSystemMessage("SYNTAX: /object createarealoot <loottemplate> [<range>] [<level>]");
 			creature->sendSystemMessage("SYNTAX: /object checklooted");
+			creature->sendSystemMessage("SYNTAX: /object addstructure");
 
 			return INVALIDPARAMETERS;
 		}

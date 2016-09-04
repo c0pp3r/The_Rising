@@ -4,6 +4,9 @@ deathWatchQuestNpcs = {
 	{"mand_bunker_technician", 1, -23.9, -52, -163.8, 45, 5996378},
 	{"death_watch_medical_droid", 1, -80.3, -20, -121, -34, 5996329},
 	{"death_watch_rescue_scientist", 1, 113.9,-68,-187,1,5996351},
+	{"boba_fett", 0, -4677,13,4325,-90,0},
+	{"death_watch_herald_imperial", 0, -4677,13,4323,-90,0},
+	{"death_watch_herald_rebel", 0, -4677,13,4321,-90,0},
 }
 
 deathWatchSpecialSpawns = {
@@ -223,6 +226,11 @@ deathWatchStaticSpawns = {
 	{"death_watch_miner", 300, -22.5, -60.0, -183.7, -165, 5996352},
 	{"death_watch_battle_droid", 300, -41.7, -59.8, -204.9, 0, 5996353},
 
+	{"nal_yaro", 300, 4.70003, -28, -54.4336, -1, 5996336},
+	{"death_watch_s_battle_droid", 300, 4.70003, -28, -54.4336, -1, 5996336},
+	{"death_watch_s_battle_droid", 300, 4.70003, -28, -54.4336, -1, 5996336},
+	{"death_watch_s_battle_droid", 300, 4.70003, -28, -54.4336, -1, 5996336},
+	{"death_watch_s_battle_droid", 300, 4.70003, -28, -54.4336, -1, 5996336},
 	{"death_watch_s_battle_droid", 300, -155.3, -60.0, -106.8, 88, 5996365},
 	{"death_watch_s_battle_droid", 300, -222.2, -60.0, -129.0, -4, 5996367},
 	{"death_watch_s_battle_droid", 300, -288.3, -60.0, -124.8, 88, 5996371},

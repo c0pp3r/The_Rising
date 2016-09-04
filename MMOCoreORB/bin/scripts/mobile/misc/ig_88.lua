@@ -2,15 +2,16 @@ ig_88 = Creature:new {
 	objectName = "@mob/creature_names:ig_88",
 	socialGroup = "mercenary",
 	faction = "",
-	level = 100,
-	chanceHit = 1,
-	damageMin = 645,
-	damageMax = 1000,
-	baseXp = 9429,
-	baseHAM = 24000,
-	baseHAMmax = 30000,
-	armor = 0,
-	resists = {0,0,0,0,0,0,0,0,-1},
+	level = 300,
+	chanceHit = 75,
+	damageMin = 5645,
+	damageMax = 7200,
+	specialDamageMult = 25,
+	baseXp = 940029,
+	baseHAM = 9000000,
+	baseHAMmax = 10500000,
+	armor = 3,
+	resists = {60,60,60,60,60,60,60,60,60},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -20,18 +21,47 @@ ig_88 = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = NONE,
-	creatureBitmask = PACK,
+	pvpBitmask = AGGRESSIVE + ENEMY + ATTACKABLE,
+	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
-	scale = 1.35,
+	scale = 3.0,
 
 	templates = {"object/mobile/ig_88.iff"},
-	lootGroups = {},
-	weapons = {},
-	conversationTemplate = "",
-	attacks = {
-	}
+	lootGroups = {
+		{
+			groups = {
+				{group = "saberhand24", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "av_21_pp", chance = 1000000}
+			},
+			lootChance = 500000
+		 },
+		{
+			groups = {
+				{group = "saberhand25", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		 {
+			groups = {
+				{group = "saberhand22", chance = 5000000},
+				{group = "saberhand23", chance = 5000000}
+			},
+			lootChance = 10000000
+		},
+		},
+	weapons = {"st_sniper_weapons"},
+	reactionStf = "@npc_reaction/slang",
+	attacks = merge(riflemanmaster,bountyhuntermaster,marksmanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(ig_88, "ig_88")

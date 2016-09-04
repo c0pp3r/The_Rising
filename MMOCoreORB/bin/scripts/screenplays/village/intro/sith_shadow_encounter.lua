@@ -14,8 +14,8 @@ SithShadowEncounter = Encounter:new {
 	-- Encounter properties
 	--minimumTimeUntilEncounter = 12 * 60 * 60 * 1000, -- 12 hours
 	--maximumTimeUntilEncounter = 24 * 60 * 60 * 1000, -- 24 hours
-	minimumTimeUntilEncounter = 5 * 60 * 1000, -- 12 hours
-	maximumTimeUntilEncounter = 10 * 60 * 1000, -- 24 hours
+	minimumTimeUntilEncounter = 1 * 60 * 1000, -- 1 minutes
+	maximumTimeUntilEncounter = 2 * 60 * 1000, -- 2 minutes
 	encounterDespawnTime = 5 * 60 * 1000, -- 5 minutes
 	spawnObjectList = {
 		{ template = "sith_shadow_outlaw_mission", minimumDistance = 64, maximumDistance = 96, referencePoint = 0, followPlayer = true, setNotAttackable = false, runOnDespawn = false },

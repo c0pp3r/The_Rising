@@ -48,7 +48,7 @@ TransferForceCommand = {
 
 	combatSpam = "forcetransfer_hit",
 	
-	minDamage = 200, --Force transferred
+	minDamage = 500, --Force transferred
 	
 	range = 32
 }

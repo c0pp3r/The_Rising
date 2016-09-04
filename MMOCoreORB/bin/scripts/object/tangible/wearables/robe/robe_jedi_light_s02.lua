@@ -42,6 +42,7 @@
 
 
 object_tangible_wearables_robe_robe_jedi_light_s02 = object_tangible_wearables_robe_shared_robe_jedi_light_s02:new {
+	objectMenuComponent = "ArmorObjectMenuComponent",
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -68,7 +69,7 @@ object_tangible_wearables_robe_robe_jedi_light_s02 = object_tangible_wearables_r
 				    {"jedi_force_power_regen", 10}
 				},
 
-				noTrade = 1,
+				noTrade = 0,
 
 				objectMenuComponent = "RobeObjectMenuComponent",
 				certificationsRequired = {"force_rank_light_rank_01"},

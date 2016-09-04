@@ -51,6 +51,10 @@ object_tangible_wearables_armor_ubese_armor_ubese_helmet = object_tangible_weara
 				"object/creature/player/moncal_male.iff",
 				"object/creature/player/moncal_female.iff",
 				"object/creature/player/rodian_male.iff",
+				"object/creature/player/ithorian_male.iff",
+				"object/creature/player/ithorian_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/rodian_female.iff",
 				"object/creature/player/sullustan_male.iff",
 				"object/creature/player/sullustan_female.iff",
@@ -81,12 +85,13 @@ object_tangible_wearables_armor_ubese_armor_ubese_helmet = object_tangible_weara
 				"object/mobile/vendor/zabrak_male.iff" },
 
 	-- Damage types in WeaponObject
-	vulnerability = HEAT + COLD + STUN + LIGHTSABER,
+	vulnerability = LIGHTSABER,
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
 	mindEncumbrance = 1,
+	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,

@@ -31,7 +31,7 @@ spiderclan_crawler = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1500000},
+				{group = "axkva_min", chance = 1500000},
 				{group = "crystals_okay", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "armor_attachments", chance = 400000},

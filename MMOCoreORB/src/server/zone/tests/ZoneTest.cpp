@@ -21,7 +21,6 @@ protected:
 	Reference<Zone*> zone;
 	Reference<ZoneProcessServer*> processServer;
 	AtomicLong nextObjectId;
-	Reference<PlayerManager*> playerManager;
 public:
 	ZoneTest() {
 		// Perform creation setup here.
@@ -74,19 +73,11 @@ public:
 
 	void TearDown() {
 		// Perform clean up of common constructs here.
-		if (playerManager != NULL) {
-			playerManager->finalize();
-			playerManager = NULL;
-		}
-
-		zone = NULL;
-		processServer = NULL;
-		zoneServer = NULL;
 	}
 };
 
 TEST_F(ZoneTest, PlayerManager) {
-	playerManager = new PlayerManager( zoneServer, processServer );
+	PlayerManager* playerManager = new PlayerManager( zoneServer, processServer );
 }
 
 TEST_F(ZoneTest, TreLoad) {
@@ -206,3 +197,6 @@ TEST_F(ZoneTest, ActiveAreaTest) {
 
 	tano->destroyObjectFromWorld(false);
 }
+
+
+

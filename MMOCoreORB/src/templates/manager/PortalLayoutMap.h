@@ -28,7 +28,7 @@ public:
 	}
 };
 
-class AppearanceMap : public HashTable<String, Reference<AppearanceTemplate*> > {
+class AppearanceMap : public HashTable<String, AppearanceTemplate* > {
 public:
 	AppearanceMap() {
 		setNullValue(NULL);

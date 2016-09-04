@@ -21,8 +21,8 @@ tusken_warrior = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + KILLER + STALKER,
-	optionsBitmask = AIENABLED,
+ 	creatureBitmask = PACK + KILLER + STALKER,
+ 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/tusken_raider.iff"},

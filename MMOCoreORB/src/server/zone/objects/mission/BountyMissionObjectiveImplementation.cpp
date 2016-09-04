@@ -617,18 +617,21 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 					int maxXpLoss = -500000;
 
 					VisibilityManager::instance()->clearVisibility(target);
-					int xpLoss = mission->getRewardCredits() * -2;
+					target->setScreenPlayState("deathBounty", 0);
+					if (target->hasSkill("force_title_jedi_rank_01")) {
+						int xpLoss = mission->getRewardCredits() * -2;
 
-					if (xpLoss > minXpLoss)
-						xpLoss = minXpLoss;
-					else if (xpLoss < maxXpLoss)
-						xpLoss = maxXpLoss;
+						if (xpLoss > minXpLoss)
+							xpLoss = minXpLoss;
+						else if (xpLoss < maxXpLoss)
+							xpLoss = maxXpLoss;
 
-					owner->getZoneServer()->getPlayerManager()->awardExperience(target, "jedi_general", xpLoss, true);
-					StringIdChatParameter message("base_player","prose_revoke_xp");
-					message.setDI(xpLoss * -1);
-					message.setTO("exp_n", "jedi_general");
-					target->sendSystemMessage(message);
+						owner->getZoneServer()->getPlayerManager()->awardExperience(target, "jedi_general", xpLoss, true);
+						StringIdChatParameter message("base_player","prose_revoke_xp");
+						message.setDI(xpLoss * -1);
+						message.setTO("exp_n", "jedi_general");
+						target->sendSystemMessage(message);
+					}
 				}
 			}
 
@@ -638,6 +641,9 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			//Player killed by target, fail mission.
 			owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 			killer->sendSystemMessage("You have defeated a bounty hunter, ruining his mission against you!");
+			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
+				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 5000);
+			}
 			fail();
 		}
 	}

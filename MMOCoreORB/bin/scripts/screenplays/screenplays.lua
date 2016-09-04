@@ -1,6 +1,7 @@
 package.path = package.path .. ";scripts/screenplays/themepark/?.lua;scripts/screenplays/?.lua;scripts/screenplays/dungeon/corellian_corvette/?.lua"
 require("screenplay")
 require("themeParkLogic")
+require("screenplayHelper")
 require("corvetteTicketGiverLogic")
 require("corvetteTicketTakerLogic")
 
@@ -49,6 +50,7 @@ includeFile("themepark/smc/themeParkSmcVhaundaIzaryx.lua")
 includeFile("tools/tools.lua")
 includeFile("tools/shuttle_dropoff.lua")
 includeFile("tools/firework_event.lua")
+includeFile("tools/place_structure_menu.lua")
 
 -- GCW
 includeFile("gcw/newsnet.lua")
@@ -207,11 +209,9 @@ includeFile("tasks/hero_of_tatooine/heroOfTatooineContainerComponents.lua")
 includeFile("tasks/hero_of_tatooine/heroOfTatooineMenuComponents.lua")
 
 -- Task/Quest
-includeFile("tasks/corellia/blk_sun_tasks.lua")
 includeFile("tasks/corellia/chertyl_ruluwoor.lua")
 includeFile("tasks/corellia/coraline_dynes.lua")
 includeFile("tasks/corellia/corran_horn.lua")
-includeFile("tasks/corellia/crev_bombaasa.lua")
 includeFile("tasks/corellia/denell_kel_vannon.lua")
 includeFile("tasks/corellia/didina_lippinoss.lua")
 includeFile("tasks/corellia/diktatQuest.lua")
@@ -220,7 +220,6 @@ includeFile("tasks/corellia/gilad_pellaeon.lua")
 includeFile("tasks/corellia/gilker_budz.lua")
 includeFile("tasks/corellia/ging_darjeek.lua")
 includeFile("tasks/corellia/hal_horn.lua")
-includeFile("tasks/corellia/ignar_ominaz.lua")
 includeFile("tasks/corellia/jadam_questrel.lua")
 includeFile("tasks/corellia/kirkin_liawoon.lua")
 includeFile("tasks/corellia/lady_hutt.lua")
@@ -251,16 +250,12 @@ includeFile("tasks/generic/criminal.lua")
 includeFile("tasks/generic/noble.lua")
 includeFile("tasks/generic/scientist.lua")
 includeFile("tasks/naboo/arven_wendik.lua")
-includeFile("tasks/naboo/bardo_klinj.lua")
 includeFile("tasks/naboo/boss_nass.lua")
-includeFile("tasks/naboo/brennis_doore.lua")
 includeFile("tasks/naboo/damalia_korde.lua")
 includeFile("tasks/naboo/dilvin_lormurojo.lua")
-includeFile("tasks/naboo/ebenn_q3_baobab.lua")
 includeFile("tasks/naboo/captain_gavyn_sykes.lua")
 includeFile("tasks/naboo/huff_zinga.lua")
 includeFile("tasks/naboo/kima_nazith.lua")
-includeFile("tasks/naboo/kritus_morven.lua")
 includeFile("tasks/naboo/lareen_dantara.lua")
 includeFile("tasks/naboo/leb_slesher.lua")
 includeFile("tasks/naboo/lergo_brazee.lua")
@@ -499,3 +494,43 @@ includeFile("record_keepers/record_keepers.lua")
 
 --Tests
 includeFile("tests/tests.lua")
+
+--kaas
+includeFile("poi/kaas_imperial_garrison.lua")
+
+--Boss Encounters
+--includeFile("poi/tusken_king.lua")
+includeFile("poi/black_sun.lua")
+includeFile("poi/tatooine_tsking.lua")
+includeFile("poi/lok_rvboss.lua")
+
+---- Merchants
+includeFile("hondo/merchants/merchant_system.lua")
+includeFile("hondo/merchants/housing_iken_wilyens.lua")
+includeFile("hondo/merchants/housing_duag_hauser.lua")
+includeFile("hondo/merchants/housing_mlo_lemo.lua")
+includeFile("hondo/merchants/vehicles_crazy_larry.lua")
+includeFile("hondo/merchants/facilities_industra_baggins.lua") includeFile("hondo/merchants/helper_u8l7.lua")
+includeFile("hondo/merchants/armor_volrik_lonugs.lua")
+includeFile("hondo/merchants/armor_jabba_eaht_skcus.lua") includeFile("hondo/merchants/armor_jabba_nal_yaro.lua") includeFile("hondo/merchants/armor_jabba_cyan_yaro.lua") includeFile("hondo/merchants/weapons_yivvits.lua")
+includeFile("hondo/merchants/john_connor.lua")
+
+--Faction Screenplays Rebel / Imperial
+--includeFile("military/rebel/corellia_rebel_hideout.lua")
+
+-- Bread Crumb Quests
+--includeFile("hondo/quest_breadcrumb/helper_trainers.lua")
+--includeFile("hondo/quest_breadcrumb/helper_quest.lua")
+--includeFile("hondo/quest_breadcrumb/helper_revan.lua")
+
+-- GCW Transit
+includeFile("gcw/gcw_transit_system.lua")
+includeFile("gcw/reb_transit_system.lua")
+includeFile("gcw/gcw_transit_deco.lua")
+
+-- Enclaves
+includeFile("enclaves/yavin4_light_enclave.lua")
+includeFile("enclaves/yavin4_dark_enclave.lua")
+
+-- Custom Content
+includeFile("custom_content/screenplays.lua")

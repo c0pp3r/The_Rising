@@ -9,27 +9,47 @@
 #include "server/zone/packets/object/ObjectMenuResponse.h"
 #include "server/zone/Zone.h"
 #include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/packets/player/PlayMusicMessage.h"
 
 void ShipControlDeviceImplementation::generateObject(CreatureObject* player) {
-	//info("generating ship", true);
-	//return;
 
-	ZoneServer* zoneServer = getZoneServer();
+	if (player->isDead() || player->isIncapacitated()){
+		player->sendSystemMessage("You cant fly on your back");
+		return;
+	}
+	if (player->getParent() != NULL || player->isInCombat()) {
+		player->sendSystemMessage("You cant deploy your ship in combat");
+		return;
+	}
+	if (player->isInvisible()) {
+		player->sendSystemMessage("You cant fly while stealthed");
+		return;
+	}
+	Zone* zone = player->getZone();
+
+	if (zone->getZoneName().contains("rori")) {
+
+		player->sendSystemMessage("Due to the GCW conflict on this planet starship flight on this planet has been restricted");
+		return;
+	}
+
 
 	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
+
+	if(zone == NULL || controlledObject == NULL || controlledObject->isInQuadTree() || !this->isASubChildOf(player))
+		return;
 
 	Locker clocker(controlledObject, player);
 
 	controlledObject->initializePosition(player->getPositionX(), player->getPositionZ() + 10, player->getPositionY());
 
-	player->getZone()->transferObject(controlledObject, -1, true);
-	//controlledObject->insertToZone(player->getZone());
-
-	//removeObject(controlledObject, true);
+	zone->transferObject(controlledObject, -1, true);
 
 	controlledObject->transferObject(player, 5, true);
+
 	player->setState(CreatureState::PILOTINGSHIP);
-	//controlledObject->inflictDamage(player, 0, System::random(50), true);
+
+	player->sendSystemMessage("if your Ship goes 2d at any point, simply store it using your datapad radial and re-deploy it. If after many tries it does not render back to 3d, time to buy a new one and try to avoid crashing into objects");
 
 	updateStatus(1);
 
@@ -37,10 +57,10 @@ void ShipControlDeviceImplementation::generateObject(CreatureObject* player) {
 
 	if (ghost != NULL)
 		ghost->setTeleporting(true);
-}
 
+}
 void ShipControlDeviceImplementation::storeObject(CreatureObject* player, bool force) {
-	player->clearState(CreatureState::PILOTINGSHIP);
+
 
 	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
 
@@ -57,6 +77,29 @@ void ShipControlDeviceImplementation::storeObject(CreatureObject* player, bool f
 	if (zone == NULL)
 		return;
 
+	if (zone->getZoneName().contains("space_")) {
+
+		player->sendSystemMessage("Your Ship is stored. Your body begins to ache from exposure");
+
+		player->playEffect("clienteffect/cbt_msl_impact_concussion.cef");
+
+		player->clearState(CreatureState::PILOTINGSHIP);
+
+		zone->transferObject(player, -1, false);
+
+		controlledObject->destroyObjectFromWorld(true);
+
+		transferObject(controlledObject, 4, true);
+
+		player->setDirection(0);
+
+/*		player->switchZone("corellia", -148, 28, -4721, 0); */
+
+		updateStatus(0);
+		return;
+	}
+	player->clearState(CreatureState::PILOTINGSHIP);
+
 	zone->transferObject(player, -1, false);
 	
 	controlledObject->destroyObjectFromWorld(true);
@@ -71,10 +114,13 @@ void ShipControlDeviceImplementation::fillObjectMenuResponse(ObjectMenuResponse*
 
 	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
 
+	PlayMusicMessage* pmm = new PlayMusicMessage("sound/ship_hyperspace_begin.snd");
+	player->sendMessage(pmm);
+
 	if (!controlledObject->isInQuadTree()) {
-		menuResponse->addRadialMenuItem(60, 3, "Launch Ship"); //Launch
+		menuResponse->addRadialMenuItem(60, 3, "Deploy Ship"); //Launch
 	} else
-		menuResponse->addRadialMenuItem(61, 3, "Land Ship"); //Launch
+		menuResponse->addRadialMenuItem(61, 3, "Store Ship"); //Launch
 	//menuResponse->addRadialMenuItem(61, 3, "Launch Ship"); //Launch
 }
 

@@ -24,6 +24,8 @@
 #include "server/zone/packets/object/CombatSpam.h"
 #include "QueueCommand.h"
 #include "server/zone/managers/collision/PathFinderManager.h"
+//#include "server/zone/objects/creature/ai/AiAgent.h"
+//#include "server/zone/managers/creature/CreatureManager.h"
 
 class CombatQueueCommand : public QueueCommand {
 protected:
@@ -133,6 +135,30 @@ public:
 	int doCombatAction(CreatureObject* creature, const uint64& target, const UnicodeString& arguments = "", ManagedReference<WeaponObject*> weapon = NULL) const {
 		ManagedReference<SceneObject*> targetObject = server->getZoneServer()->getObject(target);
 		PlayerManager* playerManager = server->getPlayerManager();
+/*
+		//Disabled Until I can verify it won't crash
+		ManagedReference<SceneObject*> targetParent;
+		if (targetObject != NULL) {
+			targetParent = targetObject->getRootParent();
+		} else {
+			targetParent = creature->getRootParent();
+		}
+		if (creature->isPet() && targetParent != NULL) {
+			ManagedReference<PetControlDevice*> controlDevice = creature->getControlDevice().castTo<PetControlDevice*>();
+			if (controlDevice != NULL) {
+				ManagedReference<AiAgent*> pet = cast<AiAgent*>(creature);
+				if (pet != NULL) {
+					ManagedReference<CreatureObject*> player = pet->getLinkedCreature().get();
+					if (player != NULL || player->isPlayerCreature() ) {
+						Locker clocker(player, pet);
+						Locker locker(controlDevice);
+						controlDevice->storeObject(player, true);
+						player->sendSystemMessage("You're pet is not allowed to attack indoors and has been stored!");
+					}
+				}
+			}
+			return GENERALERROR;
+		}*/
 
 		if (targetObject == NULL || !targetObject->isTangibleObject() || targetObject == creature)
 			return INVALIDTARGET;

@@ -74,7 +74,7 @@ object_weapon_ranged_grenade_grenade_fragmentation = object_weapon_ranged_grenad
 	damageType = BLAST,
 
 	-- NONE, LIGHT, MEDIUM, HEAVY
-	armorPiercing = LIGHT,
+	armorPiercing = HEAVY,
 
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
@@ -113,8 +113,8 @@ object_weapon_ranged_grenade_grenade_fragmentation = object_weapon_ranged_grenad
 	maxRange = 64,
 	maxRangeAccuracy = -30,
 
-	minDamage = 50,
-	maxDamage = 300,
+	minDamage = 5000,
+	maxDamage = 10000,
 
 	attackSpeed = 4,
 

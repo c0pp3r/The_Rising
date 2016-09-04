@@ -85,10 +85,10 @@ void VehicleControlDeviceImplementation::generateObject(CreatureObject* player) 
 		Reference<CallMountTask*> callMount = new CallMountTask(_this.getReferenceUnsafeStaticCast(), player, "call_mount");
 
 		StringIdChatParameter message("pet/pet_menu", "call_vehicle_delay");
-		message.setDI(15);
+		message.setDI(3);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_mount", callMount, 15 * 1000);
+		player->addPendingTask("call_mount", callMount, 3 * 1000);
 
 		if (vehicleControlObserver == NULL) {
 			vehicleControlObserver = new VehicleControlObserver(_this.getReferenceUnsafeStaticCast());
@@ -160,7 +160,7 @@ void VehicleControlDeviceImplementation::spawnObject(CreatureObject* player) {
 
 	if (vehicle != NULL && controlledObject->getServerObjectCRC() == 0x32F87A54) // Jetpack
 	{
-		controlledObject->setCustomizationVariable("/private/index_hover_height", 40, true); // Illusion of flying.
+		controlledObject->setCustomizationVariable("/private/index_hover_height", 15, true); // Illusion of flying.
 		player->executeObjectControllerAction(STRING_HASHCODE("mount"), controlledObject->getObjectID(), ""); // Auto mount.
 	}
 

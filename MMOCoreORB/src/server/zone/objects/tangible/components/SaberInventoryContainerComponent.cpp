@@ -79,10 +79,10 @@ int SaberInventoryContainerComponent::notifyObjectInserted(SceneObject* sceneObj
 
 	if (weao->isJediWeapon()) {
 		ManagedReference<LightsaberCrystalComponent*> crystal = cast<LightsaberCrystalComponent*>( object);
-		if (crystal->getColor() == 31){
+		if (crystal->getColor() == 31) {
 			weao->setAttackSpeed(weao->getAttackSpeed() + crystal->getAttackSpeed());
-			weao->setMinDamage(weao->getMinDamage() + crystal->getMinimumDamage());
-			weao->setMaxDamage(weao->getMaxDamage() + crystal->getMaximumDamage());
+			weao->setMinDamage(weao->getMinDamage() + MIN(MAX(crystal->getMinimumDamage(), 0), 100));
+			weao->setMaxDamage(weao->getMaxDamage() + MIN(MAX(crystal->getMaximumDamage(), 0), 100));
 			weao->setHealthAttackCost(weao->getHealthAttackCost() + crystal->getSacHealth());
 			weao->setActionAttackCost(weao->getActionAttackCost() + crystal->getSacAction());
 			weao->setMindAttackCost(weao->getMindAttackCost() + crystal->getSacMind());
@@ -94,6 +94,8 @@ int SaberInventoryContainerComponent::notifyObjectInserted(SceneObject* sceneObj
 			int color = crystal->getColor();
 			weao->setBladeColor(color);
 			weao->setCustomizationVariable("/private/index_color_blade", color, true);
+			weao->setMinDamage(weao->getMinDamage() + MIN(MAX(crystal->getMinimumDamage(), 0), 100));
+			weao->setMaxDamage(weao->getMaxDamage() + MIN(MAX(crystal->getMaximumDamage(), 0), 100));
 		}
 	}
 
@@ -118,8 +120,8 @@ int SaberInventoryContainerComponent::notifyObjectRemoved(SceneObject* sceneObje
 
 			if (crystal->getColor() == 31){
 				weao->setAttackSpeed(weao->getAttackSpeed() - crystal->getAttackSpeed());
-				weao->setMinDamage(weao->getMinDamage() - crystal->getMinimumDamage());
-				weao->setMaxDamage(weao->getMaxDamage() - crystal->getMaximumDamage());
+				weao->setMinDamage(weao->getMinDamage() - MIN(MAX(crystal->getMinimumDamage(), 0), 100));
+				weao->setMaxDamage(weao->getMaxDamage() - MIN(MAX(crystal->getMaximumDamage(), 0), 100));
 				weao->setHealthAttackCost(weao->getHealthAttackCost() - crystal->getSacHealth());
 				weao->setActionAttackCost(weao->getActionAttackCost() - crystal->getSacAction());
 				weao->setMindAttackCost(weao->getMindAttackCost() - crystal->getSacMind());
@@ -130,6 +132,8 @@ int SaberInventoryContainerComponent::notifyObjectRemoved(SceneObject* sceneObje
 			if (crystal->getColor() != 31) {
 				weao->setBladeColor(31);
 				weao->setCustomizationVariable("/private/index_color_blade", 31, true);
+				weao->setMinDamage(weao->getMinDamage() - MIN(MAX(crystal->getMinimumDamage(), 0), 100));
+				weao->setMaxDamage(weao->getMaxDamage() - MIN(MAX(crystal->getMaximumDamage(), 0), 100));
 			}
 		}
 
@@ -138,12 +142,13 @@ int SaberInventoryContainerComponent::notifyObjectRemoved(SceneObject* sceneObje
 
 bool SaberInventoryContainerComponent::checkContainerPermission(SceneObject* sceneObject, CreatureObject* creature, uint16 permission) const {
 	ManagedReference<WeaponObject*> saber = cast<WeaponObject*>( sceneObject->getParent().get().get());
+	ManagedReference<PlayerObject*> admin = creature->getPlayerObject();
 
 	if (saber == NULL)
 		return false;
 
 
-	if (saber->isJediWeapon() && saber->isEquipped()) {
+	if (saber->isJediWeapon() && saber->isEquipped() && admin->getAdminLevel() < 10) {
 		CreatureObject* player = saber->getParentRecursively(SceneObjectType::PLAYERCREATURE).get().castTo<CreatureObject*>();
 
 		if (player == NULL)

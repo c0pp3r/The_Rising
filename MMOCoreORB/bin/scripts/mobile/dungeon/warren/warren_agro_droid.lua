@@ -32,7 +32,7 @@ warren_agro_droid = Creature:new {
 				},
 	lootGroups = {},
 	conversationTemplate = "",
-	defaultAttack = "attack",
+	defaultAttack = "creaturerangedattack",
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff"
 }
 

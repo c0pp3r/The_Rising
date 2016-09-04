@@ -6,11 +6,11 @@ acklay = Creature:new {
 	level = 157,
 	chanceHit = 92.5,
 	damageMin = 935,
-	damageMax = 1580,
-	baseXp = 14884,
+	damageMax = 2180,
+	baseXp = 148840,
 	baseHAM = 96000,
-	baseHAMmax = 118000,
-	armor = 2,
+	baseHAMmax = 218000,
+	armor = 3,
 	resists = {130,145,155,155,145,30,30,30,-1},
 	meatType = "",
 	meatAmount = 0,
@@ -31,10 +31,11 @@ acklay = Creature:new {
 		{
 			groups = {
 				{group = "acklay", chance = 10000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
-	weapons = {},
+	weapons = {"creature_spit_large_yellow"},
 	conversationTemplate = "",
 	attacks = {
 		{"posturedownattack","stateAccuracyBonus=50"},

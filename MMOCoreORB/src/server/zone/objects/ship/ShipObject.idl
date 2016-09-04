@@ -14,6 +14,8 @@ include engine.util.u3d.CloseObjectsVector;
 include server.zone.objects.scene.variables.DeltaIntVariable;
 include server.zone.objects.scene.variables.DeltaFloatVariable;
 include server.zone.objects.scene.variables.DeltaVectorMap;
+include server.zone.managers.planet.PlanetTravelPoint;
+include server.zone.objects.region.CityRegion;
 
 class ShipObject extends TangibleObject {
 	protected float totalMass;
@@ -71,13 +73,22 @@ class ShipObject extends TangibleObject {
 	 */
 	@dereferenced
 	protected DeltaVectorMap<unsigned int, unsigned int> shipComponents;
-	
+
+
+	/**
+	  * Store parked location
+	  *
+         */
+	@reference
+	protected CityRegion parkedLocation;
+
 	public ShipObject() {
 		Logger.setLoggingName("ShipObject");
 		
 		super.objectVisible = 1;
 		
 		totalMass = 500.0;
+		parkedLocation = null;
 		
 		super.closeobjects = new CloseObjectsVector();
 		super.closeobjects.setNoDuplicateInsertPlan();
@@ -137,4 +148,25 @@ class ShipObject extends TangibleObject {
 	public boolean isShipObject() {
 		return true;
 	}
+	
+	@local
+	@read
+	@reference
+	public CityRegion getParkedLocation() {
+		return parkedLocation;
+	}
+
+	@local
+	public native void setParkedLocation(CityRegion location);
+	
+
+	@local
+	@read
+	public boolean isParked() {
+		return (parkedLocation != null);
+	}
+	
+	public native void notifyLoadFromDatabase();
+	
+
 }

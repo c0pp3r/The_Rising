@@ -38,8 +38,38 @@
 --it is their choice whether to do so. The GNU Lesser General Public License
 --gives permission to release a modified version without this exception;
 --this exception also makes it possible to release a modified version
---which carries forward this exception.
+--which carries forward this exception. 
 
+object_intangible_vehicle_shared_barc_speeder_imperial_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_imperial_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_barc_speeder_rebel_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_rebel_pcd.iff"
+
+}
+
+
+object_intangible_vehicle_shared_barc_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_pcd.iff"
+
+}
+
+
+object_intangible_vehicle_shared_pod_racer_two_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_pod_racer_two_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_pod_racer_two_pcd, "object/intangible/vehicle/shared_pod_racer_two_pcd.iff")
+
+object_intangible_vehicle_shared_pod_racer_one_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_pod_racer_one_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_pod_racer_one_pcd, "object/intangible/vehicle/shared_pod_racer_one_pcd.iff")
 
 object_intangible_vehicle_shared_jetpack_pcd = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/vehicle/shared_jetpack_pcd.iff"

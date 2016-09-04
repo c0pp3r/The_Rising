@@ -23,14 +23,15 @@ herald_dathomir_olof = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED + CONVERSABLE,
+	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_herald_dathomir_nsister_cave_olof.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "heraldConvoTemplate",
-	attacks = {}
+	conversationTemplate = "",
+	attacks = {
+	}
 }
 
 CreatureTemplates:addCreatureTemplate(herald_dathomir_olof, "herald_dathomir_olof")

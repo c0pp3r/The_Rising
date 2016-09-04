@@ -5,7 +5,7 @@ includeFile("dungeon/geonosian_lab/conversations/geonosianConvoHandlers.lua")
 GeonosianLabScreenPlay = ScreenPlay:new {
 	numberOfActs = 1,
 
-	keypadCodes = { 32281, 12872, 51892, 12753, 86332, 11380, 52577, 78660 },
+	keypadCodes = { 32281, 12872, 77777, 12753, 86332, 99999, 52577, 78660 },
 	lockedCells = { 1627785, 1627786, 1627790, 1627805, 1627812, 1627815, 1627822, 1627823 },
 
 	--debris fields, all respawns are set to 4 minutes
@@ -69,6 +69,12 @@ function GeonosianLabScreenPlay:start()
 end
 
 function GeonosianLabScreenPlay:spawnActiveAreas()
+	-- To disallow entry by PETS...
+	local pActiveArea = spawnActiveArea("yavin4", "object/active_area.iff", -6451.9, 92.0, -378.3, -40, 1627781)
+	if pActiveArea ~= nil then
+		createObserver(ENTEREDAREA, "GeonosianLabScreenPlay", "notifyPetEnteredDeny", pActiveArea)
+	end
+
 	local pActiveArea = spawnActiveArea("yavin4", "object/active_area.iff", -6435.5, 85.6, -367, 10, 1627783)
 	if pActiveArea ~= nil then
 		createObserver(ENTEREDAREA, "GeonosianLabScreenPlay", "notifyEnteredPoisonGas", pActiveArea)
@@ -140,14 +146,18 @@ function GeonosianLabScreenPlay:spawnMobiles()
 	spawnMobile("yavin4", "biogenic_securitytech", 1, -48, -18, -31, -180, 1627785)--biogen_security
 	spawnMobile("yavin4", "biogenic_scientist_human", 1, 23.8, -32, -83.2, 130, 1627798)--biogen_human
 	spawnMobile("yavin4", "biogenic_construction", 1, -134.5, -21.7, -74.8, 90, 1627794)--biogen_constuc
-	spawnMobile("yavin4", "biogenic_engineertech", 1,-107.7,-18,-33.8,176,1627790)--biogen_engineer
+	spawnMobile("yavin4", "biogenic_engineertech", 1,-104.971,-18,-66.2072,176,1627789)--biogen_engineer
 	spawnMobile("yavin4", "biogenic_assistant", 1, -36, -21.9, -162.8, 0, 1627803)--biogen_assistant
 	spawnMobile("yavin4", "biogenic_scientist_generic_01", 1, -72.0, -34, -272.9, 0, 1627812)--biogen_gen01
-	spawnMobile("yavin4", "biogenic_scientist_generic_02", 1, -127.2, -34, -189.0, -93, 1627815)--biogen_gen02
+	spawnMobile("yavin4", "biogenic_scientist_generic_02", 1, -132.769, -34, -206.189, -93, 1627814)--biogen_gen02
 	spawnMobile("yavin4", "biogenic_scientist_geonosian", 1, 7.4, -22, -333, 180, 1627822) -- biogen_geo
 
 	spawnMobile("yavin4", "acklay",7200,101.1,-34.3,-321.6,-136,1627823, true) --Randomized respawn
 	spawnMobile("yavin4", "enhanced_gaping_spider",3600,-130,-22.1,-85,-180,1627794, true) -- Randomized respawn
+        spawnMobile("yavin4", "enhanced_gaping_spider",600,-130,-22.1,-85,-180,1627794)
+ 	spawnMobile("yavin4", "acklay_youngling", 600,105.0,-33.7,-325.0,-94,1627823)
+ 	spawnMobile("yavin4", "acklay_youngling", 600,100.6,-33.8,-315.4,-157,1627823)
+ 	spawnMobile("yavin4", "acklay_youngling", 600,98.2,-34.4,-324.7,-133,1627823)
 
 	spawnMobile("yavin4", "imperial_observer",300,-23,-22,-116,-90,1627802)
 	spawnMobile("yavin4", "imperial_observer",300,-16.4,-22,-114.5,-150,1627802)
@@ -166,14 +176,14 @@ function GeonosianLabScreenPlay:spawnMobiles()
 	spawnMobile("yavin4", "crazed_geonosian_guard",300,-36,-22,-151.4,180,1627803)
 	spawnMobile("yavin4", "crazed_geonosian_guard",300,-26.8,-22.9,-158,-90,1627803)
 	spawnMobile("yavin4", "crazed_geonosian_guard",300,-19.4,-22.6,-151.7,-135,1627803)
-	spawnMobile("yavin4", "cavern_spider",300,-62,-21.8,-109.6,0,1627792)
-	spawnMobile("yavin4", "cavern_spider",300,-48,-21.8,-158,0,1627800)
-	spawnMobile("yavin4", "cavern_spider",300,-48,-21.8,-143,0,1627800)
-	spawnMobile("yavin4", "cavern_spider",300,-41,-21.8,-136,-90,1627801)
-	spawnMobile("yavin4", "cavern_spider",300,-88.3,-21.8,-110.3,210,1627793)
-	spawnMobile("yavin4", "cavern_spider",300,-98,-21.9,-114.7,50,1627793)
-	spawnMobile("yavin4", "cavern_spider",300,-107.3,-22.2,-96.6,180,1627793)
-	spawnMobile("yavin4", "cavern_spider",300,-108,-21.8,-126,0,1627793)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-62,-21.8,-109.6,0,1627792)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-48,-21.8,-158,0,1627800)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-48,-21.8,-143,0,1627800)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-41,-21.8,-136,-90,1627801)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-88.3,-21.8,-110.3,210,1627793)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-98,-21.9,-114.7,50,1627793)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-107.3,-22.2,-96.6,180,1627793)
+	spawnMobile("yavin4", "enhanced_gaping_spider",300,-108,-21.8,-126,0,1627793)
 	spawnMobile("yavin4", "cavern_spider",300,-123,-22,-109.5,80,1627793)
 	spawnMobile("yavin4", "cavern_spider",300,-134.7,-20.9,-112.2,77,1627793)
 	spawnMobile("yavin4", "alert_droideka",300,-34.2,-22,-128,-180,1627801)
@@ -227,8 +237,8 @@ function GeonosianLabScreenPlay:spawnMobiles()
 	spawnMobile("yavin4", "cavern_spider",300,13.4,-22.0,-337.3,-179,1627822)
 	spawnMobile("yavin4", "enhanced_kwi",300,48.0,-34.0,-334.4,0,1627823)
 	spawnMobile("yavin4", "cavern_spider",300,91.2,-33.9,-347.9,5,1627823)
-	spawnMobile("yavin4", "enhanced_kliknik",300,98.0,-34.1,-334.4,-53,1627823)
-	spawnMobile("yavin4", "enhanced_kliknik",300,120.2,-33.9,-330.6,-33,1627823)
+	spawnMobile("yavin4", "acklay_elder",300,98.0,-34.1,-334.4,-53,1627823)
+	spawnMobile("yavin4", "acklay_elder",300,120.2,-33.9,-330.6,-33,1627823)
 	spawnMobile("yavin4", "cavern_spider",300,85.0,-33.8,-309.1,143,1627823)
 	spawnMobile("yavin4", "cavern_spider",300,74.7,-34.1,-329.0,-90,1627823)
 	spawnMobile("yavin4", "mercenary_sentry",300,-74.9,-22,-153.7,-119,1627805)
@@ -335,7 +345,7 @@ function GeonosianLabScreenPlay:notifyEnteredLab(pBuilding, pPlayer)
 	if pPlayer == nil or not SceneObject(pPlayer):isCreatureObject() then
 		return 0
 	end
-
+	
 	if (CreatureObject(pPlayer):isAiAgent()) then
 		return 0
 	end
@@ -353,6 +363,22 @@ function GeonosianLabScreenPlay:notifyEnteredLab(pBuilding, pPlayer)
 	CreatureObject(pPlayer):removeScreenPlayState(1, "geonosian_lab_tenloss")
 
 	CreatureObject(pPlayer):sendSystemMessage("@dungeon/geonosian_madbio:relock") --Security systems at this facility have been cycled and reset.
+	
+	return 0
+	
+end
+
+function GeonosianLabScreenPlay:notifyPetEnteredDeny(pArea, pMovingObject)
+	if (pMovingObject == nil or SceneObject(pMovingObject):isPlayerCreature()) then
+		return 0
+	end
+
+	if (SceneObject(pMovingObject):isAiAgent() and AiAgent(pMovingObject):isPet()) then
+		local pPetowner = CreatureObject(pMovingObject):getOwner()
+		AiAgent(pMovingObject):clearCombatState()
+		AiAgent(pMovingObject):doDespawn()
+		CreatureObject(pPetowner):sendSystemMessage("A magnetic defense shield repels your pet into datapad storage.")
+	end
 
 	return 0
 end

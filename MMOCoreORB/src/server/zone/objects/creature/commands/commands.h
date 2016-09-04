@@ -278,6 +278,7 @@
 #include "GmForceRankCommand.h"
 #include "GmFsVillageCommand.h"
 #include "GmJediStateCommand.h"
+#include "GmPlayClientEffect.h"
 #include "GmReviveCommand.h"
 #include "GotoCommand.h"
 #include "GrantBadgeCommand.h"
@@ -615,6 +616,7 @@
 #include "SetBiographyAdminCommand.h"
 #include "SetBiographyCommand.h"
 #include "SetBoostmoraleCommand.h"
+#include "SetScaleCommand.h"
 #include "SetChargeCommand.h"
 #include "SetCurrentSkillTitleCommand.h"
 #include "SetExperienceCommand.h"
@@ -842,4 +844,3 @@
 
 
 #endif /* COMMANDSNEW_H_ */
-

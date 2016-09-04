@@ -33,7 +33,8 @@ geonosian_scientist = Creature:new {
 			groups = {
 				{group = "geonosian_common", chance = 5000000},
 				{group = "geonosian_relic", chance = 5000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"geonosian_weapons"},

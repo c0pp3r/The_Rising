@@ -49,10 +49,10 @@ which carries forward this exception.
 --]]
 
 --The amount of time in minutes between guild updates.
-GuildUpdateInterval = 10080
+GuildUpdateInterval = 1440
 
 --The minimum number of members required
-RequiredMembers = 2
+RequiredMembers = 1
 --RequiredMembers = 5
 
 --The maximum number of members allowed

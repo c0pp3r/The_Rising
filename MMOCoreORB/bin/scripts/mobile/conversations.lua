@@ -2,6 +2,7 @@ includeFile("conversation.lua")
 
 -- ** THEMEPARKS **
 
+includeFile("custom_content/conversations.lua")
 -- Tutorial
 includeFile("conversations/tutorial/room2_greeter_conv.lua")
 includeFile("conversations/tutorial/nervous_guy_conv.lua")
@@ -203,3 +204,24 @@ includeFile("conversations/pet/pets_conv.lua")
 
 -- Misc
 includeFile("conversations/misc/philosopher_conv.lua")
+
+-- Merchants
+ includeFile("conversations/hondo/merchants/crazy_larry_conv.lua")
+ includeFile("conversations/hondo/merchants/iken_wilyens_conv.lua")
+ includeFile("conversations/hondo/merchants/duag_hauser_conv.lua")
+ includeFile("conversations/hondo/merchants/industra_baggins_conv.lua")
+ includeFile("conversations/hondo/merchants/u8l7_conv.lua")
+ includeFile("conversations/hondo/merchants/volrik_lonugs_conv.lua")
+ includeFile("conversations/hondo/merchants/nal_yaro_conv.lua")
+ includeFile("conversations/hondo/merchants/cyan_yaro_conv.lua")
+ includeFile("conversations/hondo/merchants/eaht_skcus_conv.lua")
+ includeFile("conversations/hondo/merchants/yivvits_conv.lua")
+ includeFile("conversations/hondo/merchants/mlo_lemo_conv.lua")
+ includeFile("conversations/hondo/merchants/john_connor_conv.lua")
+includeFile("conversations/hondo/quest_breadcrumb/helper_trainers_conv.lua")
+includeFile("conversations/hondo/quest_breadcrumb/helper_quest_conv.lua")
+includeFile("conversations/hondo/quest_breadcrumb/helper_revan_conv.lua")
+
+-- GCW Transit System
+includeFile("conversations/gcw_transitsystem/transitconvo.lua")
+includeFile("conversations/gcw_transitsystem/reb_transitconvo.lua")

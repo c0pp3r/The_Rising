@@ -48,14 +48,14 @@ TotalHealSelfCommand = {
 	healPoison = 600,
 	healBleeding = 600,
 	healFire = 600,
-	forceCost = 760,
+	forceCost = 800,
 	healAmount = 6000,
 	healAttributes = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
 	healWoundAttributes = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
 	healBattleFatigue = 1000,
 	healWoundAmount = 6000,
 	forceCostDivisor = 0,
-	speed = 4
+	speed = 0
 
 }
 

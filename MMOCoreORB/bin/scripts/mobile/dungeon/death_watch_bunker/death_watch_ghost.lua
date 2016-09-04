@@ -32,12 +32,15 @@ death_watch_ghost = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "death_watch_bunker_commoners",   chance = 6300000},
-				{group = "death_watch_bunker_lieutenants", chance = 3500000},
-				{group = "death_watch_bunker_ingredient_protective",  chance = 100000},
-				{group = "death_watch_bunker_ingredient_binary",  chance = 100000}
+				{group = "death_watch_bunker_lieutenants", chance = 5500000},
+				{group = "rifles", chance = 1000000},
+				{group = "pistols", chance = 1000000},
+				{group = "clothing_attachments", chance = 1000000},
+				{group = "armor_attachments", chance = 1000000},
+				{group = "death_watch_bunker_ingredient_binary", chance = 500000},
+				{group = "death_watch_bunker_ingredient_protective", chance = 500000}
 			},
-			lootChance = 1500000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},

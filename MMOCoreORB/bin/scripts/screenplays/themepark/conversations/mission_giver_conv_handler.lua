@@ -128,9 +128,6 @@ function mission_giver_conv_handler:handleScreenInit(pConversationTemplate, pCon
 		elseif self.themePark:requiresEliteCombatProfession() == true and self.themePark:hasEliteCombatProfession(pConversingPlayer) == false then
 			nextScreenName = "too_weak"
 
-		elseif self.themePark:hasEnoughFaction(pConversingPlayer) == false then
-			nextScreenName = "no_faction"
-
 		elseif missionFaction ~= 0 and self.themePark:isInFaction(missionFaction, pConversingPlayer) and self.themePark:isOnLeave(pConversingPlayer) then
 			if self.themePark:isValidConvoString(stfFile, ":notyet") then
 				nextScreenName = "notyet"
@@ -183,14 +180,14 @@ function mission_giver_conv_handler:handleScreenInit(pConversationTemplate, pCon
 	else
 		nextScreenName = "cant_work"
 	end
-
+	
 	if (self.themePark.genericGiver) then
 		local giverId = readData(CreatureObject(pConversingPlayer):getObjectID() ..":genericGiverID")
 		if (giverId ~= 0 and giverId ~= SceneObject(pConversingNpc):getObjectID()) then
 			nextScreenName = "cantwork"
 		end
 	end
-
+	
 	return self:runScreenHandlers(pConversationTemplate, pConversingPlayer, pConversingNpc, selectedOption, conversationTemplate:getScreen(nextScreenName))
 end
 
@@ -517,7 +514,7 @@ function mission_giver_conv_handler:handleScreenNoFaction(pConversationTemplate,
 	pConversationScreen = screen:cloneScreen()
 	local clonedScreen = LuaConversationScreen(pConversationScreen)
 
-	clonedScreen:setDialogTextStringId("@theme_park/messages:no_faction") -- "You don't have the proper standing to deal with me. Perhaps you should be more careful who you associate with."
+	clonedScreen:setDialogTextStringId("@theme_park/messages:no_faction")
 
 	return pConversationScreen
 end

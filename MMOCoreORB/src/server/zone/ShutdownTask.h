@@ -25,15 +25,15 @@ public:
 		--minutesRemaining;
 
 		String str = "Server will shutdown in " + String::valueOf(minutesRemaining) + " minutes";
-
-		if (minutesRemaining <= 0)
-			str = "SHUTTING DOWN NOW!";
-
 		Logger::console.info(str, true);
+
+		if (minutesRemaining == 0)
+			str = "SHUTTING DOWN NOW!";
 
 		zoneServer->getChatManager()->broadcastGalaxy(NULL, str);
 
-		if (minutesRemaining <= 0) {
+		if (minutesRemaining == 0) {
+			Logger::console.info("SHUTDOWN NOW!", true);
 			ServerCore::getInstance()->signalShutdown();
 		} else {
 			schedule(60 * 1000);

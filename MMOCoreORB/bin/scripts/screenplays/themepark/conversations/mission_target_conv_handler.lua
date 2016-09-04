@@ -237,16 +237,7 @@ function mission_target_conv_handler:handleScreenMissionType(pConversationTempla
 		planetName = SceneObject(pGiver):getZoneName()
 	else
 		worldPosition = self.themePark:getNpcWorldPosition(npcNumber)
-		planetName = self.themePark.planetName
-
-		if (npcData.spawnData.planetName ~= nil and npcData.spawnData.planetName ~= "") then
-			planetName = npcData.spawnData.planetName
-		end
-
-		if (planetName == nil or planetName == "") then
-			printf("ERROR: Unable to create return waypoint for mission number " .. missionNumber .. " in screenplay " .. self.themePark.className .. ", planetName invalid.\n")
-			return nil
-		end
+		planetName = npcData.spawnData.planetName
 	end
 
 	local nextScreenID

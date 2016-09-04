@@ -2143,9 +2143,9 @@ bool AiAgentImplementation::isScentMasked(CreatureObject* target) {
 	uint64 effectiveTargetID = effectiveTarget->getObjectID();
 
 	if (!effectiveTarget->hasBuff(STRING_HASHCODE("skill_buff_mask_scent_self"))) {
-		if (!effectiveTarget->hasBuff(STRING_HASHCODE("skill_buff_mask_scent"))) {
-			camouflagedObjects.removeElement(effectiveTargetID);
-		}
+               if (!effectiveTarget->hasBuff(STRING_HASHCODE("skill_buff_mask_scent"))) {
+                       camouflagedObjects.removeElement(effectiveTargetID);
+               }
 		return false;
 	}
 
@@ -2201,9 +2201,9 @@ bool AiAgentImplementation::isConcealed(CreatureObject* target) {
 	uint64 effectiveTargetID = effectiveTarget->getObjectID();
 
 	if (!effectiveTarget->hasBuff(STRING_HASHCODE("skill_buff_mask_scent"))) {
-		if (!effectiveTarget->hasBuff(STRING_HASHCODE("skill_buff_mask_scent_self"))) {
-			camouflagedObjects.removeElement(effectiveTargetID);
-		}
+               if (!effectiveTarget->hasBuff(STRING_HASHCODE("skill_buff_mask_scent_self"))) {
+                       camouflagedObjects.removeElement(effectiveTargetID);
+               }
 		return false;
 	}
 
@@ -3074,8 +3074,9 @@ bool AiAgentImplementation::isAttackableBy(TangibleObject* object) {
 
 	if (isPet()) {
 		ManagedReference<PetControlDevice*> pcd = getControlDevice().get().castTo<PetControlDevice*>();
-		if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && object->isNeutral()) {
-			return false;
+ 
+ 		if (pcd != NULL && pcd->getUseRanged()) {
+ 			return true;
 		}
 
 		ManagedReference<CreatureObject*> owner = getLinkedCreature().get();
@@ -3113,10 +3114,6 @@ bool AiAgentImplementation::isAttackableBy(CreatureObject* object) {
 	}
 
 	if (isPet()) {
-		ManagedReference<PetControlDevice*> pcd = getControlDevice().get().castTo<PetControlDevice*>();
-		if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && object->isNeutral()) {
-			return false;
-		}
 
 		ManagedReference<CreatureObject*> owner = getLinkedCreature().get();
 
@@ -3128,10 +3125,6 @@ bool AiAgentImplementation::isAttackableBy(CreatureObject* object) {
 	}
 
 	if (object->isPet() || object->isVehicleObject()) {
-		ManagedReference<PetControlDevice*> pcd = object->getControlDevice().get().castTo<PetControlDevice*>();
-		if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && isNeutral()) {
-			return false;
-		}
 
 		ManagedReference<CreatureObject*> owner = object->getLinkedCreature().get();
 

@@ -7,6 +7,7 @@
 #include "templates/tangible/CharacterBuilderMenuNode.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/objects/player/sui/messagebox/SuiMessageBox.h"
 
 void CharacterBuilderTerminalImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	TangibleObjectImplementation::loadTemplateData(templateData);
@@ -17,6 +18,9 @@ void CharacterBuilderTerminalImplementation::loadTemplateData(SharedObjectTempla
 		return;
 
 	rootNode = terminalData->getItemList();
+
+    	suiBoxTitle = terminalData->getSuiBoxTitle();
+     	suiBoxText = terminalData->getSuiBoxText();
 
 	//info("loaded " + String::valueOf(itemList.size()));
 }
@@ -48,6 +52,12 @@ void CharacterBuilderTerminalImplementation::sendInitialChoices(CreatureObject* 
 
 	ManagedReference<SuiCharacterBuilderBox*> sui = new SuiCharacterBuilderBox(player, rootNode);
 	sui->setUsingObject(_this.getReferenceUnsafeStaticCast());
+
+        // Over-ride the default box text and title with values loaded from the object's lua template.
+        if (suiBoxTitle != "") {
+        sui->setPromptTitle(suiBoxTitle);
+        sui->setPromptText(suiBoxText);
+     }
 
 	player->sendMessage(sui->generateMessage());
 	player->getPlayerObject()->addSuiBox(sui);
@@ -103,6 +113,7 @@ void CharacterBuilderTerminalImplementation::giveLanguages(CreatureObject* playe
 
 void CharacterBuilderTerminalImplementation::grantGlowyBadges(CreatureObject* player) {
 	CharacterBuilderTerminalTemplate* terminalTemplate = dynamic_cast<CharacterBuilderTerminalTemplate*>(templateObject.get());
+	SkillManager* skillManager = server->getSkillManager();
 
 	if (terminalTemplate == NULL)
 		return;
@@ -116,5 +127,13 @@ void CharacterBuilderTerminalImplementation::grantGlowyBadges(CreatureObject* pl
 
 	for (int i = 0; i < ids.size(); i++) {
 		ghost->awardBadge(ids.get(i));
+		if (ghost->getJediState() == 0) {
+			ghost->setJediState(1);
+		}
+		skillManager->awardSkill("force_title_jedi_novice", player, true, true, true);
+		/*ManagedReference<SuiMessageBox*> box = new SuiMessageBox(player, SuiWindowType::NONE);
+			box->setPromptTitle("Jedi Unlocked by Character Builder");
+			box->setPromptText("Your character has been unlocked, prior to using the jedi terminal you must meditate at force shrine!");
+			ghost->addSuiBox(box);*/
 	}
 }

@@ -85,6 +85,7 @@
 #include "server/zone/managers/player/QuestInfo.h"
 #include "server/zone/objects/player/events/ForceMeditateTask.h"
 #include "server/zone/objects/player/sui/callbacks/FieldFactionChangeSuiCallback.h"
+#include "server/login/packets/ErrorMessage.h"
 
 void PlayerObjectImplementation::initializeTransientMembers() {
 	IntangibleObjectImplementation::initializeTransientMembers();
@@ -120,9 +121,9 @@ void PlayerObjectImplementation::initializeAccount() {
 	if (account != NULL && galaxyAccountInfo == NULL) {
 
 		Locker locker(account);
-		
+
 		galaxyAccountInfo = account->getGalaxyAccountInfo(getZoneServer()->getGalaxyName());
-		
+
 		if (chosenVeteranRewards.size() > 0) {
 			galaxyAccountInfo->updateVetRewardsFromPlayer(chosenVeteranRewards);
 			chosenVeteranRewards.removeAll();
@@ -611,11 +612,13 @@ int PlayerObjectImplementation::addExperience(const String& xpType, int xp, bool
 
 
 
-		if (xp <= 0 && xpType != "jedi_general") {
+		if (xp <= 0 && (xpType != "jedi_general" || xpType != "force_rank_xp")) {
 			removeExperience(xpType, notifyClient);
 			return 0;
 		// -10 million experience cap for Jedi experience loss
 		} else if(xp < -10000000 && xpType == "jedi_general") {
+			xp = -10000000;
+		} else if(xp < -10000000 && xpType == "force_rank_xp") {
 			xp = -10000000;
 		}
 	}
@@ -1298,7 +1301,7 @@ void PlayerObjectImplementation::setTitle(const String& characterTitle, bool not
 	if (title == characterTitle)
 		return;
 
-	if(!characterTitle.isEmpty()){
+	if(!characterTitle.isEmpty() ){
 		Skill* targetSkill = SkillManager::instance()->getSkill(characterTitle);
 
 		if(targetSkill == NULL || !targetSkill->isTitle()) {
@@ -1325,8 +1328,7 @@ void PlayerObjectImplementation::notifyOnline() {
 	ChatManager* chatManager = server->getChatManager();
 	ZoneServer* zoneServer = server->getZoneServer();
 
-	String firstName = playerCreature->getFirstName();
-	firstName = firstName.toLowerCase();
+	String firstName = playerCreature->getFirstName().toLowerCase();
 
 	for (int i = 0; i < friendList.reversePlayerCount(); ++i) {
 		ManagedReference<CreatureObject*> player = chatManager->getPlayer(friendList.getReversePlayer(i));
@@ -1366,6 +1368,137 @@ void PlayerObjectImplementation::notifyOnline() {
 		activateForcePowerRegen();
 
 	schedulePvpTefRemovalTask();
+
+	//Set PVP rating for existing players
+	if (playerCreature->getScreenPlayState("pvpRating") == 0) {
+		playerCreature->setScreenPlayState("pvpRating", 1200);
+	}
+
+	SkillList* skillList = playerCreature->getSkillList();
+	ManagedReference<PlayerObject*> ghost = playerCreature->getPlayerObject();
+	playerCreature->sendExecuteConsoleCommand("/chatRoom join SWG.Core3.TheRising");
+
+	// Check for Old Trainer Method
+	Vector3 coords = ghost->getTrainerCoordinates();
+	//Vector3 coordsOrg = ghost->getTrainerCoordinates();
+	if (coords.getX() != (float)5294.95 && ghost->getJediState() > 1) {
+		Vector3 coords(5294.95, -4123.03, 0); // Temp Location to get all Jedi moved to Dath
+		String zoneName = "dathomir"; // Temp Location to get all Jedi moved to Dath
+		ghost->setTrainerCoordinates(coords); // Temp Location to get all Jedi moved to Dath
+		ghost->setTrainerZoneName(zoneName); // Temp Location to get all Jedi moved to Dath
+		playerCreature->sendExecuteConsoleCommand("/pause 10;/findmytrainer");
+		/*StringBuffer orgCords;
+		orgCords
+		<< "Your Orignal Trainer was located at X: "
+		<< coordsOrg.getX();
+		playerCreature->sendSystemMessage(orgCords.toString());*/
+	}
+
+	//Check for non legit jedi
+	/*if (playerCreature->getScreenPlayState("VillageJediProgression") == 0 && numSpecificSkills(playerCreature, "force_") > 0 && !ghost->isPrivileged()) {
+		while (numSpecificSkills(playerCreature, "force_") > 0) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				String skillName = skillList->get(i)->getSkillName();
+				if(skillName.contains("force_")) {
+					SkillManager::instance()->surrenderSkill(skillName, playerCreature, true);
+				}
+			}
+		}
+		//SkillManager::instance()->surrenderAllSkills(playerCreature, true);
+		ghost->setJediState(0);
+
+		//banning character for 10 minutes
+		PlayerManager* playerManager = server->getPlayerManager();
+		ManagedReference<Account*> account = playerManager->getAccount(ghost->getAccountID());
+		//playerManager->banCharacter(adminGhost, account, playerCreature->getFirstName(), server->getZoneServer()->getGalaxyID(), 10, "Exploit - Bypassed Jedi Unlock Method");
+
+		String reason = "Guilty Of Exploiting Jedi Unlock";
+		String escapedReason = reason;
+		Database::escapeString(escapedReason);
+
+		String escapedName = firstName;
+		Database::escapeString(escapedName);
+		//ManagedReference<CreatureObject*> playerBan = getPlayer(firstName);
+
+		StringBuffer query;
+		query << "INSERT INTO character_bans values (NULL, " << account->getAccountID() << ", " << 0 << ", " << server->getZoneServer()->getGalaxyID() << ", '" << escapedName << "', " <<  "now(), UNIX_TIMESTAMP() + " << 600 << ", '" << escapedReason << "');";
+		ServerDatabase::instance()->executeStatement(query);
+
+		if(ghost != NULL)
+			ghost->setLoggingOut();
+
+		ghost->sendMessage(new LogoutMessage());
+
+		ManagedReference<ZoneClientSession*> session = playerCreature->getClient();
+		ErrorMessage* errmsg = new ErrorMessage("10 Minute Ban", "You have been found Guilty of exploiting the Jedi unlock and have been temporarily banned", 0x0);
+		session->sendMessage(errmsg);
+	}*/
+
+	// Check for force Title without past FRS
+	if (playerCreature->getScreenPlayState("jedi_FRS") == 0 && playerCreature->hasSkill("force_title_jedi_rank_03")) {
+		SkillManager::instance()->surrenderSkill("force_title_jedi_master", playerCreature, true);
+		SkillManager::instance()->surrenderSkill("force_title_jedi_rank_04", playerCreature, true);
+		SkillManager::instance()->surrenderSkill("force_title_jedi_rank_03", playerCreature, true);
+	}
+
+	//Check for Light side FRS without being a rebel
+	if (playerCreature->hasSkill("force_rank_light_novice") && !ghost->isPrivileged() && (playerCreature->getFaction() != 370444368 || playerCreature->getScreenPlayState("jedi_FRS") != 4)) {
+		while (numSpecificSkills(playerCreature, "force_rank_light_") > 0) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				String skillName = skillList->get(i)->getSkillName();
+				if(skillName.contains("force_rank_light_")) {
+					SkillManager::instance()->surrenderSkill(skillName, playerCreature, true);
+				}
+			}
+		}
+		ghost->setJediState(2);
+	}
+	//Check for Dark Side FRS without being Imperial
+	if (playerCreature->hasSkill("force_rank_dark_novice") && !ghost->isPrivileged() && (playerCreature->getFaction() != 3679112276 || playerCreature->getScreenPlayState("jedi_FRS") != 8)) {
+		while (numSpecificSkills(playerCreature, "force_rank_dark_") > 0) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				String skillName = skillList->get(i)->getSkillName();
+				if(skillName.contains("force_rank_dark_")) {
+					SkillManager::instance()->surrenderSkill(skillName, playerCreature, true);
+				}
+			}
+		}
+		ghost->setJediState(2);
+	}
+	//Check for FRS Jedi without overt
+	if ((playerCreature->hasSkill("force_rank_dark_novice") || playerCreature->hasSkill("force_rank_light_novice")) && !ghost->isPrivileged()) {
+		ghost->setFactionStatus(2);
+	}
+
+	// Check for FRS XP
+	if (ghost->getExperience("force_rank_xp") != 0 && numSpecificSkills(playerCreature, "force_rank_") < 1) {
+			int amount = 0;
+			int curExp = ghost->getExperience("force_rank_xp");
+			amount -= curExp;
+			playerCreature->getZoneServer()->getPlayerManager()->awardExperience(playerCreature, "force_rank_xp", amount);
+	}
+	// Check for Jedi XP
+
+	if (ghost->getExperience("jedi_general") != 0 && numSpecificSkills(playerCreature, "force_") < 1) {
+		int amount = 0;
+		int curExp = ghost->getExperience("jedi_general");
+		amount -= curExp;
+		playerCreature->getZoneServer()->getPlayerManager()->awardExperience(playerCreature, "jedi_general", amount);
+	}
+}
+
+int PlayerObjectImplementation::numSpecificSkills(CreatureObject* creature, const String& reqSkillName) {
+	SkillList* skills =  creature->getSkillList();
+	int numSkills = 0;
+
+	for(int i = 0; i < skills->size(); ++i) {
+		String skillName = skills->get(i)->getSkillName();
+		if(skillName.contains(reqSkillName)) {
+			numSkills++;
+		}
+	}
+
+	return numSkills;
 }
 
 void PlayerObjectImplementation::notifyOffline() {
@@ -1622,6 +1755,7 @@ void PlayerObjectImplementation::doRecovery(int latency) {
 	}
 
 	CreatureObject* creature = dynamic_cast<CreatureObject*>(parent.get().get());
+	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 	if (creature == NULL)
 		return;
@@ -1648,6 +1782,46 @@ void PlayerObjectImplementation::doRecovery(int latency) {
 		}
 	}
 
+	//Check for non legit jedi
+	/*SkillList* skillList = creature->getSkillList();
+	if (creature->getScreenPlayState("VillageJediProgression") == 0 && numSpecificSkills(creature, "force_") > 0 && !ghost->isPrivileged()) {
+		while (numSpecificSkills(creature, "force_") > 0) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				String skillName = skillList->get(i)->getSkillName();
+				if(skillName.contains("force_")) {
+					SkillManager::instance()->surrenderSkill(skillName, creature, true);
+				}
+			}
+		}
+		//SkillManager::instance()->surrenderAllSkills(creature, true);
+		ghost->setJediState(0);
+
+		//banning character for 10 minutes
+		PlayerManager* playerManager = server->getPlayerManager();
+		ManagedReference<Account*> account = playerManager->getAccount(ghost->getAccountID());
+		//playerManager->banCharacter(adminGhost, account, creature->getFirstName(), server->getZoneServer()->getGalaxyID(), 10, "Exploit - Bypassed Jedi Unlock Method");
+
+		String escapedReason = "Guilty Of Exploiting Jedi Unlock";
+		Database::escapeString(escapedReason);
+
+		String escapedName = creature->getFirstName().toLowerCase();
+		Database::escapeString(escapedName);
+		//ManagedReference<CreatureObject*> playerBan = getPlayer(firstName);
+
+		StringBuffer query;
+		query << "INSERT INTO character_bans values (NULL, " << account->getAccountID() << ", " << 0 << ", " << server->getZoneServer()->getGalaxyID() << ", '" << escapedName << "', " <<  "now(), UNIX_TIMESTAMP() + " << 600 << ", '" << escapedReason << "');";
+		ServerDatabase::instance()->executeStatement(query);
+
+		if(ghost != NULL)
+			ghost->setLoggingOut();
+
+		ghost->sendMessage(new LogoutMessage());
+
+		ManagedReference<ZoneClientSession*> session = creature->getClient();
+		ErrorMessage* errmsg = new ErrorMessage("10 Minute Ban", "You have been found Guilty of exploiting the Jedi unlock and have been temporarily banned", 0x0);
+		session->sendMessage(errmsg);
+	}*/
+
 	creature->activateHAMRegeneration(latency);
 	creature->activateStateRecovery();
 
@@ -1668,8 +1842,8 @@ void PlayerObjectImplementation::doRecovery(int latency) {
 	if (isOnline()) {
 		CommandQueueActionVector* commandQueue = creature->getCommandQueue();
 
-		if (creature->isInCombat() && creature->getTargetID() != 0 && !creature->isPeaced() && 
-			!creature->hasBuff(STRING_HASHCODE("private_feign_buff")) && (commandQueue->size() == 0) && 
+		if (creature->isInCombat() && creature->getTargetID() != 0 && !creature->isPeaced() &&
+			!creature->hasBuff(STRING_HASHCODE("private_feign_buff")) && (commandQueue->size() == 0) &&
 			creature->isNextActionPast() && !creature->isDead() && !creature->isIncapacitated() &&
 			cooldownTimerMap->isPast("autoAttackDelay")) {
 
@@ -1846,7 +2020,7 @@ void PlayerObjectImplementation::setOnline() {
 
 	clearCharacterBit(PlayerObjectImplementation::LD, true);
 
-	doRecovery(1000);
+	doRecovery(250);
 
 	activateMissions();
 }
@@ -2017,9 +2191,9 @@ void PlayerObjectImplementation::setForcePower(int fp, bool notifyClient) {
 	if(fp == getForcePower())
 		return;
 
-	// Set forcepower back to 0 incase player goes below	
+	// Set forcepower back to 0 incase player goes below
 	if (fp < 0)
-		fp = 0;	
+		fp = 0;
 
 	// Set force back to max incase player goes over
 	if (fp > getForcePowerMax())
@@ -2031,7 +2205,7 @@ void PlayerObjectImplementation::setForcePower(int fp, bool notifyClient) {
 		activateForcePowerRegen();
 	}
 
-	forcePower = fp;			
+	forcePower = fp;
 
 	if (notifyClient == true){
 		// Update the force power bar.
@@ -2064,7 +2238,7 @@ void PlayerObjectImplementation::doForceRegen() {
 	uint32 forceTick = tick * modifier;
 
 	if (forceTick > getForcePowerMax() - getForcePower()){   // If the player's Force Power is going to regen again and it's close to max,
-		setForcePower(getForcePowerMax());             // Set it to max, so it doesn't go over max.
+		setForcePower(getForcePowerMax());			 // Set it to max, so it doesn't go over max.
 	} else {
 		setForcePower(getForcePower() + forceTick); // Otherwise regen normally.
 	}
@@ -2669,4 +2843,3 @@ void PlayerObjectImplementation::doFieldFactionChange(int newStatus) {
 bool PlayerObjectImplementation::isIgnoring(const String& name) {
 	return !name.isEmpty() && ignoreList.contains(name);
 }
-

@@ -30,9 +30,11 @@ enhanced_kwi = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "enhanced_kwi", chance = 10000000}
+				{group = "enhanced_kwi", chance = 5000000},
+				{group = "geonosian_common", chance = 2500000},
+				{group = "geonosian_hard", chance = 2500000}
 			},
-			lootChance = 3120000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

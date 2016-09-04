@@ -1,6 +1,7 @@
 local ObjectManager = require("managers.object.object_manager")
 
 risArmorQuest = ScreenPlay:new {
+	numberOfActs = 1,
 
 	questSchematics = {
 		quest1 = { template = "object/draft_schematic/armor/armor_segment_ris.iff", displayName = "@craft_clothing_ingredients_n:armor_segment_ris" },

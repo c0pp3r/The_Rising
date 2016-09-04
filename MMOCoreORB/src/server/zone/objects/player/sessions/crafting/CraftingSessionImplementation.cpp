@@ -28,6 +28,8 @@
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
 #include "templates/params/RangedIntCustomizationVariable.h"
 
+#include "server/zone/managers/loot/LootManager.h"
+
 
 int CraftingSessionImplementation::initializeSession(CraftingTool* tool, CraftingStation* station) {
 
@@ -487,9 +489,48 @@ void CraftingSessionImplementation::addIngredient(TangibleObject* tano, int slot
 		return;
 	}
 
+	ManagedReference<SceneObject*> craftingComponents = craftingTool->getSlottedObject("crafted_components");
+	ManagedReference<SceneObject*> craftingComponentsSatchel = NULL;
 
-	ManagedReference<SceneObject*> craftingComponentsSatchel = craftingTool->getCraftedComponentsSatchel();
+	if(craftingComponents == NULL) {
 
+		/// Add Components to crafted object
+		String craftingComponentsPath = "object/tangible/crafting/crafting_components_container.iff";
+		craftingComponents = crafter->getZoneServer()->createObject(craftingComponentsPath.hashCode(), 1);
+
+		Locker componentsLocker(craftingComponents);
+
+		craftingComponents->setSendToClient(false);
+		craftingTool->transferObject(craftingComponents, 4, false);
+
+		craftingComponents->setContainerDefaultDenyPermission(ContainerPermissions::OPEN + ContainerPermissions::MOVEIN + ContainerPermissions::MOVEOUT + ContainerPermissions::MOVECONTAINER);
+		craftingComponents->setContainerDefaultAllowPermission(0);
+		craftingComponents->setContainerDenyPermission("owner", ContainerPermissions::OPEN + ContainerPermissions::MOVEIN + ContainerPermissions::MOVEOUT + ContainerPermissions::MOVECONTAINER);
+		craftingComponents->setContainerDenyPermission("admin", ContainerPermissions::OPEN + ContainerPermissions::MOVEIN + ContainerPermissions::MOVEOUT + ContainerPermissions::MOVECONTAINER);
+		craftingComponents->setContainerAllowPermission("owner", 0);
+		craftingComponents->setContainerAllowPermission("admin", 0);
+		craftingComponents->setContainerInheritPermissionsFromParent(false);
+
+		//String craftingComponentsSatchelPath = "object/tangible/container/base/base_container_volume.iff";
+		String craftingComponentsSatchelPath = "object/tangible/hopper/crafting_station_hopper/crafting_station_ingredient_hopper_large.iff";
+		craftingComponentsSatchel = crafter->getZoneServer()->createObject(craftingComponentsSatchelPath.hashCode(), 1);
+
+		Locker satchelLocker(craftingComponentsSatchel, craftingComponents);
+
+		craftingComponentsSatchel->setContainerInheritPermissionsFromParent(false);
+		craftingComponentsSatchel->setContainerDefaultDenyPermission(ContainerPermissions::OPEN + ContainerPermissions::MOVEIN + ContainerPermissions::MOVEOUT + ContainerPermissions::MOVECONTAINER);
+		craftingComponentsSatchel->setContainerDefaultAllowPermission(0);
+		craftingComponentsSatchel->setContainerAllowPermission("admin", ContainerPermissions::OPEN);
+		craftingComponentsSatchel->setContainerDenyPermission("admin", ContainerPermissions::MOVEIN + ContainerPermissions::MOVEOUT + ContainerPermissions::MOVECONTAINER);
+		craftingComponentsSatchel->setContainerAllowPermission("owner", 0);
+		craftingComponentsSatchel->setContainerDenyPermission("owner", ContainerPermissions::OPEN + ContainerPermissions::MOVEIN + ContainerPermissions::MOVEOUT + ContainerPermissions::MOVECONTAINER);
+
+		craftingComponentsSatchel->sendTo(crafter, true);
+		craftingComponents->transferObject(craftingComponentsSatchel, -1, false);
+
+	} else {
+		craftingComponentsSatchel = craftingComponents->getContainerObject(0);
+	}
 	// Lock the craft and satchel as well
 	//Locker crossSatcheLock(craftingComponentsSatchel,crafter);
 	// crafter is pre-locked before entering this method, satchel::trasnferObject is thread safe
@@ -638,7 +679,7 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	manufactureSchematic->setCrafter(crafter);
 
 	String expskill = draftSchematic->getExperimentationSkill();
-	experimentationPointsTotal = int(crafter->getSkillMod(expskill) / 10);
+	experimentationPointsTotal = int((crafter->getSkillMod(expskill) + crafter->getSkillMod("force_experimentation")) / 10);
 	experimentationPointsUsed = 0;
 
 	// Calculate exp failure for red bars
@@ -1169,6 +1210,8 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 	ManagedReference<CreatureObject*> crafter = this->crafter.get();
 	ManagedReference<ManufactureSchematic*> manufactureSchematic = this->manufactureSchematic.get();
 
+	int grantLootChance = 0;
+
 	if (manufactureSchematic == NULL) {
 		sendSlotMessage(clientCounter, IngredientSlot::NOSCHEMATIC);
 		return;
@@ -1192,17 +1235,96 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 
 		if (createItem) {
 
-			startCreationTasks(manufactureSchematic->getComplexity() * 2, false);
+			startCreationTasks(1, false); // 1 Second tool countdown to make sure it works with the client. 
 
 		} else {
 
 			// This is for practicing
-			startCreationTasks(manufactureSchematic->getComplexity() * 2, true);
-			xp = round(xp * 1.05f);
+			startCreationTasks(1, true); // 1 Second tool countdown to make sure it works with the client.
+			xp *= 1.75f; // Default 1.05f for 5%
+			grantLootChance = 1;
 		}
 
 		Reference<PlayerManager*> playerManager = crafter->getZoneServer()->getPlayerManager();
 		playerManager->awardExperience(crafter, xpType, xp, true);
+
+		if (grantLootChance == 1){	
+			ManagedReference<DraftSchematic*> draftSchematic = manufactureSchematic->getDraftSchematic();
+			int itemComplexity = manufactureSchematic->getComplexity();
+			int toolQuality = craftingTool->getEffectiveness();
+			int assemblySkill = crafter->getSkillMod(draftSchematic->getAssemblySkill());
+			if (assemblySkill > 150)
+				assemblySkill = 150; // Cap Assembly Skill
+			
+			int playerRoll = (itemComplexity + toolQuality) + (assemblySkill / 2);
+			int luckRoll = System::random(30);
+			// Set the random goal to beat. Min is 60. Increase 300 to reduce likelihood of winning. 
+			int successTarget = System::random(300) + 60; 
+			
+			// See if they won loot and take action if they did.
+			if ((playerRoll + luckRoll) >= successTarget){				
+				// Get the average quality of the crafted item, based up resources used and experimentation results, and times it by 1000.
+				Reference<CraftingValues*> craftingValues = manufactureSchematic->getCraftingValues();
+				int titleCount = craftingValues->getVisibleExperimentalPropertyTitleSize();
+				if (titleCount <= 0)
+					titleCount = 1; // Prevent divide by zero.
+				float goodness = 0;
+				float cvTemp = 0;
+				for (int i = 0; i < titleCount; i++) {
+					String title = craftingValues->getVisibleExperimentalPropertyTitle(i);
+					cvTemp = craftingValues->getCurrentVisiblePercentage(title);
+					if (cvTemp > goodness)
+						goodness = cvTemp; // Use the highest  % experimentation line avchieved
+				}
+
+				// Determine the winnings. Higher numbers are harder to achieve.
+				int lootGroupAchieved = (itemComplexity + luckRoll) * goodness * assemblySkill * 10;
+				String lootGroup;
+				int level = 0;
+				
+				if (lootGroupAchieved <= 0){
+					// The item being crafted didn't have any quality stats
+					crafter->sendSystemMessage("Sorry, but in order to win loot, you must craft items that can be experimented upon.");
+				}
+				else if (lootGroupAchieved <= 7499){
+					// Resource quality or Assembly skill too low to win an prize
+					crafter->sendSystemMessage("You pause for a moment and wonder what you could do with higher quality resources and more refined skill...");
+				}
+				else if (lootGroupAchieved >= 120000){
+					// Clothing SEA
+					lootGroup = "clothing_attachments";
+					level = luckRoll + 100;
+				}
+				else if (lootGroupAchieved >= 90000){
+					// Armor SEA
+					lootGroup = "armor_attachments";
+					level = luckRoll + 50;
+				}
+				else if (lootGroupAchieved >= 30000){
+					// Junk Loot with a chance for a mid level SEA
+					lootGroup = "junk";
+					level = luckRoll + 10;
+				}
+				else if (lootGroupAchieved >= 7500){
+					// Junk Loot with a chance for a low level SEA
+					lootGroup = "junk";
+					level = 10;
+				}
+				
+				// Send the winnings to the player
+				ManagedReference<SceneObject*> inventory = crafter->getSlottedObject("inventory");
+				if (level > 0 && inventory != NULL) {
+					if (inventory->isContainerFull()) {
+						crafter->sendSystemMessage("Inventory Full! You won a loot item, but it could not be created.");
+					}
+					else{
+						Reference<LootManager*> lootManager = crafter->getZoneServer()->getLootManager();
+						lootManager->createLoot(inventory, lootGroup, level);
+						crafter->sendSystemMessage( "You have received a loot item!");
+					}
+				}
+			}
+		}
 
 		manufactureSchematic->setCompleted();
 

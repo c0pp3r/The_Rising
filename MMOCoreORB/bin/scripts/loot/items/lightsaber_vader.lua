@@ -9,9 +9,9 @@ lightsaber_vader = {
 		{"mindamage",500,1000},
 		{"maxdamage",1000,2000},
 		{"attackspeed",5,2},
-		{"attackhealthcost",50,20},
-		{"attackactioncost",50,20},
-		{"attackmindcost",50,20},
+		{"attackforcecost",6,8,0},
+		{"hitpoints",2500,3500,0},
+
 	},
 	customizationStringNames = {},
 	customizationValues = {}

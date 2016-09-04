@@ -53,7 +53,7 @@ public:
 		float posX = obj->getPositionX(), posZ = obj->getPositionZ(), posY = obj->getPositionY();
 		Quaternion* direction = obj->getDirection();
 
-		msg << "x = " << posX << ", z = " << posZ << ", y = " << posY << ", ow = " << direction->getW()
+		msg << "Client CRC: " << obj->getClientObjectCRC() << endl << "Server CRC: " << obj->getServerObjectCRC() << endl << "x = " << posX << ", z = " << posZ << ", y = " << posY << ", ow = " << direction->getW()
 				<< ", ox = " << direction->getX() << ", oz = " << direction->getZ() << ", oy = " << direction->getY()
 				<< ", cellid = " << cellid;
 
@@ -73,7 +73,7 @@ public:
 					buildingTemplate = building->getServerObjectCRC();
 				}
 
-				msg << endl << "homeX = " << home->getPositionX() << ", homeZ = " << home->getPositionZ() << ", homeY = " << home->getPositionY()
+				msg << endl << "Client CRC: " << obj->getClientObjectCRC() << endl << "Server CRC: " << obj->getServerObjectCRC() << endl << "homeX = " << home->getPositionX() << ", homeZ = " << home->getPositionZ() << ", homeY = " << home->getPositionY()
 						<< ", homeCell = " << cellid;
 
 				if (buildingTemplate != 0)
@@ -90,7 +90,7 @@ public:
 					buildingTemplate = building->getServerObjectCRC();
 				}
 
-				msg << endl << "nextX = " << nextPosition.getPositionX() << ", nextZ = " << nextPosition.getPositionZ() << ", nextY = " << nextPosition.getPositionY()
+				msg << endl << "Client CRC: " << obj->getClientObjectCRC() << endl << "Server CRC: " << obj->getServerObjectCRC() <<  endl << "nextX = " << nextPosition.getPositionX() << ", nextZ = " << nextPosition.getPositionZ() << ", nextY = " << nextPosition.getPositionY()
 						<< ", nextCell = " << cellid;
 
 				if (buildingTemplate != 0)

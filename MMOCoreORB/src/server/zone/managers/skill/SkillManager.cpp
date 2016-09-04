@@ -359,6 +359,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 	creature->sendMessage(msg4);
 
 	SkillModManager::instance()->verifySkillBoxSkillMods(creature);
+	creature->playEffect("clienteffect/cbt_ship_capital_destruction_split_00_02.cef", "");
 
 	return true;
 }
@@ -373,14 +374,14 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 
 	SkillList* skillList = creature->getSkillList();
 
-	if(skillName == "force_title_jedi_novice" && getForceSensitiveSkillCount(creature, true) > 0) {
+	/*if(skillName == "force_title_jedi_novice" && getForceSensitiveSkillCount(creature, true) > 0) {
 		return false;
-	}
+	}*/
 
-	if(skillName.beginsWith("force_sensitive_") &&
+	/*if(skillName.beginsWith("force_sensitive_") &&
 		getForceSensitiveSkillCount(creature, false) <= 24 &&
 		creature->hasSkill("force_title_jedi_rank_01"))
-		return false;
+		return false;*/
 
 	for (int i = 0; i < skillList->size(); ++i) {
 		Skill* checkSkill = skillList->get(i);
@@ -388,10 +389,26 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 		if (checkSkill->isRequiredSkillOf(skill))
 			return false;
 	}
+	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+	if (skillName.contains("force_") && creature->getScreenPlayState("VillageJediProgression") == 0) {
+		if(creature->hasSkill("force_title_jedi_rank_03") && skillName.contains("force_discipline_") && !knightPrereqsMet(creature, skillName)) {
+			return false;
+		}
 
-	if(creature->hasSkill("force_title_jedi_rank_03") && skillName.contains("force_discipline_") && !knightPrereqsMet(creature, skillName)) {
-		return false;
+		//Check if they have FRS
+		if((skillName == "force_title_jedi_rank_03" && creature->hasSkill("force_rank_light_novice") && creature->getScreenPlayState("jedi_FRS") == 4) || (skillName == "force_title_jedi_rank_03" && creature->hasSkill("force_rank_dark_novice") && creature->getScreenPlayState("jedi_FRS") == 8)) {
+			creature->sendSystemMessage("You must leave the FRS before you are able to drop Knight Title");
+			return false;
+		}
+		//Remove Set JediState 2 after leaving the FRS
+		if(skillName == "force_rank_light_novice" || skillName == "force_rank_dark_novice" ) {
+			ghost->setJediState(2);
+			if (creature->getScreenPlayState("jedi_FRS") > 0) {
+				creature->setScreenPlayState("jedi_FRS", 16);
+			}
+		}
 	}
+
 
 	//If they have already surrendered the skill, then return true.
 	if (!creature->hasSkill(skill->getSkillName()))
@@ -401,8 +418,6 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 
 	//Remove skill modifiers
 	VectorMap<String, int>* skillModifiers = skill->getSkillModifiers();
-
-	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 	for (int i = 0; i < skillModifiers->size(); ++i) {
 		VectorMapEntry<String, int>* entry = &skillModifiers->elementAt(i);
@@ -500,8 +515,9 @@ void SkillManager::surrenderAllSkills(CreatureObject* creature, bool notifyClien
 
 	for (int i = 0; i < copyOfList.size(); i++) {
 		Skill* skill = copyOfList.get(i);
+		String skillName = copyOfList.get(i)->getSkillName();
 
-		if (skill->getSkillPointsRequired() > 0) {
+		if (skill->getSkillPointsRequired() > 0 || skillName.contains("force_")) {
 			creature->removeSkill(skill, notifyClient);
 
 			//Remove skill modifiers
@@ -695,27 +711,45 @@ bool SkillManager::fulfillsSkillPrerequisites(const String& skillName, CreatureO
 	if(ghost == NULL || ghost->getJediState() < skill->getJediStateRequired()) {
 		return false;
 	}
-
-	if (ghost->isPrivileged())
-		return true;
-
-	if (skillName.beginsWith("force_sensitive")) { // Check for Force Sensitive boxes.
-		int index = skillName.indexOf("0");
-		if (index != -1) {
-			String skillNameFinal = skillName.subString(0, skillName.length() - 3);
-			if (creature->getScreenPlayState("VillageUnlockScreenPlay:" + skillNameFinal) < 2) {
-				return false;
-			}
-		}
-	}
-
-	if(skillName == "force_title_jedi_rank_01" && getForceSensitiveSkillCount(creature, false) < 24) {
+	if ((skillName.beginsWith("force_sensitive") || skillName.beginsWith("force_discipline")) && creature->getScreenPlayState("VillageJediProgression") == 0 && !creature->hasSkill("force_title_jedi_rank_02")) {
+		creature->sendSystemMessage("You Must Become a Padawan Before You May Train Force Skills");
 		return false;
 	}
 
-	if(skillName == "force_title_jedi_rank_03" && !knightPrereqsMet(creature, "")) {
+	if(skillName.beginsWith("force_rank") && !creature->hasSkill("force_title_jedi_rank_03")) {
+		creature->sendSystemMessage("You must become a Knight prior to joining the FRS");
 		return false;
 	}
+
+	if((skillName == "force_rank_dark_novice" && creature->hasSkill("force_rank_light_novice")) || (skillName == "force_rank_light_novice" && creature->hasSkill("force_rank_dark_novice"))) {
+		creature->sendSystemMessage("You Maynot Join The Oposing FRS");
+		return false;
+	}
+
+	if(skillName == "combat_brawler_novice" && ghost->getJediState() > 2) {
+		creature->sendSystemMessage("You must leave the FRS prior learning novice brawler");
+		return false;
+	}
+
+	/*if(skillName == "force_title_jedi_rank_01" && getForceSensitiveSkillCount(creature, false) < 24) {
+		creature->sendSystemMessage("You Must Spend 24 Skill Points in force sensitive skills prior to training initiate.");
+		return false;
+	}*/
+
+	/*if(skillName == "force_title_jedi_rank_03" && !knightPrereqsMet(creature, "")) {
+		creature->sendSystemMessage("You do not meet the requirements for becoming a Jedi Knight.");
+		return false;
+	}
+
+	if(skillName == "force_title_jedi_rank_04" && (!creature->hasSkill("force_rank_light_rank_08") && !creature->hasSkill("force_rank_dark_rank_08"))) {
+		creature->sendSystemMessage("You do not meet the requirements for becoming a Jedi Guardian.");
+		return false;
+	}
+
+	if(skillName == "force_title_jedi_master" && (!creature->hasSkill("force_rank_light_rank_10") && !creature->hasSkill("force_rank_dark_rank_10"))) {
+		creature->sendSystemMessage("You do not meet the requirements for becoming a Jedi Master.");
+		return false;
+	}*/
 
 	return true;
 }

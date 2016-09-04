@@ -3,7 +3,7 @@ nightsister_elder = Creature:new {
 	randomNameType = NAME_GENERIC,
 	randomNameTag = true,
 	socialGroup = "nightsister",
-	faction = "nightsister",
+	faction = "",
 	level = 278,
 	chanceHit = 27.25,
 	damageMin = 1520,
@@ -31,22 +31,23 @@ nightsister_elder = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "crystals_premium", chance = 800000},
-				{group = "nightsister_common", chance = 2200000},
-				{group = "junk", chance = 1000000},
-				{group = "armor_attachments", chance = 500000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "pistols", chance = 800000},
-				{group = "rifles", chance = 800000},
-				{group = "carbines", chance = 900000},
-				{group = "melee_weapons", chance = 2000000},
-				{group = "wearables_scarce", chance = 500000}
-			}
+				{group = "crystals_premium",  chance = 1000000},
+				{group = "nightsister_common",  chance = 1000000},
+				{group = "armor_attachments",  chance = 1000000},
+				{group = "clothing_attachments",  chance = 1000000},
+				{group = "pistols",  chance = 1000000},
+				{group = "rifles",  chance = 1000000},
+				{group = "carbines",  chance = 1000000},
+				{group = "melee_weapons",  chance = 1000000},
+				{group = "axkva_min",  chance = 1000000},
+				{group = "redeed2",  chance = 1000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(tkamaster,swordsmanmaster,fencermaster,pikemanmaster,brawlermaster,forcepowermaster)
+	attacks = merge(tkamaster,swordsmanmaster,fencermaster,pikemanmaster,brawlermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_elder, "nightsister_elder")

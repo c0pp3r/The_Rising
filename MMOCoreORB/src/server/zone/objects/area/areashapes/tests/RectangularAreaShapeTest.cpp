@@ -40,8 +40,6 @@ public:
 
 	void TearDown() {
 		// Perform clean up of common constructs here.
-		rectangularAreaShape = NULL;
-		intersectsWith = NULL;
 	}
 };
 

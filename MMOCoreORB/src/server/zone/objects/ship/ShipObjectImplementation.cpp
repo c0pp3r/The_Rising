@@ -11,6 +11,10 @@
 #include "server/zone/packets/ship/ShipObjectMessage6.h"
 #include "server/zone/packets/tangible/TangibleObjectMessage8.h"
 #include "server/zone/packets/tangible/TangibleObjectMessage9.h"
+#include "server/zone/Zone.h"
+#include "server/zone/ZoneServer.h"
+#include "server/zone/managers/planet/PlanetManager.h"
+
 
 void ShipObjectImplementation::sendTo(SceneObject* player, bool doClose) {
 	//info("testing");
@@ -53,4 +57,45 @@ void ShipObjectImplementation::sendBaselinesTo(SceneObject* player) {
 
 	BaseMessage* ship9 = new TangibleObjectMessage9(_this);
 	player->sendMessage(ship9);*/
+}
+void ShipObjectImplementation::setParkedLocation(CityRegion* point) {
+	parkedLocation = point;
+}
+
+
+void ShipObjectImplementation::notifyLoadFromDatabase() {
+	TangibleObjectImplementation::notifyLoadFromDatabase();
+	if (isInQuadTree())
+		return;
+
+	if (parkedLocation == NULL) {
+
+		ZoneServer* zoneServer = getZoneServer();
+		if (zoneServer == NULL) {
+			return;
+		}
+
+		Zone* zone = zoneServer->getZone("corellia");
+		if (zone == NULL) {
+			return;
+		}
+
+		PlanetTravelPoint* point = zone->getPlanetManager()->getPlanetTravelPoint("Coronet Starport");
+
+		if (point == NULL) {
+			error("Coronet Starport not found.");
+			return;
+		}
+
+		CityRegion* region = zone->getPlanetManager()->getRegionAt(point->getArrivalPositionX(), point->getArrivalPositionY());
+
+		if (region == NULL) {
+			error("Failed to get CityRegion object");
+			return;
+		}
+
+		parkedLocation = region;
+
+	}
+
 }

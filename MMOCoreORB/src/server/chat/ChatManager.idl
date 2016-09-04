@@ -88,7 +88,7 @@ class ChatManager extends ManagedService implements Logger {
 	public static final int IM_MAXSIZE = 255;
 	public static final int PM_MAXSIZE = 4000;
 	public static final int PM_LIFESPAN = 15552000; // 6 months, in seconds
-	
+
 	// Spatial Chat Flags
 	public static final int CF_PRIVATE = 0x01; // Only the target will see message (difference from TARGET_ONLY?)
 	public static final int CF_UNK1 = 0x02; // ??
@@ -147,16 +147,16 @@ class ChatManager extends ManagedService implements Logger {
 
 	@reference
 	public native ChatRoom createRoom(final string roomName, ChatRoom parent = null);
-	
+
 	@reference
 	public native ChatRoom createPersistentRoom(final string roomName, ChatRoom parent = null);
-	
+
 	public native void destroyRoom(ChatRoom room);
 	public native void destroyRooms();
-	
+
 	@reference
 	public native ChatRoom createGroupRoom(unsigned long groupID, CreatureObject creator);
-	
+
 	public native void handleChatCreateRoom(CreatureObject player, byte permissionFlag, byte moderationFlag, final string roomPath, final string roomTitle, int requestID);
 	public native void sendChatOnCreateRoomError(CreatureObject player, int requestID, int error);
 	public native void handleChatDestroyRoom(CreatureObject player, unsigned int roomID, int requestID);
@@ -176,7 +176,7 @@ class ChatManager extends ManagedService implements Logger {
 
 	@reference
 	public native ChatRoom getChatRoomByFullPath(final string path);
-	
+
 	@reference
 	public native ChatRoom getChatRoomByGamePath(ChatRoom game, final string path);
 	public native string getRoomNameFromPath(final string path);
@@ -378,7 +378,7 @@ class ChatManager extends ManagedService implements Logger {
 
 	@local
 	public native int sendMail(final string sendername, final unicode subject, final unicode body, final string recipientName, StringIdChatParameterVector stringIdParameters, WaypointChatParameterVector waypointParameters);
-	
+
 	//////////////////////////////////////////////////////
 
 
@@ -438,4 +438,3 @@ class ChatManager extends ManagedService implements Logger {
 		return socialTypes.get(id);
 	}
 }
-

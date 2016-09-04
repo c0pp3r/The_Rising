@@ -198,7 +198,7 @@ const static char* MoodStr[][2]= {
 	{"exasperated", "disgruntled"},
 	{"exuberant", "happy"},
 	{"fanatical", "neutral"},
-	{ "forgive", "neutral"},
+	{"forgive", "neutral"},
 	{"frustrated", "neutral"},
 	{"guilty", "neutral"},
 	{"happy", "happy"},

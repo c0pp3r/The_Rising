@@ -23,13 +23,13 @@ vhaunda = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED + CONVERSABLE,
+	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_vhaunda.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "theme_park_smc_vhaunda_izaryx_mission_giver_convotemplate",
+	conversationTemplate = "",
 	attacks = {
 	}
 }

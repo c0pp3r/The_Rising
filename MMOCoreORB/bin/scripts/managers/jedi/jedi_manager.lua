@@ -67,4 +67,3 @@ function JediManager:onFSTreeCompleted(pCreatureObject, branch)
 end
 
 return JediManager
-

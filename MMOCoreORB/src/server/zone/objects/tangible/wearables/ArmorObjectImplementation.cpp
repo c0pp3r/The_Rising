@@ -351,12 +351,12 @@ void ArmorObjectImplementation::updateCraftingValues(CraftingValues* values, boo
 		setConditionDamage(0);
 	}
 
-	setHealthEncumbrance((int) values->getCurrentValue(
-			"armor_health_encumbrance"));
-	setActionEncumbrance((int) values->getCurrentValue(
-			"armor_action_encumbrance"));
-	setMindEncumbrance((int) values->getCurrentValue(
-			"armor_mind_encumbrance"));
+	setHealthEncumbrance(MAX((int) values->getCurrentValue(
+			"armor_health_encumbrance"), 0));
+	setActionEncumbrance(MAX((int) values->getCurrentValue(
+			"armor_action_encumbrance"), 0));
+	setMindEncumbrance(MAX((int) values->getCurrentValue(
+			"armor_mind_encumbrance"), 0 ));
 
 	setMaxCondition((int) values->getCurrentValue("armor_integrity"));
 

@@ -1,3 +1,7 @@
+--New Content
+includeFile("custom_content/serverobjects.lua")
+includeFile("force_trainers/serverobjects.lua")
+
 -- Conversations
 includeFile("conversations.lua")
 
@@ -21,6 +25,8 @@ includeFile("thug/serverobjects.lua")
 includeFile("townsperson/serverobjects.lua")
 includeFile("tutorial/serverobjects.lua")
 includeFile("yavin4/serverobjects.lua")
+--includeFile("isd/serverobjects.lua")
+includeFile("kaas/serverobjects.lua")
 
 includeFile("faction/serverobjects.lua")
 includeFile("dungeon/serverobjects.lua") 
@@ -42,3 +48,7 @@ includeFile("lair/serverobjects.lua")
 
 -- Outfits
 includeFile("outfits/serverobjects.lua")
+includeFile("hondo/serverobjects.lua")
+
+--GCW
+includeFile("gcw_transitsystem/serverobjects.lua")

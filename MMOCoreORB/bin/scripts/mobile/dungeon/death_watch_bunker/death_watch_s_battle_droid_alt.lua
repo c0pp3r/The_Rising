@@ -30,10 +30,23 @@ death_watch_s_battle_droid_alt = Creature:new {
 		"object/mobile/death_watch_s_battle_droid.iff",
 		"object/mobile/death_watch_s_battle_droid_02.iff",
 		"object/mobile/death_watch_s_battle_droid_03.iff"},
-	lootGroups = {},
+		lootGroups = {
+			{
+				groups = {
+					{group = "death_watch_bunker_lieutenants", chance = 5500000},
+					{group = "rifles", chance = 1000000},
+					{group = "pistols", chance = 1000000},
+					{group = "clothing_attachments", chance = 1000000},
+					{group = "armor_attachments", chance = 1000000},
+					{group = "death_watch_bunker_ingredient_binary", chance = 500000},
+					{group = "death_watch_bunker_ingredient_protective", chance = 500000}
+				},
+				lootChance = 10000000
+			}
+		},
 	conversationTemplate = "",
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
-	defaultAttack = "attack"
+	defaultAttack = "creaturerangedattack"
 }
 
 CreatureTemplates:addCreatureTemplate(death_watch_s_battle_droid_alt, "death_watch_s_battle_droid_alt")

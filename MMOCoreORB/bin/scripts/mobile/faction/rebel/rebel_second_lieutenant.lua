@@ -47,7 +47,8 @@ rebel_second_lieutenant = Creature:new {
 				{group = "armor_attachments", chance = 150000},
 				{group = "rebel_officer_common", chance = 450000},
 				{group = "wearables_common", chance = 1000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_medium"},

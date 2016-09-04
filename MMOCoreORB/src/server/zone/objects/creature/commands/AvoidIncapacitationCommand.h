@@ -39,7 +39,6 @@ public:
 			return doJediSelfBuffCommand(creature);
 		}
 	}
-
 };
 
 #endif //AVOIDINCAPACITATIONCOMMAND_H_

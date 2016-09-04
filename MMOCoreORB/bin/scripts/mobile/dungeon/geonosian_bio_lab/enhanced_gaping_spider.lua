@@ -3,15 +3,15 @@ enhanced_gaping_spider = Creature:new {
 	customName = "Fire Breathing Spider",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 108,
+	level = 300,
 	chanceHit = 2.5,
-	damageMin = 715,
-	damageMax = 1140,
+	damageMin = 1715,
+	damageMax = 2540,
 	baseXp = 10267,
-	baseHAM = 32000,
-	baseHAMmax = 39000,
-	armor = 2,
-	resists = {150,10,-1,195,-1,10,10,10,-1},
+	baseHAM = 52000,
+	baseHAMmax = 82000,
+	armor = 3,
+	resists = {50,50,50,50,50,50,50,50,50},
 	meatType = "meat_insect",
 	meatAmount = 50,
 	hideType = "",
@@ -32,14 +32,28 @@ enhanced_gaping_spider = Creature:new {
 		{
 			groups = {
 				{group = "fire_breathing_spider", chance = 10000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"creature_spit_heavy_flame"},
 	conversationTemplate = "",
 	attacks = {
-		{"strongpoison",""},
-		{"stunattack",""}
+		{"creatureareacombo","StateAccuracyBonus=100"},
+		{"creatureareaknockdown","StateAccuracyBonus=100"},
+		{"knockdownattack","KnockdownChance=100"},
+		{"creatureareaknockdown","KnockdownChance=100"},
+		{"dizzyattack","DizzyChance=100"},
+		{"stunattack","StunChance=100"},
+		{"mildpoison","PoisonChance=100"},
+		{"intimidationattack","IntimidationChance=100"},
+		{"mediumpoison","PoisonChance=100"},
+		{"creatureareapoison","PoisonChance=100"},
+		{"mediumDisease","DiseaseChance=100"},
+		{"mildDisease","DiseaseChance=100"},
+		{"strongpoison","PoisonChance=100"},
+		{"strongDisease","DiseaseChance=100"},
+		{"creatureareaattack","StateAccuracyBonus=100"}
 	}
 }
 

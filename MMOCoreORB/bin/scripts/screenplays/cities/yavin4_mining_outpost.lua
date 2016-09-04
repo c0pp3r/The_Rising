@@ -31,5 +31,4 @@ function Yavin4MiningOutpostScreenPlay:spawnMobiles()
 	--building empty
 	pNpc = spawnMobile("yavin4", "ithorian_male",60,3.6,0.1,-0.5,0,1713372)
 	self:setMoodString(pNpc, "npc_sitting_chair")
-
 end

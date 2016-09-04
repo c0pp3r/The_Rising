@@ -68,6 +68,7 @@ public:
 			playerManager->kickUser(player->getFirstName(), creature->getCustomObjectName().toString(), reason);
 
 			creature->sendSystemMessage(player->getFirstName() + " kicked.");
+			//player->sendExecuteConsoleCommand("/quit");
 
 		} catch (Exception& e) {
 			creature->sendSystemMessage("invalid arguments for kick command.");

@@ -125,6 +125,12 @@ object_building_poi_scout_camp_s3 = object_building_poi_shared_scout_camp_s3:new
 			cellid = -1,
 			containmentType = -1},
 
+		{templateFile = "object/tangible/terminal/terminal_mission.iff",
+			x = -4, z = 0, y = 7,
+			ox = 0, oy = 0, oz = 0, ow = 0,
+			cellid = -1,
+			containmentType = -1},
+
 	}
 }
 

@@ -31,23 +31,23 @@ nightsister_spell_weaver = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "crystals_quality", chance = 500000},
+				{group = "crystals_good", chance = 500000},
 				{group = "color_crystals", chance = 500000},
-				{group = "nightsister_common", chance = 2300000},
-				{group = "armor_attachments", chance = 300000},
-				{group = "clothing_attachments", chance = 300000},
-				{group = "melee_weapons", chance = 2100000},
+				{group = "nightsister_common", chance = 2000000},
+				{group = "armor_attachments", chance = 1000000},
+				{group = "clothing_attachments", chance = 1000000},
+				{group = "melee_weapons", chance = 2000000},
 				{group = "rifles", chance = 1000000},
-				{group = "pistols", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "wearables_common", chance = 500000},
-				{group = "tailor_components", chance = 500000}
-			}
+				{group = "pistols", chance = 500000},
+				{group = "axkva_min", chance = 500000},
+				{group = "carbines", chance = 1000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(fencermid,swordsmanmid,pikemanmaster,tkamaster,brawlermaster,forcewielder)
+	attacks = merge(fencermid,swordsmanmid,pikemanmaster,tkamaster,brawlermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_spell_weaver, "nightsister_spell_weaver")

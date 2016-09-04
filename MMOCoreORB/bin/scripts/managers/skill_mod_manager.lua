@@ -63,9 +63,10 @@ skillModLimits = {
 }
 
 disabledWearableSkillMods = {
-	"combat_healing_ability",
-	"healing_ability",
-	"keep_creature",
-	"stored_pets",
-	"combat_medic_effectiveness",
+	"force_power_light",
+	"force_power_dark",
+	"force_manipulation_light",
+	"force_control_dark",
+	"force_control_light",
+	"force_manipulation_dark"
 }

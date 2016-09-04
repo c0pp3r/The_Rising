@@ -51,7 +51,7 @@ public:
 				return;
 			}
 
-			player->sendSystemMessage("@gcw:handle_go_covert"); // You will be flagged as a Combatant in 30 seconds.
+			player->sendSystemMessage("@gcw:handle_go_covert"); // You will be flagged as a Combatant in 1 seconds.
 			player->setPvpStatusBit(CreatureFlag::CHANGEFACTIONSTATUS);
 
 			ManagedReference<CreatureObject*> creo = player->asCreatureObject();
@@ -64,12 +64,18 @@ public:
 					if (ghost != NULL)
 						ghost->setFactionStatus(FactionStatus::COVERT);
 				}
-			}, "UpdateFactionStatusTask", 30000);
+			}, "UpdateFactionStatusTask", 1000);
 		} else if (newStatus == FactionStatus::OVERT) {
-			player->sendSystemMessage("You will be flagged as Special Forces in 5 minutes."); // No string available for overt.
+			player->sendSystemMessage("You will be flagged as Special Forces in 1 second."); // No string available for overt.
 			player->setPvpStatusBit(CreatureFlag::CHANGEFACTIONSTATUS);
 
 			ManagedReference<CreatureObject*> creo = player->asCreatureObject();
+ 			//Broadcast to Server
+			String playerName = player->getFirstName();
+			StringBuffer zBroadcast;
+			zBroadcast << "\\#00e604" << playerName << " \\#669999 Has Started A GCW Battle";
+			player->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			player->playEffect("clienteffect/combat_special_defender_rally.cef", "Head");
 
 			Core::getTaskManager()->scheduleTask([creo]{
 				if(creo != NULL) {
@@ -79,7 +85,7 @@ public:
 					if (ghost != NULL)
 						ghost->setFactionStatus(FactionStatus::OVERT);
 				}
-			}, "UpdateFactionStatusTask", 300000);
+			}, "UpdateFactionStatusTask", 1000);
 		}
 	}
 };

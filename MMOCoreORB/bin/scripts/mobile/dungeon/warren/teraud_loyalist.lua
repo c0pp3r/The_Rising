@@ -41,7 +41,8 @@ teraud_loyalist = Creature:new {
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
 				{group = "wearables_common", chance = 1500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_medium"},

@@ -45,6 +45,11 @@ void AttachmentImplementation::updateCraftingValues(CraftingValues* values, bool
 	}
 }
 
+void AttachmentImplementation::setCraftingValues(const String& modName) {
+			int mod = 25;
+		skillModMap.put(modName, mod);
+}
+
 void AttachmentImplementation::initializeMembers() {
 	if (gameObjectType == SceneObjectType::CLOTHINGATTACHMENT) {
 		setOptionsBitmask(32, true);

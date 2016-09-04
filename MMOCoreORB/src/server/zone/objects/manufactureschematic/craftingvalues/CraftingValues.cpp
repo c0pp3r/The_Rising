@@ -52,9 +52,8 @@ CraftingValues::CraftingValues(const ValuesMap& values) : Object(), Serializable
 }
 
 CraftingValues::~CraftingValues() {
-	experimentalValuesMap.removeAll();
-	schematic = NULL;
-	player = NULL;
+	//valuesToSend.removeAll();
+	//info("Deleting CraftingValues");
 }
 
 void CraftingValues::setManufactureSchematic(ManufactureSchematic* manu) {

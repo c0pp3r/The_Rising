@@ -2936,13 +2936,7 @@ bool CreatureObjectImplementation::isAttackableBy(CreatureObject* object, bool b
 	}
 
 	if (object->isAiAgent()) {
-
 		if (object->isPet()) {
-			ManagedReference<PetControlDevice*> pcd = object->getControlDevice().get().castTo<PetControlDevice*>();
-			if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && isNeutral()) {
-				return false;
-			}
-
 			ManagedReference<CreatureObject*> owner = object->getLinkedCreature().get();
 
 			if (owner == NULL)

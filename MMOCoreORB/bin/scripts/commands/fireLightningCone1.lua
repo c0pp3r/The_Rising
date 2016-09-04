@@ -64,4 +64,3 @@ FireLightningCone1Command = {
 }
 
 AddCommand(FireLightningCone1Command)
-

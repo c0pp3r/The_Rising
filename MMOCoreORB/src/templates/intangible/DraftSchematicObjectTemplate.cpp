@@ -52,7 +52,6 @@ DraftSchematicObjectTemplate::~DraftSchematicObjectTemplate() {
 	delete ingredientTemplateNames;
 	delete ingredientTitleNames;
 	delete ingredientSlotType;
-	delete ingredientAppearance;
 	delete resourceTypes;
 	delete resourceQuantities;
 	delete contribution;

@@ -83,8 +83,6 @@ void LoginServerImplementation::start(int p, int mconn) {
 }
 
 void LoginServerImplementation::stop() {
-	shutdown();
-
 	datagramService->stop();
 }
 

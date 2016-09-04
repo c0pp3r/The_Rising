@@ -31,8 +31,8 @@ spiderclan_protector = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1500000},
-				{group = "crystals_select", chance = 500000},
+				{group = "axkva_min", chance = 100000},
+				{group = "crystals_select", chance = 1100000},
 				{group = "color_crystals", chance = 500000},
 				{group = "armor_attachments", chance = 450000},
 				{group = "clothing_attachments", chance = 450000},
@@ -40,13 +40,15 @@ spiderclan_protector = Creature:new {
 				{group = "pistols", chance = 1000000},
 				{group = "rifles", chance = 1000000},
 				{group = "carbines", chance = 1000000},
-				{group = "wearables_all", chance = 500000}
+				{group = "wearables_all", chance = 500000},
+				{group = "redeed1", chance = 500000},
+				{group = "redeed2", chance = 300000}
 			}
 		}
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,pikemanmaster,forcewielder)
+	attacks = merge(brawlermaster,pikemanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(spiderclan_protector, "spiderclan_protector")

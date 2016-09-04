@@ -41,10 +41,12 @@ int PrecisionLaserKnifeImplementation::handleObjectMenuSelect(CreatureObject* pl
 			return 0;
 		}
 
+/*
 		MissionTerminal* terminal = target.castTo<MissionTerminal*>();
 
 		if (terminal == NULL || terminal->isBountyTerminal())
 			return 0;
+*/
 
 		ManagedReference<CityRegion*> city = player->getCityRegion();
 		if (city != NULL && !city->isClientRegion() && city->isBanned(player->getObjectID())) {

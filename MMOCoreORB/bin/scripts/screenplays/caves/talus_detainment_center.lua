@@ -27,6 +27,7 @@ function TalusDetainmentCenterScreenPlay:start()
 		else
 			self:spawnImperials(pBuilding)
 		end
+		self:spawnOutsideMobiles()
 	end
 end
 
@@ -42,6 +43,10 @@ function TalusDetainmentCenterScreenPlay:flipBase(pBuilding)
 	end)
 
 	return 0
+end
+
+function TalusDetainmentCenterScreenPlay:spawnOutsideMobiles()
+	spawnMobile("talus", "ep3_clone_relics_durge", 3600, 4965.16, 450, -5982, -21, 0)
 end
 
 function TalusDetainmentCenterScreenPlay:spawnImperials(pBuilding)
@@ -129,4 +134,3 @@ function TalusDetainmentCenterScreenPlay:spawnRebels(pBuilding)
 
 	end)
 end
-

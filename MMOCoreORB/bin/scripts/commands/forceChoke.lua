@@ -45,9 +45,9 @@ ForceChokeCommand = {
   name = "forcechoke",
 
   minDamage = 175,
-  maxDamage = 375,
-  speed = 6.0,
-  forceCost = 400,
+  maxDamage = 1375,
+  speed = 3.0,
+  forceCost = 500,
   visMod = 25,
   forceAttack = true,
   accuracyBonus = 95,
@@ -57,7 +57,7 @@ ForceChokeCommand = {
 
   combatSpam = "forcechoke",
 
-  poolsToDamage = HEALTH_ATTRIBUTE,
+  poolsToDamage = RANDOM_ATTRIBUTE,
   damageType = LIGHTSABER_DAMAGE,
 
   range = 32,
@@ -87,6 +87,17 @@ ForceChokeCommand = {
     35,
     33.0,
     0.33
+    ),
+
+    DotEffect(
+    BLEEDING,
+    { "resistance_bleeding", "bleed_resist" },
+    MIND,
+    true,
+    0,
+    100,
+    60, 
+    60
     ),
 
     DotEffect(

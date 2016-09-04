@@ -4,12 +4,12 @@ hal_horn_missions =
 			missionType = "retrieve",
 			primarySpawns =
 			{
-				{ npcTemplate = "doogo", npcName = "Doogo" }
+				{ npcTemplate = "doogo", planetName = "corellia", npcName = "Doogo" }
 			},
 			secondarySpawns =
 			{
-				{ npcTemplate = "thug", npcName = "a thug" },
-				{ npcTemplate = "thug", npcName = "a thug" }
+				{ npcTemplate = "thug", planetName = "corellia", npcName = "a thug" },
+				{ npcTemplate = "thug", planetName = "corellia", npcName = "a thug" }
 			},
 			itemSpawns =
 			{
@@ -24,12 +24,12 @@ hal_horn_missions =
 			missionType = "escort",
 			primarySpawns =
 			{
-				{ npcTemplate = "mwaloob", npcName = "Mwaloob" }
+				{ npcTemplate = "mwaloob", planetName = "corellia", npcName = "Mwaloob" }
 			},
 			secondarySpawns =
 			{
-				{ npcTemplate = "thug", npcName = "a thug" },
-				{ npcTemplate = "thug", npcName = "a thug" }
+				{ npcTemplate = "thug", planetName = "corellia", npcName = "a thug" },
+				{ npcTemplate = "thug", planetName = "corellia", npcName = "a thug" }
 			},
 			itemSpawns = {},
 			rewards =
@@ -41,13 +41,13 @@ hal_horn_missions =
 			missionType = "escort",
 			primarySpawns =
 			{
-				{ npcTemplate = "sporg_lutwink", npcName = "Sporg Lutwink" }
+				{ npcTemplate = "sporg_lutwink", planetName = "corellia", npcName = "Sporg Lutwink" }
 			},
 			secondarySpawns =
 			{
-				{ npcTemplate = "smuggler", npcName = "a smuggler" },
-				{ npcTemplate = "smuggler", npcName = "a smuggler" },
-				{ npcTemplate = "smuggler", npcName = "a smuggler" }
+				{ npcTemplate = "smuggler", planetName = "corellia", npcName = "a smuggler" },
+				{ npcTemplate = "smuggler", planetName = "corellia", npcName = "a smuggler" },
+				{ npcTemplate = "smuggler", planetName = "corellia", npcName = "a smuggler" }
 			},
 			itemSpawns = {},
 			rewards =
@@ -60,7 +60,7 @@ hal_horn_missions =
 npcMapHalHorn =
 	{
 		{
-			spawnData = { npcTemplate = "hal_horn", x = -15.05, z = 2.25, y = 11.14, direction = 0, cellID = 1935472, position = STAND },
+			spawnData = { planetName = "corellia", npcTemplate = "hal_horn", x = -15.05, z = 2.25, y = 11.14, direction = 0, cellID = 1935472, position = STAND },
 			worldPosition = { x = -5516, y = -2805 },
 			npcNumber = 1,
 			stfFile = "@static_npc/corellia/hal_horn",
@@ -69,10 +69,10 @@ npcMapHalHorn =
 	}
 
 HalHorn = ThemeParkLogic:new {
+	numberOfActs = 1,
 	npcMap = npcMapHalHorn,
 	className = "HalHorn",
 	screenPlayState = "hal_horn_quest",
-	planetName = "corellia",
 	distance = 800
 }
 

@@ -287,6 +287,15 @@ int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* 
 }
 
 int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) {
+	if (weapon->getMinDamage() < 1 ||
+			weapon->getMinDamage() > 50000 ||
+			weapon->getMaxDamage() < 1 ||
+			weapon->getMaxDamage() > 50000) {
+		Locker locker(weapon);
+		weapon->setMinDamage(5);
+		weapon->setMaxDamage(10);
+		info(attacker->getFirstName() + " was found using a bugged weapon!!", true);
+	}
 	if (defender->isEntertaining())
 		defender->stopEntertaining();
 
@@ -895,6 +904,14 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 
 	int damageDivisor = attacker->getSkillMod("private_damage_divisor");
 
+	// Verify Attacker has valid damageDivisor
+	if (damageDivisor > 1) {
+		if (!attacker->hasState(CreatureState::INTIMIDATED) || !attacker->hasBuff(BuffCRC::JEDI_FORCE_RUN_2) || !attacker->hasBuff(BuffCRC::JEDI_FORCE_RUN_3))
+			//damageDivisor = 0;
+			info(attacker->getFirstName() + " has private_damage_divisor " + String::valueOf(damageDivisor) + " when they shouldn't!");
+			//attacker->addSkillMod(SkillModManager::BUFF, "private_damage_divisor", -damageDivisor);
+	}
+
 	if (damageDivisor != 0)
 		damage /= damageDivisor;
 
@@ -1085,15 +1102,35 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		return damage;
 	}
 
+	float rawDamage = damage;
+	ManagedReference<PlayerObject*> defenderGhost = defender->getPlayerObject();
+	int forceControl = 0;
+	if(defenderGhost->getJediState() == 4) {
+		forceControl = defender->getSkillMod("force_control_light");
+	} else if (defenderGhost->getJediState() == 8) {
+		forceControl = defender->getSkillMod("force_control_dark");
+	}
+
 	if (!data.isForceAttack()) {
 		// Force Armor
-		float rawDamage = damage;
 
 		int forceArmor = defender->getSkillMod("force_armor");
 		if (forceArmor > 0) {
-			float dmgAbsorbed = rawDamage - (damage *= 1.f - (forceArmor / 100.f));
+			float dmgAbsorbed = ((forceArmor + (forceControl / 3)) / 100.f) * rawDamage;
+			float dmgInfo = damage *= 1.f;
 			defender->notifyObservers(ObserverEventType::FORCEBUFFHIT, attacker, dmgAbsorbed);
 			sendMitigationCombatSpam(defender, NULL, (int)dmgAbsorbed, FORCEARMOR);
+			StringBuffer dmgAbsorbedInfo;
+			dmgAbsorbedInfo
+			<< "((forceArmor:"
+			<< forceArmor
+			<< " + (forceControl:"
+			<< forceControl
+			<< " / 3)) / 100.f) * rawDamage:"
+			<< rawDamage
+			<< "; = "
+			<< dmgAbsorbed;
+			//info(dmgAbsorbedInfo, true);
 		}
 	} else {
 		float jediBuffDamage = 0;
@@ -1102,14 +1139,14 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		// Force Shield
 		int forceShield = defender->getSkillMod("force_shield");
 		if (forceShield > 0) {
-			jediBuffDamage = rawDamage - (damage *= 1.f - (forceShield / 100.f));
+			jediBuffDamage = ((forceShield + (forceControl / 3)) / 100.f) * rawDamage;
 			sendMitigationCombatSpam(defender, NULL, (int)jediBuffDamage, FORCESHIELD);
 		}
 
 		// Force Feedback
 		int forceFeedback = defender->getSkillMod("force_feedback");
 		if (forceFeedback > 0 && (defender->hasBuff(BuffCRC::JEDI_FORCE_FEEDBACK_1) || defender->hasBuff(BuffCRC::JEDI_FORCE_FEEDBACK_2))) {
-			float feedbackDmg = rawDamage * (forceFeedback / 100.f);
+			float feedbackDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
 			float splitDmg = feedbackDmg / 3;
 
 			attacker->inflictDamage(defender, CreatureAttribute::HEALTH, splitDmg, true, true, true);
@@ -1122,7 +1159,9 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		// Force Absorb
 		if (defender->getSkillMod("force_absorb") > 0 && defender->isPlayerCreature()) {
 			ManagedReference<PlayerObject*> playerObject = defender->getPlayerObject();
+			//int forceFeedback = defender->getSkillMod("force_absorb");
 			if (playerObject != NULL) {
+				//float forceAbsorbDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
 				playerObject->setForcePower(playerObject->getForcePower() + (damage * 0.5));
 				sendMitigationCombatSpam(defender, NULL, (int)damage * 0.5, FORCEABSORB);
 				defender->playEffect("clienteffect/pl_force_absorb_hit.cef", "");
@@ -1174,9 +1213,19 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		}
 
 		// inflict condition damage
+		StringBuffer damageInfo;
+		damageInfo
+		<< "Damage Type is: "
+		<< damageType
+		<< " | Your Armor Resistance to LS is: "
+		<< getArmorObjectReduction(armor, 16);
+		info(damageInfo);
 		Locker alocker(armor);
-
-		armor->inflictDamage(armor, 0, damage * 0.1, true, true);
+		if (getArmorObjectReduction(armor, 16) > 0 && damageType == 16) {
+			armor->inflictDamage(armor, 0, damage * 5, true, true);
+		} else {
+			armor->inflictDamage(armor, 0, damage * 0.1, true, true);
+		}
 	}
 
 	return damage;
@@ -1500,9 +1549,13 @@ int CombatManager::getHitChance(TangibleObject* attacker, CreatureObject* target
 
 		// saber block is special because it's just a % chance to block based on the skillmod
 		if (def == "saber_block") {
-			if (!attacker->isTurret() && (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK) && ((System::random(100)) < targetCreature->getSkillMod(def)))
-				return RICOCHET;
-			else return HIT;
+            int block_mod = targetCreature->getSkillMod(def);
+            if (targetCreature->isIntimidated()) {
+                block_mod = (block_mod / 2);
+            }
+            if (!attacker->isTurret() && (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK) && ((System::random(100)) < block_mod))
+                return RICOCHET;
+            else return HIT;
 		}
 
 		targetDefense = getDefenderSecondaryDefenseModifier(targetCreature);

@@ -28,8 +28,8 @@ imperial_probe_drone = Creature:new {
 	templates = {"object/mobile/probot.iff"},
 	lootGroups = {},
 	conversationTemplate = "",
-	weapons = {"droid_probot_ranged"},
-	defaultAttack = "attack",
+	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
+	defaultAttack = "creaturerangedattack",
 
 }
 

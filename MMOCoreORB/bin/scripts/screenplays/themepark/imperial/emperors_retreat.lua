@@ -1,6 +1,7 @@
 local ObjectManager = require("managers.object.object_manager")
 
 EmperorsRetreatScreenPlay = ScreenPlay:new {
+	numberOfActs = 1,
 
 	screenplayName = "EmperorsRetreatScreenPlay",
 }

@@ -38,7 +38,8 @@ mokk_shaman = Creature:new {
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
 				{group = "color_crystals", chance = 1000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"primitive_weapons"},

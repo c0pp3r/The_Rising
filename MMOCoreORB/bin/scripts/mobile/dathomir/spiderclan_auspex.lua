@@ -31,7 +31,7 @@ spiderclan_auspex = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1500000},
+				{group = "axkva_min", chance = 1500000},
 				{group = "crystals_quality", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "armor_attachments", chance = 400000},
@@ -47,7 +47,7 @@ spiderclan_auspex = Creature:new {
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,pikemanmaster,forcewielder)
+	attacks = merge(brawlermaster,pikemanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(spiderclan_auspex, "spiderclan_auspex")

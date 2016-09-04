@@ -30,7 +30,7 @@ dz70_crafted_advanced = Creature:new {
 	},
 	lootGroups = {},
 	defaultAttack = "attack",
-	weapons = {"droid_probot_ranged"},
+	defaultWeapon = "object/weapon/ranged/droid/droid_probot_ranged.iff",
 	conversationTemplate = "",
 }
 

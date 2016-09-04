@@ -9,7 +9,6 @@ import server.zone.objects.scene.SceneObject;
 import engine.lua.LuaObject;
 import server.zone.objects.creature.CreatureObject;
 import server.zone.Zone;
-import server.zone.packets.object.ObjectMenuResponse;
 import server.zone.objects.tangible.ticket.TicketObject;
 
 class TicketCollector extends Terminal {
@@ -31,8 +30,9 @@ class TicketCollector extends Terminal {
 	 * @returns 0 if successfull
 	 */
 	public native int handleObjectMenuSelect(CreatureObject player, byte selectedID);
-
-	public native void fillObjectMenuResponse(ObjectMenuResponse menuResponse, CreatureObject player);
+	
+	@dirty
+	public native void useTicket(CreatureObject player, TicketObject ticket);
 	
 	@dirty
 	public boolean isTicketCollector() {

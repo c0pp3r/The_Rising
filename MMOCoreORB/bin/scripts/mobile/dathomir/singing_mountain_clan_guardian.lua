@@ -31,23 +31,24 @@ singing_mountain_clan_guardian = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1500000},
-				{group = "crystals_select", chance = 500000},
-				{group = "color_crystals", chance = 500000},
-				{group = "armor_attachments", chance = 450000},
-				{group = "clothing_attachments", chance = 450000},
-				{group = "melee_weapons", chance = 2600000},
-				{group = "rifles", chance = 1000000},
-				{group = "pistols", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "wearables_uncommon", chance = 500000},
-				{group = "tailor_components", chance = 500000}
+				{group = "crystals_premium",  chance = 500000},
+				{group = "crystals_select",  chance = 1500000},
+				{group = "color_crystals",  chance = 500000},
+				{group = "nightsister_common",  chance = 1300000},
+				{group = "armor_attachments",  chance = 350000},
+				{group = "clothing_attachments",  chance = 1350000},
+				{group = "melee_weapons",  chance = 2000000},
+				{group = "rifles",  chance = 500000},
+				{group = "pistols",  chance = 500000},
+				{group = "carbines",  chance = 500000},
+				{group = "redeed1",  chance = 500000},
+				{group = "axkva_min",  chance = 500000}
 			}
 		}
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,pikemanmaster,forcewielder)
+	attacks = merge(brawlermaster,pikemanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(singing_mountain_clan_guardian, "singing_mountain_clan_guardian")

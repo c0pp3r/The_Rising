@@ -51,13 +51,13 @@ object_draft_schematic_weapon_lightsaber_lightsaber_refined_crystal_pack = objec
    complexity = 18, 
    size = 1, 
 
-   xpType = "jedi_general", 
-   xp = 0, 
+   xpType = "fs_crafting", 
+   xp = 5000, 
 
    assemblySkill = "jedi_saber_assembly", 
    experimentingSkill = "jedi_saber_experimentation", 
    customizationSkill = "jedi_customization", 
-   disableFactoryRun = true,   
+   disableFactoryRun = false,   
 
    customizationOptions = {},
    customizationStringNames = {},
