@@ -140,6 +140,7 @@ ZonesEnabled = {
 TrePath = "/home/vagrant/Desktop/RisingTRE"
 
 TreFiles = {
+	"rising.tre",
 	"nw_001.tre",
 	"lasko_hotfix_01.tre",
 	"lasko_publish_06_01.tre",
