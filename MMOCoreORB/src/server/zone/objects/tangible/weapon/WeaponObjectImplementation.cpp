@@ -759,8 +759,8 @@ void WeaponObjectImplementation::decay(CreatureObject* user) {
 	int roll = System::random(100);
 	int chance = 5;
 
-	if (hasPowerup())
-		chance += 10;
+	//if (hasPowerup())
+	//	chance += 10;
 
 	if (roll < chance) {
 		if (isJediWeapon()) {
