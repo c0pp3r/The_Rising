@@ -34,7 +34,7 @@ krayt_dragon_grand = Creature:new {
 					{group = "krayt_dragon_common2", chance = 2500000},
 					{group = "pearls_flawless", chance = 3000000},
 					{group = "clothing_attachments", chance = 1000000},
-					{group = "weapons_all", chance = 1000000},
+					{group = "weapons_all", chance = 1000000}
 			},
 			lootChance = 10000000
 		}
