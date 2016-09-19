@@ -86,14 +86,14 @@ void SkillModManager::setDefaults() {
 	skillModMin.put(ABILITYBONUS, -125);
 	skillModMax.put(ABILITYBONUS, 125);
 
-	skillModMin.put(STRUCTURE, -125);
-	skillModMax.put(STRUCTURE, 125);
+	skillModMin.put(STRUCTURE, -175);
+	skillModMax.put(STRUCTURE, 175);
 
 	skillModMin.put(BUFF, -125);
 	skillModMax.put(BUFF, 125);
 
-	skillModMin.put(DROID, -110);
-	skillModMax.put(DROID, 110);
+	skillModMin.put(DROID, -150);
+	skillModMax.put(DROID, 150);
 
 }
 
