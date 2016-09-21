@@ -7,8 +7,8 @@ object_building_player_yoda_house = object_building_player_shared_yoda_house:new
 	length = 2,
 	width = 2,
 	skillMods = {
-		{"private_medical_rating", 125},
-		{"private_buff_mind", 125},
+		{"private_medical_rating", 100},
+		{"private_buff_mind", 100},
 		{"private_med_battle_fatigue", 15},
 		{"jedi_saber_assembly", 50},
 		{"jedi_saber_experimentation", 50},

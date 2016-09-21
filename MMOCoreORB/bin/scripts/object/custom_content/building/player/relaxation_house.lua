@@ -7,8 +7,8 @@ object_building_player_relaxation_house = object_building_player_shared_relaxati
 	width = 1,
 	publicStructure = 0,
 	skillMods = {
-		{"private_medical_rating", 125},
-		{"private_buff_mind", 125},
+		{"private_medical_rating", 100},
+		{"private_buff_mind", 100},
 		{"private_med_battle_fatigue", 15},
 		{"jedi_saber_assembly", 50},
 		{"jedi_saber_experimentation", 50},

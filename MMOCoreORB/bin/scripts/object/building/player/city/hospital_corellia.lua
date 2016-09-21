@@ -43,7 +43,9 @@
 
 object_building_player_city_hospital_corellia = object_building_player_city_shared_hospital_corellia:new {
 	skillMods = {
-		{"private_medical_rating", 100},
+		{"private_medical_rating", 125},
+		{"private_buff_mind", 120},
+		{"private_med_battle_fatigue", 10},
 		{"private_safe_logout", 1}
 	},
 	lotSize = 3,
