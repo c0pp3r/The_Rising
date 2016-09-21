@@ -62,7 +62,7 @@ public:
 			} else {
 				currentPhase = ONEFAILURE;
 			}
-			this->reschedule(10000);
+			this->reschedule(2000);
 			break;
 		case ONESUCCESS:
 			if (success) {
@@ -71,14 +71,14 @@ public:
 			} else {
 					player->sendSystemMessage("@skl_use:milk_continue"); // You continue to milk the creature.
 					currentPhase = FINAL;
-					this->reschedule(10000);
+					this->reschedule(2000);
 			}
 			break;
 		case ONEFAILURE:
 			if (success) {
 				player->sendSystemMessage("@skl_use:milk_continue"); // You continue to milk the creature.
 				currentPhase = FINAL;
-				this->reschedule(10000);
+				this->reschedule(2000);
 			} else {
 				updateMilkState(CreatureManager::NOTMILKED);
 				_clocker.release();
