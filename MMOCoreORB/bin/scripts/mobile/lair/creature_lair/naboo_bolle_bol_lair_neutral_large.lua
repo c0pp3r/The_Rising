@@ -1,5 +1,5 @@
 naboo_bolle_bol_lair_neutral_large = Lair:new {
-	mobiles = {{"bolle_bol", 1}},
+	mobiles = {{"bolle_bol", 1},{"bolle_bol_female",1}},
 	spawnLimit = 15,
 	buildingsVeryEasy = {"object/tangible/lair/base/poi_all_lair_rocks_large_evil_fire_small.iff"},
 	buildingsEasy = {"object/tangible/lair/base/poi_all_lair_rocks_large_evil_fire_small.iff"},

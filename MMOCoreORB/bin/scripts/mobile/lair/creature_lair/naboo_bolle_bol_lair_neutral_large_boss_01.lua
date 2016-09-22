@@ -1,5 +1,5 @@
 naboo_bolle_bol_lair_neutral_large_boss_01 = Lair:new {
-	mobiles = {{"bolle_bol", 1}},
+	mobiles = {{"bolle_bol", 1},{"bolle_bol_female",1}},
 	bossMobiles = {{"elder_pulverizer",1}},
 	spawnLimit = 15,
 	buildingsVeryEasy = {"object/tangible/lair/base/poi_all_lair_rock_shelter_large_fog_gray.iff"},
