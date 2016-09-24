@@ -1242,6 +1242,7 @@ includeFile("items/ngehouse23.lua")
 includeFile("items/ngehouse24.lua")
 includeFile("items/ngehouse25.lua")
 -- Custom data
+includeFile("items/components/projectile_pistol_barrel_carbonite.lua")
 --AV21 Loot
 includeFile("items/custom/av_21_schematic.lua")
 includeFile("items/custom/av_21_powerplant.lua")
