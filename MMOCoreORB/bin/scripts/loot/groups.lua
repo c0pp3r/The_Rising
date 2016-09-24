@@ -331,6 +331,7 @@ includeFile("groups/weapon/mines.lua")
 includeFile("groups/weapon/pistols.lua")
 includeFile("groups/weapon/rifles.lua")
 includeFile("groups/weapon/weapons_all.lua")
+includeFile("groups/weapon/ranged_components.lua")
 
 -- wearables sub-folder
 includeFile("groups/wearables/wearables_all.lua")
