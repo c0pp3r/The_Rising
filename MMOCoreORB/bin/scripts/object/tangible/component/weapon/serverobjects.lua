@@ -132,6 +132,7 @@ includeFile("tangible/component/weapon/projectile_feed_mechanism_enhancement_min
 includeFile("tangible/component/weapon/projectile_pistol_barrel.lua")
 includeFile("tangible/component/weapon/projectile_pistol_barrel_advanced.lua")
 includeFile("tangible/component/weapon/projectile_pistol_barrel_quest.lua")
+includeFile("tangible/component/weapon/projectile_pistol_barrel_carbonite.lua")
 includeFile("tangible/component/weapon/projectile_rifle_barrel.lua")
 includeFile("tangible/component/weapon/projectile_rifle_barrel_advanced.lua")
 includeFile("tangible/component/weapon/projectile_rifle_barrel_advanced_quest.lua")

@@ -58,6 +58,12 @@ ig_88 = Creature:new {
 			},
 			lootChance = 10000000
 		},
+		{
+			groups = {
+				{group = "ranged_components", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
 		},
 	weapons = {"st_sniper_weapons"},
 	reactionStf = "@npc_reaction/slang",
