@@ -45,7 +45,7 @@ object_draft_schematic_vehicle_civilian_barc_speeder = object_draft_schematic_ve
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "BARC Speeder",
+   --customObjectName = "BARC Speeder",
 
    craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
    complexity = 20, 
@@ -73,7 +73,6 @@ object_draft_schematic_vehicle_civilian_barc_speeder = object_draft_schematic_ve
    targetTemplate = "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
 
    additionalTemplates = {
-      "object/tangible/deed/vehicle_deed/shared_barc_speeder_deed.iff"
              }
 
 }

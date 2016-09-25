@@ -40,7 +40,6 @@ make[3]: warning: -jN forced in submake: disabling jobserver mode.
 /usr/bin/make -j3  all-am
 make[4]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src/client'
 make[4]: warning: -jN forced in submake: disabling jobserver mode.
-make[4]: Nothing to be done for 'all-am'.
 make[4]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src/client'
 make[3]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src/client'
 make[3]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix'
