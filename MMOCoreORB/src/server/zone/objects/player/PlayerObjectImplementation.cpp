@@ -1376,7 +1376,7 @@ void PlayerObjectImplementation::notifyOnline() {
 
 	SkillList* skillList = playerCreature->getSkillList();
 	ManagedReference<PlayerObject*> ghost = playerCreature->getPlayerObject();
-	playerCreature->sendExecuteConsoleCommand("/chatRoom join SWG.Core3.TheRising");
+	playerCreature->sendExecuteConsoleCommand("/chatRoom join SWG.TheRising.TheRising");
 
 	// Check for Old Trainer Method
 	Vector3 coords = ghost->getTrainerCoordinates();
