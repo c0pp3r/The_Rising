@@ -39,6 +39,14 @@ death_watch_black_sun_guard = Creature:new {
 				{group = "armor_attachments", chance = 1000000}
 			},
 			lootChance = 10000000
+		},
+
+		{
+			groups = {
+				{group = "ranged_components", chance = 10000000}
+			},
+			lootChance = 2000000
+
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},

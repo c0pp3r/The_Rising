@@ -41,6 +41,14 @@ death_watch_wraith = Creature:new {
 				{group = "death_watch_bunker_ingredient_protective", chance = 500000}
 			},
 			lootChance = 10000000
+		},
+
+		{
+			groups = {
+				{group = "ranged_components", chance = 10000000}
+			},
+			lootChance = 4000000
+
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},
