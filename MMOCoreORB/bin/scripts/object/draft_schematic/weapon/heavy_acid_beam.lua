@@ -63,9 +63,9 @@ object_draft_schematic_weapon_heavy_acid_beam = object_draft_schematic_weapon_sh
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"frame_assembly", "receiver_assembly", "grip_assembly", "enhanced_cooling_mechanism", "powerhandler", "thermal_control_unit", "barrel", "stock"},
+   ingredientTitleNames = {"frame_assembly", "receiver_assembly", "grip_assembly", "enhanced_cooling_mechanism", "powerhandler", "thermal_control_unit", "barrel", "inducer"},
    ingredientSlotType = {0, 0, 0, 0, 1, 0, 1, 3},
-   resourceTypes = {"steel", "iron", "metal", "gemstone_crystalline", "object/tangible/component/weapon/shared_blaster_power_handler.iff", "ore_carbonate", "object/tangible/component/weapon/shared_blaster_rifle_barrel.iff", "object/tangible/component/weapon/shared_stock.iff"},
+   resourceTypes = {"steel", "iron", "metal", "gemstone_crystalline", "object/tangible/component/weapon/shared_blaster_power_handler.iff", "ore_carbonate", "object/tangible/component/weapon/shared_blaster_rifle_barrel.iff", "object/tangible/component/item/shared_electronics_gp_module.iff"},
    resourceQuantities = {150, 40, 20, 45, 5, 20, 1, 1},
    contribution = {100, 100, 100, 100, 100, 100, 100, 100},
 
