@@ -49,7 +49,7 @@ object_draft_schematic_weapon_rifle_tenloss_disrupter = object_draft_schematic_w
 
    craftingToolTab = 1, -- (See DraftSchematicObjectTemplate.h)
    complexity = 28, 
-   size = 1, 
+   size = 3, 
 
    xpType = "crafting_weapons_general", 
    xp = 150, 
@@ -63,10 +63,10 @@ object_draft_schematic_weapon_rifle_tenloss_disrupter = object_draft_schematic_w
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"frame_assembly", "receiver_assembly", "grip_assembly", "powerhandler", "barrel", "power_supply", "scope", "stock"},
+   ingredientTitleNames = {"frame_assembly", "receiver_assembly", "grip_assembly", "powerhandler", "barrel", "power_supply", "scope", "inducer"},
    ingredientSlotType = {0, 0, 0, 1, 1, 1, 3, 3},
-   resourceTypes = {"aluminum_titanium", "copper_platinite", "aluminum_duralumin", "object/tangible/component/weapon/shared_blaster_power_handler.iff", "object/tangible/component/weapon/shared_blaster_rifle_barrel.iff", "object/tangible/component/weapon/shared_geonosian_power_cube_base.iff", "object/tangible/component/weapon/shared_scope_weapon.iff", "object/tangible/component/weapon/shared_stock.iff"},
-   resourceQuantities = {100, 40, 15, 5, 1, 2, 1, 1},
+   resourceTypes = {"aluminum_titanium", "copper_platinite", "aluminum_duralumin", "object/tangible/component/weapon/shared_blaster_power_handler.iff", "object/tangible/component/weapon/shared_blaster_rifle_barrel.iff", "object/tangible/component/weapon/shared_geonosian_power_cube_base.iff", "object/tangible/component/weapon/shared_scope_weapon.iff", "object/tangible/component/item/shared_electronics_gp_module.iff"},
+   resourceQuantities = {100, 40, 15, 5, 1, 2, 1, 3},
    contribution = {100, 100, 100, 100, 100, 100, 100, 100},
    ingredientAppearance = {"", "", "", "", "muzzle", "", "", ""},
 
