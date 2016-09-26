@@ -8,7 +8,7 @@ projectile_pistol_barrel_carbonite = {
 	craftingValues = {
 		{"mindamage",85,150,0},
 		{"maxdamage",170,300,0},
-		{"useCount",1,10,0},
+		{"attackspeed",-0.0,-0.0,1},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

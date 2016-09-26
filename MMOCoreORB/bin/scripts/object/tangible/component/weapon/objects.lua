@@ -7711,6 +7711,65 @@ object_tangible_component_weapon_shared_weapon_mount = SharedTangibleObjectTempl
 
 ObjectTemplates:addClientTemplate(object_tangible_component_weapon_shared_weapon_mount, "object/tangible/component/weapon/shared_weapon_mount.iff")
 
+object_tangible_component_weapon_shared_weapon_stock_collapse = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/weapon/shared_stock_advanced_quest.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+--[[
+	appearanceFilename = "appearance/eqp_comp_weapon_mount.apt",
+	arrangementDescriptorFilename = "",
+
+	certificationsRequired = {},
+	clearFloraRadius = 0,
+	clientDataFile = "",
+	clientGameObjectType = 262153,
+	collisionActionBlockFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
+	collisionMaterialBlockFlags = 0,
+	collisionMaterialFlags = 1,
+	collisionMaterialPassFlags = 0,
+	containerType = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
+
+	detailedDescription = "@craft_weapon_ingredients_d:weapon_mount",
+
+	gameObjectType = 262153,
+
+	locationReservationRadius = 0,
+	lookAtText = "@weapon_lookat:weapon_mount",
+
+	noBuildRadius = 0,
+
+	objectName = "@craft_weapon_ingredients_n:weapon_mount",
+	onlyVisibleInTools = 0,
+
+	paletteColorCustomizationVariables = {},
+	portalLayoutFilename = "",
+
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
+	scaleThresholdBeforeExtentTest = 0.5,
+	sendToClient = 1,
+	slotDescriptorFilename = "abstract/slot/descriptor/tangible.iff",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
+	surfaceType = 0,
+
+	targetable = 1,
+	totalCellNumber = 0,
+
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 4368733,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/tangible/component/base/shared_base_component.iff", "object/tangible/component/base/shared_base_barrel.iff"}
+]]
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_weapon_shared_weapon_stock_collapse, "object/tangible/component/weapon/shared_stock_advanced_quest.iff")
+
 object_tangible_component_weapon_shared_weapon_mount_light = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/component/weapon/shared_weapon_mount_light.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
