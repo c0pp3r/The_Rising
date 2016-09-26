@@ -11,12 +11,12 @@ make compile
 make[2]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ./src/gtest-all.cc -o lib/gtest-all.o
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ../gmock-1.6.0/src/gmock-all.cc -o lib/gmock-all.o
-#done
 make[2]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 cd lib && ar -rv libgtest.a gtest-all.o gmock-all.o
 r - gtest-all.o
 r - gmock-all.o
 make[1]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
+#done
 cd build/unix && make -j4 UNITTEST_DIRECTIVES="" #CC=clang CXX=clang++
 make[1]: warning: -jN forced in submake: disabling jobserver mode.
 make[1]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix'
