@@ -42,7 +42,7 @@ ig_88 = Creature:new {
 				{group = "av_21_pp", chance = 1000000}
 			},
 			lootChance = 500000
-		 },
+		},
 		{
 			groups = {
 				{group = "saberhand25", chance = 5000000},
@@ -51,20 +51,15 @@ ig_88 = Creature:new {
 			},
 			lootChance = 10000000
 		},
-		 {
+		{
 			groups = {
 				{group = "saberhand22", chance = 5000000},
 				{group = "saberhand23", chance = 5000000}
 			},
 			lootChance = 10000000
 		},
-		{
-			groups = {
-				{group = "ranged_components", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		},
+		
+	},
 	weapons = {"st_sniper_weapons"},
 	reactionStf = "@npc_reaction/slang",
 	attacks = merge(riflemanmaster,bountyhuntermaster,marksmanmaster)

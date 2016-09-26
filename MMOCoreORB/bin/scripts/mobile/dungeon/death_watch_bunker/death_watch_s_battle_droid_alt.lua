@@ -42,7 +42,15 @@ death_watch_s_battle_droid_alt = Creature:new {
 					{group = "death_watch_bunker_ingredient_protective", chance = 500000}
 				},
 				lootChance = 10000000
-			}
+			},
+
+			{
+			groups = {
+				{group = "ranged_components", chance = 10000000}
+			},
+			lootChance = 4000000
+
+		}
 		},
 	conversationTemplate = "",
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
