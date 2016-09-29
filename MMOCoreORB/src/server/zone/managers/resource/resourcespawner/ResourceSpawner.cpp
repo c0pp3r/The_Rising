@@ -303,14 +303,18 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 	try {
 
 		File* file = new File("scripts/managers/resource_manager_spawns.lua");
+		File* craft = new File("scripts/managers/therisingspawns.txt");
 		//if(!file->exists()) {
 		//	delete file;
 		//	return;
 		//}
 
 		FileWriter* writer = new FileWriter(file);
+		FileWriter* swgcraft = new FileWriter(craft);
 
 		writer->writeLine("resources = {");
+		swgcraft->writeLine("swgcraft_start");
+		int last = 0;
 
 		for(int i = 0; i < resourceMap->size(); ++i) {
 
@@ -333,17 +337,22 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 			writer->writeLine("	{");
 
 			writer->writeLine("		name = \"" + spawn->getName() + "\",");
+			swgcraft->write(spawn->getName()+ ",");
+			
 			writer->writeLine("		type = \"" + spawn->getType() + "\",");
 
 			writer->writeLine("		classes = {");
+			last = 0;
 			for(int i = 0; i < 8; ++i) {
 				String spawnClass = spawn->getClass(i);
 				if(spawnClass != "") {
+					last = i;
 					String spawnClass2 = spawn->getStfClass(i);
 					writer->writeLine("			{\"" + spawnClass + "\", \"" + spawnClass2 + "\"},");
 				}
 			}
 			writer->writeLine("		},");
+			swgcraft->write(spawn->getClass(last));
 
 			writer->writeLine("		attributes = {");
 			for(int i = 0; i < 12; ++i) {
@@ -351,6 +360,7 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 				int value = spawn->getAttributeAndValue(attribute, i);
 				if(attribute != "") {
 					writer->writeLine("			{\"" + attribute + "\", " + String::valueOf(value) + "},");
+					swgcraft->write("," + String::valueOf(value));
 				}
 			}
 
@@ -367,11 +377,16 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 		}
 
 		writer->writeLine("}");
+		swgcraft->write("\n");
+		swgcraft->write("swgcraft_end");
 
 		writer->close();
+		swgcraft->close();
 
 		delete file;
 		delete writer;
+		delete craft;
+		delete swgcraft;
 
 		return true;
 	} catch (Exception& e) {
