@@ -296,6 +296,9 @@ void ResourceSpawner::spawnScriptResources() {
 }
 
 bool ResourceSpawner::writeAllSpawnsToScript() {
+	/* Added functionality to export resources in swgcraft format - c0pp3r
+	   Code inspired by SWGChoice team, SWGCraft team and Tiars.
+	   Hi Toxic and Marvolo - enjoy my code :) */
 
 	if(!scriptLoading)
 		return false;
@@ -337,7 +340,7 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 			writer->writeLine("	{");
 
 			writer->writeLine("		name = \"" + spawn->getName() + "\",");
-			swgcraft->write(spawn->getName()+ ",");
+			
 			
 			writer->writeLine("		type = \"" + spawn->getType() + "\",");
 
@@ -352,7 +355,7 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 				}
 			}
 			writer->writeLine("		},");
-			swgcraft->write(spawn->getClass(last));
+			
 
 			writer->writeLine("		attributes = {");
 			for(int i = 0; i < 12; ++i) {
@@ -360,7 +363,6 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 				int value = spawn->getAttributeAndValue(attribute, i);
 				if(attribute != "") {
 					writer->writeLine("			{\"" + attribute + "\", " + String::valueOf(value) + "},");
-					swgcraft->write("," + String::valueOf(value));
 				}
 			}
 
@@ -374,10 +376,21 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 
 			writer->writeLine("	},");
 			writer->writeLine("");
+			if(String::valueOf(inPhase) == "1") {
+				swgcraft->write(spawn->getName()+ ",");
+				swgcraft->write(spawn->getClass(last));
+				for(int i = 0; i < 12; ++i) {
+					String attribute = "";
+					int value = spawn->getAttributeAndValue(attribute, i);
+					if(attribute != "") {
+						swgcraft->write("," + String::valueOf(value));
+					}
+				}
+				swgcraft->writeLine("");
+			}
 		}
 
 		writer->writeLine("}");
-		swgcraft->write("\n");
 		swgcraft->write("swgcraft_end");
 
 		writer->close();
