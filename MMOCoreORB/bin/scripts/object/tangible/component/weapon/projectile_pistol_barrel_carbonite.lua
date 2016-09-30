@@ -41,10 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_mobile_vehicle_barc_speeder = object_mobile_vehicle_shared_barc_speeder:new {
-	templateType = VEHICLE,
-	decayRate = 25, -- Damage tick per decay cycle
-	decayCycle = 600 -- Time in seconds per cycle
+object_tangible_component_weapon_projectile_pistol_barrel_carbonite = object_tangible_component_weapon_shared_projectile_pistol_barrel_carbonite:new {
+
 }
 
-ObjectTemplates:addTemplate(object_mobile_vehicle_barc_speeder, "object/mobile/vehicle/barc_speeder.iff")
+ObjectTemplates:addTemplate(object_tangible_component_weapon_projectile_pistol_barrel_carbonite, "object/tangible/component/weapon/projectile_pistol_barrel_quest.iff")

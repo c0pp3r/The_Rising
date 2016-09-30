@@ -41,7 +41,7 @@ mandalorian_aloruus = Creature:new {
 		},
 		{
 			groups = {
-        {group = "bounty_hunter_armor", chance = 4500000},
+        		{group = "bounty_hunter_armor", chance = 4500000},
 				{group = "weapons_all", chance = 2500000},
 				{group = "g_sword_mandalorian", chance = 500000},
 				{group = "g_carbine_mandalorian", chance = 500000},
@@ -51,7 +51,15 @@ mandalorian_aloruus = Creature:new {
 				{group = "g_rifle_mandalorian", chance = 500000},
 			},
 			lootChance = 10000000
-	},
+		},
+
+		{
+			groups = {
+				{group = "ranged_components", chance = 10000000}
+			},
+			lootChance = 4000000
+
+		}
 	},
 	weapons = {"pirate_weapons_heavy"},
 	conversationTemplate = "",

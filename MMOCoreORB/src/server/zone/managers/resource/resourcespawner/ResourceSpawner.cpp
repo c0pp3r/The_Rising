@@ -296,6 +296,9 @@ void ResourceSpawner::spawnScriptResources() {
 }
 
 bool ResourceSpawner::writeAllSpawnsToScript() {
+	/* Added functionality to export resources in swgcraft format - c0pp3r
+	   Code inspired by SWGChoice team, SWGCraft team and Tiars.
+	   Hi Toxic and Marvolo - enjoy my code :) */
 
 	if(!scriptLoading)
 		return false;
@@ -303,14 +306,18 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 	try {
 
 		File* file = new File("scripts/managers/resource_manager_spawns.lua");
+		File* craft = new File("scripts/managers/therisingspawns.txt");
 		//if(!file->exists()) {
 		//	delete file;
 		//	return;
 		//}
 
 		FileWriter* writer = new FileWriter(file);
+		FileWriter* swgcraft = new FileWriter(craft);
 
 		writer->writeLine("resources = {");
+		swgcraft->writeLine("swgcraft_start");
+		int last = 0;
 
 		for(int i = 0; i < resourceMap->size(); ++i) {
 
@@ -333,17 +340,22 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 			writer->writeLine("	{");
 
 			writer->writeLine("		name = \"" + spawn->getName() + "\",");
+			
+			
 			writer->writeLine("		type = \"" + spawn->getType() + "\",");
 
 			writer->writeLine("		classes = {");
+			last = 0;
 			for(int i = 0; i < 8; ++i) {
 				String spawnClass = spawn->getClass(i);
 				if(spawnClass != "") {
+					last = i;
 					String spawnClass2 = spawn->getStfClass(i);
 					writer->writeLine("			{\"" + spawnClass + "\", \"" + spawnClass2 + "\"},");
 				}
 			}
 			writer->writeLine("		},");
+			
 
 			writer->writeLine("		attributes = {");
 			for(int i = 0; i < 12; ++i) {
@@ -364,14 +376,30 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 
 			writer->writeLine("	},");
 			writer->writeLine("");
+			if(String::valueOf(inPhase) == "1") {
+				swgcraft->write(spawn->getName()+ ",");
+				swgcraft->write(spawn->getClass(last));
+				for(int i = 0; i < 12; ++i) {
+					String attribute = "";
+					int value = spawn->getAttributeAndValue(attribute, i);
+					if(attribute != "") {
+						swgcraft->write("," + String::valueOf(value));
+					}
+				}
+				swgcraft->writeLine("");
+			}
 		}
 
 		writer->writeLine("}");
+		swgcraft->write("swgcraft_end");
 
 		writer->close();
+		swgcraft->close();
 
 		delete file;
 		delete writer;
+		delete craft;
+		delete swgcraft;
 
 		return true;
 	} catch (Exception& e) {

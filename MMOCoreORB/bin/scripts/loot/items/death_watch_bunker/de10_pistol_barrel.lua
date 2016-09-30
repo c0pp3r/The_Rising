@@ -6,6 +6,8 @@ de10_pistol_barrel = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff",
 	craftingValues = {
+		{"mindamage",85,150,0},
+		{"maxdamage",170,300,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

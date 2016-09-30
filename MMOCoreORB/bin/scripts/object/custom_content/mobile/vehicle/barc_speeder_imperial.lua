@@ -43,7 +43,7 @@
 
 object_mobile_vehicle_barc_speeder_imperial = object_mobile_vehicle_shared_barc_speeder_imperial:new {
 	templateType = VEHICLE,
-	decayRate = 50, -- Damage tick per decay cycle
+	decayRate = 25, -- Damage tick per decay cycle
 	decayCycle = 600 -- Time in seconds per cycle
 }
 

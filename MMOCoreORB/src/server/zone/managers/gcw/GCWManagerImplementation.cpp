@@ -301,7 +301,7 @@ bool GCWManagerImplementation::hasTooManyBasesNearby(int x, int y) {
 			count++;
 	}
 
-	if (count >= 4)
+	if (count > 4)
 		return true;
 
 	return false;

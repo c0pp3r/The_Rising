@@ -2,7 +2,7 @@ death_watch_s_battle_droid_alt = Creature:new {
 	objectName = "@mob/creature_names:mand_bunker_super_battle_droid",
 	socialGroup = "death_watch",
 	faction = "",
-	level = 200,
+	level = 300,
 	chanceHit = 18,
 	damageMin = 1200,
 	damageMax = 2100,
@@ -42,7 +42,15 @@ death_watch_s_battle_droid_alt = Creature:new {
 					{group = "death_watch_bunker_ingredient_protective", chance = 500000}
 				},
 				lootChance = 10000000
-			}
+			},
+
+			{
+			groups = {
+				{group = "ranged_components", chance = 10000000}
+			},
+			lootChance = 4000000
+
+		}
 		},
 	conversationTemplate = "",
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",

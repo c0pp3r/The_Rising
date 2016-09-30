@@ -41,10 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_mobile_vehicle_barc_speeder = object_mobile_vehicle_shared_barc_speeder:new {
-	templateType = VEHICLE,
-	decayRate = 25, -- Damage tick per decay cycle
-	decayCycle = 600 -- Time in seconds per cycle
+object_tangible_component_weapon_weapon_stock_collapse = object_tangible_component_weapon_shared_weapon_stock_collapse:new {
+
 }
 
-ObjectTemplates:addTemplate(object_mobile_vehicle_barc_speeder, "object/mobile/vehicle/barc_speeder.iff")
+ObjectTemplates:addTemplate(object_tangible_component_weapon_weapon_stock_collapse, "object/tangible/component/weapon/stock_advanced_quest.iff")
