@@ -1,5 +1,0 @@
-<<<<<<< Updated upstream
-=======
-Fri Sep 16 22:28:58 2016 [1474079338699 msec] (171204 s) Thread 93 - [PathFinderManager] Could not find path from node: 65538 to node: 655361 in building: object/building/player/musty_house.iff
-Fri Sep 16 22:29:03 2016 [1474079343308 msec] (171209 s) Thread 100 - [PathFinderManager] Could not find path from node: 655361 to node: 655360 in building: object/building/player/musty_house.iff
->>>>>>> Stashed changes

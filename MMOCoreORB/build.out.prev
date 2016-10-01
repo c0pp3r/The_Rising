@@ -1,7 +1,7 @@
 make -k
 #cd build/unix && cmake ../.. && make
 #cp build/unix/src/core3 bin
-time /usr/bin/make -j3 -k build
+time /usr/bin/make -j8 -k build
 /usr/local/bin/idlc  -noprelocks -makefile src/Makefile.am -outdir autogen -cp ../MMOEngine/include -sd src anyadEclipse
 cd utils/gtest-1.6.0 && make all
 make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
@@ -10,6 +10,10 @@ mkdir -p lib
 make compile
 make[2]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ./src/gtest-all.cc -o lib/gtest-all.o
+<<<<<<< HEAD
+#done
+=======
+>>>>>>> 71ef56130cd17937653ca082b3a9bb33e614845a
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ../gmock-1.6.0/src/gmock-all.cc -o lib/gmock-all.o
 make[2]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 cd lib && ar -rv libgtest.a gtest-all.o gmock-all.o
@@ -20,7 +24,7 @@ make[1]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest
 cd build/unix && make -j4 UNITTEST_DIRECTIVES="" #CC=clang CXX=clang++
 make[1]: warning: -jN forced in submake: disabling jobserver mode.
 make[1]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix'
-/usr/bin/make -j3  all-recursive
+/usr/bin/make -j8  all-recursive
 make[2]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix'
 make[2]: warning: -jN forced in submake: disabling jobserver mode.
 Making all in src
@@ -34,7 +38,7 @@ make[3]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/
 Making all in src/client
 make[3]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src/client'
 make[3]: warning: -jN forced in submake: disabling jobserver mode.
-/usr/bin/make -j3  all-am
+/usr/bin/make -j8  all-am
 make[4]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src/client'
 make[4]: warning: -jN forced in submake: disabling jobserver mode.
 make[4]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src/client'
