@@ -4,8 +4,6 @@ berserker_rifle_barrel = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/component/weapon/corvette_rifle_barrel.iff",
 	craftingValues = {
-		{"mindamage",85,150,0},
-		{"maxdamage",170,300,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}
