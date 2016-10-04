@@ -5,8 +5,8 @@ blasterfist = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/special/blasterfist.iff",
 	craftingValues = {
-		{"mindamage",71,95,0},
-		{"maxdamage",102,171,0},
+		{"mindamage",100,150,0},
+		{"maxdamage",400,450,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",6,12,0},
 		{"hitpoints",950,1750,0},

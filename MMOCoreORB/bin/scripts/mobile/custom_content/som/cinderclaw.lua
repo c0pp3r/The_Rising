@@ -38,7 +38,8 @@ cinderclaw = Creature:new {
 				{group = "g_carbine_rotary_underslung", chance = 1500000},
 				{group = "g_massassiknuckler", chance = 1500000},
 				{group = "g_lance_cryo",  chance = 1000000}
-			}
+			},
+			lootChance = 1000000
 		},
 		{
 			groups = {
@@ -48,7 +49,38 @@ cinderclaw = Creature:new {
 				{group = "g_som_carbine_republic_sfor", chance = 2000000},
 				{group = "g_sword_mace_junti", chance = 2000000}
 			},
-			lootChance = 5000000
+			lootChance = 500000
+		},
+		{
+			groups = {
+				{group = "crystal_banes_heart", chance = 600000},
+				{group = "crystal_bnars_sacrifice", chance = 500000},
+				{group = "crystal_bondaras_folly", chance = 500000},
+				{group = "crystal_dawn_of_dagobah", chance = 600000},
+				{group = "crystal_gallias_intuition", chance = 600000},
+				{group = "crystal_horns_future", chance = 500000},
+				{group = "crystal_kenobis_legacy", chance = 600000},
+				{group = "crystal_kits_ferocity", chance = 600000},
+				{group = "crystal_kuns_blood", chance = 500000},
+				{group = "crystal_mauls_vengence", chance = 500000},
+				{group = "crystal_mundis_response", chance = 500000},
+				{group = "crystal_prowess_of_plo_koon", chance = 500000},
+				{group = "crystal_qui_gons_devotion", chance = 600000},
+				{group = "crystal_quintessence_0f_the_force", chance = 600000},
+				{group = "crystal_strength_of_luminaria", chance = 600000},
+				{group = "crystal_sunriders_destiny", chance = 600000},
+				{group = "crystal_ulics_redemption", chance = 500000},
+				{group = "crystal_windus_guile", chance = 600000}
+			},
+				lootChance = 7500000
+		},
+		{
+			groups = {
+				{group = "saberhand24", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"creature_spit_large_yellow"},

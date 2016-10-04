@@ -5,8 +5,8 @@ blasterfist_generic = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/special/blasterfist_generic.iff",
 	craftingValues = {
-		{"mindamage",71,95,0},
-		{"maxdamage",102,171,0},
+		{"mindamage",100,150,0},
+		{"maxdamage",400,450,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",6,12,0},
 		{"hitpoints",950,1750,0},
@@ -23,7 +23,7 @@ blasterfist_generic = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 500,
+	randomDotChance = 400,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 25,
 	junkMaxValue = 45
