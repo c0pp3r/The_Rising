@@ -61,7 +61,7 @@ general_grievous = Creature:new {
 	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster)
+	attacks = merge(risinglsmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(general_grievous, "general_grievous")
