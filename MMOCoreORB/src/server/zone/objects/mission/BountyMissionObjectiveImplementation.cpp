@@ -648,7 +648,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			StringBuffer zBroadcast;
 			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
 				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 a Jedi has defeated a \\#e60000 Bounty Hunter";
-				killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString*());
+				killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 				PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
 				killer->sendMessage(pmm);
 				killer->playEffect("clienteffect//holoemote_brainstorm.cef", "head");
