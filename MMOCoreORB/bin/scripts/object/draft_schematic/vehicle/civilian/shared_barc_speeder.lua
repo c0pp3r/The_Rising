@@ -45,7 +45,8 @@ object_draft_schematic_vehicle_civilian_barc_speeder = object_draft_schematic_ve
 
    templateType = DRAFTSCHEMATIC,
 
-   --customObjectName = "BARC Speeder",
+   customObjectName = "BARC Speeder",
+
 
    craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
    complexity = 20, 
