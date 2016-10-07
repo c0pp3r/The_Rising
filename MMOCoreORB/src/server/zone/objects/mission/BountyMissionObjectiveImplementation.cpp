@@ -648,10 +648,10 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			StringBuffer zBroadcast;
 			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
 				if (killer->hasSkill("force_rank_light_novice")){
-					zBroadcast << "\\#ffd700" << playerName << "\\#00e604 a Jedi has defeated a \\#e60000 Bounty Hunter";
+					zBroadcast << "\\##00bfff" << playerName << "\\##ffd700" << " a" << "\\#00e604 Jedi" << " has defeated a \\#ffaa00 Bounty Hunter";
 				}
 				else{
-					zBroadcast << "\\#ffd700" << playerName << "\\#00e604 a Sith has defeated a \\#e60000 Bounty Hunter";
+					zBroadcast << "\\##00bfff" << playerName << "\\#ffd700" << " a" << "\\#e60000 Sith" << " has defeated a \\#ffaa00 Bounty Hunter";
 				}
 				
 				killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
