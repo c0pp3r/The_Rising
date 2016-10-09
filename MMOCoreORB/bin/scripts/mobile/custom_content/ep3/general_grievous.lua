@@ -50,10 +50,10 @@ general_grievous = Creature:new {
 		},
 		  {
 			groups = {
-				{group = "crystals_premium", chance = 2500000},
+				{group = "podracer", chance = 500000},
 				{group = "clothing_attachments", chance = 2000000},
 				{group = "armor_attachments", chance = 2000000},
-				{group = "g_named_crystals", chance = 1000000},
+				{group = "g_named_crystals", chance = 3000000},
 				{group = "weapons_all", chance = 2500000}
 		},
 			lootChance = 10000000

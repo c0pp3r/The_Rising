@@ -1272,3 +1272,7 @@ includeFile("items/custom/bounty_hunter_schemes/bounty_hunter_chest_scheme.lua")
 includeFile("items/custom/bounty_hunter_schemes/bounty_hunter_gloves_scheme.lua")
 includeFile("items/custom/bounty_hunter_schemes/bounty_hunter_helmet_scheme.lua")
 includeFile("items/custom/bounty_hunter_schemes/bounty_hunter_leggings_scheme.lua")
+
+--Pod Racers
+includeFile("items/podracerone.lua")
+includeFile("items/podracertwo.lua")
