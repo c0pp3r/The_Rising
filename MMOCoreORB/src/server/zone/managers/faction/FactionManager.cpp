@@ -170,7 +170,7 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		String playerName = destructedObject->getFirstName();
 		String killerName = killerCreature->getFirstName();
 		StringBuffer zBroadcast;
-		zBroadcast << "\\#00e604" << playerName << " \\#e60000 was slain in the GCW by ";
+		
 
 		if (killer->isRebel() && destructedObject->isImperial()) {
 			ghost->increaseFactionStanding("rebel", 30);
@@ -183,12 +183,16 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("imperial", 45);
 			killedGhost->decreaseFactionStanding("imperial", 45);
-			zBroadcast << "\\#00cc99" << killerName;
-			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			
 			if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_rank_dark_novice")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
 				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
+				zBroadcast << "\\#00e604" << "Jedi " << "\\#00bfff" << killerName << "\\#ffd700 has defeated" << "\\#e60000 Sith " << "\\#00bfff" << playerName << "\\#ffd700 in the FRS";
 			}
+			else {
+				zBroadcast << "\\#00e604" << playerName << " \\#e60000 was slain in the GCW by " << "\\#00cc99" << killerName;
+			}
+			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 		} else if (killer->isImperial() && destructedObject->isRebel()) {
 			ghost->increaseFactionStanding("imperial", 30);
 			killer->playEffect("clienteffect/holoemote_imperial.cef", "head");
@@ -200,12 +204,15 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("rebel", 45);
 			killedGhost->decreaseFactionStanding("rebel", 45);
-			zBroadcast << "\\#00e604" << killerName;
-			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_rank_light_novice")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
 				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
+				zBroadcast << "\\#e60000" << "Sith " << "\\#00bfff" << killerName << "\\#ffd700 has defeated" << "\\#00e604 Jedi " << "\\#00bfff" << playerName << "\\#ffd700 in the FRS";
 			}
+			else {
+				zBroadcast << "\\#00e604" << playerName << " \\#e60000 was slain in the GCW by " << "\\#00cc99" << killerName;
+			}
+			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 		}
 	}
 }
