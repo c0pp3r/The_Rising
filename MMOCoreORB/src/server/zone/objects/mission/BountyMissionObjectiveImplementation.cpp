@@ -645,13 +645,14 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 			killer->sendSystemMessage("You have defeated a bounty hunter, ruining his mission against you!");
 			String playerName = killer->getFirstName();
+			String bhName = owner->getFirstName();
 			StringBuffer zBroadcast;
 			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
 				if (killer->hasSkill("force_rank_light_novice")){
-					zBroadcast << "\\#00bfff" << playerName << "\\#ffd700" << " a" << "\\#00e604 Jedi" << "\\#ffd700 has defeated a \\#ff7f00 Bounty Hunter";
+					zBroadcast << "\\#00bfff" << playerName << "\\#ffd700" << " a" << "\\#00e604 Jedi" << "\\#ffd700 has defeated\\#ffd700" << bhName << "\\#ffd700 a" << "\\#ff7f00 Bounty Hunter";
 				}
 				else{
-					zBroadcast << "\\#00bfff" << playerName << "\\#ffd700" << " a" << "\\#e60000 Sith" << "\\#ffd700 has defeated a \\#ff7f00 Bounty Hunter";
+					zBroadcast << "\\#00bfff" << playerName << "\\#ffd700" << " a" << "\\#e60000 Sith" << "\\#ffd700 has defeated\\#ffd700" << bhName << "\\#ffd700 a" << "\\#ff7f00 Bounty Hunter";
 				}
 				
 				killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
