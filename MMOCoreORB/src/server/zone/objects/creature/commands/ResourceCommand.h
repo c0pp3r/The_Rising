@@ -57,6 +57,9 @@ public:
 			} else if(command == "create" && admin->getAdminLevel() > 10) {
 				giveResource(creature, &args);
 
+			} else if(command == "ghdump" && admin->getAdminLevel() > 10) {
+				ghDump(creature, &args);
+
 			} else {
 				throw Exception();
 			}
@@ -66,6 +69,7 @@ public:
 			creature->sendSystemMessage("		list <planet> : Lists resources on specified planet");
 			creature->sendSystemMessage("		dump : Updates the resource manager lua with recent spawns");
 			creature->sendSystemMessage("		info <resource name> : Lists Info about a specific resource");
+			creature->sendSystemMessage("       ghdump : Updates the Galaxy Harvester output file");
 			if (admin->getAdminLevel() > 10) {
 				creature->sendSystemMessage("		find <class> <attribute> <gt|lt> <value> [<and|or> <attribute> <gt|lt> <value> [...]]");
 				creature->sendSystemMessage("		create <name> [quantity] : Spawns resource in inventory");
@@ -106,6 +110,15 @@ public:
 		ResourceManager* resMan = creature->getZoneServer()->getResourceManager();
 
 		creature->sendSystemMessage(resMan->dumpResources());
+	}
+
+	void ghDump(CreatureObject* creature, StringTokenizer* args) const {
+		if(creature->getZoneServer() == NULL)
+			return;
+
+		ResourceManager* resMan = creature->getZoneServer()->getResourceManager();
+
+		creature->sendSystemMessage(resMan->ghDump());
 	}
 
 	void despawnResource(CreatureObject* creature, StringTokenizer* args) const {
