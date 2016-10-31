@@ -416,7 +416,6 @@ bool ResourceSpawner::ghDumpAll() {
 	if(!scriptLoading)
 		return false;
 	planets =  new Vector<String> ();
-	//String planets[10] = {"corellia", "dantooine", "dathomir", "endor", "lok", "naboo", "rori", "talus", "tatooine", "yavin4" };
 	planets->add("corellia");
 	planets->add("dantooine");
 	planets->add("dathomir");
@@ -430,9 +429,10 @@ bool ResourceSpawner::ghDumpAll() {
 	//String planets = "corellia";
 
 	try {
-		File* ghfile = new File("scripts/managers/ghoutput.txt");
+		File* ghfile = new File("scripts/managers/ghoutput.xml");
 
 		FileWriter* ghwriter = new FileWriter(ghfile);
+		ghwriter->writeLine("<SpawnOutput>");
 		int last = 0;
 
 		for(int i = 0; i < resourceMap->size(); ++i) {
@@ -456,11 +456,38 @@ bool ResourceSpawner::ghDumpAll() {
 				for(int j = 0; j < planets->size(); ++j){
 					ZoneResourceMap* zoneMap = resourceMap->getZoneResourceList(planets->get(j));
 					ManagedReference<ResourceSpawn*> resourceSpawn;
+					ghwriter->writeLine("<resource>");
 					for (int b = 0; b< zoneMap->size(); ++b) {
 						resourceSpawn = zoneMap->get(b);
-						if (spawn->getName() == resourceSpawn->getName())
-							ghwriter->write(planets->get(j) + ",");
+						if (spawn->getName() == resourceSpawn->getName()){
+							ghwriter->write("<planet>");
+							ghwriter->write(planets->get(j));
+							ghwriter->writeLine("</planet>");
+						}
 					}
+					ghwriter->write("<SpawnName>");
+					ghwriter->write(spawn->getName());
+					ghwriter->writeLine("</SpawnName>");
+					ghwriter->write("<resType>");
+					for(int i = 0; i < 8; ++i) {
+						String spawnClass = spawn->getClass(i);
+						if(spawnClass != "") {
+							last = i;
+							String spawnClass2 = spawn->getStfClass(i);
+						}
+					}
+					ghwriter->write(spawn->getStfClass(last));
+					ghwriter->writeLine("</resType>");
+					ghwriter->writeLine("<attributes>");
+					for(int i = 0; i < 12; ++i) {
+						String attribute = "";
+						int value = spawn->getAttributeAndValue(attribute, i);
+						if(attribute != "") {
+							ghwriter->writeLine("<" + attribute + ">" + String::valueOf(value) + "</" + attribute + ">");
+						}
+					}
+					ghwriter->writeLine("</attributes>");
+
 				}
 				/*ZoneResourceMap* zoneMap = resourceMap->getZoneResourceList(planets);
 				ManagedReference<ResourceSpawn*> resourceSpawn;
@@ -469,14 +496,14 @@ bool ResourceSpawner::ghDumpAll() {
 
 					if (spawn->getName() == resourceSpawn->getName())
 						ghwriter->write(planets + ",");
-				}*/
+				}
 				for(int i = 0; i < 8; ++i) {
 				String spawnClass = spawn->getClass(i);
 				if(spawnClass != "") {
 					last = i;
 				}
 			}
-				ghwriter->write(spawn->getName()+ ",");
+				
 				ghwriter->write(spawn->getClass(last));
 				for(int i = 0; i < 12; ++i) {
 					String attribute = "";
@@ -484,7 +511,7 @@ bool ResourceSpawner::ghDumpAll() {
 					if(attribute != "") {
 						ghwriter->write("," + attribute + ":" + String::valueOf(value));
 					}
-				}
+				}*/
 				ghwriter->writeLine("");
 			}
 		}
