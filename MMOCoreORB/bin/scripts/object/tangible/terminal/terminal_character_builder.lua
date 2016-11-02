@@ -1679,13 +1679,14 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"RIS Left Bicep", "object/tangible/wearables/armor/ris/armor_ris_bicep_l.iff",
 				"RIS Right Bicep", "object/tangible/wearables/armor/ris/armor_ris_bicep_r.iff",
 				"RIS Boots", "object/tangible/wearables/armor/ris/armor_ris_boots.iff",
-				"RIS Left Bracer", "object/tangible/wearables/armor/ris/armor_ris_bracer_l.iff"
-				"RIS Right Bracer", "object/tangible/wearables/armor/ris/armor_ris_bracer_r.iff"
+				"RIS Left Bracer", "object/tangible/wearables/armor/ris/armor_ris_bracer_l.iff",
+				"RIS Right Bracer", "object/tangible/wearables/armor/ris/armor_ris_bracer_r.iff",
 				"RIS Chest", "object/tangible/wearables/armor/ris/armor_ris_chest_plate.iff",
 				"RIS Gloves", "object/tangible/wearables/armor/ris/armor_ris_gloves.iff",
 				"RIS Helmet", "object/tangible/wearables/armor/ris/armor_ris_helmet.iff",
 				"RIS Leggings", "object/tangible/wearables/armor/ris/armor_ris_leggings.iff"
 			},
+
 
 		}
 			"Singing Mountain Clan Armor",
