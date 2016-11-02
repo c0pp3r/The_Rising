@@ -94,14 +94,14 @@ object_tangible_wearables_armor_ris_armor_ris_bracer_l = object_tangible_wearabl
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 80,
-	energy = 80,
-	electricity = 80,
-	stun = 80,
-	blast = 80,
-	heat = 80,
-	cold = 80,
-	acid = 80,
+	kinetic = 85,
+	energy = 85,
+	electricity = 85,
+	stun = 85,
+	blast = 85,
+	heat = 85,
+	cold = 85,
+	acid = 85,
 	lightSaber = 85,
 
 	numberExperimentalProperties = {1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1},
