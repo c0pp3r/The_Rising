@@ -102,7 +102,7 @@ object_tangible_wearables_armor_ris_armor_ris_boots = object_tangible_wearables_
         heat = 80,
         cold = 80,
         acid = 80,
-        lightSaber = 80,
+        lightSaber = 85,
 
 	numberExperimentalProperties = {1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1},
 	experimentalProperties = {"XX", "XX", "XX", "XX", "OQ", "SR", "OQ", "UT", "MA", "OQ", "MA", "OQ", "MA", "OQ", "XX", "XX", "OQ", "SR", "XX"},
