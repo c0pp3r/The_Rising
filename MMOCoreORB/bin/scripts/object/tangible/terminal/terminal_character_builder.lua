@@ -1687,8 +1687,6 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"RIS Leggings", "object/tangible/wearables/armor/ris/armor_ris_leggings.iff"
 			},
 
-
-		}
 			"Singing Mountain Clan Armor",
 			{
 				"Singing Mountain Clan Bicep", "object/tangible/wearables/armor/bone/armor_smc_s01_bicep_l.iff"
