@@ -1674,6 +1674,20 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"Composite Helmet", "object/tangible/wearables/armor/composite/armor_composite_helmet.iff",
 				"Composite Leggings", "object/tangible/wearables/armor/composite/armor_composite_leggings.iff"
 			},
+			"RIS Armor"
+			{
+				"RIS Left Bicep", "object/tangible/wearables/armor/ris/armor_ris_bicep_l.lua",
+				"RIS Right Bicep", "object/tangible/wearables/armor/ris/armor_ris_bicep_r.lua",
+				"RIS Boots", "object/tangible/wearables/armor/ris/armor_ris_boots.lua",
+				"RIS Left Bracer", "object/tangible/wearables/armor/ris/armor_ris_bracer_l.lua"
+				"RIS Right Bracer", "object/tangible/wearables/armor/ris/armor_ris_bracer_r.lua"
+				"RIS Chest", "object/tangible/wearables/armor/ris/armor_ris_chest_plate.lua",
+				"RIS Gloves", "object/tangible/wearables/armor/ris/armor_ris_gloves.lua",
+				"RIS Helmet", "object/tangible/wearables/armor/ris/armor_ris_helmet.lua",
+				"RIS Leggings", "object/tangible/wearables/armor/ris/armor_ris_leggings.lua",
+			},
+
+		}
 			"Singing Mountain Clan Armor",
 			{
 				"Singing Mountain Clan Bicep", "object/tangible/wearables/armor/bone/armor_smc_s01_bicep_l.iff"
