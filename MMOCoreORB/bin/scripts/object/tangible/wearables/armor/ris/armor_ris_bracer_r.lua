@@ -84,6 +84,10 @@ object_tangible_wearables_armor_ris_armor_ris_bracer_r = object_tangible_wearabl
 				"object/mobile/vendor/twilek_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
+
+	-- Damage types in WeaponObject
+
+	specialResists = LIGHTSABER,
 	
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
@@ -109,8 +113,8 @@ object_tangible_wearables_armor_ris_armor_ris_bracer_r = object_tangible_wearabl
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "null", "exp_durability", "exp_quality", "exp_resistance", "exp_durability", "exp_durability", "exp_durability", "null", "null", "exp_resistance", "null"},
 	experimentalSubGroupTitles = {"null", "null", "sockets", "hit_points", "armor_effectiveness", "armor_integrity", "armor_health_encumbrance", "armor_action_encumbrance", "armor_mind_encumbrance", "armor_rating", "armor_special_type", "armor_special_effectiveness", "armor_special_integrity"},
-	experimentalMin = {0, 0, 0, 1000, 5, 30000, 22, 22, 13, 1, 1, 5, 0},
-	experimentalMax = {0, 0, 0, 1000, 50, 50000, 13, 13, 9, 1, 1, 70, 0},
+	experimentalMin = {0, 0, 0, 1000, 5, 30000, 22, 22, 13, 1, 16, 5, 0},
+	experimentalMax = {0, 0, 0, 1000, 50, 50000, 13, 13, 9, 1, 16, 80, 0},
 	experimentalPrecision = {0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 10, 0},
 	experimentalCombineType = {0, 0, 4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1},
 }
