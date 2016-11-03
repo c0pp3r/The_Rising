@@ -1213,19 +1213,8 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		}
 
 		// inflict condition damage
-		StringBuffer damageInfo;
-		damageInfo
-		<< "Damage Type is: "
-		<< damageType
-		<< " | Your Armor Resistance to LS is: "
-		<< getArmorObjectReduction(armor, 16);
-		info(damageInfo);
-		Locker alocker(armor);
-		if (getArmorObjectReduction(armor, 16) > 0 && damageType == 16) {
-			armor->inflictDamage(armor, 0, damage * 5, true, true);
-		} else {
 			armor->inflictDamage(armor, 0, damage * 0.1, true, true);
-		}
+		
 	}
 
 	return damage;
