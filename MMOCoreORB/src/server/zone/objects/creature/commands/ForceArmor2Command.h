@@ -46,7 +46,7 @@ public:
 		} else if (playerObject->getJediState() == 8) {
 			force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 100;
 		}
-		int forceCost = (param * 0.3) - (force_manipulation * (param * 0.3));
+		int forceCost = (param * 0.25) - (force_manipulation * (param * 0.25));
 		StringBuffer forceCostInfo;
 		forceCostInfo
 		<< "Damage:"

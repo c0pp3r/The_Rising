@@ -50,7 +50,7 @@ DrainForceCommand = {
 	
 	poolsToDamage = NO_ATTRIBUTE,
 
-	minDamage = 350, --Force drained
+	minDamage = 175, --Force drained
 
 	range = 32
 	
