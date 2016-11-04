@@ -788,14 +788,19 @@ int CombatManager::getDefenderSecondaryDefenseModifier(CreatureObject* defender)
 	return targetDefense;
 }
 
-float CombatManager::getDefenderToughnessModifier(CreatureObject* defender, int attackType, int damType, float damage) {
+float CombatManager::getDefenderToughnessModifier(CreatureObject* attacker, CreatureObject* defender, int attackType, int damType, float damage) {
 	ManagedReference<WeaponObject*> weapon = defender->getWeapon();
 
 	Vector<String>* defenseToughMods = weapon->getDefenderToughnessModifiers();
 
 	if (attackType == weapon->getAttackType()) {
 		for (int i = 0; i < defenseToughMods->size(); ++i) {
-			int toughMod = defender->getSkillMod(defenseToughMods->get(i));
+			if (weapon->isMeleeWeapon() && attacker->isPlayerCreature() && defender->isPlayerCreature() && defender->getSkillMod(defenseToughMods->get(i)) == 'lightsaber_toughness') {
+				int bonusTough = (defender->getSkillMod(defenseToughMods->get(i)) - 55);
+				int toughMod = (defender->getSkillMod(defenseToughMods->get(i))) - (bonusTough * .3);
+			}else{
+				int toughMod = defender->getSkillMod(defenseToughMods->get(i));
+			}
 			if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
 		}
 	}
@@ -1434,9 +1439,9 @@ float CombatManager::calculateDamage(CreatureObject* attacker, WeaponObject* wea
 
 	// Toughness reduction
 	if (data.isForceAttack())
-		damage = getDefenderToughnessModifier(defender, SharedWeaponObjectTemplate::FORCEATTACK, data.getDamageType(), damage);
+		damage = getDefenderToughnessModifier(attacker, defender, SharedWeaponObjectTemplate::FORCEATTACK, data.getDamageType(), damage);
 	else
-		damage = getDefenderToughnessModifier(defender, weapon->getAttackType(), weapon->getDamageType(), damage);
+		damage = getDefenderToughnessModifier(attacker, defender, weapon->getAttackType(), weapon->getDamageType(), damage);
 
 	// PvP Damage Reduction.
 	if (attacker->isPlayerCreature() && defender->isPlayerCreature()) {
