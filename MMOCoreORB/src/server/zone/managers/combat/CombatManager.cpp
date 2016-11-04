@@ -44,7 +44,7 @@ bool CombatManager::startCombat(CreatureObject* attacker, TangibleObject* defend
 		if (parent == NULL || !parent->isMount())
 			return false;
 
-		if (parent->hasBuff(STRING_HASHCODE("gallop")))
+		if (parent->hasBuff(STRING_HASHCODE("gallop")))getAttackType
 			return false;
 	}
 
@@ -803,6 +803,11 @@ float CombatManager::getDefenderToughnessModifier(CreatureObject* attacker, Crea
 			}
 			if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
 		}
+	}
+
+	if(attackType == SharedWeaponObjectTemplate::FORCEATTACK){
+		int toughMod = defender0>getSkillMod("lightsaber_toughness");
+		if (toughMod > 0) damage* =1.f - (toughMod / 100.f);
 	}
 
 	int jediToughness = defender->getSkillMod("jedi_toughness");
