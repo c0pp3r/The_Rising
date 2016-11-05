@@ -42,11 +42,11 @@ public:
 		// TODO: Force Rank modifiers.
 		float force_manipulation = 0.f;
 		if (playerObject->getJediState() == 4) {
-			force_manipulation = (float)creo->getSkillMod("force_manipulation_light") / 100;
+			force_manipulation = (float)creo->getSkillMod("force_manipulation_light") / 1000;
 		} else if (playerObject->getJediState() == 8) {
-			force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 100;
+			force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 1000;
 		}
-		int forceCost = (param * 0.25) - (force_manipulation * (param * 0.25));
+		int forceCost = (param * 0.15) - (force_manipulation * (param * 0.15));
 		StringBuffer forceCostInfo;
 		forceCostInfo
 		<< "Damage:"
