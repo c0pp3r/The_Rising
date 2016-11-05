@@ -44,7 +44,7 @@ bool CombatManager::startCombat(CreatureObject* attacker, TangibleObject* defend
 		if (parent == NULL || !parent->isMount())
 			return false;
 
-		if (parent->hasBuff(STRING_HASHCODE("gallop")))getAttackType
+		if (parent->hasBuff(STRING_HASHCODE("gallop")))
 			return false;
 	}
 
@@ -787,6 +787,29 @@ int CombatManager::getDefenderSecondaryDefenseModifier(CreatureObject* defender)
 
 	return targetDefense;
 }
+float CombatManager::getDefenderToughnessModifierOld(CreatureObject* defender, int attackType, int damType, float damage) {
+	ManagedReference<WeaponObject*> weapon = defender->getWeapon();
+
+	Vector<String>* defenseToughMods = weapon->getDefenderToughnessModifiers();
+
+	if (attackType == weapon->getAttackType()) {
+		for (int i = 0; i < defenseToughMods->size(); ++i) {
+			int toughMod = defender->getSkillMod(defenseToughMods->get(i));
+			if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
+		}
+	}
+
+	if(attackType == SharedWeaponObjectTemplate::FORCEATTACK){
+		int toughMod = defender->getSkillMod("lightsaber_toughness");
+		if (toughMod > 0) damage *=1.f - (toughMod / 100.f);
+	}
+
+	int jediToughness = defender->getSkillMod("jedi_toughness");
+	if (damType != SharedWeaponObjectTemplate::LIGHTSABER && jediToughness > 0)
+		damage *= 1.f - (jediToughness / 100.f);
+
+	return damage < 0 ? 0 : damage;
+}
 
 float CombatManager::getDefenderToughnessModifier(CreatureObject* attacker, CreatureObject* defender, int attackType, int damType, float damage) {
 	ManagedReference<WeaponObject*> weapon = defender->getWeapon();
@@ -795,19 +818,21 @@ float CombatManager::getDefenderToughnessModifier(CreatureObject* attacker, Crea
 
 	if (attackType == weapon->getAttackType()) {
 		for (int i = 0; i < defenseToughMods->size(); ++i) {
-			if (weapon->isMeleeWeapon() && attacker->isPlayerCreature() && defender->isPlayerCreature() && defender->getSkillMod(defenseToughMods->get(i)) == 'lightsaber_toughness') {
+			if (weapon->isMeleeWeapon() && attacker->isPlayerCreature() && defender->isPlayerCreature() && defenseToughMods->get(i) == "lightsaber_toughness") {
 				int bonusTough = (defender->getSkillMod(defenseToughMods->get(i)) - 55);
 				int toughMod = (defender->getSkillMod(defenseToughMods->get(i))) - (bonusTough * .3);
+				if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
 			}else{
 				int toughMod = defender->getSkillMod(defenseToughMods->get(i));
+				if (toughMod > 0) {damage *= 1.f - (toughMod / 100.f);}
 			}
-			if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
+			//if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
 		}
 	}
 
 	if(attackType == SharedWeaponObjectTemplate::FORCEATTACK){
-		int toughMod = defender0>getSkillMod("lightsaber_toughness");
-		if (toughMod > 0) damage* =1.f - (toughMod / 100.f);
+		int toughMod = defender->getSkillMod("lightsaber_toughness");
+		if (toughMod > 0) damage *=1.f - (toughMod / 100.f);
 	}
 
 	int jediToughness = defender->getSkillMod("jedi_toughness");
@@ -1125,7 +1150,6 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		// Force Armor
 
 		int forceArmor = defender->getSkillMod("force_armor");
-		info(forceArmor, true);
 		if (forceArmor > 0) {
 			float dmgAbsorbed = rawDamage - (damage *= 1.f - ((forceArmor +(forceControl/3)) / 100.f));
 			float dmgInfo = damage *= 1.f;
@@ -1476,7 +1500,7 @@ float CombatManager::calculateDamage(TangibleObject* attacker, WeaponObject* wea
 		damage *= 1.5f;
 
 	// Toughness reduction
-	damage = getDefenderToughnessModifier(defender, weapon->getAttackType(), weapon->getDamageType(), damage);
+	damage = getDefenderToughnessModifierOld(defender, weapon->getAttackType(), weapon->getDamageType(), damage);
 
 	return damage;
 }
