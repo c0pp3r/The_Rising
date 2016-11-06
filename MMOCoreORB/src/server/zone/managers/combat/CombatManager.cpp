@@ -820,7 +820,7 @@ float CombatManager::getDefenderToughnessModifier(CreatureObject* attacker, Crea
 		for (int i = 0; i < defenseToughMods->size(); ++i) {
 			if (weapon->isMeleeWeapon() && attacker->isPlayerCreature() && defender->isPlayerCreature() && defenseToughMods->get(i) == "lightsaber_toughness") {
 				int bonusTough = (defender->getSkillMod(defenseToughMods->get(i)) - 55);
-				int toughMod = (defender->getSkillMod(defenseToughMods->get(i))) - (bonusTough * .3);
+				int toughMod = (defender->getSkillMod(defenseToughMods->get(i))) - (bonusTough * .4);
 				if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
 			}else{
 				int toughMod = defender->getSkillMod(defenseToughMods->get(i));
