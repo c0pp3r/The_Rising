@@ -10,8 +10,8 @@ mkdir -p lib
 make compile
 make[2]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ./src/gtest-all.cc -o lib/gtest-all.o
-g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ../gmock-1.6.0/src/gmock-all.cc -o lib/gmock-all.o
 #done
+g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ../gmock-1.6.0/src/gmock-all.cc -o lib/gmock-all.o
 make[2]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 cd lib && ar -rv libgtest.a gtest-all.o gmock-all.o
 r - gtest-all.o
@@ -26,26 +26,18 @@ make[2]: warning: -jN forced in submake: disabling jobserver mode.
 Making all in src
 make[3]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src'
 make[3]: warning: -jN forced in submake: disabling jobserver mode.
-depbase=`echo server/zone/managers/combat/CombatManager.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/combat/CombatManager.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/combat/CombatManager.o ../../../src/server/zone/managers/combat/CombatManager.cpp &&\
+depbase=`echo server/zone/managers/objectcontroller/command/CommandConfigManager.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/objectcontroller/command/CommandConfigManager.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/objectcontroller/command/CommandConfigManager.o ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp &&\
 mv -f $depbase.Tpo $depbase.Po
-../../../src/server/zone/managers/combat/CombatManager.cpp: In member function ‘float CombatManager::getDefenderToughnessModifier(server::zone::objects::creature::CreatureObject*, server::zone::objects::creature::CreatureObject*, int, int, float)’:
-../../../src/server/zone/managers/combat/CombatManager.cpp:835:29: error: expected primary-expression before ‘=’ token
-   if (toughMod > 0) damage* =1.f - (toughMod / 100.f);
-                             ^
-../../../src/server/zone/managers/combat/CombatManager.cpp: In member function ‘int CombatManager::getArmorReduction(server::zone::objects::tangible::TangibleObject*, server::zone::objects::tangible::weapon::WeaponObject*, server::zone::objects::creature::CreatureObject*, float, int, const CreatureAttackData&)’:
-../../../src/server/zone/managers/combat/CombatManager.cpp:1153:24: error: invalid conversion from ‘int’ to ‘const char*’ [-fpermissive]
-   info(forceArmor, true);
-                        ^
-In file included from ../../../../MMOEngine/include/engine/core/Core.h:11:0,
-                 from ../../../../MMOEngine/include/engine/engine.h:11,
-                 from ../../../src/server/zone/managers/combat/CombatManager.h:11,
-                 from ../../../src/server/zone/managers/combat/CombatManager.cpp:8:
-../../../../MMOEngine/include/engine/log/Logger.h:52:8: note: initializing argument 1 of ‘void engine::log::Logger::info(const char*, bool) const’
-   void info(const char *msg, bool forcedLog = false) const;
-        ^
-Makefile:7536: recipe for target 'server/zone/managers/combat/CombatManager.o' failed
-make[3]: *** [server/zone/managers/combat/CombatManager.o] Error 1
+In file included from ../../../src/server/zone/objects/creature/commands/ForceChokeCommand.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:213,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h: In member function ‘int ForcePowersQueueCommand::doCombatAction(server::zone::objects::creature::CreatureObject*, const uint64&, const sys::lang::UnicodeString&) const’:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:61:14: error: assignment of member ‘CombatQueueCommand::forceCost’ in read-only object
+    forceCost = forceCost - (forceCost * force_manipulation);
+              ^
+Makefile:7536: recipe for target 'server/zone/managers/objectcontroller/command/CommandConfigManager.o' failed
+make[3]: *** [server/zone/managers/objectcontroller/command/CommandConfigManager.o] Error 1
 make[3]: Target 'all' not remade because of errors.
 make[3]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src'
 Making all in src/client
