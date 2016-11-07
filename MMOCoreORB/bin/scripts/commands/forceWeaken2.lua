@@ -46,10 +46,10 @@ ForceWeaken2Command = {
 
 	damageMultiplier = 0,
 	speed = 2.0,
-	forceCost = 200,
+	forceCost = 500,
 	visMod = 25,
 	accuracySkillMod = "forceweaken_accuracy",
-	accuracyBonus = 95,
+	accuracyBonus = 70,
 	forceAttack = true,
 
 	animation = "force_weaken_1_particle_level_1", 
