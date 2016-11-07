@@ -938,11 +938,12 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 			forcePower = attacker->getSkillMod("force_power_dark");
 	}
 	if (weapon->getAttackType() == SharedWeaponObjectTemplate::FORCEATTACK)
-		info("Force power increase is: " + String::valueOf(forcePower), true);
-		info("Old Damage: " + String::valueOf(damage));
+		//info("Force power increase is: " + String::valueOf(forcePower), true);
+		//info("Old Damage: " + String::valueOf(damage));
+		forcePower = forcePower / 100;
 
-		damage *= forcePower;
-		info("New Damage: " + String::valueOf(damage));
+		damage += (damage * forcePower);
+		//info("New Damage: " + String::valueOf(damage));
 	}
 
 	damage += attacker->getSkillMod("private_damage_bonus");
