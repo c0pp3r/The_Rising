@@ -919,6 +919,7 @@ int CombatManager::calculateDamageRange(TangibleObject* attacker, CreatureObject
 float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject* weapon, float damage, const CreatureAttackData& data) {
 	if (!data.isForceAttack()) {
 		Vector<String>* weaponDamageMods = weapon->getDamageModifiers();
+		info("This attack is not a force attack", true);
 
 		for (int i = 0; i < weaponDamageMods->size(); ++i) {
 			damage += attacker->getSkillMod(weaponDamageMods->get(i));
@@ -939,9 +940,9 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 	}
 	if (weapon->getAttackType() == SharedWeaponObjectTemplate::FORCEATTACK)
 		info("Force power increase is: " + String::valueOf(forcePower), true);
-		info("Old Damage: " + String::valueOf(damage));
+		info("Old Damage: " + String::valueOf(damage), true);
 		damage += (damage * forcePower);
-		info("New Damage: " + String::valueOf(damage));
+		info("New Damage: " + String::valueOf(damage), true);
 	}
 
 	damage += attacker->getSkillMod("private_damage_bonus");
