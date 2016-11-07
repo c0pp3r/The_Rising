@@ -937,12 +937,12 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 	} 	else if (attackerGhost->getJediState() == 8) {
 			forcePower = attacker->getSkillMod("force_power_dark")/100;
 	}
-	if (weapon->getAttackType() == SharedWeaponObjectTemplate::FORCEATTACK)
-		info("Force power increase is: " + String::valueOf(forcePower), true);
-		info("Old Damage: " + String::valueOf(damage), true);
-		int frsDamage = damage * forcePower;
-		damage += frsDamage;
-		info("New Damage: " + String::valueOf(damage), true);
+	
+	info("Force power increase is: " + String::valueOf(forcePower), true);
+	info("Old Damage: " + String::valueOf(damage), true);
+	int frsDamage = damage * forcePower;
+	damage += frsDamage;
+	info("New Damage: " + String::valueOf(damage), true);
 	}
 
 	damage += attacker->getSkillMod("private_damage_bonus");
