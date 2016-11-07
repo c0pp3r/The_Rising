@@ -933,8 +933,10 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 		ManagedReference<PlayerObject*> attackerGhost = attacker->getPlayerObject();
 		int forcePower = 0;
 		if(attackerGhost->getJediState() == 4) {
+			info("Light Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_light")), true )
 			forcePower = attacker->getSkillMod("force_power_light")/100;
 	} 	else if (attackerGhost->getJediState() == 8) {
+			info("Dark Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_dark")), true )
 			forcePower = attacker->getSkillMod("force_power_dark")/100;
 	}
 	
