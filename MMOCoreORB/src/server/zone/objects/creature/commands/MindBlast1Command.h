@@ -34,6 +34,17 @@ public:
 			return INVALIDTARGET;
 		}
 
+		CreatureObject* player = cast<CreatureObject*>(creature);
+		if (!player->checkCooldownRecovery("mind_blast")){
+			Time* cdTime = player->getCooldownTime("mind_blast");
+			//Returns -time. Multiply by -1 to return positive
+			int timeleft = floor((float)cdTime->miliDifference() /1000) * -1;
+
+			player->sendSystemMessage("Mind Blast is on Cooldown");
+			return GENERALERROR;
+		}
+		player->addCooldown("mind_blast", 10 * 1000); //10 second cooldown
+
 		return doCombatAction(creature, target);
 	}
 
