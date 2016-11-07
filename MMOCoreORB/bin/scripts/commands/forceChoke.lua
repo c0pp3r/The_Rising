@@ -69,8 +69,8 @@ ForceChokeCommand = {
     HEALTH,
     true,
     -1,
-    100,
-    350,
+    1000,
+    3500,
     35,
     33.0,
     0.33
@@ -82,22 +82,11 @@ ForceChokeCommand = {
     ACTION,
     true,
     -1,
-    100,
-    350,
+    1000,
+    3500,
     35,
     33.0,
     0.33
-    ),
-
-    DotEffect(
-    BLEEDING,
-    { "resistance_bleeding", "bleed_resist" },
-    MIND,
-    true,
-    0,
-    100,
-    60, 
-    60
     ),
 
     DotEffect(
@@ -106,13 +95,13 @@ ForceChokeCommand = {
     MIND,
     true,
     -1,
-    100,
-    350,
+    1000,
+    3500,
     35,
     33.0,
     0.33
     )
-  },
+  },32
 }
 
 AddCommand(ForceChokeCommand)
