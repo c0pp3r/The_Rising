@@ -929,6 +929,17 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 		if (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK)
 			damage += attacker->getSkillMod("private_ranged_damage_bonus");
 	}
+	if (data.isForceAttack()){
+		ManagedReference<PlayerObject*> attackerGhost = attacker->getPlayerObject();
+		int forcePower = 0;
+		if(attackerGhost->getJediState() == 4) {
+			forcePower = attacker->getSkillMod("force_power_light");
+	} 	else if (attackerGhost->getJediState() == 8) {
+			forcePower = attacker->getSkillMod("force_power_dark");
+	}
+	if (weapon->getAttackType() == SharedWeaponObjectTemplate::FORCEATTACK)
+		damage *= forcePower;
+	}
 
 	damage += attacker->getSkillMod("private_damage_bonus");
 
