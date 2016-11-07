@@ -45,8 +45,9 @@ ForceKnockdown1Command = {
 	name = "forceknockdown1",
 
 	damageMultiplier = 0,
-	speed = 2.0,
-	forceCost = 75,
+	speed = 3.0,
+	forceCost = 100,
+	accuracyBonus = 20
 	visMod = 25,
 	accuracySkillMod = "forceknockdown_accuracy",
 
@@ -70,7 +71,7 @@ ForceKnockdown1Command = {
 
 	forceAttack = true,
 
-	range = 32
+	range = 40
 }
 
 AddCommand(ForceKnockdown1Command)
