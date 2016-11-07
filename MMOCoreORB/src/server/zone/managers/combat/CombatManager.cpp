@@ -940,7 +940,7 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 	if (weapon->getAttackType() == SharedWeaponObjectTemplate::FORCEATTACK)
 		info("Force power increase is: " + String::valueOf(forcePower), true);
 		info("Old Damage: " + String::valueOf(damage), true);
-		frsDamage = damage * forcePower;
+		int frsDamage = damage * forcePower;
 		damage += frsDamage;
 		info("New Damage: " + String::valueOf(damage), true);
 	}
