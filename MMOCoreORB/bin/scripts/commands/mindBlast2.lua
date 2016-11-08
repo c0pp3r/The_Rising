@@ -46,7 +46,7 @@ MindBlast2Command = {
 
 	minDamage = 5700,
 	maxDamage = 10200,
-	speed = 3.0,
+	speed = 1.0,
 	forceCost = 560,
 	visMod = 25,
 	accuracyBonus = 70,
@@ -91,7 +91,7 @@ MindBlast2Command = {
 
 	combatSpam = "mindblast2",
 
-	poolsToDamage = MIND,
+	poolsToDamage = MIND_ATTRIBUTE,
 
 	forceAttack = true,
 	damageType = STUN_DAMAGE,
