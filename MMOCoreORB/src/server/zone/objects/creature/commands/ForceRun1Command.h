@@ -34,6 +34,7 @@ public:
 		}
 		if (!creature->hasSkill("force_discipline_enhancements_movement_02")){
 			creature->sendSystemMessage("You lack sufficient skill to use the Force Run Command");
+			creature->removeBuff(BuffCRC::JEDI_FORCE_RUN_1);
 			return GENERALERROR;
 		}
 		// Return if something is in error.
