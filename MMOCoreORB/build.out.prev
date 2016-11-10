@@ -10,8 +10,8 @@ mkdir -p lib
 make compile
 make[2]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ./src/gtest-all.cc -o lib/gtest-all.o
-#done
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ../gmock-1.6.0/src/gmock-all.cc -o lib/gmock-all.o
+#done
 make[2]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 cd lib && ar -rv libgtest.a gtest-all.o gmock-all.o
 r - gtest-all.o
@@ -30,9 +30,9 @@ depbase=`echo server/zone/objects/player/PlayerObjectImplementation.o | sed 's|[
 g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/objects/player/PlayerObjectImplementation.o -MD -MP -MF $depbase.Tpo -c -o server/zone/objects/player/PlayerObjectImplementation.o ../../../src/server/zone/objects/player/PlayerObjectImplementation.cpp &&\
 mv -f $depbase.Tpo $depbase.Po
 ../../../src/server/zone/objects/player/PlayerObjectImplementation.cpp: In member function ‘void server::zone::objects::player::PlayerObjectImplementation::notifyOnline()’:
-../../../src/server/zone/objects/player/PlayerObjectImplementation.cpp:1490:15: error: expected unqualified-id before ‘->’ token
-   SkillManager->removeAbility(ghost, "forceMeditate", true);
-               ^
+../../../src/server/zone/objects/player/PlayerObjectImplementation.cpp:1492:7: error: ‘playercreature’ was not declared in this scope
+  if (!playercreature->hasSkill("force_discipline_enhancements_movement_02") && ghost->hasAbility("forceRun1")) {
+       ^
 Makefile:7536: recipe for target 'server/zone/objects/player/PlayerObjectImplementation.o' failed
 make[3]: *** [server/zone/objects/player/PlayerObjectImplementation.o] Error 1
 make[3]: Target 'all' not remade because of errors.

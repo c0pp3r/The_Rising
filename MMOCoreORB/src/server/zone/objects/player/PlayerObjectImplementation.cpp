@@ -1489,7 +1489,7 @@ void PlayerObjectImplementation::notifyOnline() {
 	if (!playerCreature->hasSkill("force_discipline_enhancements_synergy_04") && ghost->hasAbility("forceMeditate")) {
 		SkillManager::instance()->removeAbility(ghost, "forceMeditate", true);
 	}
-	if (!creature->hasSkill("force_discipline_enhancements_movement_02") && ghost->hasAbility("forceRun1")) {
+	if (!playerCreature->hasSkill("force_discipline_enhancements_movement_02") && ghost->hasAbility("forceRun1")) {
 		SkillManager::instance()->removeAbility(ghost, "forceRun1", true);
 	}
 }
