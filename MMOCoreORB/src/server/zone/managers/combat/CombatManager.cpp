@@ -933,18 +933,18 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 		ManagedReference<PlayerObject*> attackerGhost = attacker->getPlayerObject();
 		float forcePower = 0.f;
 		if(attackerGhost->getJediState() == 4) {
-			info("Light Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_light")), true );
+			//info("Light Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_light")), true );
 			forcePower = (float)attacker->getSkillMod("force_power_light") / 100;
 	} 	else if (attackerGhost->getJediState() == 8) {
-			info("Dark Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_dark")), true );
+			//info("Dark Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_dark")), true );
 			forcePower = (float)attacker->getSkillMod("force_power_dark") / 100;
 	}
 	
-		info("Force power increase is: " + String::valueOf(forcePower), true);
-		info("Old Damage: " + String::valueOf(damage), true);
+		//info("Force power increase is: " + String::valueOf(forcePower), true);
+		//info("Old Damage: " + String::valueOf(damage), true);
 		int frsDamage = damage * forcePower;
 		damage += frsDamage;
-		info("New Damage: " + String::valueOf(damage), true);
+		//info("New Damage: " + String::valueOf(damage), true);
 	}
 
 	damage += attacker->getSkillMod("private_damage_bonus");
