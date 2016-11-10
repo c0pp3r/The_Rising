@@ -47,7 +47,7 @@ ForceLightningSingle2Command = {
 	minDamage = 9200,
 	maxDamage = 15200,
 	speed = 1.0,
-	forceCost = 350,
+	forceCost = 150,
 	visMod = 25,
 	accuracySkillMod = "forcelightning_accuracy",
 	accuracyBonus = 70,
@@ -74,7 +74,7 @@ ForceLightningSingle2Command = {
 	forceAttack = true,
 	damageType = ELECTRICITY_DAMAGE,
 
-	range = 60
+	range = 32
 }
 
 AddCommand(ForceLightningSingle2Command)
