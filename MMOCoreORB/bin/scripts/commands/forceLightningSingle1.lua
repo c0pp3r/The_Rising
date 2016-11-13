@@ -64,5 +64,6 @@ ForceLightningSingle1Command = {
 	damageType = ELECTRICITY_DAMAGE,
 
 	range = 32
+}
 
 AddCommand(ForceLightningSingle1Command)
