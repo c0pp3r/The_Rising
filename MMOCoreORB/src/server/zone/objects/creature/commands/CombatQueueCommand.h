@@ -204,8 +204,11 @@ public:
 								if (!CombatManager::instance()->areInDuel(creature, targetCreature)) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
-									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT && (!ghost->isInBountyLockList(targetCreature->getObjectID()) || !targetGhost->isInBountyLockList(targetCreature->getObjectID()))) {
-										ghost->doFieldFactionChange(FactionStatus::OVERT);
+									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT){// && (!ghost->isInBountyLockList(targetCreature->getObjectID()) || !targetGhost->isInBountyLockList(targetCreature->getObjectID()))) {
+										if (!ghost->isInBountyLockList(targetCreature->getObjectID()) && !targetGhost->isInBountyLockList(targetCreature->getObjectID())){
+											info("Target is not a bounty, do a faction status change", true);
+											ghost->doFieldFactionChange(FactionStatus::OVERT);
+										}
 									}
 								}
 							} else if (targetCreature->isPet()) {
