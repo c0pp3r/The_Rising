@@ -205,9 +205,12 @@ public:
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT){// && (!ghost->isInBountyLockList(targetCreature->getObjectID()) || !targetGhost->isInBountyLockList(targetCreature->getObjectID()))) {
-										if (!ghost->isInBountyLockList(targetCreature->getObjectID()) && !targetGhost->isInBountyLockList(targetCreature->getObjectID())){
-											info("Target is not a bounty, do a faction status change", true);
-											ghost->doFieldFactionChange(FactionStatus::OVERT);
+										if (!ghost->isInBountyLockList(targetCreature->getObjectID())){
+											info("Attacker is not in targets Bounty List", true);
+											if (!targetGhost->isInBountyLockList(targetCreature->getObjectID())){
+												info("Victim is not in the targets Bounty List", true);
+												ghost->doFieldFactionChange(FactionStatus::OVERT);
+											}
 										}
 									}
 								}
