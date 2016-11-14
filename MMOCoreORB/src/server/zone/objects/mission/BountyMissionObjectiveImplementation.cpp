@@ -603,8 +603,11 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 
 	killer = cast<CreatureObject*>(arg1);
 
+
 	ManagedReference<MissionObject* > mission = this->mission.get();
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
+	String playerName = killer->getFirstName();
+	String bhName = owner->getFirstName();
 
 	if(mission == NULL)
 		return;
@@ -621,6 +624,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 
 					VisibilityManager::instance()->clearVisibility(target);
 					target->setScreenPlayState("deathBounty", 0);
+					StringBuffer bBroadcast;
 					if (target->hasSkill("force_title_jedi_rank_01")) {
 						int xpLoss = mission->getRewardCredits() * -2;
 
@@ -634,6 +638,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 						message.setDI(xpLoss * -1);
 						message.setTO("exp_n", "jedi_general");
 						target->sendSystemMessage(message);
+						bBroadcast << "\\#00bfff" << bhName << "\\#ffd700" << " a" << "\\#ff7f00 Bounty Hunter" << "\\#ffd700 has collected the bounty on\\#00bfff " << playerName;
 					}
 				}
 			}
@@ -644,8 +649,6 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			//Player killed by target, fail mission.
 			owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 			killer->sendSystemMessage("You have defeated a bounty hunter, ruining his mission against you!");
-			String playerName = killer->getFirstName();
-			String bhName = owner->getFirstName();
 			StringBuffer zBroadcast;
 			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
 				if (killer->hasSkill("force_rank_light_novice")){
