@@ -204,7 +204,7 @@ public:
 								if (!CombatManager::instance()->areInDuel(creature, targetCreature)) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
-									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT && !ghost->isInBountyLockList(targetCreature->getObjectID()) && !targetGhost->isInBountyLockList(targetCreature->getObjectID())) {
+									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT && (!ghost->isInBountyLockList(targetCreature->getObjectID()) || !targetGhost->isInBountyLockList(targetCreature->getObjectID()))) {
 										ghost->doFieldFactionChange(FactionStatus::OVERT);
 									}
 								}
