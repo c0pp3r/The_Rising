@@ -638,7 +638,8 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 						message.setDI(xpLoss * -1);
 						message.setTO("exp_n", "jedi_general");
 						target->sendSystemMessage(message);
-						bBroadcast << "\\#00bfff" << bhName << "\\#ffd700" << " a" << "\\#ff7f00 Bounty Hunter" << "\\#ffd700 has collected the bounty on\\#00bfff " << playerName;
+						String victimName = target->getFirstName();
+						bBroadcast << "\\#00bfff" << bhName << "\\#ffd700" << " a" << "\\#ff7f00 Bounty Hunter" << "\\#ffd700 has collected the bounty on\\#00bfff " << victimName;
 						owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, bBroadcast.toString());
 					}
 				}
