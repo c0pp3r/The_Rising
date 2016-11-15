@@ -23,6 +23,7 @@
 #include "server/zone/packets/creature/CreatureObjectDeltaMessage1.h"
 #include "server/zone/packets/creature/CreatureObjectDeltaMessage3.h"
 #include "server/zone/packets/creature/CreatureObjectDeltaMessage4.h"
+#include "server/zone/packets/creature/CreatureObjectDeltaMessage6.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "server/zone/packets/object/CombatSpam.h"
 #include "server/zone/packets/object/PostureMessage.h"
