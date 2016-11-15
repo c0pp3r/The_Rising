@@ -207,9 +207,7 @@ public:
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT){
 										if (!creature->isInBountyMission(targetCreature, creature)){
-											info("Attacker is not a bounty target", true);
 											if (!targetCreature->isInBountyMission(creature, targetCreature)){
-												info("Attacker is not on a Bounty Mission", true);
 												ghost->doFieldFactionChange(FactionStatus::OVERT);
 											}
 										}

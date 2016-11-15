@@ -2981,7 +2981,6 @@ bool CreatureObjectImplementation::isAttackableBy(CreatureObject* object, bool b
 	}
 
 	if (isInBountyMission(object, asCreatureObject())) {
-		info("Target is in the Bounty Hunter Mission list", true);
 		return true;
 	}
 
