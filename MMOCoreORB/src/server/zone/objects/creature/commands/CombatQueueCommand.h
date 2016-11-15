@@ -8,7 +8,7 @@
 #ifndef COMBATQUEUECOMMAND_H_
 #define COMBATQUEUECOMMAND_H_
 
-#include"server/zone/ZoneServer.h"
+#include "server/zone/ZoneServer.h"
 #include "server/zone/Zone.h"
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/managers/combat/CombatManager.h"
@@ -23,6 +23,7 @@
 #include "server/zone/objects/creature/commands/effect/CommandEffect.h"
 #include "server/zone/packets/object/CombatSpam.h"
 #include "QueueCommand.h"
+#include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/managers/collision/PathFinderManager.h"
 //#include "server/zone/objects/creature/ai/AiAgent.h"
 //#include "server/zone/managers/creature/CreatureManager.h"
@@ -205,9 +206,9 @@ public:
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT){// && (!ghost->isInBountyLockList(targetCreature->getObjectID()) || !targetGhost->isInBountyLockList(targetCreature->getObjectID()))) {
-										if (!ghost->isInBountyLockList(targetCreature->getObjectID())){
+										if (!ghost->isInBountyLockList(targetObject->getObjectID())){
 											info("Attacker is not in targets Bounty List", true);
-											if (!targetGhost->isInBountyLockList(targetCreature->getObjectID())){
+											if (!targetGhost->isInBountyLockList(targetObject->getObjectID())){
 												info("Victim is not in the targets Bounty List", true);
 												ghost->doFieldFactionChange(FactionStatus::OVERT);
 											}
