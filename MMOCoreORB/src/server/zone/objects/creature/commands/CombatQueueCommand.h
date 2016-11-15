@@ -205,11 +205,11 @@ public:
 								if (!CombatManager::instance()->areInDuel(creature, targetCreature)) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
-									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT){// && (!ghost->isInBountyLockList(targetCreature->getObjectID()) || !targetGhost->isInBountyLockList(targetCreature->getObjectID()))) {
-										if (!ghost->isInBountyLockList(targetObject->getObjectID())){
-											info("Attacker is not in targets Bounty List", true);
-											if (!targetGhost->isInBountyLockList(targetObject->getObjectID())){
-												info("Victim is not in the targets Bounty List", true);
+									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT){
+										if (!creature->isInBountyMission(targetCreature, creature)){
+											info("Attacker is not a bounty target", true);
+											if (!targetCreature->isInBountyMission(creature, targetCreature)){
+												info("Attacker is not on a Bounty Mission", true);
 												ghost->doFieldFactionChange(FactionStatus::OVERT);
 											}
 										}
