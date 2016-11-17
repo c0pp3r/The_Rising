@@ -48,7 +48,7 @@ death_watch_s_battle_droid = Creature:new {
 			groups = {
 				{group = "ranged_components", chance = 10000000}
 			},
-			lootChance = 4000000
+			lootChance = 2000000
 
 		}
 		},
