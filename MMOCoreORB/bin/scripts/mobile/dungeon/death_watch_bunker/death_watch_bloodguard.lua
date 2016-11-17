@@ -47,7 +47,7 @@ death_watch_bloodguard = Creature:new {
 			groups = {
 				{group = "ranged_components", chance = 10000000}
 			},
-			lootChance = 2000000
+			lootChance = 1000000
 
 		}
 	},

@@ -58,7 +58,7 @@ mandalorian_kandoalor = Creature:new {
 			groups = {
 				{group = "ranged_components", chance = 10000000}
 			},
-			lootChance = 4000000
+			lootChance = 1500000
 
 		}
 	},
