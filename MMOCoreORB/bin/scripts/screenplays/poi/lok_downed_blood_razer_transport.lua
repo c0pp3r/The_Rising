@@ -97,7 +97,9 @@ function BloodRazerTransportScreenPlay:spawnMobiles()
 	spawnMobile("lok", "blood_razor_captain", 300, -4.1, 0, -1.8, -180, 568760)
 
 	--Mandalorian Invasion
-	spawnMobile("lok", "booba_fett", 3600, 3641.66, 1, 2208.25, -167, 0)
+	spawnMobile("lok", "booba_fett", 3600, 3636.34, 1, 2182.73, -167, 0)
+	spawnMobile("lok", "mandalorian_aloruus", 1800, 3639.72, 1, 2182.24, 309, 0)
+	spawnMobile("lok", "mandalorian_aloruus", 1800, 3632.07, 1, 2183.11, 309, 0)
 	spawnMobile("lok", "mandalorian_aliitalor", 1800, 3645.13, 1, 2198.08, -174, 0)
 	spawnMobile("lok", "mandalorian_aliitalor", 1800, 3633.67, 1, 2201.54, -171, 0)
 	spawnMobile("lok", "mandalorian_kandoalor", 1500, 3674.21, 1, 2204.8, 38, 0)
