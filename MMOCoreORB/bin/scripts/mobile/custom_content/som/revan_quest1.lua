@@ -6,14 +6,14 @@ revan_quest1 = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 85,
-	damageMin = 1570,
-	damageMax = 2550,
+	damageMin = 2570,
+	damageMax = 3550,
 	specialDamageMult = 25,
-	baseXp = 3005409,
-	baseHAM = 1250000,
-	baseHAMmax = 2500000,
+	baseXp = 300540,
+	baseHAM = 325000,
+	baseHAMmax = 450000,
 	armor = 3,
-	resists = {20,20,20,20,20,20,20,20,20},
+	resists = {50,50,50,50,50,50,50,50,50},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -59,25 +59,9 @@ revan_quest1 = Creature:new {
 			lootChance = 10000000
 		  },
 	},
-	weapons = {"durge_weapons"},
+	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = {
-		{"creatureareacombo","StateAccuracyBonus=100"},
-		{"creatureareaknockdown","StateAccuracyBonus=100"},
-		{"knockdownattack","KnockdownChance=100"},
-		{"creatureareaknockdown","KnockdownChance=100"},
-		{"dizzyattack","DizzyChance=100"},
-		{"stunattack","StunChance=100"},
-		{"mildpoison","PoisonChance=100"},
-		{"intimidationattack","IntimidationChance=100"},
-		{"mediumpoison","PoisonChance=100"},
-		{"creatureareapoison","PoisonChance=100"},
-		{"mediumDisease","DiseaseChance=100"},
-		{"mildDisease","DiseaseChance=100"},
-		{"strongpoison","PoisonChance=100"},
-		{"strongDisease","DiseaseChance=100"},
-		{"creatureareaattack","StateAccuracyBonus=100"}
-	}
+	attacks = merge(risinglsmaster,forcepowermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(revan_quest1, "revan_quest1")
