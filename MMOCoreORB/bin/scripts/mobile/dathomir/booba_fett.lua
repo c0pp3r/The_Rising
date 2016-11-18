@@ -10,7 +10,7 @@ booba_fett = Creature:new {
 	baseHAM = 300000,
 	baseHAMmax = 400000,
 	armor = 3,
-	resists = {95,95,95,95,95,95,100,95,50},
+	resists = {95,95,95,95,95,95,95,95,50},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -70,7 +70,7 @@ booba_fett = Creature:new {
 	},
 	weapons = {"rebel_weapons_heavy"},
   conversationTemplate = "",
-	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pistoleermaster,commandomaster,carbineermaster)
+	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pistoleermaster,commandomaster,carbineermaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(booba_fett, "booba_fett")

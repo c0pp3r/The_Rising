@@ -3,14 +3,14 @@ tusken_king = Creature:new {
 	socialGroup = "tusken_raider",
 	faction = "tusken_raider",
 	level = 300,
-	chanceHit = 85,
-	damageMin = 5570,
-	damageMax = 10550,
+	chanceHit = 95,
+	damageMin = 2000,
+	damageMax = 4000,
 	specialDamageMult = 25,
 	baseXp = 3005409,
-	baseHAM = 8540000,
-	baseHAMmax = 10629000,
-	armor = 3,
+	baseHAM = 854000,
+	baseHAMmax = 1062900,
+	armor = 1,
 	resists = {60,60,60,60,60,60,60,60,60},
 	meatType = "",
 	meatAmount = 0,
@@ -62,23 +62,7 @@ tusken_king = Creature:new {
 		},
 	weapons = {"tusken_weapons"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = {
-		{"creatureareacombo","StateAccuracyBonus=100"},
-		{"creatureareaknockdown","StateAccuracyBonus=100"},
-		{"knockdownattack","KnockdownChance=100"},
-		{"creatureareaknockdown","KnockdownChance=100"},
-		{"dizzyattack","DizzyChance=100"},
-		{"stunattack","StunChance=100"},
-		{"mildpoison","PoisonChance=100"},
-		{"intimidationattack","IntimidationChance=100"},
-		{"mediumpoison","PoisonChance=100"},
-		{"creatureareapoison","PoisonChance=100"},
-		{"mediumDisease","DiseaseChance=100"},
-		{"mildDisease","DiseaseChance=100"},
-		{"strongpoison","PoisonChance=100"},
-		{"strongDisease","DiseaseChance=100"},
-		{"creatureareaattack",""}
-	}
+	attacks = merge(fencermaster,riflemaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(tusken_king, "tusken_king")
