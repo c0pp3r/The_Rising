@@ -11,7 +11,7 @@ tusken_king = Creature:new {
 	baseHAM = 854000,
 	baseHAMmax = 1062900,
 	armor = 1,
-	resists = {60,60,60,60,60,60,60,60,60},
+	resists = {75,75,75,75,75,75,75,75,75},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -62,7 +62,7 @@ tusken_king = Creature:new {
 		},
 	weapons = {"tusken_weapons"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(fencermaster,riflemaster,tkamaster)
+	attacks = merge(fencermaster,riflemaster,tkamaster,brawlermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(tusken_king, "tusken_king")

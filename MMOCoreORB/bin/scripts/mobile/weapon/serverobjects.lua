@@ -79,6 +79,8 @@ includeFile("weapon/groups/st_sniper_weapons.lua")
 includeFile("weapon/groups/stormtrooper_weapons.lua")
 includeFile("weapon/groups/tusken_weapons.lua")
 
+-- The Rising custom groups
+includeFile("weapon/groups/boba_fett_weapons_rising.lua")
 -- tutorial
 includeFile("weapon/groups/tutorial_bandit.lua")
 
