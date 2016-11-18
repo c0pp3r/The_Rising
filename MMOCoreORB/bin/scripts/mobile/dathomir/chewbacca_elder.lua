@@ -1,14 +1,14 @@
 chewbacca_elder = Creature:new {
 	customName = "Chewbacca (Elder)",
 	level = 350,
-	chanceHit = 27.25,
-	damageMin = 1800,
-	damageMax = 3310,
-	baseXp = 27849,
-	baseHAM = 1321000,
-	baseHAMmax = 1392000,
+	chanceHit = 85,
+	damageMin = 3800,
+	damageMax = 5310,
+	baseXp = 2784900,
+	baseHAM = 332100,
+	baseHAMmax = 439200,
 	armor = 3,
-	resists = {90,90,90,90,90,90,90,90,-1},
+	resists = {90,90,90,90,90,90,90,90,80},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -18,7 +18,7 @@ chewbacca_elder = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
+	pvpBitmask = ATTACKABLE + ENEMY,
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
@@ -62,7 +62,7 @@ chewbacca_elder = Creature:new {
 	},
 	weapons = {"chewbacca_weapons"},
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,forcepowermaster)
+	attacks = merge(riflemanmaster,marksmanmaster,brawlermaster,pikemanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(chewbacca_elder, "chewbacca_elder")

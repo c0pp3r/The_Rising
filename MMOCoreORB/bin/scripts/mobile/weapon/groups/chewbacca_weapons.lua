@@ -1,5 +1,6 @@
 chewbacca_weapons = {
 	"object/weapon/ranged/rifle/rifle_bowcaster.iff"
+	"object/weapon/melee/polearm/lance_kashyyk.iff"
 }
 
 addWeapon("chewbacca_weapons", chewbacca_weapons)
