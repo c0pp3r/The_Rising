@@ -70,7 +70,7 @@ booba_fett = Creature:new {
 	},
 	weapons = {"rebel_weapons_heavy"},
   conversationTemplate = "",
-	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pistoleermaster,commandomaster,carbineermaster,tkamaster)
+	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pistoleermaster,riflemanmaster,carbineermaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(booba_fett, "booba_fett")
