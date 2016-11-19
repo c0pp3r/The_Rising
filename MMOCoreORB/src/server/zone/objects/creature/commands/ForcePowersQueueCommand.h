@@ -52,10 +52,12 @@ public:
 			//FRS forceCost modifier for powers abilities
 			float force_manipulation = 0.f;
 			ManagedReference<CreatureObject*> creo = cast<CreatureObject*>( creature);
-			if (playerObject->getJediState() == 4) {
-				force_manipulation = (float)creo->getSkillMod("force_manipulation_light") / 1300;
-			}else if (playerObject->getJediState() == 8) {
-				force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 1300;
+			if (playerObject != NULL){
+				if (playerObject->getJediState() == 4) {
+					force_manipulation = (float)creo->getSkillMod("force_manipulation_light") / 1300;
+				}else if (playerObject->getJediState() == 8) {
+					force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 1300;
+				}
 			}
 
 			int adjustedforceCost = forceCost - (forceCost * force_manipulation);
