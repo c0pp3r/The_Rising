@@ -241,7 +241,7 @@ revan = Creature:new {
 		},
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(lightsabermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(revan, "revan")
