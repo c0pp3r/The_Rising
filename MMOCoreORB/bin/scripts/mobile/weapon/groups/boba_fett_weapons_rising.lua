@@ -1,8 +1,5 @@
 boba_fett_weapons_rising = {
 	"object/weapon/ranged/carbine/carbine_ee3.iff",
-	"object/weapon/ranged/rifle/rifle_tenloss_dxr6_disruptor_loot.iff",
-	"object/weapon/ranged/pistol/pistol_scatter.iff",
-	"object/weapon/ranged/rifle/rifle_lightning.iff",
 	"object/weapon/melee/special/blacksun_razor.iff"
 }
 
