@@ -68,9 +68,9 @@ booba_fett = Creature:new {
 			lootChance = 10000000
 	  },
 	},
-	weapons = {"rebel_weapons_heavy"},
+	weapons = {"boba_fett_weapons_rising"},
   conversationTemplate = "",
-	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pistoleermaster,riflemanmaster,carbineermaster,tkamaster)
+	attacks = merge(bountyhuntermaster,pistoleermaster,riflemanmaster,carbineermaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(booba_fett, "booba_fett")

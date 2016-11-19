@@ -4,6 +4,7 @@ chewbacca_elder = Creature:new {
 	chanceHit = 85,
 	damageMin = 3800,
 	damageMax = 5310,
+	specialDamageMult = 25,
 	baseXp = 2784900,
 	baseHAM = 332100,
 	baseHAMmax = 439200,
@@ -62,7 +63,7 @@ chewbacca_elder = Creature:new {
 	},
 	weapons = {"chewbacca_weapons"},
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,marksmanmaster,brawlermaster,pikemanmaster)
+	attacks = merge(riflemanmaster,pikemanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(chewbacca_elder, "chewbacca_elder")
