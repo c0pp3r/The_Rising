@@ -19,7 +19,6 @@
 #include "server/zone/objects/creature/commands/effect/DotEffect.h"
 #include "server/zone/objects/creature/commands/effect/CommandEffect.h"
 #include "CombatQueueCommand.h"
-#include "server/zone/managers/collision/PathFinderManager.h"
 #include "server/zone/managers/visibility/VisibilityManager.h"
 
 class ForcePowersQueueCommand : public CombatQueueCommand {
@@ -44,25 +43,13 @@ public:
 				return TOOFAR;
 
 			if (!CollisionManager::checkLineOfSight(creature, targetObject)) {
-				creature->sendSystemMessage("@container_error_message:container18");
+				creature->sendSystemMessage("@cbt_spam:los_fail");// "You lost sight of your target."
 				return GENERALERROR;
 			}
 
 			ManagedReference<PlayerObject*> playerObject = creature->getPlayerObject();
-			//FRS forceCost modifier for powers abilities
-			float force_manipulation = 0.f;
-			ManagedReference<CreatureObject*> creo = cast<CreatureObject*>( creature);
-			if (playerObject != NULL){
-				if (playerObject->getJediState() == 4) {
-					force_manipulation = (float)creo->getSkillMod("force_manipulation_light") / 1300;
-				}else if (playerObject->getJediState() == 8) {
-					force_manipulation = (float)creo->getSkillMod("force_manipulation_dark") / 1300;
-				}
-			}
 
-			int adjustedforceCost = forceCost - (forceCost * force_manipulation);
-
-			if (playerObject != NULL && playerObject->getForcePower() < adjustedforceCost) {
+			if (playerObject != NULL && playerObject->getForcePower() < forceCost) {
 				creature->sendSystemMessage("@jedi_spam:no_force_power"); //"You do not have enough Force Power to peform that action.
 
 				return GENERALERROR;
@@ -81,7 +68,7 @@ public:
 				}
 
 				if (playerObject != NULL)
-					playerObject->setForcePower(playerObject->getForcePower() - adjustedforceCost);
+					playerObject->setForcePower(playerObject->getForcePower() - forceCost);
 
 			} catch (Exception& e) {
 				error("unreported exception caught in ForcePowersQueueCommand::doCombatAction");
@@ -103,5 +90,3 @@ public:
 	}
 
 };
-
-#endif /* FORCEPOWERSQUEUECOMMAND_H_ */
