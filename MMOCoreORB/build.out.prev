@@ -10,8 +10,8 @@ mkdir -p lib
 make compile
 make[2]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ./src/gtest-all.cc -o lib/gtest-all.o
-#done
 g++   -I./include -I. -I../gmock-1.6.0/include -I../gmock-1.6.0 -c ../gmock-1.6.0/src/gmock-all.cc -o lib/gmock-all.o
+#done
 make[2]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/utils/gtest-1.6.0'
 cd lib && ar -rv libgtest.a gtest-all.o gmock-all.o
 r - gtest-all.o
@@ -26,41 +26,107 @@ make[2]: warning: -jN forced in submake: disabling jobserver mode.
 Making all in src
 make[3]: Entering directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src'
 make[3]: warning: -jN forced in submake: disabling jobserver mode.
-depbase=`echo server/zone/managers/objectcontroller/command/tests/CommandLuaTest.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/objectcontroller/command/tests/CommandLuaTest.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/objectcontroller/command/tests/CommandLuaTest.o ../../../src/server/zone/managers/objectcontroller/command/tests/CommandLuaTest.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
-depbase=`echo server/zone/objects/installation/components/MinefieldZoneComponent.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/objects/installation/components/MinefieldZoneComponent.o -MD -MP -MF $depbase.Tpo -c -o server/zone/objects/installation/components/MinefieldZoneComponent.o ../../../src/server/zone/objects/installation/components/MinefieldZoneComponent.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
-depbase=`echo server/zone/managers/gcw/GCWManagerImplementation.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/gcw/GCWManagerImplementation.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/gcw/GCWManagerImplementation.o ../../../src/server/zone/managers/gcw/GCWManagerImplementation.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
-depbase=`echo server/zone/objects/creature/CreatureObjectImplementation.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/objects/creature/CreatureObjectImplementation.o -MD -MP -MF $depbase.Tpo -c -o server/zone/objects/creature/CreatureObjectImplementation.o ../../../src/server/zone/objects/creature/CreatureObjectImplementation.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
-depbase=`echo server/zone/objects/creature/ai/AiAgentImplementation.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/objects/creature/ai/AiAgentImplementation.o -MD -MP -MF $depbase.Tpo -c -o server/zone/objects/creature/ai/AiAgentImplementation.o ../../../src/server/zone/objects/creature/ai/AiAgentImplementation.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
-depbase=`echo server/zone/objects/installation/components/TurretDataComponent.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/objects/installation/components/TurretDataComponent.o -MD -MP -MF $depbase.Tpo -c -o server/zone/objects/installation/components/TurretDataComponent.o ../../../src/server/zone/objects/installation/components/TurretDataComponent.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
 depbase=`echo server/zone/managers/objectcontroller/command/CommandConfigManager.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
 g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/objectcontroller/command/CommandConfigManager.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/objectcontroller/command/CommandConfigManager.o ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp &&\
 mv -f $depbase.Tpo $depbase.Po
-In file included from ../../../src/server/zone/objects/creature/commands/commands.h:264:0,
+In file included from ../../../src/server/zone/objects/creature/commands/ForceChokeCommand.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:213,
                  from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
-../../../src/server/zone/objects/creature/commands/GetObjVarsCommand.h:10:59: fatal error: server/zone/templates/mobile/CreatureTemplate.h: No such file or directory
- #include "server/zone/templates/mobile/CreatureTemplate.h"
-                                                           ^
-compilation terminated.
-depbase=`echo server/zone/managers/combat/CombatManager.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/combat/CombatManager.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/combat/CombatManager.o ../../../src/server/zone/managers/combat/CombatManager.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceIntimidate1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:219,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceIntimidate2Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:220,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceKnockdown1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:221,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceKnockdown2Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:222,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceKnockdown3Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:223,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceLightningCone1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:224,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceLightningCone2Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:225,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceLightningSingle1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:226,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceLightningSingle2Command.h:10:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:227,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceThrow1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:242,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceThrow2Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:243,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceWeaken1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:244,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/ForceWeaken2Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:245,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/MindBlast1Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:444,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
+In file included from ../../../src/server/zone/objects/creature/commands/MindBlast2Command.h:9:0,
+                 from ../../../src/server/zone/objects/creature/commands/commands.h:445,
+                 from ../../../src/server/zone/managers/objectcontroller/command/CommandConfigManager.cpp:6:
+../../../src/server/zone/objects/creature/commands/ForcePowersQueueCommand.h:8:0: error: unterminated #ifndef
+ #ifndef FORCEPOWERSQUEUECOMMAND_H_
+ ^
 Makefile:7536: recipe for target 'server/zone/managers/objectcontroller/command/CommandConfigManager.o' failed
 make[3]: *** [server/zone/managers/objectcontroller/command/CommandConfigManager.o] Error 1
-depbase=`echo server/zone/managers/combat/CreatureAttackData.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-g++ -DHAVE_CONFIG_H -I. -I../../../src -I..  -I/usr/local/include -I/usr/local/include/mysql -I../../../../MMOEngine/include -I../../../../MMOEngine/src -I../../../utils -I/usr/local/include -I/usr/include/mysql -I/usr/local/BerkeleyDB.5.3/include -I/usr/include/db5.3 -I../../../utils/gtest-1.6.0/include -I../../../utils/gmock-1.6.0/include -I../../../src/autogen    -ggdb -Wall -Wextra -Wno-unused -Wno-sign-compare -Wno-multichar -DDEFAULT_DYNAMIC_CAST -Wno-unused-parameter -Wno-overloaded-virtual -Wno-missing-declarations -Werror -std=c++11   -MT server/zone/managers/combat/CreatureAttackData.o -MD -MP -MF $depbase.Tpo -c -o server/zone/managers/combat/CreatureAttackData.o ../../../src/server/zone/managers/combat/CreatureAttackData.cpp &&\
-mv -f $depbase.Tpo $depbase.Po
 make[3]: Target 'all' not remade because of errors.
 make[3]: Leaving directory '/home/vagrant/workspace/Core3/MMOCoreORB/build/unix/src'
 Making all in src/client
