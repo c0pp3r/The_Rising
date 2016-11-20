@@ -21,7 +21,7 @@ chewbacca_elder = Creature:new {
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE + ENEMY,
 	creatureBitmask = KILLER + STALKER,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = AIENABLED+ INTERESTING,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/chewbacca.iff"},
