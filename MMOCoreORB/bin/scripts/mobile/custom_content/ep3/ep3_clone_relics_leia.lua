@@ -4,8 +4,9 @@ ep3_clone_relics_leia = Creature:new {
 	socialGroup = "",
 	faction = "",
 	level = 300,
-	chanceHit = 75.00,
+	chanceHit = 85.00,
 	damageMin = 3000,
+	specialDamageMult = 25,
 	damageMax = 4000,
 	baseXp = 300000,
 	baseHAM = 450000,
@@ -70,7 +71,7 @@ ep3_clone_relics_leia = Creature:new {
 		},
 	weapons = {"luke_skywalker_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,marksmanmaster,lightsabermaster)
+	attacks = merge(lightsabermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(ep3_clone_relics_leia, "ep3_clone_relics_leia")
