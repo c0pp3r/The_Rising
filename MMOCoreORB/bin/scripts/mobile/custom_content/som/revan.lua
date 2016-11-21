@@ -8,7 +8,6 @@ revan = Creature:new {
 	chanceHit = 95,
 	damageMin = 2200,
 	damageMax = 4550,
-	specialDamageMult = 25,
 	baseXp = 300540,
 	baseHAM = 754000,
 	baseHAMmax = 962900,
