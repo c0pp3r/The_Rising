@@ -8,6 +8,7 @@ revan = Creature:new {
 	chanceHit = 95,
 	damageMin = 2500,
 	damageMax = 4550,
+	specialDamageMult = 1.25,
 	baseXp = 300540,
 	baseHAM = 754000,
 	baseHAMmax = 962900,
@@ -240,7 +241,7 @@ revan = Creature:new {
 		},
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(risinglsmaster, forcepowermaster)
+	attacks = merge(risinglsmaster, risingpowermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(revan, "revan")
