@@ -5,7 +5,7 @@ includeFile("dungeon/geonosian_lab/conversations/geonosianConvoHandlers.lua")
 GeonosianLabScreenPlay = ScreenPlay:new {
 	numberOfActs = 1,
 
-	keypadCodes = { 32281, 12872, 77777, 12753, 86332, 99999, 52577, 78660 },
+	keypadCodes = { 32281, 12872, 77777, 12753, 86332, 11380, 52577, 78660 },
 	lockedCells = { 1627785, 1627786, 1627790, 1627805, 1627812, 1627815, 1627822, 1627823 },
 
 	--debris fields, all respawns are set to 4 minutes
@@ -154,7 +154,7 @@ function GeonosianLabScreenPlay:spawnMobiles()
 
 	spawnMobile("yavin4", "acklay",7200,101.1,-34.3,-321.6,-136,1627823, true) --Randomized respawn
 	spawnMobile("yavin4", "enhanced_gaping_spider",1800,-130,-22.1,-85,-180,1627794, true) -- Randomized respawn
-    spawnMobile("yavin4", "enhanced_gaping_spider",1800,-130,-22.1,-85,-180,1627794)
+    spawnMobile("yavin4", "enhanced_gaping_spider",1800,-135.9, -20.981, -111.787, 79, 1627793)
  	spawnMobile("yavin4", "acklay_youngling", 600,105.0,-33.7,-325.0,-94,1627823)
  	spawnMobile("yavin4", "acklay_youngling", 600,100.6,-33.8,-315.4,-157,1627823)
  	spawnMobile("yavin4", "acklay_youngling", 600,98.2,-34.4,-324.7,-133,1627823)
@@ -212,6 +212,7 @@ function GeonosianLabScreenPlay:spawnMobiles()
 	spawnMobile("yavin4", "enhanced_kliknik",300,-64.9,-34,-266.5,-143,1627812)
 	spawnMobile("yavin4", "enhanced_kwi",300,-66.5,-34,-283.1,35,1627812)
 	spawnMobile("yavin4", "enhanced_kliknik",300,-87,-34.1,-386.5,210,1627819)
+	spawnMobile("yavin4", "poggle_the_lesser", 3600, -53.1814, -34.3656, -345.459, 242, 1627819)
 	spawnMobile("yavin4", "cavern_spider",300,-128.2,-34.4,-322.4,-30,1627817)
 	spawnMobile("yavin4", "cavern_spider",300,-143.5,-33.5,-321.7,134,1627817)
 	spawnMobile("yavin4", "cavern_spider",300,-131.1,-33.9,-339.0,145,1627817)
