@@ -7,10 +7,10 @@ emperors_hand = Creature:new {
 	level = 300,
 	chanceHit = 95,
 	damageMin = 1570,
-	damageMax = 5550,
-	baseXp = 3005409,
-	baseHAM = 10540000,
-	baseHAMmax = 11629000,
+	damageMax = 2550,
+	baseXp = 300540,
+	baseHAM = 354000,
+	baseHAMmax = 454000,
 	armor = 1,
 	resists = {40,40,40,40,40,40,40,40,40},
 	meatType = "",
@@ -238,7 +238,7 @@ emperors_hand = Creature:new {
 		},
 	weapons = {"dark_jedi_weapons_gen3"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster)
+	attacks = merge(risinglsmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(emperors_hand, "emperors_hand")

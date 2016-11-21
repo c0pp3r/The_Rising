@@ -27,7 +27,7 @@ poggle_the_lesser = Creature:new {
 	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED + INTERESTING,
 	diet = CARNIVORE,
-	scale = 3.5,
+	scale = 2.5,
 
 	templates = {
 		"object/mobile/dressed_geonosian_warrior_01.iff",
