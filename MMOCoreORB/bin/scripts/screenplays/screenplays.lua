@@ -501,7 +501,7 @@ includeFile("poi/kaas_imperial_garrison.lua")
 --Boss Encounters
 --includeFile("poi/tusken_king.lua")
 includeFile("poi/black_sun.lua")
-includeFile("poi/tatooine_tsking.lua")
+--includeFile("poi/tatooine_tsking.lua")
 includeFile("poi/lok_rvboss.lua")
 
 ---- Merchants
