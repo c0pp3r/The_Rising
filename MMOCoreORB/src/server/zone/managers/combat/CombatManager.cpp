@@ -1212,7 +1212,13 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		if (defender->getSkillMod("force_absorb") > 0 && defender->isPlayerCreature()) {
 			ManagedReference<PlayerObject*> playerObject = defender->getPlayerObject();
 			//int forceFeedback = defender->getSkillMod("force_absorb");
-			if (playerObject != NULL) {
+			if (playerObject != NULL && defender->getSkillMod("force_absorb") == 1) {
+				//float forceAbsorbDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
+				playerObject->setForcePower(playerObject->getForcePower() + (damage * (0.15 + ((forceControl/3)/100.f))));
+				sendMitigationCombatSpam(defender, NULL, (int)damage * 0.15, FORCEABSORB);
+				defender->playEffect("clienteffect/pl_force_absorb_hit.cef", "");
+			}
+			if (playerObject != NULL && defender->getSkillMod("force_absorb") == 2) {
 				//float forceAbsorbDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
 				playerObject->setForcePower(playerObject->getForcePower() + (damage * (0.5 + ((forceControl/3)/100.f))));
 				sendMitigationCombatSpam(defender, NULL, (int)damage * 0.5, FORCEABSORB);
