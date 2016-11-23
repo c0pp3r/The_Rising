@@ -58,3 +58,4 @@ forcewielder ={ {"forcelightningsingle1",""},{"forcechoke",""},{"forcelightningc
 
 --custom rising skills
 risinglsmaster = { {"saber1hheadhit3",""},{"saber1hhit3",""},{"saber1hcombohit3",""},{"saber1hflurry2",""},{"saber2hbodyhit3",""},{"saber2hfrenzy",""},{"saber2hhit3",""},{"saber2hphantom",""},{"saber2hsweep3",""},{"saberpolearmdervish2",""},{"saberpolearmhit3",""},{"saberpolearmleghit3",""},{"saberpolearmspinattack2",""},{"saberslash1",""},{"saberthrow3",""} }
+risingpowermaster = { {"forcelightningsingle2",""},{"forcelightningcone2",""},{"forceintimidate2",""},{"forcethrow2",""},{"drainForce",""},{"forceWeaken2",""},{"forcechoke",""} }

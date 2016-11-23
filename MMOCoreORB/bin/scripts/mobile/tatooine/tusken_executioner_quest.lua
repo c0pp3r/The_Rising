@@ -5,13 +5,13 @@ tusken_executioner_quest = Creature:new {
 	faction = "tusken_raider",
 	level = 300,
 	chanceHit = 75.5,
-	damageMin = 1645,
-	damageMax = 3000,
+	damageMin = 2645,
+	damageMax = 5000,
 	baseXp = 25167,
-	baseHAM = 261000,
-	baseHAMmax = 320000,
+	baseHAM = 461000,
+	baseHAMmax = 520000,
 	armor = 3,
-	resists = {85,80,35,100,20,30,45,80,-1},
+	resists = {85,80,35,90,20,30,45,80,50},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -57,9 +57,9 @@ tusken_executioner_quest = Creature:new {
 			lootChance = 10000000
 		  },
 	},
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"tusken_weapons"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster)
+	attacks = merge(fencermaster,riflemaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(tusken_executioner_quest, "tusken_executioner_quest")

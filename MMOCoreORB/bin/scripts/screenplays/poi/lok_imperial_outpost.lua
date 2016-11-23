@@ -187,10 +187,6 @@ function LokImperialOutpostScreenPlay:spawnMobiles()
 	spawnMobile("lok", "commoner", 300, -1897.1, 11.9, -3008.8, 90, 0)
 	spawnMobile("lok", "commoner", 300, -1897.1, 11.9, -3014.8, 90, 0)
 
-	spawnMobile("lok", "commoner", 300, -1957.5, 11.9, -3076.1, -90, 0)
-	spawnMobile("lok", "commoner", 300, -1954.0, 11.9, -3076.1, -90, 0)
-	spawnMobile("lok", "commoner", 300, -1951.5, 11.9, -3076.1, -90, 0)
-
 	spawnMobile("lok", "stormtrooper", 300, -1876.2, 11.9, -3004.3, 0, 0)
 	spawnMobile("lok", "stormtrooper", 300, -1876.2, 11.9, -3008.3, 0, 0)
 	spawnMobile("lok", "stormtrooper", 300, -1876.2, 11.9, -3012.3, 0, 0)

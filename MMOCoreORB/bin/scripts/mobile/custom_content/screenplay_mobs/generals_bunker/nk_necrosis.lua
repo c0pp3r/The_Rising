@@ -1,18 +1,18 @@
 nk_necrosis = Creature:new {
 	--objectName = "@mob/creature_names:ep3_general_grievous",
-	customName = "General Grievous",
+	customName = "NK Necrosis",
 	socialGroup = "NK",
 	pvpFaction = "NK",
 	faction = "",
 	level = 300,
-	chanceHit = 50,
-	damageMin = 1600,
-	damageMax = 5200,
+	chanceHit = 85,
+	damageMin = 3600,
+	damageMax = 6200,
 	baseXp = 1600884,
-	baseHAM = 1850000,
-	baseHAMmax = 3250000,
+	baseHAM = 185000,
+	baseHAMmax = 325000,
 	armor = 3,
-	resists = {50,50,50,50,50,50,50,50,50},
+	resists = {70,70,70,70,70,70,70,70,70},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -31,25 +31,23 @@ nk_necrosis = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "redeed1", chance = 200000},
-				{group = "redeed2", chance = 200000},
 				{group = "holocron_dark", chance = 400000},
 				{group = "holocron_light", chance = 400000},
 				{group = "crystals_premium", chance = 600000},
 				{group = "rifles", chance = 1300000},
 				{group = "pistols", chance = 1300000},
 				{group = "melee_weapons", chance = 1300000},
-				{group = "armor_attachments", chance = 1100000},
-				{group = "clothing_attachments", chance = 1100000},
+				{group = "armor_attachments", chance = 1200000},
+				{group = "clothing_attachments", chance = 1200000},
 				{group = "carbines", chance = 1300000},
-				{group = "dark_jedi_common", chance = 800000}
+				{group = "dark_jedi_common", chance = 1000000}
 			}
 		}
 	},
 	scale = 1.25,
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster)
+	attacks = merge(risinglsmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(nk_necrosis, "nk_necrosis")

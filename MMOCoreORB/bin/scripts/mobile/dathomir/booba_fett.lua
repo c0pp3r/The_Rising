@@ -4,13 +4,14 @@ booba_fett = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 95.00,
-	damageMin = 3250,
+	damageMin = 2250,
 	damageMax = 4000,
-	baseXp = 30000,
-	baseHAM = 300000,
-	baseHAMmax = 400000,
+	specialDamageMult = 25,
+	baseXp = 300000,
+	baseHAM = 400000,
+	baseHAMmax = 500000,
 	armor = 3,
-	resists = {95,95,95,95,95,95,100,95,50},
+	resists = {90,90,90,90,90,90,90,90,80},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -22,7 +23,7 @@ booba_fett = Creature:new {
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ENEMY + ATTACKABLE,
 	creatureBitmask = PACK + KILLER,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = AIENABLED + INTERESTING,
 	diet = HERBIVORE,
 	scale = 1.55,
 
@@ -68,9 +69,9 @@ booba_fett = Creature:new {
 			lootChance = 10000000
 	  },
 	},
-	weapons = {"rebel_weapons_heavy"},
+	weapons = {"boba_fett_weapons_rising"},
   conversationTemplate = "",
-	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pistoleermaster,commandomaster,carbineermaster)
+	attacks = merge(bountyhuntermaster,pistoleermaster,riflemanmaster,carbineermaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(booba_fett, "booba_fett")

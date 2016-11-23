@@ -1,9 +1,9 @@
-chewbacca_weapons = {
-	"object/weapon/ranged/rifle/rifle_bowcaster.iff",
-	"object/weapon/melee/polearm/lance_kashyyk.iff"
+boba_fett_weapons_rising = {
+	"object/weapon/ranged/carbine/carbine_ee3.iff",
+	"object/weapon/melee/special/blacksun_razor.iff"
 }
 
-addWeapon("chewbacca_weapons", chewbacca_weapons)
+addWeapon("boba_fett_weapons_rising", boba_fett_weapons_rising)
 --To facilitate the correctness to Weapons groups 
 --please include comments under here that point to your source
 --such as links to screenshots from wiki's that show pre-cu creature holding specific weapons

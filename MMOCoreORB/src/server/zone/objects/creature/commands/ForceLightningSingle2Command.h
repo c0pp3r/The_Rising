@@ -28,16 +28,18 @@ public:
 		if (isWearingArmor(creature)) {
 			return NOJEDIARMOR;
 		}
-		CreatureObject* player = cast<CreatureObject*>(creature);
-		if (!player->checkCooldownRecovery("force_lightning_single")){
-			Time* cdTime = player->getCooldownTime("force_lightning_single");
-			//Returns -time. Multiply by -1 to return positive
-			int timeleft = floor((float)cdTime->miliDifference() /1000) * -1;
+		if (creature->isPlayerCreature()){
+			CreatureObject* player = cast<CreatureObject*>(creature);
+			if (!player->checkCooldownRecovery("force_lightning_single")){
+				Time* cdTime = player->getCooldownTime("force_lightning_single");
+				//Returns -time. Multiply by -1 to return positive
+				int timeleft = floor((float)cdTime->miliDifference() /1000) * -1;
 
-			player->sendSystemMessage("Force Lightning Single is on Cooldown");
-			return GENERALERROR;
+				player->sendSystemMessage("Force Lightning Single is on Cooldown");
+				return GENERALERROR;
+			}
+			player->addCooldown("force_lightning_single", 10 * 1000); //10 second cooldown
 		}
-		player->addCooldown("force_lightning_single", 10 * 1000); //10 second cooldown
 
 		return doCombatAction(creature, target);
 	}

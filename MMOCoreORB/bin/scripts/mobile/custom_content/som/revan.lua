@@ -6,12 +6,12 @@ revan = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 95,
-	damageMin = 570,
-	damageMax = 2550,
-	specialDamageMult = 25,
-	baseXp = 3005409,
-	baseHAM = 5540000,
-	baseHAMmax = 4629000,
+	damageMin = 2500,
+	damageMax = 4550,
+	specialDamageMult = 1.25,
+	baseXp = 300540,
+	baseHAM = 754000,
+	baseHAMmax = 962900,
 	armor = 3,
 	resists = {80,80,80,80,80,80,80,80,80},
 	meatType = "",
@@ -23,8 +23,8 @@ revan = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + STALKER,
+	pvpBitmask = ATTACKABLE,
+	creatureBitmask = PACK + STALKER+ KILLER,
 	optionsBitmask = AIENABLED + INTERESTING,
 	diet = HERBIVORE,
 
@@ -241,7 +241,7 @@ revan = Creature:new {
 		},
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(risinglsmaster, risingpowermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(revan, "revan")

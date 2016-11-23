@@ -248,6 +248,7 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "happy")
 	pNpc = spawnMobile(self.planet, "mercenary",300,-16.9721,1.00014,-3.02621,180.01,1935528)
 	self:setMoodString(pNpc, "neutral")
+	spawnMobile("corellia", "palpatine_hologram", 3600, -22.9587, 1.6, -15.4342, 358, 1935828)
 	--{"commoner",60,-24,1.6,-4,354.16,1935532, "calm", "Pex (an elite storyteller vendor)"},
 
 	--Theater/Guild Hall

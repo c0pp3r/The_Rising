@@ -6,11 +6,11 @@ palpatine_elder = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 95,
-	damageMin = 1570,
-	damageMax = 5550,
+	damageMin = 2570,
+	damageMax = 4550,
 	baseXp = 3005409,
-	baseHAM = 10540000,
-	baseHAMmax = 15629000,
+	baseHAM = 754000,
+	baseHAMmax = 962900,
 	armor = 3,
 	resists = {80,80,80,80,80,80,80,80,80},
 	meatType = "",
@@ -23,7 +23,7 @@ palpatine_elder = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + STALKER,
+	creatureBitmask = PACK + STALKER + KILLER,
 	optionsBitmask = AIENABLED + INTERESTING,
 	diet = HERBIVORE,
 
@@ -240,7 +240,7 @@ palpatine_elder = Creature:new {
 		},
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(risinglsmaster,forcepowermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(palpatine_elder, "palpatine_elder")

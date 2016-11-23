@@ -931,11 +931,11 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 	}
 	if (data.isForceAttack()){
 		ManagedReference<PlayerObject*> attackerGhost = attacker->getPlayerObject();
-		float forcePower = 0.f;
-		if(attackerGhost->getJediState() == 4) {
+		float forcePower = 1.f;
+		if(attackerGhost != NULL && attackerGhost->getJediState() == 4) {
 			//info("Light Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_light")), true );
 			forcePower = (float)attacker->getSkillMod("force_power_light") / 100;
-	} 	else if (attackerGhost->getJediState() == 8) {
+	} 	else if (attackerGhost !=NULL &&attackerGhost->getJediState() == 8) {
 			//info("Dark Force Power Jedi : " + String::valueOf(attacker->getSkillMod("force_power_dark")), true );
 			forcePower = (float)attacker->getSkillMod("force_power_dark") / 100;
 	}
@@ -1212,7 +1212,13 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		if (defender->getSkillMod("force_absorb") > 0 && defender->isPlayerCreature()) {
 			ManagedReference<PlayerObject*> playerObject = defender->getPlayerObject();
 			//int forceFeedback = defender->getSkillMod("force_absorb");
-			if (playerObject != NULL) {
+			if (playerObject != NULL && defender->getSkillMod("force_absorb") == 1) {
+				//float forceAbsorbDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
+				playerObject->setForcePower(playerObject->getForcePower() + (damage * (0.15 + ((forceControl/3)/100.f))));
+				sendMitigationCombatSpam(defender, NULL, (int)damage * 0.15, FORCEABSORB);
+				defender->playEffect("clienteffect/pl_force_absorb_hit.cef", "");
+			}
+			if (playerObject != NULL && defender->getSkillMod("force_absorb") == 2) {
 				//float forceAbsorbDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
 				playerObject->setForcePower(playerObject->getForcePower() + (damage * (0.5 + ((forceControl/3)/100.f))));
 				sendMitigationCombatSpam(defender, NULL, (int)damage * 0.5, FORCEABSORB);

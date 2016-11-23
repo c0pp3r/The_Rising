@@ -417,4 +417,9 @@ function NabooTheedScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "flewt", 300, getRandomNumber(10) + -5161.3, 6, getRandomNumber(10) + 4601.7, getRandomNumber(360), 0)
 	spawnMobile(self.planet, "flewt", 300, getRandomNumber(10) + -5193.3, 6, getRandomNumber(10) + 4610.0, getRandomNumber(360), 0)
 
+	--palace
+	spawnMobile("naboo", "palpatine_elder", 3600, -11.2435, 21, -236.361, 0, 1688884)
+	spawnMobile("naboo", "emperors_hand", 3600, -11.3873, 27, -202.743, 178, 1688883)
+	spawnMobile("naboo", "emperors_hand", 3600, -5.57623, 27, -202.818, 166, 1688883)
+
 end
