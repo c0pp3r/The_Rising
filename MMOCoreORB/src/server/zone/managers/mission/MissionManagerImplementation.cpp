@@ -719,7 +719,7 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	String mobileName ="mysterious";
 
 	if (mobiles->size() > 0){
-		mobileName = mobiles0>elementAt(0).getKey();
+		mobileName = mobiles->elementAt(0).getKey();
 	}
 
 	//mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
