@@ -8,12 +8,12 @@ palpatine_hologram = Creature:new {
 	chanceHit = 95,
 	specialDamageMult = 25,
 	damageMin = 2400,
-	damageMax = 4300,
-	baseXp = 260880,
-	baseHAM = 196000,
-	baseHAMmax = 278000,
+	damageMax = 3500,
+	baseXp = 1608800,
+	baseHAM = 300000,
+	baseHAMmax = 478000,
 	armor = 1,
-	resists = {90,90,90,90,90,90,90,90,90},
+	resists = {80,80,80,80,80,80,80,80,80},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -61,7 +61,7 @@ palpatine_hologram = Creature:new {
 	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster)
+	attacks = merge(risinglsmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(palpatine_hologram, "palpatine_hologram")
