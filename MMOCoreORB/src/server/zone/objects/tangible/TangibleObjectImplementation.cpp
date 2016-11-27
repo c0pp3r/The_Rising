@@ -945,7 +945,14 @@ bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
 		}
 
 		if (ai->isPet()) {
+			info("AI is a pet", true);
 			ManagedReference<PetControlDevice*> pcd = ai->getControlDevice().get().castTo<PetControlDevice*>();
+			if (pcd !=NULL && pcd->getPetType() == PetManager::FACTIONPET){
+				info("AI is a FACTIONPET", true);
+			}
+			if (isNeutral()){
+				info("Target is a Neutral", true);
+			}
 			if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && isNeutral()) {
 				return false;
 			}
