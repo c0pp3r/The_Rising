@@ -924,6 +924,7 @@ bool TangibleObjectImplementation::isAttackableBy(TangibleObject* object) {
 }
 
 bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
+	info("checking if object is attackable", true);
 	if (isImperial() && !(object->isRebel())) {
 		return false;
 	} else if (isRebel() && !(object->isImperial())) {
@@ -938,6 +939,7 @@ bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
 		}
 
 	} else if (object->isAiAgent()) {
+		info("object is AI", true);
 		AiAgent* ai = object->asAiAgent();
 
 		if (ai->getHomeObject().get() == asTangibleObject()) {
