@@ -924,7 +924,6 @@ bool TangibleObjectImplementation::isAttackableBy(TangibleObject* object) {
 }
 
 bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
-	info("checking if object is attackable", true);
 	if (isImperial() && !(object->isRebel())) {
 		return false;
 	} else if (isRebel() && !(object->isImperial())) {
@@ -939,7 +938,6 @@ bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
 		}
 
 	} else if (object->isAiAgent()) {
-		info("object is AI", true);
 		AiAgent* ai = object->asAiAgent();
 
 		if (ai->getHomeObject().get() == asTangibleObject()) {
@@ -956,6 +954,7 @@ bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
 				info("Target is a Neutral", true);
 			}
 			if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && isNeutral()) {
+				info("should NOT be attacking, returning false", true);
 				return false;
 			}
 		}
