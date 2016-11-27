@@ -954,8 +954,7 @@ bool TangibleObjectImplementation::isAttackableBy(CreatureObject* object) {
 				info("Target is a Neutral", true);
 			}
 			if (pcd != NULL && pcd->getPetType() == PetManager::FACTIONPET && isNeutral()) {
-				info("should NOT be attacking, returning false", true);
-				return pvpStatusBitmask=0 & CreatureFlag::NONE;
+				return false;
 			}
 		}
 	}
