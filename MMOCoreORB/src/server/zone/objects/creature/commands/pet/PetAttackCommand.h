@@ -47,18 +47,15 @@ public:
 		Reference<TangibleObject*> targetObject = server->getZoneServer()->getObject(target, true).castTo<TangibleObject*>();
 		if (controlDevice->getPetType() == PetManager::FACTIONPET){
 			if (targetObject->isNeutral()){
-				info("Faction pet and Neutral Target", true);
 				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
 				return INVALIDTARGET;
 			}
 			if (targetObject->getFaction() == creature->getFaction()){
-				info("Pet and target are same Faction", true);
 				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
 				return INVALIDTARGET;
 			}
 		}
 		if (targetObject == NULL || !targetObject->isAttackableBy(pet) ) {
-			info("Pet should not be attacking", true);
 			pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
 			return INVALIDTARGET;
 		}
