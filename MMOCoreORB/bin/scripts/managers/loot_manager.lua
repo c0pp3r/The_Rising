@@ -174,7 +174,8 @@ lootableArmorAttachmentStatMods = {
 	"unarmed_damage",
 	"unarmed_speed",
 	"volley",
-	"warcry"
+	"warcry",
+	"luck"
 }
 
 lootableClothingAttachmentStatMods = {
@@ -328,7 +329,8 @@ lootableClothingAttachmentStatMods = {
 	"warcry",
 	"weapon_assembly",
 	"weapon_experimentation",
-	"weapon_repair"
+	"weapon_repair",
+	"luck"
 }
 
 lootableArmorStatMods = {
@@ -442,7 +444,8 @@ lootableArmorStatMods = {
 	"warcry",
 	"weapon_assembly",
 	"weapon_experimentation",
-	"weapon_repair"
+	"weapon_repair",
+	"luck"
 }
 
 lootableClothingStatMods = {
@@ -553,7 +556,8 @@ lootableClothingStatMods = {
 	"warcry",
 	"weapon_assembly",
 	"weapon_experimentation",
-	"weapon_repair"
+	"weapon_repair",
+	"luck"
 }
 
 lootableOneHandedMeleeStatMods = {
