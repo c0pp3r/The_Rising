@@ -3,14 +3,14 @@ luke_elder = Creature:new {
 	faction = "",
 	socialGroup = "dark_jedi",
 	level = 227,
-	chanceHit = 19.75,
-	damageMin = 1270,
-	damageMax = 2250,
-	baseXp = 21630,
-	baseHAM = 208000,
-	baseHAMmax = 254000,
-	armor = 3,
-	resists = {185,185,135,200,10,130,145,180,-1},
+	chanceHit = 95,
+	damageMin = 1870,
+	damageMax = 3250,
+	baseXp = 2163000,
+	baseHAM = 408000,
+	baseHAMmax = 654000,
+	armor = 1,
+	resists = {80,80,80,80,80,80,80,80,80},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -64,7 +64,7 @@ luke_elder = Creature:new {
 	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(risinglsmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(luke_elder, "luke_elder")

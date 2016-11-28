@@ -4,15 +4,14 @@ ep3_clone_relics_leia = Creature:new {
 	socialGroup = "",
 	faction = "",
 	level = 300,
-	chanceHit = 85.00,
-	damageMin = 3000,
-	specialDamageMult = 25,
-	damageMax = 4000,
-	baseXp = 300000,
+	chanceHit = 95.00,
+	damageMin = 1700,
+	damageMax = 3750,
+	baseXp = 2000000,
 	baseHAM = 450000,
-	baseHAMmax = 1050000,
+	baseHAMmax = 650000,
 	armor = 1,
-	resists = {90,90,90,90,90,90,90,90,90},
+	resists = {80,80,80,80,80,80,80,80,80},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -71,7 +70,7 @@ ep3_clone_relics_leia = Creature:new {
 		},
 	weapons = {"luke_skywalker_weapons"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster)
+	attacks = merge(risinglsmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(ep3_clone_relics_leia, "ep3_clone_relics_leia")

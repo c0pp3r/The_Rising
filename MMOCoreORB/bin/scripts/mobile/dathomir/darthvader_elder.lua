@@ -6,13 +6,14 @@ darthvader_elder = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 95,
-	damageMin = 1570,
-	damageMax = 5550,
+	damageMin = 2570,
+	damageMax = 4550,
+	specialDamageMult = 1.25,
 	baseXp = 3005409,
-	baseHAM = 10540000,
-	baseHAMmax = 12629000,
+	baseHAM = 1054000,
+	baseHAMmax = 1262900,
 	armor = 2,
-	resists = {70,70,70,70,70,70,70,70,70},
+	resists = {80,80,80,80,80,80,80,80,80},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -240,7 +241,7 @@ darthvader_elder = Creature:new {
 		},
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(risinglsmaster,risingpowermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(darthvader_elder, "darthvader_elder")
