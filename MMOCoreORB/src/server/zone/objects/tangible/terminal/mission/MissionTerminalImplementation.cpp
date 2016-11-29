@@ -31,6 +31,7 @@ void MissionTerminalImplementation::fillObjectMenuResponse(ObjectMenuResponse* m
 		menuResponse->addRadialMenuItemToRadialID(73, 76, 3, "@city/city:south"); // South
 		menuResponse->addRadialMenuItemToRadialID(73, 77, 3, "@city/city:west"); // West
 	}
+	menuResponse->addRadialMenuItem(78, 3, "Creature Missions");
 }
 
 int MissionTerminalImplementation::handleObjectMenuSelect(CreatureObject* player, byte selectedID) {
