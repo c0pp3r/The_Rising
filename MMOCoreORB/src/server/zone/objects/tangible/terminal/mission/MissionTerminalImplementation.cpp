@@ -31,7 +31,15 @@ void MissionTerminalImplementation::fillObjectMenuResponse(ObjectMenuResponse* m
 		menuResponse->addRadialMenuItemToRadialID(73, 76, 3, "@city/city:south"); // South
 		menuResponse->addRadialMenuItemToRadialID(73, 77, 3, "@city/city:west"); // West
 	}
-	menuResponse->addRadialMenuItem(78, 3, "Creature Missions");
+	if (terminalType == "general"){
+		menuResponse->addRadialMenuItem(78, 3, "Mission Type");
+		menuResponse->addRadialMenuItemToRadialID(78, 79, 3, "Creature");
+		menuResponse->addRadialMenuItemToRadialID(78, 80, 3, "NPC");
+		menuResponse->addRadialMenuItemToRadialID(78, 81, 3, "Easy Creature");
+		menuResponse->addRadialMenuItemToRadialID(78, 82, 3, "Medium Creature");
+
+	}
+
 }
 
 int MissionTerminalImplementation::handleObjectMenuSelect(CreatureObject* player, byte selectedID) {
