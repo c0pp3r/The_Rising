@@ -582,6 +582,9 @@ void MissionManagerImplementation::populateMissionList(MissionTerminal* missionT
 void MissionManagerImplementation::randomizeDestroyMission(CreatureObject* player, MissionObject* mission) {
 	randomizeGenericDestroyMission(player, mission, Factions::FACTIONNEUTRAL);
 }
+void MissionManagerImplementation::randomizeCreatureMission(CreatureObject* player, MissionObject* mission) {
+	randomizeCreatureDestroyMission(player, mission, Factions::FACTIONNEUTRAL);
+}
 
 void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject* player, MissionObject* mission, const uint32 faction) {
 	Zone* zone = player->getZone();
@@ -601,6 +604,172 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	LairTemplate* lairTemplateObject = CreatureTemplateManager::instance()->getLairTemplate(lairTemplate.hashCode());
 
 	if (lairTemplateObject == NULL) {
+		mission->setTypeCRC(0);
+		return;
+	}
+
+	int playerLevel = server->getPlayerManager()->calculatePlayerLevel(player);
+	int maxDiff = randomLairSpawn->getMaxDifficulty();
+	int minDiff = randomLairSpawn->getMinDifficulty();
+	int difficultyLevel = System::random(maxDiff - minDiff) + minDiff;
+	int difficulty = (difficultyLevel - minDiff) / ((maxDiff > (minDiff + 5) ? maxDiff - minDiff : 5) / 5);
+
+	if (difficulty == 5)
+		difficulty = 4;
+
+	int diffDisplay = difficultyLevel + 7;
+	if (player->isGrouped())
+		diffDisplay += player->getGroup()->getGroupLevel();
+	else
+		diffDisplay += playerLevel;
+
+	String building = lairTemplateObject->getMissionBuilding(difficulty);
+
+	if (building.isEmpty()) {
+		mission->setTypeCRC(0);
+		return;
+	}
+
+	SharedObjectTemplate* templateObject = TemplateManager::instance()->getTemplate(building.hashCode());
+
+	if (templateObject == NULL || !templateObject->isSharedTangibleObjectTemplate()) {
+		error("incorrect template object in randomizeDestroyMission " + building);
+		mission->setTypeCRC(0);
+		return;
+	}
+
+	NameManager* nm = processor->getNameManager();
+
+	int randTexts = System::random(34) + 1;
+
+	mission->setMissionNumber(randTexts);
+
+	TerrainManager* terrain = zone->getPlanetManager()->getTerrainManager();
+
+	Vector3 startPos;
+
+	bool foundPosition = false;
+	int maximumNumberOfTries = 20;
+	while (!foundPosition && maximumNumberOfTries-- > 0) {
+		foundPosition = true;
+
+		startPos = player->getWorldCoordinate(System::random(1000) + 1000, (float)System::random(360), false);
+
+		if (zone->isWithinBoundaries(startPos)) {
+			float height = zone->getHeight(startPos.getX(), startPos.getY());
+			float waterHeight = height * 2;
+			bool result = terrain->getWaterHeight(startPos.getX(), startPos.getY(), waterHeight);
+
+			if (!result || waterHeight <= height) {
+				//Check that the position is outside cities.
+				SortedVector<ManagedReference<ActiveArea* > > activeAreas;
+				zone->getInRangeActiveAreas(startPos.getX(), startPos.getY(), &activeAreas, true);
+				for (int i = 0; i < activeAreas.size(); ++i) {
+					if (activeAreas.get(i)->isMunicipalZone()) {
+						foundPosition = false;
+					}
+				}
+			} else {
+				foundPosition = false;
+			}
+		} else {
+			foundPosition = false;
+		}
+	}
+
+	if (!foundPosition) {
+		return;
+	}
+
+	mission->setStartPosition(startPos.getX(), startPos.getY(), zone->getZoneName());
+	mission->setCreatorName(nm->makeCreatureName());
+
+	mission->setMissionTargetName("@lair_n:" + lairTemplateObject->getName());
+	mission->setTargetTemplate(templateObject);
+	mission->setTargetOptionalTemplate(lairTemplate);
+	mission->setRewardCredits(System::random(diffDisplay * 15) + (difficultyLevel * 375));
+	mission->setMissionDifficulty(difficultyLevel, diffDisplay, difficulty);
+	mission->setSize(randomLairSpawn->getSize());
+	mission->setFaction(faction);
+
+	int factionPointsReward = randomLairSpawn->getMinDifficulty();
+	if (factionPointsReward > 32)
+	{
+		factionPointsReward = 32;
+	}
+
+	String messageDifficulty;
+	String missionType;
+
+	if (difficulty < 2)
+		messageDifficulty = "_easy";
+	else if (difficulty == 2)
+		messageDifficulty = "_medium";
+	else
+		messageDifficulty = "_hard";
+
+	String groupSuffix;
+
+	if (lairTemplateObject->getMobType() == LairTemplate::NPC){
+		missionType = "_npc";
+		groupSuffix =" camp.";
+	}else{
+		missionType = "_creature";
+		groupSuffix = " lair.";
+	}
+
+	VectorMap<String, int>* mobiles = lairTemplateObject->getMobiles();
+	String mobileName ="mysterious";
+
+	if (mobiles->size() > 0){
+		mobileName = mobiles->elementAt(0).getKey();
+	}
+
+	//mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	mission->setMissionTitle("CL" + String::valueOf(diffDisplay), " Destroy the " + mobileName.replaceAll("_", " ") + groupSuffix);
+	mission->setMissionDescription("mission/mission_destroy_neutral" +  messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "d");
+
+	switch (faction) {
+	case Factions::FACTIONIMPERIAL:
+		mission->setRewardFactionPointsImperial(factionPointsReward * 2);
+		mission->setRewardFactionPointsRebel(-factionPointsReward);
+		generateRandomFactionalDestroyMissionDescription(player, mission, "imperial");
+		break;
+	case Factions::FACTIONREBEL:
+		mission->setRewardFactionPointsImperial(-factionPointsReward);
+		mission->setRewardFactionPointsRebel(factionPointsReward * 2);
+		generateRandomFactionalDestroyMissionDescription(player, mission, "rebel");
+		break;
+	default:
+		mission->setRewardFactionPointsImperial(0);
+		mission->setRewardFactionPointsRebel(0);
+		break;
+	}
+
+	mission->setTypeCRC(MissionTypes::DESTROY);
+}
+void MissionManagerImplementation::randomizeCreatureDestroyMission(CreatureObject* player, MissionObject* mission, const uint32 faction) {
+	Zone* zone = player->getZone();
+
+	if (zone == NULL) {
+		return;
+	}
+
+	LairSpawn* randomLairSpawn = getRandomLairSpawn(player, faction, MissionTypes::DESTROY);
+
+	if (randomLairSpawn == NULL) {
+		mission->setTypeCRC(0);
+		return;
+	}
+
+	String lairTemplate = randomLairSpawn->getLairTemplateName();
+	LairTemplate* lairTemplateObject = CreatureTemplateManager::instance()->getLairTemplate(lairTemplate.hashCode());
+
+	if (lairTemplateObject == NULL) {
+		mission->setTypeCRC(0);
+		return;
+	}
+	if (lairTemplateObject->getMobType() == LairTemplate::NPC){
 		mission->setTypeCRC(0);
 		return;
 	}
