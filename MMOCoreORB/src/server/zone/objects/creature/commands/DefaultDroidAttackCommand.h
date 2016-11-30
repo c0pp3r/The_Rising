@@ -24,6 +24,20 @@ public:
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;
 
+		ManagedReference<PetControlDevice*> controlDevice = creature->getControlDevice().castTo<PetControlDevice*>();
+		Reference<TangibleObject*> targetObject = server->getZoneServer()->getObject(target, true).castTo<TangibleObject*>();
+		if (controlDevice != NULL && controlDevice->getPetType() == PetManager::FACTIONPET){
+			ManagedReference<AiAgent*> pet = cast<AiAgent*>(creature);
+			if (pet != NULL && targetObject->isNeutral()){
+				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
+				return INVALIDTARGET;
+			}
+			if (pet != NULL && targetObject->getFaction() == creature->getFaction()){
+				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
+				return INVALIDTARGET;
+			}
+		}
+
 		return doCombatAction(creature, target);
 	}
 
