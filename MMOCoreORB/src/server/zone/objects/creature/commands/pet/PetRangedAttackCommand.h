@@ -41,6 +41,17 @@ public:
 				return GENERALERROR;
 			}
 		}
+		Reference<TangibleObject*> targetObject = server->getZoneServer()->getObject(target, true).castTo<TangibleObject*>();
+		if (controlDevice->getPetType() == PetManager::FACTIONPET){
+			if (targetObject->isNeutral()){
+				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
+				return INVALIDTARGET;
+			}
+			if (targetObject->getFaction() == creature->getFaction()){
+				pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
+				return INVALIDTARGET;
+			}
+		}
 
 		Reference<CreatureObject*> player = server->getZoneServer()->getObject(target, true).castTo<CreatureObject*>();
 		if (player == NULL || !player->isPlayerCreature()) {
