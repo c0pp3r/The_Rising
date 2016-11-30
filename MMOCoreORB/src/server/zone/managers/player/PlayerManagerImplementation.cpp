@@ -3183,6 +3183,7 @@ void PlayerManagerImplementation::lootAll(CreatureObject* player, CreatureObject
 
 	if (cashCredits > 0) {
 		int luck = player->getSkillMod("force_luck");
+		luck += player->getSkillMod("luck");
 
 		if (luck > 0)
 			cashCredits += (cashCredits * luck) / 20;
