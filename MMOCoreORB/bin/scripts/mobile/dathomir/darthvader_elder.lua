@@ -65,7 +65,7 @@ darthvader_elder = Creature:new {
 		 },
 		{
 			groups = {
-				{group = " saberhand24", chance = 5000000},
+				{group = "saberhand24", chance = 5000000},
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
 			},
