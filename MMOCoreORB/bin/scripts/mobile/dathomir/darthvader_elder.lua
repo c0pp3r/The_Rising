@@ -91,8 +91,8 @@ darthvader_elder = Creature:new {
 				{group = "crystal_qui_gons_devotion", chance = 600000}
 			},
 			lootChance = 10000000
-		}
-	},{
+		},
+		{
 			groups = {
 				{group = "saberhand1", chance = 10000000}
 			},
