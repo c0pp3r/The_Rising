@@ -70,12 +70,6 @@ darthvader_elder = Creature:new {
 			},
 			lootChance = 10000000
 		},
-		 {
-			groups = {
-				{group = "g_ep3_chiss_poacher_backpack", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
 		{
 			groups = {
 				{group = "death_watch_bunker_art", chance = 5000000},
