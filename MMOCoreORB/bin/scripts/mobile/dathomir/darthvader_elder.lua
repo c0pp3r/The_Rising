@@ -58,7 +58,7 @@ darthvader_elder = Creature:new {
 		},
 		{
 			groups = {
-				{group = " cloak_hate_group", chance = 1000000},  
+				{group = "cloak_hate_group", chance = 1000000},  
 			},
 			lootChance = 1500000
 		 },
