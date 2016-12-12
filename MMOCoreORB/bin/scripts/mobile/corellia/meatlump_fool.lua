@@ -60,7 +60,7 @@ meatlump_fool = Creature:new {
 		},
 		{
 			groups = {
-				{group = "av_21_scheme", chance = 10000000},
+				{group = "av_21_schematic", chance = 10000000},
 			},
 			lootChance = 10000000
 		}
