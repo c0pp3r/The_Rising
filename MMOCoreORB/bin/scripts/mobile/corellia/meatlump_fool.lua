@@ -60,7 +60,7 @@ meatlump_fool = Creature:new {
 		},
 		{
 			groups = {
-				{group = "caritem1", chance = 10000000},
+				{group = "cardeed1", chance = 10000000},
 			},
 			lootChance = 10000000
 		}
