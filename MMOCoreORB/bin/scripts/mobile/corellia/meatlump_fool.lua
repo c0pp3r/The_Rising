@@ -52,18 +52,6 @@ meatlump_fool = Creature:new {
 			},
 			lootChance = 10000000
 		},
-		{
-			groups = {
-				{group = "av_21_pp", chance = 10000000},
-			},
-			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "cardeed1", chance = 10000000},
-			},
-			lootChance = 10000000
-		}
 	},
 	weapons = {"pirate_weapons_light"},
 	reactionStf = "@npc_reaction/slang",
