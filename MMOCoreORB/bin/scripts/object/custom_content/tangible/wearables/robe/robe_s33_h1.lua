@@ -23,7 +23,7 @@ object_tangible_wearables_robe_robe_s33_h1 = object_tangible_wearables_robe_shar
 				customName = "Shatterpoint Cloak (Hood)",
 
 				skillMods = {
- 				    {"jedi_force_power_max", 250},
+ 				    {"jedi_force_power_max", 400},
 				    {"jedi_force_power_regen", 10}
 				},
 
