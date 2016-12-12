@@ -72,7 +72,8 @@ darthvader_elder = Creature:new {
 		},
 		{
 			groups = {
-				{group = "death_watch_bunker_art", chance = 5000000},
+				{group = "death_watch_bunker_art", chance = 2500000},
+				{group = "sivarra_reward_necklace", chance = 2500000},
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
 			},
