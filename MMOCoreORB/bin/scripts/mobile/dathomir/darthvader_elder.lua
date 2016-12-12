@@ -24,7 +24,7 @@ darthvader_elder = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + STALKER,
+	creatureBitmask = PACK + STALKER + KILLER,
 	optionsBitmask = AIENABLED + INTERESTING,
 	diet = HERBIVORE,
 
