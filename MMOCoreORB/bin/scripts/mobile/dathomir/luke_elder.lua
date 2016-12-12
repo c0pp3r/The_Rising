@@ -30,7 +30,7 @@ luke_elder = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "saberhand24", chance = 5000000},
+				{group = "saberhand25", chance = 5000000},
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
 			},
@@ -38,17 +38,16 @@ luke_elder = Creature:new {
 		},
 		{
 			groups = {
-				{group = "podracer", chance = 500000},
 				{group = "clothing_attachments", chance = 2000000},
 				{group = "armor_attachments", chance = 2000000},
-				{group = "saberhand24", chance = 3000000},
+				{group = "holocron_light", chance = 3500000},
 				{group = "weapons_all", chance = 2500000}
 		},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "saberhand24", chance = 5000000},
+				{group = "holocron_light", chance = 5000000},
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
 			},
@@ -62,7 +61,7 @@ luke_elder = Creature:new {
 		 },
 		{
 			groups = {
-				{group = "saberhand24", chance = 5000000},
+				{group = "saberhand25", chance = 5000000},
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
 			},
@@ -78,14 +77,14 @@ luke_elder = Creature:new {
 		},
 		{
 			groups = {
-				{group = "crystal_kenobis_legacy", chance = 600000},
-				{group = "crystal_qui_gons_devotion", chance = 600000}
+				{group = "crystal_dawn_of_dagobah", chance = 500000},
+				{group = "crystal_sunriders_destiny", chance = 500000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "saberhand1", chance = 10000000}
+				{group = "saberhand18", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
