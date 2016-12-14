@@ -5,7 +5,7 @@ rifle_tusken_elite = {
 	directObjectTemplate = "object/weapon/ranged/rifle/rifle_tusken_elite.iff",
 	craftingValues = {
 		{"mindamage",60,110,0},
-		{"maxdamage",170,360,0},
+		{"maxdamage",240,400,0},
 		{"attackspeed",12.7,7.4,0},
 		{"woundchance",11,25,0},
 		{"hitpoints",750,1500,0},

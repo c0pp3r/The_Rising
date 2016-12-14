@@ -4,8 +4,8 @@ sword_avatar_wke_spiritblade = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/sword/sword_avatar_wke_spiritblade.iff",
 	craftingValues = {
-		{"mindamage",47,96,0},
-		{"maxdamage",100,188,0},
+		{"mindamage",247,296,0},
+		{"maxdamage",350,528,0},
 		{"attackspeed",9.1,6.3,0},
 		{"woundchance",2.4,4.2,0},
 		{"hitpoints",750,750,0},

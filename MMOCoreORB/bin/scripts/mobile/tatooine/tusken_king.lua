@@ -30,32 +30,51 @@ tusken_king = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "saberhand24", chance = 5000000},
-				{group = "armor_attachments", chance = 2500000},
-				{group = "clothing_attachments", chance = 2500000}
+				{group = "tusken_common", chance = 5000000},
+                {group = "armor_attachments", chance = 2500000},
+                {group = "clothing_attachments", chance = 2500000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "saberhand25", chance = 5000000},
-				{group = "armor_attachments", chance = 2500000},
-				{group = "clothing_attachments", chance = 2500000}
+				{group = "forage_rare", chance = 2500000},
+                {group = "armor_attachments", chance = 2500000},
+                {group = "clothing_attachments", chance = 5000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "saberhand1", chance = 1000000},
-				{group = "saberhand13", chance = 1000000},
-				{group = "saberhand14", chance = 1000000},
-				{group = "saberhand15", chance = 1000000},
-				{group = "saberhand16", chance = 1000000},
-				{group = "saberhand17", chance = 1000000},
-				{group = "saberhand18", chance = 1000000},
-				{group = "saberhand19", chance = 1000000},
-				{group = "saberhand20", chance = 1000000},
-				{group = "saberhand21", chance = 1000000}
+				{group = "forage_food", chance = 2500000},
+                {group = "armor_attachments", chance = 5000000},
+                {group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "forage_bait", chance = 5000000},
+                {group = "armor_attachments", chance = 2500000},
+                {group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "hutt_exp_common", chance = 500000},
+                {group = "armor_attachments", chance = 4500000},
+                {group = "clothing_attachments", chance = 5000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_event_rifle_tusken_berserker", chance = 300000},
+                {group = "g_rifle_tusken_elite", chance = 450000},
+                {group = "g_rifle_t21_legendary", chance = 150000},
+                *{group = "g_lance_shock", chance = 300000},
+                {group = "g_victor_baton_gaderiffi", chance = 300000},
 			},
 			lootChance = 10000000
 		},
