@@ -167,8 +167,8 @@ end
 
 function Yavin4DarkEnclaveScreenPlay:spawnMobiles()
 
-	spawnMobile("yavin4", "dark_jedi_sentinel", 30, 5074.2, 78.8, 313.9, 90, 0)
-	spawnMobile("yavin4", "dark_jedi_sentinel", 30, 5074.3, 79.2, 306.4, 90, 0)
+	--spawnMobile("yavin4", "dark_jedi_sentinel", 30, 5074.2, 78.8, 313.9, 90, 0)
+	--spawnMobile("yavin4", "dark_jedi_sentinel", 30, 5074.3, 79.2, 306.4, 90, 0)
 
 end
 

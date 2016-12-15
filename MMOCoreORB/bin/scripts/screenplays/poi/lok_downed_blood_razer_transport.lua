@@ -95,7 +95,7 @@ function BloodRazerTransportScreenPlay:spawnMobiles()
 	spawnMobile("lok", "blood_razor_elite_pirate", 300, 3.7, 0, 1.5, -90, 568758)
 	spawnMobile("lok", "blood_razor_officer", 300, 4.1, 0, 4.1, 0, 568758)
 	spawnMobile("lok", "blood_razor_captain", 300, -4.1, 0, -1.8, -180, 568760)
-	spawnMobile("lok", "booba_fett", 3600, 4.7978, 0.125266, -2.75806, 275, 568759)
+	spawnMobile("lok", "booba_fett", 1800, 4.7978, 0.125266, -2.75806, 275, 568759)
 	spawnMobile("lok", "mandalorian_aloruus", 1800, -3.74384, 0.125266, -3.57196, 93, 568760)
 	spawnMobile("lok", "mandalorian_aloruus", 1800, 3.33146, 0.125266, -5.11063, 349, 568759)
 

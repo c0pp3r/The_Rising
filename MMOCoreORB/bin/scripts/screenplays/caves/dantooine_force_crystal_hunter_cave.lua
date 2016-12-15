@@ -46,7 +46,7 @@ function ForceCrystalCaveScreenPlay:spawnMobiles()
 	spawnMobile("dantooine", "force_sensitive_crypt_crawler",1800,64.1,-68.9,-36.8,86,8535485)
 	spawnMobile("dantooine", "force_sensitive_crypt_crawler",1800,85.3,-77.2,-62.9,-57,8535486)
 	spawnMobile("dantooine", "force_sensitive_crypt_crawler",1800,69.3,-75.7,-65.4,30,8535486)
-	spawnMobile("dantooine", "revan",3600, 94.1433, -76.1857, -75.7411, 267, 8535486)
+	spawnMobile("dantooine", "revan",1800, 94.1433, -76.1857, -75.7411, 267, 8535486)
 	
 	spawnMobile("dantooine", "untrained_wielder_of_the_dark_side",1800,0.7,-13.6,-6.9,-82,8535483)
 	spawnMobile("dantooine", "untrained_wielder_of_the_dark_side",1800,65.6,-77,-78.4,-10,8535486)

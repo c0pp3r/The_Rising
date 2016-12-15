@@ -74,5 +74,5 @@ function EndorEwokLakeVillage01ScreenPlay:spawnMobiles()
 	spawnMobile("endor", "gondula_matriarch",300, 1413.7, 1, -3278.9, 62, 0)
 	spawnMobile("endor", "gondula_matriarch",300, 1412.9, 1, -3261.8, 97, 0)
 	spawnMobile("endor", "gifted_gondula_shaman",300, 1432.4, 1.8, -3280.3, -52, 0)
-	spawnMobile("endor", "chewbacca_elder", 3600, 1425.07, 1, -3270.31, 356, 0) 
+	spawnMobile("endor", "chewbacca_elder", 1800, 1425.07, 1, -3270.31, 356, 0) 
 end

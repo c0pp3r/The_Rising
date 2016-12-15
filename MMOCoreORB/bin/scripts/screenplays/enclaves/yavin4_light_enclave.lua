@@ -165,8 +165,8 @@ end
 
 function Yavin4LightEnclaveScreenPlay:spawnMobiles()
 
-	spawnMobile("yavin4", "light_jedi_sentinel", 30, -5579.0, 87.7, 4908.5, -179, 0)
-	spawnMobile("yavin4", "light_jedi_sentinel", 30, -5572.6, 87.7, 4908.2, -179, 0)
+	--spawnMobile("yavin4", "light_jedi_sentinel", 30, -5579.0, 87.7, 4908.5, -179, 0)
+	--spawnMobile("yavin4", "light_jedi_sentinel", 30, -5572.6, 87.7, 4908.2, -179, 0)
 
 end
 
