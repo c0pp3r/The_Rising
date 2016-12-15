@@ -38,9 +38,8 @@ ep3_canopy_boss = Creature:new {
 				{group = "armor_attachments", chance = 2250000},
 				{group = "melee_weapons", chance = 1000000},
 				{group = "kashyyykian_black_mtn_armor", chance = 250000},
-				{group = "kashyyykian_ceremonial_armor", chance = 250000},
+				{group = "kashyyykian_ceremonial_armor", chance = 500000},
 				{group = "kashyyykian_hunting_armor", chance = 250000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 250000},
 				{group = "g_lance_kaminoan", chance = 250000}
 			}
 		}
