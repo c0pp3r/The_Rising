@@ -119,15 +119,8 @@ som_dark_jedi_boss = Creature:new {
 				{group = "g_som_2h_sword_obsidian", chance = 500000},
 				{group = "g_som_2h_sword_tulrus", chance = 500000},
 				{group = "g_som_sword_obsidian", chance = 500000},
-				{group = "weapons_all", chance = 4300000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 200000},
+				{group = "weapons_all", chance = 4500000},
 				{group = "g_ep3_loot_necrosis", chance = 500000}
-			},
-			lootChance = 10000000
-		},
-		  {
-			groups = {
-				{group = "g_ep3_chiss_poacher_backpack", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -220,8 +213,7 @@ som_dark_jedi_boss = Creature:new {
 				{group = "g_som_2h_sword_obsidian", chance = 500000},
 				{group = "g_som_2h_sword_tulrus", chance = 500000},
 				{group = "g_som_sword_obsidian", chance = 500000},
-				{group = "weapons_all", chance = 4300000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 200000},
+				{group = "weapons_all", chance = 4500000},
 				{group = "g_ep3_loot_necrosis", chance = 500000}
 			},
 			lootChance = 10000000

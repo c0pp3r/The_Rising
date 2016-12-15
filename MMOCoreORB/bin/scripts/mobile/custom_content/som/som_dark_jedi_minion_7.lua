@@ -34,9 +34,8 @@ som_dark_jedi_minion_7 = Creature:new {
 				{group = "g_carbine_alliance_needler", chance = 1000000},
 				{group = "saberhand24", chance = 2500000},
 				{group = "armor_attachments", chance = 1500000},
-				{group = "clothing_attachments", chance = 1900000},
+				{group = "clothing_attachments", chance = 2000000},
 				{group = "g_sword_rebel", chance = 1000000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 100000},
 				{group = "g_punch_dagger", chance = 1000000},
 				{group = "g_lance_cryo", chance = 1000000}
 			}

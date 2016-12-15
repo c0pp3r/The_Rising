@@ -35,8 +35,7 @@ ep3_etyyy_laen_pieweto = Creature:new {
 				{group = "rifles", chance = 2000000},
 				{group = "carbines", chance = 2000000},
 				{group = "armor_attachments", chance = 1000000},
-				{group = "melee_weapons", chance = 1500000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 500000}
+				{group = "melee_weapons", chance = 2000000}
 			}
 		}
 	},

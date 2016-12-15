@@ -61,12 +61,6 @@ ep3_clone_relics_leia = Creature:new {
 			},
 			lootChance = 10000000
 		},
-		  {
-			groups = {
-				{group = "g_ep3_chiss_poacher_backpack", chance = 10000000}
-			},
-			lootChance = 100000
-		},
 		},
 	weapons = {"luke_skywalker_weapons"},
 	conversationTemplate = "",

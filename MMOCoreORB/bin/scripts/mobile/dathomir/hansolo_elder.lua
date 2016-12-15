@@ -38,8 +38,7 @@ hansolo_elder = Creature:new {
 				{group = "g_som_2h_sword_obsidian", chance = 500000},
 				{group = "g_som_2h_sword_tulrus", chance = 500000},
 				{group = "g_som_sword_obsidian", chance = 500000},
-				{group = "weapons_all", chance = 4300000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 100000},
+				{group = "weapons_all", chance = 4400000},
 				{group = "g_ep3_loot_necrosis", chance = 600000}
 			},
 			lootChance = 10000000
