@@ -73,7 +73,7 @@ tusken_king = Creature:new {
 				{group = "g_event_rifle_tusken_berserker", chance = 300000},
                 {group = "g_rifle_tusken_elite", chance = 450000},
                 {group = "g_rifle_t21_legendary", chance = 150000},
-                *{group = "g_lance_shock", chance = 300000},
+                {group = "g_lance_shock", chance = 300000},
                 {group = "g_victor_baton_gaderiffi", chance = 300000},
 			},
 			lootChance = 10000000
