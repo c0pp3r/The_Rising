@@ -4,8 +4,8 @@ event_rifle_tusken_berserker = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/ranged/rifle/event_rifle_tusken_berserker.iff",
 	craftingValues = {
-		{"mindamage",47,96,0},
-		{"maxdamage",100,188,0},
+		{"mindamage",147,226,0},
+		{"maxdamage",200,438,0},
 		{"attackspeed",9.1,6.3,0},
 		{"woundchance",2.4,4.2,0},
 		{"hitpoints",750,750,0},

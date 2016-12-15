@@ -46,21 +46,6 @@ sher_kar = Creature:new {
 			},
 			lootChance = 10000000
 		},
-		 {
-			groups = {
-				{group = "saberhand1", chance = 1000000},
-				{group = "saberhand2", chance = 1000000},
-				{group = "saberhand3", chance = 1000000},
-				{group = "saberhand4", chance = 1000000},
-				{group = "saberhand5", chance = 1000000},
-				{group = "saberhand6", chance = 1000000},
-				{group = "saberhand7", chance = 1000000},
-				{group = "saberhand8", chance = 1000000},
-				{group = "saberhand9", chance = 1000000},
-				{group = "saberhand10", chance = 1000000}
-			},
-			lootChance = 10000000
-		},
 		},
 	weapons = {"creature_spit_heavy_flame"},
 	reactionStf = "@npc_reaction/slang",

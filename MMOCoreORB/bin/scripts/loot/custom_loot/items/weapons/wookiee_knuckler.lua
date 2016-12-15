@@ -5,8 +5,8 @@ wookiee_knuckler = {
 	customObjectName = "",
 	directObjectTemplate = "object/weapon/melee/special/ep3/wookiee_knuckler.iff",
 	craftingValues = {
-		{"mindamage",71,95,0},
-		{"maxdamage",102,171,0},
+		{"mindamage",140,185,0},
+		{"maxdamage",202,271,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",6,12,0},
 		{"hitpoints",950,1750,0},

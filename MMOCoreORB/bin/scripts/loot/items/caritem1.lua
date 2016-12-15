@@ -4,7 +4,7 @@ caritem1 = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/container/loot/player_loot_crate.iff",
+	directObjectTemplate = "object/tangible/loot/loot_schematic/corellian_corvette_landspeeder_av21_schematic.iff",
 	craftingValues = {
 	},
 	customizationStringNames = {},

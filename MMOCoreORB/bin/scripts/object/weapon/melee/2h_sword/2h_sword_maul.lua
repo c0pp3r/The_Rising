@@ -114,12 +114,12 @@ object_weapon_melee_2h_sword_2h_sword_maul = object_weapon_melee_2h_sword_shared
 	maxRange = 5,
 	maxRangeAccuracy = -35,
 
-	minDamage = 100,
-	maxDamage = 450,
+	minDamage = 500,
+	maxDamage = 1450,
 
-	attackSpeed = 6,
+	attackSpeed = 5.4,
 
-	woundsRatio = 15,
+	woundsRatio = 31,
 
 	numberExperimentalProperties = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "SR", "SR", "SR", "SR", "SR", "SR", "SR", "XX", "SR", "XX", "SR", "SR", "SR"},

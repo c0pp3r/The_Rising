@@ -31,40 +31,54 @@ booba_fett = Creature:new {
   lootGroups = {
 		{
 			groups = {
-				{group = "pearls_flawless", chance = 5000000},
-				{group = "death_watch_bunker_ingredient_protective",  chance = 100000},
-				{group = "death_watch_bunker_ingredient_binary",  chance = 100000},
-				{group = "armor_attachments", chance = 2400000},
-				{group = "clothing_attachments", chance = 2400000}
+				{group = "forage_rare", chance = 5000000},
+                {group = "death_watch_bunker_ingredient_protective",  chance = 100000},
+                {group = "death_watch_bunker_ingredient_binary",  chance = 100000},
+                {group = "armor_attachments", chance = 2400000},
+                {group = "clothing_attachments", chance = 2400000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "av_21_pp", chance = 1000000}
+				{group = "forage_medical_component", chance = 5000000},
+                {group = "death_watch_bunker_ingredient_protective",  chance = 100000},
+                {group = "death_watch_bunker_ingredient_binary",  chance = 100000},
+                {group = "armor_attachments", chance = 2400000},
+                {group = "clothing_attachments", chance = 2400000}
 			},
-			lootChance = 500000
+			lootChance = 10000000
 		 },
 		{
 			groups = {
-        {group = "bounty_hunter_armor", chance = 4500000},
-				{group = "weapons_all", chance = 2000000},
-				{group = "g_sword_mandalorian", chance = 500000},
-				{group = "g_carbine_mandalorian", chance = 500000},
-				{group = "g_blasterfist", chance = 500000},
-				{group = "g_pistol_mandalorian", chance = 500000},
-				{group = "g_2h_sword_katana", chance = 500000},
-				{group = "g_rifle_mandalorian", chance = 500000},
-				{group = "g_carbine_bounty_ee3", chance = 500000}
+         		{group = "jetpack_parts", chance = 100000},
+                {group = "death_watch_bunker_ingredient_protective",  chance = 100000},
+                {group = "death_watch_bunker_ingredient_binary",  chance = 100000},
+                {group = "armor_attachments", chance = 5000000},
+                {group = "clothing_attachments", chance = 4700000}
 			},
 			lootChance = 10000000
 	},
 		{
 			groups = {
+				{group = "bounty_hunter_armor", chance = 4500000},
+                {group = "g_quest_rifle_lightning", chance = 2000000},
+                {group = "g_ep3_loot_retribution", chance = 500000},
+                {group = "g_carbine_mandalorian", chance = 500000},
+                {group = "g_blasterfist", chance = 500000},
+                {group = "g_pistol_mandalorian", chance = 500000},
+                {group = "g_quest_rifle_flame_thrower", chance = 500000},
+                {group = "g_rifle_mandalorian", chance = 500000},
+                {group = "g_carbine_bounty_ee3", chance = 500000}
+			},
+			lootChance = 10000000
+	  },
+	  {
+			groups = {
 				{group = "theme_park_reward_rebel_c_3po", chance = 2500000},
-				{group = "jabba_theme_park_reelo", chance = 2500000},
-				{group = "theme_park_reward_imperial_kaja", chance = 2500000},
-				{group = "nyms_common", chance = 2500000}
+                {group = "jabba_theme_park_reelo", chance = 2500000},
+                {group = "theme_park_reward_imperial_kaja", chance = 2500000},
+                {group = "nyms_common", chance = 2500000}
 			},
 			lootChance = 10000000
 	  },

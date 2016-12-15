@@ -61,7 +61,7 @@ globalExpMultiplier = 5.0
 baseStoredCreaturePets = 2
 baseStoredFactionPets = 3
 baseStoredDroids = 5
-baseStoredVehicles = 3
+baseStoredVehicles = 5
 baseStoredShips = 3
 
 -----------------------------------
