@@ -41,10 +41,9 @@ orf_torton = Creature:new {
 				{group = "g_ep3_loot_corestrike", chance = 1500000},
 				{group = "g_ep3_loot_dawnsorrow", chance = 1500000},
 				{group = "g_ep3_loot_ripper", chance = 1000000},
-				{group = "g_ep3_loot_sickle", chance = 1400000},
+				{group = "g_ep3_loot_sickle", chance = 1500000},
 				{group = "g_massassiknuckler", chance = 1500000},
 				{group = "g_lance_cryo",  chance = 1500000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 100000}
 			},
 			lootChance = 10000000
 		}

@@ -29,9 +29,7 @@ fishkid= Creature:new {
 	lootGroups = {
 		{
 	        groups = {
-				{group = "weapons", chance = 3300000},
-				{group = "g_ep3_chiss_poacher_backpack", chance = 3300000},
-				{group = "redeed4", chance = 3400000}
+				{group = "weapons", chance = 10000000},
 			},
 			lootChance = 6500000
 		},
