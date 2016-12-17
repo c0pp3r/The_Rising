@@ -1,4 +1,4 @@
-royal_imperial_guard = Creature:new {
+palp_guard = Creature:new {
 	objectName = "Royal Imperial Guard",
 	socialGroup = "",
 	faction = "",
@@ -45,4 +45,4 @@ royal_imperial_guard = Creature:new {
 	attacks = merge(pikemanmaster, brawlermaster)
 }
 
-CreatureTemplates:addCreatureTemplate(royal_imperial_guard, "royal_imperial_guard")
+CreatureTemplates:addCreatureTemplate(palp_guard, "palp_guard")
