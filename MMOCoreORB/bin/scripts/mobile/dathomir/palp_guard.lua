@@ -1,0 +1,49 @@
+royal_imperial_guard = Creature:new {
+	objectName = "Royal Imperial Guard",
+	socialGroup = "",
+	faction = "",
+	level = 300,
+	chanceHit = 95,
+	damageMin = 1570,
+	damageMax = 2520,
+	baseXp = 300000,
+	baseHAM = 454000,
+	baseHAMmax = 554000,
+	armor = 1,
+	resists = {60,60,60,60,60,60,60,60,60},
+	meatType = "",
+	meatAmount = 0,
+	hideType = "",
+	hideAmount = 0,
+	boneType = "",
+	boneAmount = 0,
+	milk = 0,
+	tamingChance = 0,
+	ferocity = 0,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
+	creatureBitmask = PACK + STALKER,
+	optionsBitmask = AIENABLED + INTERESTING,
+	diet = HERBIVORE,
+
+	templates = {"object/mobile/royal_guard.iff"},
+	lootGroups = {
+	{
+			groups = {
+				{group = "armor_attachments", chance = 5000000},
+				{group = "clothing_attachments", chance = 5000000}
+			},
+			lootChance = 10000000
+	},
+	{
+			groups = {
+				{group = "stormtrooper_common", chance = 10000000},
+			},
+			lootChance = 5000000
+	},
+	weapons = {},
+	conversationTemplate = "",
+	attacks = {
+	}
+}
+
+CreatureTemplates:addCreatureTemplate(royal_imperial_guard, "royal_imperial_guard")
