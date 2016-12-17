@@ -419,7 +419,7 @@ function NabooTheedScreenPlay:spawnMobiles()
 
 	--palace
 	spawnMobile("naboo", "palpatine_elder", 1800, -11.2435, 21, -236.361, 0, 1688884)
-	spawnMobile("naboo", "emperors_hand", 1800, -11.3873, 27, -202.743, 178, 1688883)
-	spawnMobile("naboo", "emperors_hand", 1800, -5.57623, 27, -202.818, 166, 1688883)
+	spawnMobile("naboo", "palp_guard", 1800, -11.3873, 27, -202.743, 178, 1688883)
+	spawnMobile("naboo", "palp_guard", 1800, -5.57623, 27, -202.818, 166, 1688883)
 
 end
