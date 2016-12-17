@@ -40,10 +40,9 @@ royal_imperial_guard = Creature:new {
 			},
 			lootChance = 5000000
 	},
-	weapons = {},
+	weapons = {"polearm_vibro_axe"},
 	conversationTemplate = "",
-	attacks = {
-	}
+	attacks = merge(pikemanmaster, brawlermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(royal_imperial_guard, "royal_imperial_guard")
