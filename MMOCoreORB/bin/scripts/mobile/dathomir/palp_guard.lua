@@ -41,7 +41,7 @@ palp_guard = Creature:new {
 			},
 			lootChance = 5000000
 	},
-	}
+	},
 	weapons = {"polearm_vibro_axe"},
 	conversationTemplate = "",
 	attacks = merge(pikemanmaster, brawlermaster)
