@@ -1,5 +1,6 @@
 palp_guard = Creature:new {
-	objectName = "Royal Imperial Guard",
+	objectName = "@mob/creature_names:",
+	customName = "Royal Imperial Guard",
 	socialGroup = "",
 	faction = "",
 	level = 300,
