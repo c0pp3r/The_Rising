@@ -2,6 +2,7 @@ palp_guard = Creature:new {
 	objectName = "@mob/creature_names:",
 	customName = "Royal Imperial Guard",
 	socialGroup = "",
+	pvpFaction = "",
 	faction = "",
 	level = 300,
 	chanceHit = 95,
@@ -42,7 +43,7 @@ palp_guard = Creature:new {
 			lootChance = 5000000
 	},
 	},
-	weapons = {"object/weapon/melee/polearm/polearm_vibro_axe.iff"},
+	weapons = {"palp_guard_weapons"},
 	conversationTemplate = "",
 	attacks = merge(pikemanmaster, brawlermaster)
 }

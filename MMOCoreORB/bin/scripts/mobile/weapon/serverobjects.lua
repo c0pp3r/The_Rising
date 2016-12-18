@@ -81,6 +81,7 @@ includeFile("weapon/groups/tusken_weapons.lua")
 
 -- The Rising custom groups
 includeFile("weapon/groups/boba_fett_weapons_rising.lua")
+includeFile("weapon/groups/palp_guard_weapons.lua")
 -- tutorial
 includeFile("weapon/groups/tutorial_bandit.lua")
 
