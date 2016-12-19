@@ -27,7 +27,7 @@ palp_guard = Creature:new {
 	optionsBitmask = AIENABLED + INTERESTING,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/royal_guard.iff"},
+	templates = {"object/mobile/dressed_stormtrooper_black_black.iff"},
 	lootGroups = {
 	{
 			groups = {
