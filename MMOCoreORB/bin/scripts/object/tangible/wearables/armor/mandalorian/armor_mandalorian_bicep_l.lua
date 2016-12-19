@@ -101,14 +101,14 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_bicep_l = object_t
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 15,
-	energy = 15,
-	electricity = 15,
-	stun = 15,
-	blast = 15,
-	heat = 15,
-	cold = 15,
-	acid = 15,
+	kinetic = 75,
+	energy = 75,
+	electricity = 75,
+	stun = 75,
+	blast = 75,
+	heat = 75,
+	cold = 75,
+	acid = 75,
 	lightSaber = 0,
 }
 
