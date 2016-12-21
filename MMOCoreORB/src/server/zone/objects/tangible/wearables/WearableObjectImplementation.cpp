@@ -217,10 +217,8 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) {
 
 		if (!SkillModManager::instance()->isWearableModDisabled(name)){
 			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
-				info("Is a mod restricted to Jedi: "+name , true);
 				
 				if (!creature->hasSkill("force_title_jedi_rank_02")){
-					info("Player is not a Jedi", true);
 					continue;
 				}
 			}
@@ -244,10 +242,8 @@ void WearableObjectImplementation::removeSkillModsFrom(CreatureObject* creature)
 
 		if (!SkillModManager::instance()->isWearableModDisabled(name)){
 			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
-				info("Is a mod restricted to Jedi: "+name , true);
 				
 				if (!creature->hasSkill("force_title_jedi_rank_02")){
-					info("Player is not a Jedi", true);
 					continue;
 				}
 			}
