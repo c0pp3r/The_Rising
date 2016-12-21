@@ -215,9 +215,19 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) {
 		String name = wearableSkillMods.elementAt(i).getKey();
 		int value = wearableSkillMods.get(name);
 
-		if (!SkillModManager::instance()->isWearableModDisabled(name))
+		if (!SkillModManager::instance()->isWearableModDisabled(name)){
+			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
+				info("Is a mod restricted to Jedi: "+name , true);
+				ManagedReference<PlayerObject*> creatureGhost = creature->getPlayerObject();
+				if (creatureGhost != NULL){
+					if (creatureGhost->getJediState() <= 1)
+						info("Player is not a Jedi");
+						return;
+				}
+			}
+
 			creature->addSkillMod(SkillModManager::WEARABLE, name, value, true);
-	}
+		}
 
 	SkillModManager::instance()->verifyWearableSkillMods(creature);
 }
