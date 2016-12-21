@@ -223,7 +223,7 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) {
 				if (creatureGhost != NULL){
 					if (creatureGhost->getJediState() <= 1)
 						info("Player is not a Jedi");
-						return;
+						continue;
 				}
 			}
 
