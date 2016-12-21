@@ -1355,7 +1355,7 @@ void CreatureObjectImplementation::addSkillMod(const int modType, const String& 
 
 	SkillModEntry oldMod;
 	if (skillMod == "jedi_toughness" || skillMod == "jedi_state_defense" || skillMod = "force_defense"){
-		creatureGhost = getPlayerObject();
+		ManagedReference<PlayerObject*> creatureGhost = getPlayerObject();
 		if (creatureGhost != NULL){
 			if (creatureGhost->getJediState() < 1)
 				return;
