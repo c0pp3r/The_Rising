@@ -12,6 +12,7 @@
 #include "server/zone/objects/draftschematic/DraftSchematic.h"
 #include "server/zone/objects/tangible/attachment/Attachment.h"
 #include "server/zone/managers/skill/SkillModManager.h"
+#include "server/zone/objects/player/PlayerObject.h"
 
 /**
  * Rename for clarity/convenience
