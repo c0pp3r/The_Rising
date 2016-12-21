@@ -43,7 +43,7 @@ void WearableContainerObjectImplementation::applySkillModsTo(CreatureObject* cre
 			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
 				ManagedReference<PlayerObject*> creatureGhost = creature->getPlayerObject();
 				if (creatureGhost != NULL){
-					if (creatureGhost->getJediState() < 1)
+					if (creatureGhost->getJediState() <= 1)
 						return;
 				}
 			}
