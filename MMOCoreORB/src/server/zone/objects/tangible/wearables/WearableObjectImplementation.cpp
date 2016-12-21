@@ -12,7 +12,6 @@
 #include "server/zone/objects/draftschematic/DraftSchematic.h"
 #include "server/zone/objects/tangible/attachment/Attachment.h"
 #include "server/zone/managers/skill/SkillModManager.h"
-#include "server/zone/objects/player/PlayerObject.h"
 
 /**
  * Rename for clarity/convenience
@@ -221,7 +220,7 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) {
 				info("Is a mod restricted to Jedi: "+name , true);
 				
 				if (!creature->hasSkill("force_title_jedi_rank_02") <= 1){
-					info("Player is not a Jedi");
+					info("Player is not a Jedi", true);
 					continue;
 				}
 			}
@@ -243,8 +242,17 @@ void WearableObjectImplementation::removeSkillModsFrom(CreatureObject* creature)
 		String name = wearableSkillMods.elementAt(i).getKey();
 		int value = wearableSkillMods.get(name);
 
-		if (!SkillModManager::instance()->isWearableModDisabled(name))
+		if (!SkillModManager::instance()->isWearableModDisabled(name)){
+			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
+				info("Is a mod restricted to Jedi: "+name , true);
+				
+				if (!creature->hasSkill("force_title_jedi_rank_02") <= 1){
+					info("Player is not a Jedi", true);
+					continue;
+				}
+			}
 			creature->removeSkillMod(SkillModManager::WEARABLE, name, value, true);
+		}
 	}
 
 	SkillModManager::instance()->verifyWearableSkillMods(creature);
