@@ -125,13 +125,6 @@ void SkillModManager::verifyWearableSkillMods(CreatureObject* creature) {
 						continue;
 
 					int value = wearableSkillMods->get(name);
-					if (name == "jedi_state_defense" || name == "jedi_toughness" || name == "force_defense"){
-						ManagedReference<PlayerObject*> creatureGhost = creature->getPlayerObject();
-						if (creatureGhost != NULL){
-							if (creatureGhost->getJediState() < 1)
-								continue;
-						}
-					}
 
 					if(mods.contains(name)) {
 						value += mods.get(name);
