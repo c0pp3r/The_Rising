@@ -9,7 +9,6 @@
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/managers/skill/SkillModManager.h"
 #include "server/zone/packets/scene/AttributeListMessage.h"
-#include "server/zone/objects/player/PlayerObject.h"
 
 void WearableContainerObjectImplementation::initializeTransientMembers() {
 	ContainerImplementation::initializeTransientMembers();
@@ -42,11 +41,10 @@ void WearableContainerObjectImplementation::applySkillModsTo(CreatureObject* cre
 		if (!SkillModManager::instance()->isWearableModDisabled(name)){
 			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
 				info("Is a mod restricted to Jedi: "+name , true);
-				ManagedReference<PlayerObject*> creatureGhost = creature->getPlayerObject();
-				if (creatureGhost != NULL){
-					if (creatureGhost->getJediState() <= 1)
-						info("Player is not a Jedi");
-						continue;
+				
+				if (!creature->hasSkill("force_title_jedi_rank_02") <= 1){
+					info("Player is not a Jedi");
+					continue;
 				}
 			}
 
