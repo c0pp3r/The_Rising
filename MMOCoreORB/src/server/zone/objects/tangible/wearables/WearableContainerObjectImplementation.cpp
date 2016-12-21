@@ -38,8 +38,17 @@ void WearableContainerObjectImplementation::applySkillModsTo(CreatureObject* cre
 		String name = wearableSkillMods.elementAt(i).getKey();
 		int value = wearableSkillMods.get(name);
 
-		if (!SkillModManager::instance()->isWearableModDisabled(name))
+		if (!SkillModManager::instance()->isWearableModDisabled(name)){
+			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
+				ManagedReference<PlayerObject*> creatureGhost = creature->getPlayerObject();
+				if (creatureGhost != NULL){
+					if (creatureGhost->getJediState() < 1)
+						return;
+				}
+			}
+
 			creature->addSkillMod(SkillModManager::WEARABLE, name, value, true);
+		}
 	}
 
 	SkillModManager::instance()->verifyWearableSkillMods(creature);
