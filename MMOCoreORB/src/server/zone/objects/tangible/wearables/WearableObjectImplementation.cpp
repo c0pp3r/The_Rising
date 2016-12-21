@@ -229,6 +229,7 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) {
 
 			creature->addSkillMod(SkillModManager::WEARABLE, name, value, true);
 		}
+	}
 
 	SkillModManager::instance()->verifyWearableSkillMods(creature);
 }
