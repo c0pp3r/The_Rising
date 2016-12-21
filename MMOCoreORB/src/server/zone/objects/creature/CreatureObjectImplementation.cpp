@@ -1354,13 +1354,6 @@ void CreatureObjectImplementation::addSkillMod(const int modType, const String& 
 	Locker locker(&skillModMutex);
 
 	SkillModEntry oldMod;
-	if (skillMod == "jedi_toughness" || skillMod == "jedi_state_defense" || skillMod = "force_defense"){
-		creatureGhost = getPlayerObject();
-		if (creatureGhost != NULL){
-			if (creatureGhost->getJediState() < 1)
-				return;
-		}
-	}
 
 	if(skillModList.contains(skillMod)) {
 		oldMod = skillModList.get(skillMod);
