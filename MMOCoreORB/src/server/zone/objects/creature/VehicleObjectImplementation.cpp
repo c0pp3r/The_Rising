@@ -182,8 +182,11 @@ void VehicleObjectImplementation::repairVehicle(CreatureObject* player) {
 		}
 
 		if (isDestroyed()) {
-			player->sendSystemMessage("@pet/pet_menu:cannot_repair_disabled"); //You may not repair a disabled vehicle.
-			return;
+			String vehicleName = getDisplayedName();
+				if (!vehicleName.contains("pod racer") && !vehicleName.contains("AV-21")){
+					player->sendSystemMessage("@pet/pet_menu:cannot_repair_disabled"); //You may not repair a disabled vehicle.
+					return;
+				}
 		}
 
 		if (!checkInRangeGarage()) {
