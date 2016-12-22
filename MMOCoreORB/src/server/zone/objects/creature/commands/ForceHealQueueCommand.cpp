@@ -171,19 +171,29 @@ int ForceHealQueueCommand::checkHAMAttributes(CreatureObject* creature, Creature
 }
 int ForceHealQueueCommand::doHealHAM(CreatureObject* creature, CreatureObject* target, int healableHAM, healedAttributes_t& attrs) const {
 	if (target == NULL) return GENERALERROR;
+	ManagedReference<PlayerObject*> playerObject = creature->getPlayerObject();
+	float force_control = 0.f;
+	if (playerObject != NULL){
+		if (playerObject->getJediState() == 4) {
+			force_control = (float)creature->getSkillMod("force_control_light") / 120;
+		}else if (playerObject->getJediState() == 8) {
+			force_control = (float)creature->getSkillMod("force_control_dark") / 120;
+		}
+	}
+	unsigned int modifiedHealAmount = healAmount + (healAmount * force_control);
 #ifdef DEBUG_FORCE_HEALS
 	creature->sendSystemMessage("[doHealHAM] Healable HAM:" + String::valueOf(healableHAM));
 #endif
 	if (healableHAM & HEALTH) {
-		attrs.healedHealth = target->healDamage(creature, CreatureAttribute::HEALTH, healAmount);
+		attrs.healedHealth = target->healDamage(creature, CreatureAttribute::HEALTH, modifiedHealAmount);
 	}
 
 	if (healableHAM & ACTION) {
-		attrs.healedAction = target->healDamage(creature, CreatureAttribute::ACTION, healAmount);
+		attrs.healedAction = target->healDamage(creature, CreatureAttribute::ACTION, modifiedHealAmount);
 	}
 
 	if (healableHAM & MIND) {
-		attrs.healedMind = target->healDamage(creature, CreatureAttribute::MIND, healAmount);
+		attrs.healedMind = target->healDamage(creature, CreatureAttribute::MIND, modifiedHealAmount);
 	}
 
 	return SUCCESS;
@@ -395,6 +405,17 @@ int ForceHealQueueCommand::calculateForceCost(CreatureObject* creature, Creature
 		calculatedForceCost = forceCost;
 	}
 
+	//FRS Modifiers to Heal Cost
+	ManagedReference<PlayerObject*> playerObject = creature->getPlayerObject();
+	float force_manipulation = 0.f;
+	if (playerObject != NULL){
+		if (playerObject->getJediState() == 4) {
+			force_manipulation = (float)creature->getSkillMod("force_manipulation_light") / 120;
+		}else if (playerObject->getJediState() == 8) {
+			force_manipulation = (float)creature->getSkillMod("force_manipulation_dark") / 120;
+		}
+	}
+	calculatedForceCost = calculatedForceCost - (calculatedForceCost * force_manipulation);
 	// if someone figures out how to overflow this make sure they can't earn force with it
 	if (calculatedForceCost < 0)
 		calculatedForceCost = 0;
