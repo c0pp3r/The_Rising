@@ -52,6 +52,8 @@
 #include "server/chat/SendMailTask.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
 
+Reference<ChatRoom*> generalRoom;
+
 ChatManagerImplementation::ChatManagerImplementation(ZoneServer* serv, int initsize) : ManagedServiceImplementation() {
 	server = serv;
 	playerManager = NULL;
@@ -239,7 +241,7 @@ void ChatManagerImplementation::initiateRooms() {
 	guildRoom = createRoom("guild", systemRoom);
 	guildRoom->setPrivate();
 
-	Reference<ChatRoom*> generalRoom = createRoom("TheRising", galaxyRoom);
+	generalRoom = createRoom("TheRising", galaxyRoom);
 	generalRoom->setCanEnter(true);
 	generalRoom->setAllowSubrooms(true);
 	generalRoom->setTitle("public chat for this server, can create rooms here");
