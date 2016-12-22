@@ -89,8 +89,9 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_bicep_r = object_t
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
 
-	-- Damage types in WeaponObject
-	vulnerability = LIGHTSABER,
+-- Damage types in WeaponObject
+
+	specialResists = LIGHTSABER,
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
@@ -109,7 +110,7 @@ object_tangible_wearables_armor_mandalorian_armor_mandalorian_bicep_r = object_t
 	heat = 75,
 	cold = 75,
 	acid = 75,
-	lightSaber = 0,
+	lightSaber = 80,
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_armor_mandalorian_armor_mandalorian_bicep_r, "object/tangible/wearables/armor/mandalorian/armor_mandalorian_bicep_r.iff")
