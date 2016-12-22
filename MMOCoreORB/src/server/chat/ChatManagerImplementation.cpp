@@ -676,6 +676,8 @@ void ChatManagerImplementation::handleChatRoomMessage(CreatureObject* sender, co
 		channel->broadcastMessageCheckIgnore(msg, name);
 	} else if (planetRoom != NULL && planetRoom->getRoomID() == roomID) {
 		channel->broadcastMessageCheckIgnore(msg, name);
+	} else if (generalRoom != NULL && generalRoom->getRoomID() == roomID) {
+		channel->broadcastMessageCheckIgnore(msg, name);
 	} else {
 		channel->broadcastMessage(msg);
 	}
