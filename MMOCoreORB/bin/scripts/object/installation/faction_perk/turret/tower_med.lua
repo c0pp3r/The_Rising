@@ -45,7 +45,7 @@ object_installation_faction_perk_turret_tower_med = object_installation_faction_
 	lotSize = 1,
 	pvpStatusBitmask = ATTACKABLE,
 	optionsBitmask = 0,
-	maxCondition = 200000,
+	maxCondition = 350000,
 	zoneComponent = "TurretZoneComponent",
 	dataObjectComponent = "TurretDataComponent",
 	-- Damagetypes in WeaponObject
@@ -61,7 +61,7 @@ object_installation_faction_perk_turret_tower_med = object_installation_faction_
 	heat = 90,
 	cold = 90,
 	acid = 90,
-	lightSaber = -1,
+	lightSaber = 50,
 	chanceHit = 4,
 	weapon = "object/weapon/ranged/turret/turret_tower_large.iff",
 

@@ -45,11 +45,11 @@ object_installation_faction_perk_turret_block_med = object_installation_faction_
 	lotSize = 1,
 	pvpStatusBitmask = ATTACKABLE,
 	optionsBitmask = 0,
-	maxCondition = 200000,
+	maxCondition = 350000,
 	zoneComponent = "TurretZoneComponent",
 	dataObjectComponent = "TurretDataComponent",
 	-- Damagetypes in WeaponObject
-	vulnerability = BLAST + LIGHTSABER,
+	vulnerability = BLAST,
 	-- LIGHT, MEDIUM, HEAVY
 	rating = MEDIUM,
 
@@ -61,7 +61,7 @@ object_installation_faction_perk_turret_block_med = object_installation_faction_
 	heat = 80,
 	cold = 80,
 	acid = 80,
-	lightSaber = -1,
+	lightSaber = 50,
 	chanceHit = 4,
 	weapon = "object/weapon/ranged/turret/turret_block_large.iff",
 }

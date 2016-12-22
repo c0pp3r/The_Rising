@@ -45,11 +45,11 @@ object_installation_faction_perk_turret_tower_sm = object_installation_faction_p
 	lotSize = 1,
 	pvpStatusBitmask = ATTACKABLE,
 	optionsBitmask = 0,
-	maxCondition = 75000,
+	maxCondition = 125000,
 	zoneComponent = "TurretZoneComponent",
 	dataObjectComponent = "TurretDataComponent",
 	-- Damagetypes in WeaponObject
-	vulnerability = BLAST + LIGHTSABER,
+	vulnerability = BLAST,
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
@@ -61,7 +61,7 @@ object_installation_faction_perk_turret_tower_sm = object_installation_faction_p
 	heat = 90,
 	cold = 90,
 	acid = 90,
-	lightSaber = -1,
+	lightSaber = 50,
 	chanceHit = 4,
 	weapon = "object/weapon/ranged/turret/turret_tower_large.iff",
 

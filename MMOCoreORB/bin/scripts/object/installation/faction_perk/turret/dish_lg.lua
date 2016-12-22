@@ -45,7 +45,7 @@ object_installation_faction_perk_turret_dish_lg = object_installation_faction_pe
 	lotSize = 1,
 	pvpStatusBitmask = ATTACKABLE,
 	optionsBitmask = 0,
-	maxCondition = 300000,
+	maxCondition = 450000,
 	zoneComponent = "TurretZoneComponent",
 	dataObjectComponent = "TurretDataComponent",
 	-- Damagetypes in WeaponObject
