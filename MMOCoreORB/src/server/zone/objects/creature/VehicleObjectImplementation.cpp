@@ -28,8 +28,9 @@ void VehicleObjectImplementation::fillObjectMenuResponse(ObjectMenuResponse* men
 
 	menuResponse->addRadialMenuItem(205, 1, "@pet/pet_menu:menu_enter_exit");
 	menuResponse->addRadialMenuItem(61, 3, "");
+	String vehicleName = getDisplayedName();
 
-	if (player->getPlayerObject()->isPrivileged() || (checkInRangeGarage() && !isDestroyed()))
+	if (player->getPlayerObject()->isPrivileged() || (checkInRangeGarage() && !isDestroyed()) || (checkInRangeGarage() && (vehicleName.contains("Pod Racer") || vehicleName.contains("AV-21"))))
 		menuResponse->addRadialMenuItem(62, 3, "@pet/pet_menu:menu_repair_vehicle"); //Repair Vehicle
 }
 
