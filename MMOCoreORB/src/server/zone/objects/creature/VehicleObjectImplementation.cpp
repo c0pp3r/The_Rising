@@ -184,7 +184,7 @@ void VehicleObjectImplementation::repairVehicle(CreatureObject* player) {
 
 		if (isDestroyed()) {
 			String vehicleName = getDisplayedName();
-				if (!vehicleName.contains("pod racer") && !vehicleName.contains("AV-21")){
+				if (!vehicleName.contains("Pod Racer") && !vehicleName.contains("AV-21")){
 					player->sendSystemMessage("@pet/pet_menu:cannot_repair_disabled"); //You may not repair a disabled vehicle.
 					return;
 				}
