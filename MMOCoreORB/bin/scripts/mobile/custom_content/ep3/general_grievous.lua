@@ -54,9 +54,30 @@ general_grievous = Creature:new {
 				{group = "armor_attachments", chance = 2000000},
 				{group = "g_named_crystals", chance = 3000000},
 				{group = "weapons_all", chance = 2500000}
-		},
+			},
 			lootChance = 10000000
-		  },
+		},
+		{
+			groups = {
+				{group = "saberhand2", chance = 5000000},
+				{group = "saberhand6", chance = 5000000}
+			},
+			lootChance = 2500000
+		},
+		{
+			groups = {
+				{group = "saberhand9", chance = 5000000},
+				{group = "saberhand12", chance = 5000000}
+			},
+			lootChance = 2500000
+		},
+		{
+			groups = {
+				{group = "saberhand21", chance = 5000000},
+				{group = "saberhand22", chance = 5000000}
+			},
+			lootChance = 2500000
+		},
 	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
