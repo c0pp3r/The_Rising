@@ -69,7 +69,7 @@ general_grievous = Creature:new {
 				{group = "saberhand9", chance = 5000000},
 				{group = "saberhand12", chance = 5000000}
 			},
-			lootChance = 2500000
+			lootChance = 10000000
 		},
 		{
 			groups = {
