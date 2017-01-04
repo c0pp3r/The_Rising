@@ -393,9 +393,9 @@ bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, flo
 		}
 	}
 
-	if (forageType == ForageManager::LAIR:)
+	if (forageType == ForageManager::LAIR)
 		int foraging = player->getSkillMod("foraging");
-	} else if (forageType == ForageManager::MEDICAL:)
+	} else if (forageType == ForageManager::MEDICAL)
 		int foraging = player->getSkillMod("medical_foraging");
 		
 	int quantity = System::random(200) + foraging * 2)
