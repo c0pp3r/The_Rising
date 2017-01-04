@@ -90,7 +90,7 @@ luke_elder = Creature:new {
 			lootChance = 10000000
 		},
 		},
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"dark_jedi_weapons_gen4_twohand"},
 	reactionStf = "@npc_reaction/slang",
 	attacks = merge(risinglsmaster)
 }

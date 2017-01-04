@@ -86,12 +86,13 @@ revan = Creature:new {
 		},
 		{
 			groups = {
-				{group = "saberhand3", chance = 10000000}
+				{group = "saberhand9", chance = 5000000},
+				{group = "saberhand12", chance = 5000000}
 			},
 			lootChance = 10000000
 		},
 		},
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"dark_jedi_weapons_gen4_polearm"},
 	reactionStf = "@npc_reaction/slang",
 	attacks = merge(risinglsmaster, risingpowermaster)
 }

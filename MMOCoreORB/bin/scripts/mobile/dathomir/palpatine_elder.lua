@@ -91,7 +91,7 @@ palpatine_elder = Creature:new {
 			lootChance = 10000000
 		},
 		},
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"dark_jedi_weapons_gen4_onehand"},
 	reactionStf = "@npc_reaction/slang",
 	attacks = merge(risinglsmaster,forcepowermaster)
 }

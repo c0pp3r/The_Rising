@@ -66,8 +66,8 @@ general_grievous = Creature:new {
 		},
 		{
 			groups = {
-				{group = "saberhand9", chance = 5000000},
-				{group = "saberhand12", chance = 5000000}
+				{group = "saberhand2", chance = 5000000},
+				{group = "saberhand6", chance = 5000000}
 			},
 			lootChance = 10000000
 		},
@@ -79,7 +79,7 @@ general_grievous = Creature:new {
 			lootChance = 2500000
 		},
 	},
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"dark_jedi_weapons_gen4_onehand"},
 	conversationTemplate = "",
 	attacks = merge(risinglsmaster)
 }
