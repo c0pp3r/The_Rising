@@ -178,8 +178,6 @@ endor = {
 
 	planetObjects = {
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.932952, oz = 0, ow = -0.360002, x = -963.537, z = 73, y = 1556.86, parentid = 0},
-		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.723459, oz = 0, ow = -0.690367, x = 3240.5, z = 24, y = -3484.79, parentid = 0},
-		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.932952, oz = 0, ow = -0.360002, x = -963.537, z = 73, y = 1556.86, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.723459, oz = 0, ow = -0.690367, x = 3240.5, z = 24, y = -3484.79, parentid = 0}
 		-- TEMPORARY
 		--{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.723459, oz = 0, ow = -0.690367, x = -4676.78, z = 12.9066, y = 4327.25, parentid = 0}

@@ -327,6 +327,7 @@ bool SkillModManager::compareMods(VectorMap<String, int> mods, CreatureObject* c
 
 		if(value != currentValue) {
 
+			error("Clothing/Struct/Buff: " + key + ":" + value + " doesn't match Player:" + currentValue);
 			creature->removeSkillMod(type, key, value, true);
 			creature->addSkillMod(type, key, currentValue, true);
 

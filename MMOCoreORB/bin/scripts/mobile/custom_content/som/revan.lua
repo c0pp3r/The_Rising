@@ -8,7 +8,7 @@ revan = Creature:new {
 	chanceHit = 95,
 	damageMin = 2500,
 	damageMax = 4550,
-	specialDamageMult = 1.30,
+	specialDamageMult = 1.25,
 	baseXp = 300540,
 	baseHAM = 754000,
 	baseHAMmax = 962900,
@@ -86,12 +86,13 @@ revan = Creature:new {
 		},
 		{
 			groups = {
-				{group = "saberhand3", chance = 10000000}
+				{group = "saberhand9", chance = 5000000},
+				{group = "saberhand12", chance = 5000000}
 			},
 			lootChance = 10000000
 		},
 		},
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"dark_jedi_weapons_gen4_polearm"},
 	reactionStf = "@npc_reaction/slang",
 	attacks = merge(risinglsmaster, risingpowermaster)
 }

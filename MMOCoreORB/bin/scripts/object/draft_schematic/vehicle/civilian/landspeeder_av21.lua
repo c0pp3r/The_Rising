@@ -67,7 +67,7 @@ object_draft_schematic_vehicle_civilian_landspeeder_av21 = object_draft_schemati
    ingredientTitleNames = {"vehicle_body", "structural_frame"},
    ingredientSlotType = {0, 0},
    resourceTypes = {"metal_nonferrous", "metal_ferrous"},
-   resourceQuantities = {1125, 3125, 1},
+   resourceQuantities = {5125, 15125, 1},
    contribution = {100, 100, 100},
 
 

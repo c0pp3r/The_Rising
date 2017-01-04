@@ -5145,12 +5145,12 @@ void PlayerManagerImplementation::enhanceCharacter(CreatureObject* player) {
 	bool message = true;
 
 	// Credits For Buffs
-	if (player->getCashCredits() < 10000){
+	if (player->getCashCredits() < 4000){
 		player->sendSystemMessage("Sorry, you don't have enough cash on hand to purchase a buff.");
 		return;
-	} else if (player->getCashCredits() >= 10000){
+	} else if (player->getCashCredits() >= 4000){
 		// Charge player for buffs
-		player->subtractCashCredits(10000);
+		player->subtractCashCredits(4000);
 
 	message = message && doEnhanceCharacter(0x98321369, player, medicalBuff, medicalDuration, BuffType::MEDICAL, 0); // medical_enhance_health
 	message = message && doEnhanceCharacter(0x815D85C5, player, medicalBuff, medicalDuration, BuffType::MEDICAL, 1); // medical_enhance_strength
