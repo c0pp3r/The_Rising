@@ -219,6 +219,7 @@ void WearableObjectImplementation::applySkillModsTo(CreatureObject* creature) {
 			if (name == "jedi_toughness" || name == "jedi_state_defense" || name == "force_defence"){
 				
 				if (!creature->hasSkill("force_title_jedi_rank_02")){
+					error(creature->getFirstName() + " is not a Jedi Padawan and is wearing clothing with a Jedi SEA");
 					continue;
 				}
 			}
