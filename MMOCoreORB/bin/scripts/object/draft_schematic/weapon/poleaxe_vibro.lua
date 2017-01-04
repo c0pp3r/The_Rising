@@ -66,7 +66,7 @@ object_draft_schematic_weapon_poleaxe_vibro = object_draft_schematic_weapon_shar
    ingredientTitleNames = {"lance_shaft", "vibro_unit_and_power_cell_brackets", "grip", "reinforcement_core", "axe_head"},
    ingredientSlotType = {0, 0, 0, 1, 0},
    resourceTypes = {"steel_ditanium", "copper", "metal_nonferrous", "object/tangible/component/weapon/shared_reinforcement_core.iff", "steel_duralloy"},
-   resourceQuantities = {55, 25, 15, 3, 15},
+   resourceQuantities = {55, 25, 15, 1, 15},
    contribution = {100, 100, 100, 100, 100},
 
 
