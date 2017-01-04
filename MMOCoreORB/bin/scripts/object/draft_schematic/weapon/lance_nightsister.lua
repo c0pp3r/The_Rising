@@ -63,9 +63,9 @@ object_draft_schematic_weapon_lance_nightsister = object_draft_schematic_weapon_
    customizationDefaults = {},
 
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"lance_shaft", "vibro_unit_and_power_cell_brackets", "grip", "vibration_generator"},
+   ingredientTitleNames = {"lance_shaft", "vibro_unit_and_power_cell_brackets", "grip", "reinforcement_core"},
    ingredientSlotType = {0, 0, 0, 1},
-   resourceTypes = {"steel_quadranium", "copper_polysteel", "metal", "object/tangible/component/weapon/shared_vibro_unit_nightsister.iff"},
+   resourceTypes = {"steel_quadranium", "copper_polysteel", "metal", "object/tangible/component/weapon/shared_reinforcement_core.iff"},
    resourceQuantities = {60, 30, 15, 2},
    contribution = {100, 100, 100, 100},
 
