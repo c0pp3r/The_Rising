@@ -641,6 +641,11 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 						String victimName = target->getFirstName();
 						bBroadcast << "\\#00bfff" << bhName << "\\#ffd700" << " a" << "\\#ff7f00 Bounty Hunter" << "\\#ffd700 has collected the bounty on\\#00bfff " << victimName;
 						owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, bBroadcast.toString());
+						if (target->hasSkill("force_rank_light_novice") || target->hasSkill("force_rank_dark_novice"))
+						{
+							owner->getZoneServer()->getPlayerManager()->awardExperience(target, "force_rank_xp", -500);
+						}
+						
 					}
 				}
 			}
@@ -664,7 +669,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 				PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
 				killer->sendMessage(pmm);
 				killer->playEffect("clienteffect//holoemote_brainstorm.cef", "head");
-				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 5000);
+				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 3000);
 			}
 			fail();
 		}
