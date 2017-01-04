@@ -321,10 +321,10 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 		dice = System::random(109);
 		level = 1;
 
-		if (dice >= 0 && dice < 40) { // Live Creatures
+		if (dice >= 0 && dice < 30) { // Live Creatures
 			lootGroup = "forage_live_creatures";
 		}
-		else if (dice > 39 && dice < 110) { // Eggs
+		else if (dice > 29 && dice < 110) { // Eggs
 			resName = "meat_egg";
 			if(forageGiveResource(player, forageX, forageY, planet, resName)) {
 				player->sendSystemMessage("@lair_n:found_eggs");
@@ -393,7 +393,12 @@ bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, flo
 		}
 	}
 
-	int quantity = System::random(30) + 300;
+	if (forageType == ForageManager::LAIR:)
+		int foraging = player->getSkillMod("foraging");
+	} else if (forageType == ForageManager::MEDICAL:)
+		int foraging = player->getSkillMod("medical_foraging");
+		
+	int quantity = System::random(200) + foraging * 2)
 	resourceManager->harvestResourceToPlayer(player, resource, quantity);
 	return true;
 }
