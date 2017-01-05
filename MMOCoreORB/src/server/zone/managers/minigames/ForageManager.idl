@@ -98,7 +98,7 @@ class ForageManager extends Observer implements Logger {
 	 * @param forageY The y coordinate of the player's position when they first started foraging.
 	 * @param planet The planet (zone ID) the player was on when they first started foraging.
 	 */
-	public native boolean forageGiveResource(CreatureObject player, float forageX, float forageY, final string planet, string resType); 
+	public native boolean forageGiveResource(CreatureObject player, float forageX, float forageY, final string planet, string resType, int forageType); 
 
 
 
