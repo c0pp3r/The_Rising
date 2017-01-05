@@ -669,7 +669,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 				PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
 				killer->sendMessage(pmm);
 				killer->playEffect("clienteffect//holoemote_brainstorm.cef", "head");
-				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 3000);
+				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 3000, true);
 			}
 			fail();
 		}
