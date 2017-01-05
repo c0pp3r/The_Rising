@@ -348,7 +348,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 	return true;
 }
 
-bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, float forageX, float forageY, const String& planet, String& resType) {
+bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, float forageX, float forageY, const String& planet, String& resType, int forageType) {
 	if (player == NULL)
 		return false;
 
@@ -392,13 +392,15 @@ bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, flo
 			return false;
 		}
 	}
-
-	if (forageType == ForageManager::LAIR)
+	
+	if (forageType == ForageManager::LAIR) {
 		int foraging = player->getSkillMod("foraging");
-	} else if (forageType == ForageManager::MEDICAL)
+
+	} else if (forageType == ForageManager::MEDICAL) { 
 		int foraging = player->getSkillMod("medical_foraging");
-		
-	int quantity = System::random(200) + foraging * 2)
+		} 
+
+	int quantity = System::random((200) + foraging * 2);
 	resourceManager->harvestResourceToPlayer(player, resource, quantity);
 	return true;
 }
