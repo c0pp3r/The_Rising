@@ -66,7 +66,7 @@ public:
 			break;
 		case ONESUCCESS:
 			if (success) {
-					player->sendSystemMessage("You have successfully gathered %DI unit(s) of milk from the creature!"); // You have successfully gathered milk from the creature!
+					player->sendSystemMessage("@skl_use:milk_success"); // You have successfully gathered milk from the creature!
 					giveMilkToPlayer();
 			} else {
 					player->sendSystemMessage("@skl_use:milk_continue"); // You continue to milk the creature.
@@ -87,7 +87,7 @@ public:
 			break;
 		case FINAL:
 			if (success) {
-				player->sendSystemMessage("You have successfully gathered %DI unit(s) of milk from the creature!"); // You have successfully gathered milk from the creature!
+				player->sendSystemMessage("@skl_use:milk_success"); // You have successfully gathered milk from the creature!
 				giveMilkToPlayer();
 			} else {
 				updateMilkState(CreatureManager::NOTMILKED);
