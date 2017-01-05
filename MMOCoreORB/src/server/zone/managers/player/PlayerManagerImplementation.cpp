@@ -1620,7 +1620,7 @@ void PlayerManagerImplementation::awardExperience(CreatureObject* player, const 
 			PlayerObject* ghost = player->getPlayerObject();
 			SkillList* skillList = player->getSkillList();
 			int curExp = ghost->getExperience("force_rank_xp");
-			if (curExp < 0) { //Allows up to 5 deaths without getting any XP
+			if (curExp < -15000) { //Allows up to 4 deaths without getting any XP
 				if (player->hasSkill("force_rank_light_novice")) {
 					while (player->hasSkill("force_rank_light_novice")) {
 						for (int i = 0; i < skillList->size(); ++i) {
