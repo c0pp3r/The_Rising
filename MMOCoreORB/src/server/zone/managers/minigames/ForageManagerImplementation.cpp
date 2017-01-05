@@ -257,7 +257,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 		else
 			resName = "seafood_crustacean";
 
-		if(forageGiveResource(player, forageX, forageY, planet, resName)) {
+		if(forageGiveResource(player, forageX, forageY, planet, resName, forageType)) {
 			if (mullosks)
 				player->sendSystemMessage("@harvesting:found_mollusks");
 			else
@@ -297,7 +297,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 			lootGroup = "forage_food";
 
 		} else if (dice > 39 && dice < 110) { //Resources.
-			if(forageGiveResource(player, forageX, forageY, planet, resName)) {
+			if(forageGiveResource(player, forageX, forageY, planet, resName, forageType)) {
 				player->sendSystemMessage("@skl_use:sys_forage_success");
 				return true;
 			} else {
@@ -326,7 +326,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 		}
 		else if (dice > 29 && dice < 110) { // Eggs
 			resName = "meat_egg";
-			if(forageGiveResource(player, forageX, forageY, planet, resName)) {
+			if(forageGiveResource(player, forageX, forageY, planet, resName, forageType)) {
 				player->sendSystemMessage("@lair_n:found_eggs");
 				return true;
 			} else {
@@ -348,7 +348,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 	return true;
 }
 
-bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, float forageX, float forageY, const String& planet, String& resType) {
+bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, float forageX, float forageY, const String& planet, String& resType, int forageType) {
 	if (player == NULL)
 		return false;
 
@@ -393,12 +393,16 @@ bool ForageManagerImplementation::forageGiveResource(CreatureObject* player, flo
 		}
 	}
 
-	if (forageType == ForageManager::LAIR)
-		int foraging = player->getSkillMod("foraging");
-	} else if (forageType == ForageManager::MEDICAL)
-		int foraging = player->getSkillMod("medical_foraging");
-		
-	int quantity = System::random(200) + foraging * 2)
-	resourceManager->harvestResourceToPlayer(player, resource, quantity);
+int foraging;
+
+	if (forageType == ForageManager::LAIR) {
+		foraging = player->getSkillMod("foraging");
+		int quantity = System::random((200) + foraging * 2);
+		resourceManager->harvestResourceToPlayer(player, resource, quantity);
+	} else if (forageType == ForageManager::MEDICAL) {
+		foraging = player->getSkillMod("medical_foraging");
+		int quantity = System::random((200) + foraging * 2);
+		resourceManager->harvestResourceToPlayer(player, resource, quantity);
+		}
 	return true;
 }
