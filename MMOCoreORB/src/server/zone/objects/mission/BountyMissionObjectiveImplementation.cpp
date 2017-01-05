@@ -643,7 +643,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 						owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, bBroadcast.toString());
 						if (target->hasSkill("force_rank_light_novice") || target->hasSkill("force_rank_dark_novice"))
 						{
-							owner->getZoneServer()->getPlayerManager()->awardExperience(target, "force_rank_xp", -500);
+							owner->getZoneServer()->getPlayerManager()->awardExperience(target, "force_rank_xp", -500, true);
 						}
 						
 					}
