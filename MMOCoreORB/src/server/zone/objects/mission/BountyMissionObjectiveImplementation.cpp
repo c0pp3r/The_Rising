@@ -606,13 +606,14 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 
 	ManagedReference<MissionObject* > mission = this->mission.get();
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
-	String playerName = killer->getFirstName();
-	String bhName = owner->getFirstName();
+	
 
 	if(mission == NULL)
 		return;
 
 	if (owner != NULL && killer != NULL) {
+		String playerName = killer->getFirstName();
+		String bhName = owner->getFirstName();
 		if (owner->getObjectID() == killer->getObjectID()) {
 			//Target killed by player, complete mission.
 			ZoneServer* zoneServer = owner->getZoneServer();
