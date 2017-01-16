@@ -278,7 +278,7 @@ public:
 			if (!combatManager->areInDuel(creature, targetObject.castTo<CreatureObject*>())) {
 				shouldTef = true;
 				ManagedReference<CreatureObject*> targetCreature = targetObject.castTo<CreatureObject*>();
-				if (creature->isInBountyMission(targetCreature, creature)){
+				if (creature->isInBountyMission(creature, targetCreature)){
 					PlayerObject* targetGhost = targetCreature->getPlayerObject();
 					targetGhost->updateLastPvpCombatActionTimestamp();
 				}
