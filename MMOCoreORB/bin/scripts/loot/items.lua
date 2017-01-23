@@ -1276,3 +1276,6 @@ includeFile("items/custom/bounty_hunter_schemes/bounty_hunter_leggings_scheme.lu
 --Pod Racers
 includeFile("items/podracerone.lua")
 includeFile("items/podracertwo.lua")
+
+--Upgraded armor segments
+includeFile("items/armor/components/upgraded_padded_segment.lua")
