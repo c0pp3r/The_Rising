@@ -1279,3 +1279,4 @@ includeFile("items/podracertwo.lua")
 
 --Upgraded armor segments
 includeFile("items/armor/components/upgraded_padded_segment.lua")
+includeFile("items/armor/components/upgraded_mabari_segment.lua")
