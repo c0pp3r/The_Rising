@@ -47,6 +47,8 @@ includeFile("groups/armor/ubese_armor.lua")
 
 --armor component sub-folder
 includeFile("groups/armor/components/upgraded_padded.lua")
+includeFile("groups/armor/components/upgraded_mabari.lua")
+
 -- creature sub-folder
 includeFile("groups/creature/brackaset_common.lua")
 includeFile("groups/creature/fambaa_common.lua")
