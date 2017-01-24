@@ -1,12 +1,12 @@
 upgraded_padded_segment = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Upgraded Padded Segment",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_padded_fambaa.iff",
 	craftingValues = {
 		{"armor_special_type",0,0,0},
-		{"armor_effectiveness",27,33,10},
-		{"kineticeffectiveness",39,39,10},
+		{"armor_effectiveness",10,33,10},
+		{"kineticeffectiveness",29,40,10},
 		{"armor_integrity",1400,1577,0},
 		{"armor_action_encumbrance",52,45,0},
 		{"armor_mind_encumbrance",52,45,0},
