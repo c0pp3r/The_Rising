@@ -1,4 +1,7 @@
-customObjectName = "Upgraded Mabari Segment",
+upgraded_mabari_segment = {
+	minimumLevel = 0,
+	maximumLevel = -1,	
+	customObjectName = "Upgraded Mabari Segment",
 	directObjectTemplate = "object/tangible/component/armor/armor_segment_zam_advanced.iff",
 	craftingValues = {
 		{"armor_special_type",0,0,0},
