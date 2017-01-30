@@ -452,7 +452,8 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 			attachmentType = "AA";
 
 		info("prototype is an attachment",true);
-		VectorMap<String, int>* mods = prototype->getSkillMods();
+		VectorMap<String, int>* mods = prototype->getTemplateSkillMods();
+		info("Skill name: " + mods->elementAt(0).getKey + " Skill value: " + mods->elementAt(0).getValue);
 		StringId attachmentName;
 
 		String key = "";
