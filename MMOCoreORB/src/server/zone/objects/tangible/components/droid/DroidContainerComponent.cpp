@@ -51,6 +51,14 @@ int DroidContainerComponent::canAddObject(SceneObject* sceneObject, SceneObject*
 		return TransferErrorCode::CANTADD;
 	}
 
+	if (object->isTangibleObject()){
+		ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(object);
+		if (tano->hasAntiDecayKit()){
+			errorDescription = "@container_error_message:container28";
+			return TransferErrorCode::CANTADD;
+		}
+	}
+
 	ManagedReference<SceneObject*> p = sceneObject->getParent();
 	if (p) {
 		DroidObject* droid = p.castTo<DroidObject*>();

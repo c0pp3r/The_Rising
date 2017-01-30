@@ -18,6 +18,14 @@ int ContainerComponent::canAddObject(SceneObject* sceneObject, SceneObject* obje
 		return TransferErrorCode::CANTADDTOITSELF;
 	}
 
+	if (object->isTangibleObject()){
+		ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(object);
+		if (tano->hasAntiDecayKit()){
+			errorDescription = "@container_error_message:container28";
+			return TransferErrorCode::CANTADD;
+		}
+	}
+
 	if ((object->isNoTrade() || object->containsNoTradeObjectRecursive()) && !object->isVendor()) {
 		ManagedReference<SceneObject*> containerPlayerParent = sceneObject->getParentRecursively(SceneObjectType::PLAYERCREATURE);
 		ManagedReference<SceneObject*> containerBuildingParent = sceneObject->getParentRecursively(SceneObjectType::BUILDING);

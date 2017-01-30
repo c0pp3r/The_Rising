@@ -1820,6 +1820,15 @@ void PlayerManagerImplementation::handleAddItemToTradeWindow(CreatureObject* pla
 		return;
 	}
 
+	if (objectToTrade->isTangibleObject()){
+		ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(object);
+		if (tano->hasAntiDecayKit()){
+			player->sendSystemMessage("@container_error_message:container26");
+			handleAbortTradeMessage(player);
+			return;
+		}
+	}
+
 	// Containers containing notrade items...
 	if (objectToTrade->containsNoTradeObjectRecursive()) {
 		player->sendSystemMessage("@container_error_message:container26");
