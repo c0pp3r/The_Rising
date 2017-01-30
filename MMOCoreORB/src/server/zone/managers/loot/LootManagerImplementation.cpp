@@ -446,6 +446,28 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 	if (!maxCondition)
 		addConditionDamage(prototype, craftingValues);
 
+	if(prototype->isAttachment()){
+		VectorMap<String, int>* mods = prototype->getTemplateSkillMods();
+			StringId attachmentName;
+
+			String key = "";
+			int value = 0;
+			int last = 0;
+
+			for(int i = 0; i < mods->size(); ++i) {
+			VectorMapEntry<String, int> entry = mods->elementAt(i);
+			key = entry.getKey();
+			value = entry.getValue();
+		
+			if(value > last){
+				last = value;
+				attachmentName.setStringId("stat_n", key);
+				warning("Looted Attachment setting name to: " + attachmentName.toString());
+				prototype->setCustomObjectName(attachmentName.toString(),false);
+			}
+		}
+	}
+
 	return prototype;
 }
 
