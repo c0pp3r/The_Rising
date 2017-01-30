@@ -1821,7 +1821,7 @@ void PlayerManagerImplementation::handleAddItemToTradeWindow(CreatureObject* pla
 	}
 
 	if (objectToTrade->isTangibleObject()){
-		ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(object);
+		ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(objectToTrade);
 		if (tano->hasAntiDecayKit()){
 			player->sendSystemMessage("@container_error_message:container26");
 			handleAbortTradeMessage(player);
