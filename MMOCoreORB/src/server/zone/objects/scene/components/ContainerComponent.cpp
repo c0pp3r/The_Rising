@@ -21,8 +21,35 @@ int ContainerComponent::canAddObject(SceneObject* sceneObject, SceneObject* obje
 	if (object->isTangibleObject()){
 		ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(object);
 		if (tano->hasAntiDecayKit()){
-			errorDescription = "@container_error_message:container28";
-			return TransferErrorCode::CANTADD;
+			ManagedReference<SceneObject*> containerPlayerParent = sceneObject->getParentRecursively(SceneObjectType::PLAYERCREATURE);
+			ManagedReference<SceneObject*> containerBuildingParent = sceneObject->getParentRecursively(SceneObjectType::BUILDING);
+			ManagedReference<SceneObject*> containerFactoryParent = sceneObject->getParentRecursively(SceneObjectType::FACTORY);
+			ManagedReference<SceneObject*> objPlayerParent = object->getParentRecursively(SceneObjectType::PLAYERCREATURE);
+			ManagedReference<SceneObject*> objBuildingParent = object->getParentRecursively(SceneObjectType::BUILDING);
+
+
+			if (containerFactoryParent != NULL) {
+				errorDescription = "@container_error_message:container28";
+				return TransferErrorCode::CANTADD;
+			} else if (objPlayerParent == NULL && objBuildingParent != NULL) {
+				ManagedReference<BuildingObject*> buio = cast<BuildingObject*>( objBuildingParent.get());
+
+				if (buio != NULL ) {
+					uint64 bid = buio->getOwnerObjectID();
+
+				if ((containerPlayerParent != NULL && bid != containerPlayerParent->getObjectID()) || (sceneObject->isPlayerCreature() && bid != sceneObject->getObjectID())) {
+					errorDescription = "@container_error_message:container27";
+					return TransferErrorCode::CANTREMOVE;
+				}
+			}
+			} else if (objPlayerParent != NULL && containerPlayerParent == NULL && containerBuildingParent != NULL && !sceneObject->isPlayerCreature()) {
+			ManagedReference<BuildingObject*> buio = cast<BuildingObject*>( containerBuildingParent.get());
+
+			if (buio != NULL && buio->getOwnerObjectID() != objPlayerParent->getObjectID()) {
+
+				errorDescription = "@container_error_message:container28";
+				return TransferErrorCode::CANTADD;
+			}
 		}
 	}
 
