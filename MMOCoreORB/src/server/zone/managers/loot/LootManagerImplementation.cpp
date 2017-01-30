@@ -457,7 +457,7 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 		int testvalue = mods->elementAt(0).getValue();
 		StringId testName;
 		testName.setStringId("stat_n", testkey);
-		info("Skill name: " + testkey + " Skill value: " + testvalue, true);
+		info("Skill name: " + testName + " Skill value: " + testvalue);
 		StringId attachmentName;
 
 		String key = "";
