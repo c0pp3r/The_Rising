@@ -447,10 +447,6 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 		addConditionDamage(prototype, craftingValues);
 
 	if(prototype->isAttachment()){
-		UnicodeString attachmentType = "CA";
-		if(prototype->getGameObjectType() == SceneObjectType::ARMORATTACHMENT)
-			attachmentType = "AA";
-
 		info("prototype is an attachment",true);
 		VectorMap<String, int>* mods = prototype->getTemplateSkillMods();
 		StringId attachmentName;
@@ -464,13 +460,13 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 			key = entry.getKey();
 			value = entry.getValue();
 		
-			//if(value > last){
-			//	last = value;
+			if(value > last){
+				last = value;
 				attachmentName.setStringId("stat_n", key);
 				warning("Looted Attachment setting name to: " + attachmentName.toString());
 				info("Custom name should be set to " + attachmentName.toString(), true);
 				prototype->setCustomObjectName(attachmentName.toString(),false);
-			//}
+			}
 		}
 	}
 
