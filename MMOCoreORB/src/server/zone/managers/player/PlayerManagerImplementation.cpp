@@ -1806,6 +1806,7 @@ void PlayerManagerImplementation::handleAddItemToTradeWindow(CreatureObject* pla
 	CreatureObject* receiver = cast<CreatureObject*>( obj.get());
 
 	ManagedReference<SceneObject*> objectToTrade = server->getObject(itemID);
+	SceneObject* objectToTradeNonMR = server->getObject(itemID);
 
 	if (objectToTrade == NULL || !objectToTrade->isASubChildOf(player) ||
 			!objectToTrade->checkContainerPermission(player, ContainerPermissions::MOVECONTAINER)) {
@@ -1821,7 +1822,7 @@ void PlayerManagerImplementation::handleAddItemToTradeWindow(CreatureObject* pla
 	}
 
 	if (objectToTrade->isTangibleObject()){
-		TangibleObject* tano = cast<TangibleObject*>(objectToTrade);
+		TangibleObject* tano = cast<TangibleObject*>(objectToTradeNonMR);
 		if (tano->hasAntiDecayKit()){
 			player->sendSystemMessage("@container_error_message:container26");
 			handleAbortTradeMessage(player);
