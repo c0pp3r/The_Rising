@@ -29,10 +29,12 @@ ravenous_torton = Creature:new {
 	controlDeviceTemplate = "object/intangible/pet/torton_hue.iff",
 	scale = 1.1,
 	lootGroups = {
-		groups = {
-			{group = "upgraded_mabari", chance = 10000000},
-		},
+		{
+			groups = {
+				{group = "upgraded_mabari", chance = 10000000},
+			},
 		lootChance = 1000000
+		},
 	},
 	weapons = {},
 	conversationTemplate = "",
