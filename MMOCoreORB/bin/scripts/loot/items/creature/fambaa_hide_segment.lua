@@ -9,7 +9,7 @@ fambaa_hide_segment = {
 		craftingValues = {
 		{"armor_special_type",0,0,0},
 		{"armor_effectiveness",10,33,10},
-		{"kineticeffectiveness",15,40,10},
+		{"kineticeffectiveness",33,42,10},
 		{"armor_integrity",1400,1577,0},
 		{"armor_action_encumbrance",52,45,0},
 		{"armor_mind_encumbrance",52,45,0},
