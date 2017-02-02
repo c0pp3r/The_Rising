@@ -12,3 +12,5 @@ Mindbust - Client-side Tre File work, balance ideas, bug hunting through codebas
 DocHoliday - Weaponcrafting balance ideas and research
 
 Kumo - Balance and content ideas. Took the lead on Boss revamp and loot distribution patch. Created loot tables, found new locations for bosses, research loot groups to find unique items to include. Tons of time spent on test center testing boss combat, loot drops, etc.
+
+https://github.com/redwebdev - Naming of CA/AA with their type and stats
