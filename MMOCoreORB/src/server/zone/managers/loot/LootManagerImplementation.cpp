@@ -284,8 +284,9 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 
 		if (System::random(legendaryChance) >= legendaryChance - adjustment) {
 			UnicodeString newName = prototype->getDisplayedName() + " (Legendary)";
-			prototype->setCustomObjectName(newName, false);
-
+			if(!prototype->isAttachment()){
+				prototype->setCustomObjectName(newName, false);
+			}
 			excMod = legendaryModifier;
 
 			prototype->addMagicBit(false);
@@ -293,7 +294,9 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 			legendaryLooted.increment();
 		} else if (System::random(exceptionalChance) >= exceptionalChance - adjustment) {
 			UnicodeString newName = prototype->getDisplayedName() + " (Exceptional)";
-			prototype->setCustomObjectName(newName, false);
+			if(!prototype->isAttachment()){
+				prototype->setCustomObjectName(newName, false);
+			}
 
 			excMod = exceptionalModifier;
 
@@ -445,8 +448,7 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 	//add some condition damage where appropriate
 	if (!maxCondition)
 		addConditionDamage(prototype, craftingValues);
-	
-	// Update object name with mod stat if is attachment
+
 	if(prototype->isAttachment()){
 		Attachment* attachment = cast<Attachment*>( prototype.get());
 		HashTable<String, int>* mods = attachment->getSkillMods();
