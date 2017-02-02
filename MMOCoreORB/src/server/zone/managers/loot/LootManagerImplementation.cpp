@@ -445,6 +445,33 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 	//add some condition damage where appropriate
 	if (!maxCondition)
 		addConditionDamage(prototype, craftingValues);
+	
+	// Update object name with mod stat if is attachment
+	if(prototype->isAttachment()){
+		Attachment* attachment = cast<Attachment*>( prototype.get());
+		HashTable<String, int>* mods = attachment->getSkillMods();
+		HashTableIterator<String, int> iterator = mods->iterator();
+		StringId attachmentName;
+		String key = "";
+		int value = 0;
+		int last = 0;
+		String attachmentType = "AA ";
+
+		if(attachment->isClothingAttachment()){
+			attachmentType = "CA ";
+		}
+
+		for(int i = 0; i < mods->size(); ++i) {
+			iterator.getNextKeyAndValue(key, value);
+
+			if(value > last){
+				last = value;
+				attachmentName.setStringId("stat_n", key);
+				prototype->setObjectName(attachmentName,false);
+				prototype->setCustomObjectName(attachmentType + prototype->getDisplayedName() + " " + String::valueOf(value),false);
+			}
+		}
+	}
 
 	return prototype;
 }
