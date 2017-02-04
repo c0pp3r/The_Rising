@@ -458,6 +458,7 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 		int value = 0;
 		int last = 0;
 		String attachmentType = "AA ";
+		String attachmentCustomName = "";
 
 		if(attachment->isClothingAttachment()){
 			attachmentType = "CA ";
@@ -470,9 +471,10 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 				last = value;
 				attachmentName.setStringId("stat_n", key);
 				prototype->setObjectName(attachmentName,false);
-				prototype->setCustomObjectName(attachmentType + prototype->getDisplayedName() + " " + String::valueOf(value),false);
+				attachmentCustomName = attachmentType + prototype->getDisplayedName() + " " + String::valueOf(value);
 			}
 		}
+		prototype->setCustomObjectName(attachmentCustomName,false);
 	}
 
 	return prototype;
