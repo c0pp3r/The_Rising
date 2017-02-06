@@ -1,5 +1,5 @@
 luke_elder = Creature:new {
-	customName = "Luke (Elder)",
+	customName = "Luke (Boss)",
 	faction = "",
 	socialGroup = "dark_jedi",
 	level = 300,
