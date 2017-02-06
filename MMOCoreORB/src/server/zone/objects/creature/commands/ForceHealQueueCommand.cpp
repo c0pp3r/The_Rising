@@ -549,7 +549,7 @@ int ForceHealQueueCommand::runCommandWithTarget(CreatureObject* creature, Creatu
 		return GENERALERROR;
 	}
 	ManagedReference<PlayerObject*> playerTarget = targetCreature->getPlayerObject();
-	if (!playerTarget == NULL && playerTarget->isBountyLocked()){
+	if (playerTarget != NULL && playerTarget->isBountyLocked()){
 		creature->sendSystemMessage("@healing:pvp_no_help");
 		return GENERALERROR;
 	}
