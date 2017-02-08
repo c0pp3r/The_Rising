@@ -126,7 +126,8 @@ public:
 		} else {
 			quantityExtracted = int(quantityExtracted * 0.50f);
 		}
-		player->sendSystemMessage("You have successfully gathered " + quantityExtracted + " milk from the creature!");
+		String milkMessage = "You have successfully gathered " + quantityExtracted + " milk from the creature!";
+		player->sendSystemMessage(milkMessage);
 
 		resourceManager->harvestResourceToPlayer(player, resourceSpawn, quantityExtracted);
 
