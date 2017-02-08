@@ -87,7 +87,7 @@ public:
 			break;
 		case FINAL:
 			if (success) {
-				player->sendSystemMessage("@skl_use:milk_success"); // You have successfully gathered milk from the creature!
+				//player->sendSystemMessage("@skl_use:milk_success"); // You have successfully gathered milk from the creature!
 				giveMilkToPlayer();
 			} else {
 				updateMilkState(CreatureManager::NOTMILKED);
@@ -126,6 +126,7 @@ public:
 		} else {
 			quantityExtracted = int(quantityExtracted * 0.50f);
 		}
+		player->sendSystemMessage("You have successfully gathered " + quantityExtracted + " milk from the creature!");
 
 		resourceManager->harvestResourceToPlayer(player, resourceSpawn, quantityExtracted);
 
