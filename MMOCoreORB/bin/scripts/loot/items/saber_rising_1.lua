@@ -28,7 +28,9 @@ saber_rising_1 = {
 	randomDotChance = -1,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 30,
+	noTrade = 0,
 	junkMaxValue = 55
+
 
 }
 
