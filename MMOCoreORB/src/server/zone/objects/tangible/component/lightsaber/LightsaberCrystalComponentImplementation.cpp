@@ -77,7 +77,7 @@ void LightsaberCrystalComponentImplementation::fillAttributeList(AttributeListMe
 	}
 
 	if ((player->getJediState() > 1 && getColor() == 31) || player->getAdminLevel() > 6) {
-		if (ownerID != 0) {
+		if (ownerID != 0 || player->getAdminLevel() > 6) {
 			alm->insertAttribute("mindamage", minimumDamage);
 			alm->insertAttribute("maxdamage", maximumDamage);
 			alm->insertAttribute("wpn_attack_speed", attackSpeed);
