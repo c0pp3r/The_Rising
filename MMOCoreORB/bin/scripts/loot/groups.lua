@@ -427,6 +427,13 @@ includeFile("groups/ris1.lua")
 includeFile("groups/nge1.lua")
 includeFile("groups/nge2.lua")
 includeFile("groups/nge3.lua")
+-- New Sabers
+includeFile("groups/risingsaber1.lua")
+includeFile("groups/risingsaber2.lua")
+includeFile("groups/risingsaber3.lua")
+includeFile("groups/risingsaber4.lua")
+includeFile("groups/risingsaber5.lua")
+
 -- Custom tables
 includeFile("groups/custom/av_21_pp.lua")
 includeFile("groups/custom/av_21_scheme.lua")

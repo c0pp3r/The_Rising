@@ -1206,6 +1206,14 @@ includeFile("items/saber23.lua")
 includeFile("items/saber24.lua")
 includeFile("items/saber25.lua")
 includeFile("items/saber26.lua")
+--new Sabers
+includeFile("items/saber_rising_1.lua")
+includeFile("items/saber_rising_2.lua")
+includeFile("items/saber_rising_3.lua")
+includeFile("items/saber_rising_4.lua")
+includeFile("items/saber_rising_5.lua")
+
+
 includeFile("items/risarmor10.lua")
 includeFile("items/risarmor9.lua")
 includeFile("items/risarmor8.lua")
