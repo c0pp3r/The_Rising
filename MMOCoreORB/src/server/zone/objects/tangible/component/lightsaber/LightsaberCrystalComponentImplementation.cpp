@@ -73,8 +73,8 @@ void LightsaberCrystalComponentImplementation::fillAttributeList(AttributeListMe
 			StringBuffer str3;
 			str3 << "@jedi_spam:saber_color_" << getColor();
 			alm->insertAttribute("color", str3);
-			alm->insertAttribute("mindamage", damage);
-			alm->insertAttribute("maxdamage", damage);
+			alm->insertAttribute("mindamage", minimumDamage);
+			alm->insertAttribute("maxdamage", maximumDamage);
 			alm->insertAttribute("wpn_attack_speed", attackSpeed);
 		}
 	}
