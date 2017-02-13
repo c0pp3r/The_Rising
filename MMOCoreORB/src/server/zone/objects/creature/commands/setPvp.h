@@ -42,10 +42,10 @@ public:
 
 		if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE || targetGhost->getFactionStatus() == FactionStatus::COVERT){
 			targetGhost->setFactionStatus(FactionStatus::OVERT);
-			creature->sendSystemMessage("You are now Special Forces and can be attacked by members of the enemy faction!")
+			creature->sendSystemMessage("You are now Special Forces and can be attacked by members of the enemy faction!");
 		}else{
 			targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
-			creature->sendSystemMessage("You are now On Leave from military duty and will no longer be attackable by faction players and NPCs")
+			creature->sendSystemMessage("You are now On Leave from military duty and will no longer be attackable by faction players and NPCs");
 		}
 		
 		return SUCCESS;
