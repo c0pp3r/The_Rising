@@ -48,8 +48,11 @@ public:
 				if(creature != NULL){
 					Locker locker(creature);
 
-					targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
-					creature->sendSystemMessage("You will be On Leave from military duty and will no longer be attackable by faction players and NPCs after 5 MINUTES!");
+					PlayerObject* targetGhost = creature->getPlayerObject();
+					if (targetGhost != NULL){
+						targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
+						creature->sendSystemMessage("You will be On Leave from military duty and will no longer be attackable by faction players and NPCs after 5 MINUTES!");
+					}
 				}
 			}, "UpdateFactionStatusTask",300000);
 			
