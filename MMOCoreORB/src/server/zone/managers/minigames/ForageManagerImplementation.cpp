@@ -250,7 +250,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 
 	if (forageType == ForageManager::SHELLFISH){
 		bool mullosks = false;
-		if (System::random(100) > 500) {
+		if (System::random(100) > 50) {
 			resName = "seafood_mollusk";
 			mullosks = true;
 		}
