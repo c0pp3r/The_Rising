@@ -52,7 +52,6 @@ public:
 					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
 						targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
-						creature->sendSystemMessage("You are NOW On Leave from military duty and will no longer be attackable by faction players and NPCs");
 					}
 				}
 			}, "UpdateFactionStatusTask",300000);
