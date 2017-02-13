@@ -44,8 +44,15 @@ public:
 			targetGhost->setFactionStatus(FactionStatus::OVERT);
 			creature->sendSystemMessage("You are now Special Forces and can be attacked by members of the enemy faction!");
 		}else{
-			targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
-			creature->sendSystemMessage("You are now On Leave from military duty and will no longer be attackable by faction players and NPCs");
+			Core::getTaskManager()->scheduleTask([creature]{
+				if(creature != NULL){
+					Locker locker(creature);
+
+					targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
+					creature->sendSystemMessage("You will be On Leave from military duty and will no longer be attackable by faction players and NPCs after 5 MINUTES!");
+				}
+			}, "UpdateFactionStatusTask",300000);
+			
 		}
 		
 		return SUCCESS;
