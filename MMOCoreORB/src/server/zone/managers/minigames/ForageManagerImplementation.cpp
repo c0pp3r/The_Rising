@@ -399,10 +399,16 @@ int foraging;
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
 		resourceManager->harvestResourceToPlayer(player, resource, quantity);
+
 	} else if (forageType == ForageManager::MEDICAL) {
 		foraging = player->getSkillMod("medical_foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
 		resourceManager->harvestResourceToPlayer(player, resource, quantity);
-		}
+
+	} else if (forageType == ForageManager::SHELLFISH) {
+		foraging = player->getSkillMod("foraging");
+		int quantity = System::random((150) + foraging * 2)+50;
+		resourceManager->harvestResourceToPlayer(player, resource, quantity);
+	}
 	return true;
 }
