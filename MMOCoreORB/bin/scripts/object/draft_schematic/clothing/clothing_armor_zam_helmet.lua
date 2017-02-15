@@ -65,7 +65,7 @@ object_draft_schematic_clothing_clothing_armor_zam_helmet = object_draft_schemat
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
    ingredientTitleNames = {"auxilary_coverage", "body", "liner", "hardware_and_attachments", "binding_and_reinforcement", "padding", "armor", "load_bearing_harness"},
    ingredientSlotType = {0, 0, 0, 0, 0, 0, 1, 1},
-   resourceTypes = {"metal", "hide", "fiberplast", "metal", "petrochem_inert", "fiberplast", "object/tangible/component/armor/shared_armor_segment_zam.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff"},
+   resourceTypes = {"iron", "hide_scaley", "fiberplast_dantooine", "steel_duranium", "petrochem_inert", "fiberplast_endor", "object/tangible/component/armor/shared_armor_segment_zam.iff", "object/tangible/component/clothing/shared_synthetic_cloth.iff"},
    resourceQuantities = {140, 140, 140, 100, 40, 60, 1, 2},
    contribution = {100, 100, 100, 100, 100, 100, 100, 100},
 
