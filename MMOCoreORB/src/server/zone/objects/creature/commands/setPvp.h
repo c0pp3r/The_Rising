@@ -54,7 +54,7 @@ public:
 					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
 						if(!creature->hasSkill("force_rank_dark_novice") && !creature->hasSkill("force_rank_light_novice")){
-							targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
+							targetGhost->setFactionStatus(FactionStatus::OVERT);
 						}else{
 							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 						}
