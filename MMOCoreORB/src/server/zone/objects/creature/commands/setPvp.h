@@ -43,7 +43,7 @@ public:
 		if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE || targetGhost->getFactionStatus() == FactionStatus::COVERT){
 			creature->sendSystemMessage("You will be Special Forces and can be attacked by members of the enemy faction after 30 SECONDS!");
 			String playerName = creature->getFirstName();
-			PlayerObject* targetGhost = creature->getPlayerObject();
+			
  			StringBuffer zBroadcast;
  			zBroadcast << "\\#00bfff" << playerName << "\\#ff7f00 is attempting to go Special Forces!";
  			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
@@ -51,13 +51,14 @@ public:
 				if(creature != NULL){
 					Locker locker(creature);
 
-					
+					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
 						if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
 							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 							return GENERALERROR;
+						}else{
+							targetGhost->setFactionStatus(FactionStatus::OVERT);
 						}
-						targetGhost->setFactionStatus(FactionStatus::OVERT);
 					}
 				}
 			}, "UpdateFactionStatusTask",30);
@@ -71,13 +72,14 @@ public:
 				if(creature != NULL){
 					Locker locker(creature);
 
-					//PlayerObject* targetGhost = creature->getPlayerObject();
+					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
 						if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
 							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 							return GENERALERROR;
+						}else{
+							targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
 						}
-						targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
 					}
 				}
 			}, "UpdateFactionStatusTask",300000);
