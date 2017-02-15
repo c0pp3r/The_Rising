@@ -60,7 +60,7 @@ public:
 						}
 					}
 				}
-			}, "UpdateFactionStatusTask",30);
+			}, "UpdateFactionStatusTask",30000);
 		}else{
 			creature->sendSystemMessage("You will be On Leave from military duty and will no longer be attackable by faction players and NPCs after 5 MINUTES!");
 			String playerName = creature->getFirstName();
