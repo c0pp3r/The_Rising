@@ -53,11 +53,10 @@ public:
 
 					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
-						if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
-							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
-							return GENERALERROR;
+						if(!creature->hasSkill("force_rank_dark_novice") && !creature->hasSkill("force_rank_light_novice")){
+							targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
 						}else{
-							targetGhost->setFactionStatus(FactionStatus::OVERT);
+							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 						}
 					}
 				}
@@ -74,11 +73,10 @@ public:
 
 					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
-						if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
-							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
-							return GENERALERROR;
-						}else{
+						if(!creature->hasSkill("force_rank_dark_novice") && !creature->hasSkill("force_rank_light_novice")){
 							targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
+						}else{
+							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 						}
 					}
 				}
