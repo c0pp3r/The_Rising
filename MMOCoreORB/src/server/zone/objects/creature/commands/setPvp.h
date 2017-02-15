@@ -45,6 +45,7 @@ public:
 			String playerName = creature->getFirstName();
  			StringBuffer zBroadcast;
  			zBroadcast << "\\#00bfff" << playerName << "\\#ff7f00 is attempting to go Special Forces!";
+ 			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			Core::getTaskManager()->scheduleTask([creature]{
 				if(creature != NULL){
 					Locker locker(creature);
@@ -64,6 +65,7 @@ public:
 			String playerName = creature->getFirstName();
  			StringBuffer zBroadcast;
  			zBroadcast << "\\#00bfff" << playerName << "\\#ff7f00 is attempting to go On Leave!";
+ 			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			Core::getTaskManager()->scheduleTask([creature]{
 				if(creature != NULL){
 					Locker locker(creature);
