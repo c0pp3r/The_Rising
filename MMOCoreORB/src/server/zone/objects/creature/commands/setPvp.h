@@ -41,16 +41,39 @@ public:
 			return GENERALERROR;
 
 		if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE || targetGhost->getFactionStatus() == FactionStatus::COVERT){
-			targetGhost->setFactionStatus(FactionStatus::OVERT);
-			creature->sendSystemMessage("You are now Special Forces and can be attacked by members of the enemy faction!");
-		}else{
-			creature->sendSystemMessage("You will be On Leave from military duty and will no longer be attackable by faction players and NPCs after 5 MINUTES!");
+			creature->sendSystemMessage("You will be Special Forces and can be attacked by members of the enemy faction after 30 SECONDS!");
+			String playerName = creature->getFirstName();
+ 			StringBuffer zBroadcast;
+ 			zBroadcast << "\\#00bfff" << playerName << "\\#ff7f00 is attempting to go Special Forces!";
 			Core::getTaskManager()->scheduleTask([creature]{
 				if(creature != NULL){
 					Locker locker(creature);
 
 					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
+						if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
+							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
+							return GENERALERROR;
+						}
+						targetGhost->setFactionStatus(FactionStatus::OVERT);
+					}
+				}
+			}, "UpdateFactionStatusTask",30);
+		}else{
+			creature->sendSystemMessage("You will be On Leave from military duty and will no longer be attackable by faction players and NPCs after 5 MINUTES!");
+			String playerName = creature->getFirstName();
+ 			StringBuffer zBroadcast;
+ 			zBroadcast << "\\#00bfff" << playerName << "\\#ff7f00 is attempting to go On Leave!";
+			Core::getTaskManager()->scheduleTask([creature]{
+				if(creature != NULL){
+					Locker locker(creature);
+
+					PlayerObject* targetGhost = creature->getPlayerObject();
+					if (targetGhost != NULL){
+						if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
+							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
+							return GENERALERROR;
+						}
 						targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
 					}
 				}
