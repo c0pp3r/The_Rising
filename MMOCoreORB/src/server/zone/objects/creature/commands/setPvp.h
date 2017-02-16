@@ -33,6 +33,11 @@ public:
 			creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 			return GENERALERROR;
 		}
+
+		if (creature->getFaction() == 0){
+			creature->sendSystemMessage("Neutrals cannot change their status!");
+			return GENERALERROR;
+		}
 		
 		PlayerObject* targetGhost = creature->getPlayerObject();
 		Zone* zone = creature->getZone();
