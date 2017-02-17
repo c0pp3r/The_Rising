@@ -514,7 +514,7 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	Time currentTime;
 	uint32 timeDelta = currentTime.getTime() - lastGrowth.getTime();
-	int stagesToGrow = timeDelta / 1200; // 20 mins
+	int stagesToGrow = timeDelta / 180; // 20 mins
 
 	if (adult)
 		stagesToGrow = 10;
