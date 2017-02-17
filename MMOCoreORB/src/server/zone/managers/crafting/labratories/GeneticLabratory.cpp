@@ -181,52 +181,52 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 	// Calculate resists
 	// 1 percent: (1000 - 0) / 100.0f;
 	float blastMax, energyMax, kineticMax,heatMax,coldMax,electricMax,acidMax,stunMax,saberMax;
-	blastMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::BLAST,100.0f);
-	kineticMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::KINETIC,60.0f);
-	energyMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ENERGY,60.0f);
-	heatMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::HEAT,100.0f);
-	coldMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::COLD,100.0f);
-	electricMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ELECTRICITY,100.0f);
-	acidMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ACID,100.0f);
-	stunMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::STUN,100.0f);
-	saberMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::LIGHTSABER,100.0f);
+	blastMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::BLAST,90.0f);
+	kineticMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::KINETIC,90.0f);
+	energyMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ENERGY,90.0f);
+	heatMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::HEAT,90.0f);
+	coldMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::COLD,90.0f);
+	electricMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ELECTRICITY,90.0f);
+	acidMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ACID,90.0f);
+	stunMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::STUN,90.0f);
+	saberMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::LIGHTSABER,90.0f);
 
 	// lets clear the special bit if it moved to effective range.
 	if (saberMax == 0) {
 		spSaber = false;
-		saberMax = 100;
+		saberMax = 90;
 	}
 	if (blastMax == 0) {
 		spBlast = false;
-		blastMax = 100;
+		blastMax = 90;
 	}
 	if (kineticMax == 0) {
 		spKinetic = false;
-		kineticMax = 60;
+		kineticMax = 90;
 	}
 	if (energyMax == 0) {
 		spEnergy = false;
-		energyMax = 60;
+		energyMax = 90;
 	}
 	if (heatMax == 0) {
 		spHeat = false;
-		heatMax = 100;
+		heatMax = 90;
 	}
 	if (coldMax == 0) {
 		spCold = false;
-		coldMax = 100;
+		coldMax = 90;
 	}
 	if (electricMax == 0) {
 		spElectric = false;
-		electricMax = 100;
+		electricMax = 90;
 	}
 	if (acidMax == 0) {
 		spAcid = false;
-		acidMax = 100;
+		acidMax = 90;
 	}
 	if (stunMax == 0) {
 		spStun = false;
-		stunMax = 100;
+		stunMax = 90;
 	}
 
 	// Step 2. At this point we know the max values for all stats and we have calculated any armor specials needed
