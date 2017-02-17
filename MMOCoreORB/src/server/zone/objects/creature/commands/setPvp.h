@@ -58,10 +58,10 @@ public:
 
 					PlayerObject* targetGhost = creature->getPlayerObject();
 					if (targetGhost != NULL){
-						if(!creature->hasSkill("force_rank_dark_novice") && !creature->hasSkill("force_rank_light_novice")){
+						if(creature->getFaction() == 0){
+							creature->sendSystemMessage("No seriously, Neutrals cannot change their status!"); 
+						}else if(!creature->hasSkill("force_rank_dark_novice") && !creature->hasSkill("force_rank_light_novice")){
 							targetGhost->setFactionStatus(FactionStatus::OVERT);
-						}else if(creature->getFaction() == 0){
-							creature->sendSystemMessage("No seriously, Neutrals cannot change their status!");
 						}else{
 							creature->sendSystemMessage("Jedi in the FRS may not use this command.");
 						}
