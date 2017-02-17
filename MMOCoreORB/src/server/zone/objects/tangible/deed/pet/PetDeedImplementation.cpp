@@ -293,8 +293,8 @@ void PetDeedImplementation::updateCraftingValues(CraftingValues* values, bool fi
 	if (petTemplate != NULL) {
 		// get min CL from the template
 		int skinFactor = petTemplate->getLevel();
-		if (level > 75) {
-			level = 75;
+		if (level > 35) {
+			level = 35;
 		}
 		if (level < skinFactor) {
 			level = skinFactor;
