@@ -234,11 +234,11 @@ CitySpecializations = {
 			{"private_spec_entertainer", 10}
 		}
 	},
-	--[[{--Stronghold
+	{--Stronghold
 		name = "@city/city:city_spec_stronghold",
 		cost = 15000,
 		skillMods = {
 			{"private_defense", 60}
 		}
-	},--]]
+	},
 }
