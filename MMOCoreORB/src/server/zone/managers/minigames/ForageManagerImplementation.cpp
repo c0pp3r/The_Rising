@@ -416,11 +416,11 @@ int foraging;
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
 		StringBuffer shellMessage;
-		info("The ResType is " + resType, true); 
-		if (resType == "seafood_mollusk"){
+		//info("The ResType is " + resType, true); 
+		if (resType.beginsWith("seafood_mollusk")){
 			shellMessage << "You have successfully netted " << quantity << " Mollusks!";
 		}
-		else if (resType == "seafood_crustacean"){
+		else if (resType.beginsWith("seafood_crustacean")){
 			shellMessage << "You have successfully netted " << quantity << " Crustaceans!";
 		}
 		player->sendSystemMessage(shellMessage.toString());
