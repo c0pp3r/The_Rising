@@ -1,15 +1,7 @@
 gifted_elite_gondula_shaman = Creature:new {
 	objectName = "Elite Gifted Gondula Shaman",
-<<<<<<< HEAD
-	randomNameType = NAME_GENERIC,
-=======
-<<<<<<< Updated upstream
-	randomNameType = NAME_GENERIC,
-=======
 	--randomNameType = NAME_GENERIC,
->>>>>>> Stashed changes
->>>>>>> master
-	randomNameTag = true,
+	--randomNameTag = true,
 	socialGroup = "gondula_tribe",
 	faction = "gondula_tribe",
 	level = 300,
@@ -31,13 +23,7 @@ gifted_elite_gondula_shaman = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
 	scale = 2,
->>>>>>> Stashed changes
->>>>>>> master
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + HEALER + KILLER,
 	optionsBitmask = AIENABLED + INTERESTING,
