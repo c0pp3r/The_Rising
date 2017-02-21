@@ -1,5 +1,5 @@
-gondula_matriarch = Creature:new {
-	objectName = "@mob/creature_names:gondula_matriarch",
+gondula_elite_matriarch = Creature:new {
+	objectName = "Gondula Elite Matriarch",
 	randomNameType = NAME_GENERIC,
 	randomNameTag = true,
 	socialGroup = "gondula_tribe",
@@ -43,4 +43,4 @@ gondula_matriarch = Creature:new {
 	attacks = merge(marksmanmaster,riflemanmaster)
 }
 
-CreatureTemplates:addCreatureTemplate(gondula_matriarch, "gondula_matriarch")
+CreatureTemplates:addCreatureTemplate(gondula_elite_matriarch, "gondula_elite_matriarch")
