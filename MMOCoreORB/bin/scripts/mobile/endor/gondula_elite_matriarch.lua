@@ -10,8 +10,8 @@ gondula_elite_matriarch = Creature:new {
 	damageMax = 4000,
 	specialDamageMult = 25,
 	baseXp = 831,
-	baseHAM = 161000,
-	baseHAMmax = 220000,
+	baseHAM = 101000,
+	baseHAMmax = 200000,
 	armor = 3,
 	resists = {30,30,30,30,30,30,30,30,100},
 	meatType = "",
@@ -41,7 +41,7 @@ gondula_elite_matriarch = Creature:new {
 	},
 	weapons = {"ewok_weapons"},
 	conversationTemplate = "",
-	attacks = merge(marksmanmaster,riflemanmaster)
+	attacks = merge(marksmanmaster,riflemanmaster,brawlermaster,fencermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(gondula_elite_matriarch, "gondula_elite_matriarch")
