@@ -415,7 +415,8 @@ int foraging;
 	} else if (forageType == ForageManager::SHELLFISH) {
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
-		StringBuffer shellMessage; 
+		StringBuffer shellMessage;
+		info("The ResType is " + resType, true); 
 		if (resType == "seafood_mollusk"){
 			shellMessage << "You have successfully netted " << quantity << " Mollusks!";
 		}

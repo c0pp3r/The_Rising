@@ -7,6 +7,7 @@ tusken_executioner_quest = Creature:new {
 	chanceHit = 75.5,
 	damageMin = 1845,
 	damageMax = 3200,
+	specialDamageMult = 25,
 	baseXp = 25167,
 	baseHAM = 461000,
 	baseHAMmax = 520000,
