@@ -263,9 +263,9 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 
 		if(forageGiveResource(player, forageX, forageY, planet, resName, forageType)) {
 			if (mullosks)
-				player->sendSystemMessage("@harvesting:found_mollusks");
+				//player->sendSystemMessage("@harvesting:found_mollusks");
 			else
-				player->sendSystemMessage("@harvesting:found_crustaceans");
+				//player->sendSystemMessage("@harvesting:found_crustaceans");
 			return true;
 		}
 		else {
@@ -331,7 +331,7 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 		else if (dice > 19 && dice < 110) { // Eggs
 			resName = "meat_egg";
 			if(forageGiveResource(player, forageX, forageY, planet, resName, forageType)) {
-				player->sendSystemMessage("@lair_n:found_eggs");
+				//player->sendSystemMessage("@lair_n:found_eggs");
 				return true;
 			} else {
 				player->sendSystemMessage("@lair_n:found_nothing");
@@ -402,6 +402,9 @@ int foraging;
 	if (forageType == ForageManager::LAIR) {
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
+		StringBuffer eggMessage; 
+		eggMessage << "You have successfully collected" << quantityExtracted << " Eggs from the creature!";
+		player->sendSystemMessage(eggMessage.toString());
 		resourceManager->harvestResourceToPlayer(player, resource, quantity);
 
 	} else if (forageType == ForageManager::MEDICAL) {
@@ -412,6 +415,12 @@ int foraging;
 	} else if (forageType == ForageManager::SHELLFISH) {
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
+		StringBuffer shellMessage; 
+		if (resType == 'seafood_mollusk')
+			shellMessage << "You have successfully netted " << quantity << " Mollusks!";
+		else if (resType == 'seafood_crustacean')
+			shellMessage << "You have successfully netted " << quantity << " Crustaceans!"
+		player->sendSystemMessage(shellMessage.toString());
 		resourceManager->harvestResourceToPlayer(player, resource, quantity);
 	}
 	return true;
