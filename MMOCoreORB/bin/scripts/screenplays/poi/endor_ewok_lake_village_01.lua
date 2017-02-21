@@ -71,8 +71,9 @@ function EndorEwokLakeVillage01ScreenPlay:spawnMobiles()
 	spawnMobile("endor", "wise_gondula_ritualist",300, 1463.7, 1.9, -3259.8, 50, 0)
 	spawnMobile("endor", "wise_gondula_ritualist",300, 1463.3, 1.9, -3279.6, 131, 0)
 
-	spawnMobile("endor", "gondula_matriarch",300, 1413.7, 1, -3278.9, 62, 0)
-	spawnMobile("endor", "gondula_matriarch",300, 1412.9, 1, -3261.8, 97, 0)
-	spawnMobile("endor", "gifted_gondula_shaman",300, 1432.4, 1.8, -3280.3, -52, 0)
+	spawnMobile("endor", "gondula_elite_matriarch",1801, 1413.7, 1, -3278.9, 62, 0)
+	spawnMobile("endor", "gondula_elite_matriarch",1798, 1412.9, 1, -3261.8, 97, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shaman",1799, 1432.4, 1.8, -3280.3, -52, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shaman",1800, 1435.13, 1, -3261.81, 264, 0)
 	spawnMobile("endor", "chewbacca_elder", 1800, 1425.07, 1, -3270.31, 356, 0) 
 end

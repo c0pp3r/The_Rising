@@ -1,5 +1,5 @@
-gondula_elite_matriarch = Creature:new {
-	objectName = "Gondula Elite Matriarch",
+gifted_elite_gondula_shaman = Creature:new {
+	objectName = "Elite Gifted Gondula Shaman",
 	randomNameType = NAME_GENERIC,
 	randomNameTag = true,
 	socialGroup = "gondula_tribe",
@@ -9,7 +9,7 @@ gondula_elite_matriarch = Creature:new {
 	damageMin = 1845,
 	damageMax = 3200,
 	specialDamageMult = 25,
-	baseXp = 831,
+	baseXp = 4461,
 	baseHAM = 461000,
 	baseHAMmax = 520000,
 	armor = 3,
@@ -23,25 +23,26 @@ gondula_elite_matriarch = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	scale = 2,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + KILLER,
+	creatureBitmask = PACK + HEALER + KILLER,
 	optionsBitmask = AIENABLED + INTERESTING,
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_ewok_f_05.iff"},
+		"object/mobile/dressed_ewok_m_07.iff",
+		"object/mobile/dressed_ewok_m_11.iff"},
 	lootGroups = {
 		{
 			groups = {
-				{group = "ewok", chance = 10000000}
+				{group = "ewok", chance = 9000000},
+				{group = "wearables_uncommon", chance = 1000000},
 			},
-			lootChance = 1300000
+			lootChance = 1920000
 		}
 	},
-	weapons = {"ewok_weapons"},
+	weapons = {"captain_hassk_weapons"},
 	conversationTemplate = "",
-	attacks = merge(marksmanmaster,riflemanmaster)
+	attacks = merge(swordsmanmaster,brawlermaster)
 }
 
-CreatureTemplates:addCreatureTemplate(gondula_elite_matriarch, "gondula_elite_matriarch")
+CreatureTemplates:addCreatureTemplate(gifted_elite_gondula_shaman, "gifted_elite_gondula_shaman")
