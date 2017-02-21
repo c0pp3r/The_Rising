@@ -11,7 +11,7 @@ chewbacca_elder = Creature:new {
 	baseHAM = 432100,
 	baseHAMmax = 559200,
 	armor = 3,
-	resists = {75,75,75,75,75,75,75,75,100},
+	resists = {50,50,50,50,50,50,50,50,100},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -22,7 +22,7 @@ chewbacca_elder = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE + ENEMY,
-	creatureBitmask = KILLER + STALKER,
+	creatureBitmask = KILLER + PACK,
 	optionsBitmask = AIENABLED+ INTERESTING,
 	diet = HERBIVORE,
 
