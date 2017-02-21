@@ -178,6 +178,10 @@ void ForageManagerImplementation::finishForaging(CreatureObject* player, int for
 		skillMod = player->getSkillMod("medical_foraging");
 		chance = (int)(15 + (skillMod * 0.6));
 		break;
+	case ForageManager::SHELLFISH:
+		skillMod = player->getSkillMod("foraging");
+		chance = (int)(15 + (skillMod * 0.485));
+		break;
 	default:
 		skillMod = 20;
 		chance = (int)(15 + (skillMod * 0.6));
