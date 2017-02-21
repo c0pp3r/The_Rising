@@ -1,7 +1,7 @@
 gifted_elite_gondula_shaman = Creature:new {
-	objectName = "Elite Gifted Gondula Shaman",
-	--randomNameType = NAME_GENERIC,
-	--randomNameTag = true,
+	customName = "Elite Gifted Gondula Shaman",
+	randomNameType = NAME_GENERIC,
+	randomNameTag = true,
 	socialGroup = "gondula_tribe",
 	faction = "gondula_tribe",
 	level = 300,
