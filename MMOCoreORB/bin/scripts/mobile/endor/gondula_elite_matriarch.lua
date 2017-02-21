@@ -1,6 +1,6 @@
 gondula_elite_matriarch = Creature:new {
 	objectName = "Gondula Elite Matriarch",
-	randomNameType = NAME_GENERIC,
+	--randomNameType = NAME_GENERIC,
 	randomNameTag = true,
 	socialGroup = "gondula_tribe",
 	faction = "gondula_tribe",
