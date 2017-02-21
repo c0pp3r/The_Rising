@@ -262,9 +262,9 @@ bool ForageManagerImplementation::forageGiveItems(CreatureObject* player, int fo
 			resName = "seafood_crustacean";
 
 		if(forageGiveResource(player, forageX, forageY, planet, resName, forageType)) {
-			if (mullosks)
+			//if (mullosks)
 				//player->sendSystemMessage("@harvesting:found_mollusks");
-			else
+			//else
 				//player->sendSystemMessage("@harvesting:found_crustaceans");
 			return true;
 		}
