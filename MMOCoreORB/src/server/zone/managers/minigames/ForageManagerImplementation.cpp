@@ -403,7 +403,7 @@ int foraging;
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
 		StringBuffer eggMessage; 
-		eggMessage << "You have successfully collected" << quantityExtracted << " Eggs from the creature!";
+		eggMessage << "You have successfully collected" << quantity << " Eggs from the creature!";
 		player->sendSystemMessage(eggMessage.toString());
 		resourceManager->harvestResourceToPlayer(player, resource, quantity);
 
@@ -416,10 +416,12 @@ int foraging;
 		foraging = player->getSkillMod("foraging");
 		int quantity = System::random((150) + foraging * 2)+50;
 		StringBuffer shellMessage; 
-		if (resType == 'seafood_mollusk')
+		if (resType == "seafood_mollusk"){
 			shellMessage << "You have successfully netted " << quantity << " Mollusks!";
-		else if (resType == 'seafood_crustacean')
-			shellMessage << "You have successfully netted " << quantity << " Crustaceans!"
+		}
+		else if (resType == "seafood_crustacean"){
+			shellMessage << "You have successfully netted " << quantity << " Crustaceans!";
+		}
 		player->sendSystemMessage(shellMessage.toString());
 		resourceManager->harvestResourceToPlayer(player, resource, quantity);
 	}
