@@ -30,14 +30,10 @@ som_dark_jedi_minion_6 = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "g_baton_stun_legendary", chance = 600000},
-				{group = "g_baton_trando_stun", chance = 600000},
-				{group = "g_named_crystals", chance = 1000000},
-				{group = "g_lance_kaminoan", chance = 1300000},
-				{group = "armor_attachments", chance = 1200000},
-				{group = "clothing_attachments", chance = 1300000},
-				{group = "g_ep3_loot_heartstriker", chance = 600000},
-				{group = "g_lance_shock", chance = 800000}
+				{group = "g_named_crystals", chance = 2500000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000},
+				{group = "g_ep3_loot_heartstriker", chance = 2500000},
 			},
 			lootChance = 10000000,
 		}

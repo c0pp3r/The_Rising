@@ -43,7 +43,7 @@ chewbacca_elder = Creature:new {
 		},
 		{
 			groups = {
-				{group = "cardeed1", chance = 1000000}
+				{group = "cardeed1", chance = 1500000}
 			},
 			lootChance = 1000000
 		 },
