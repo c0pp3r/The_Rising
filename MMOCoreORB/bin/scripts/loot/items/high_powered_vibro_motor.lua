@@ -6,7 +6,17 @@ high_powered_vibro_motor = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/component/weapon/vibro_unit_enhancement_max_damage.iff",
 	craftingValues = {
-		{"maxdamage",20,20.01,1}, -- setting at 20,20.01, allows damage to be effected by legendary, exceptional, and yellow modifiers
+		{"mindamage",41,108,0},
+		{"maxdamage",170,300,0},
+		{"attackspeed",1.8,-0.8,1},
+		{"woundchance",10,55,0},
+		{"hitpoints",100,500,0},
+		{"zerorangemod",0,20,0},
+		{"maxrangemod",0,20,0},
+		{"midrangemod",0,20,0},
+		{"attackhealthcost",8,2,0},
+		{"attackactioncost",8,2,0},
+		{"attackmindcost",8,2,0},
 		{"useCount",1,5,0},
 	},
 	customizationStringNames = {},
