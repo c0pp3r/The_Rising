@@ -51,7 +51,7 @@ chewbacca_elder = Creature:new {
 			groups = {
 				{group = "clothing_attachments", chance = 2500000},
 				{group = "armor_attachments", chance = 2500000},
-				{group = "droid_loot", chance = 2500000},
+				{group = "wookie_loot", chance = 2500000},
 				{group = "weapons_all", chance = 2500000}
 		},
 			lootChance = 10000000
@@ -60,7 +60,7 @@ chewbacca_elder = Creature:new {
 			groups = {
 				{group = "clothing_attachments", chance = 2500000},
 				{group = "armor_attachments", chance = 2500000},
-				{group = "droid_loot", chance = 2500000},
+				{group = "wookie_loot", chance = 2500000},
 				{group = "forage_food", chance = 2500000}
 		},
 			lootChance = 10000000
@@ -69,7 +69,7 @@ chewbacca_elder = Creature:new {
 			groups = {
 				{group = "clothing_attachments", chance = 2000000},
 				{group = "armor_attachments", chance = 2000000},
-				{group = "droid_loot", chance = 1000000},
+				{group = "wookie_loot", chance = 1000000},
 				{group = "forage_rare", chance = 2500000}
 		},
 			lootChance = 10000000
