@@ -1252,6 +1252,7 @@ includeFile("items/ngehouse25.lua")
 -- Custom data
 includeFile("items/components/projectile_pistol_barrel_carbonite.lua")
 includeFile("items/components/weapon_stock_collapse.lua")
+includeFile("items/custom/wookie_teeth.lua")
 --AV21 Loot
 includeFile("items/custom/av_21_schematic.lua")
 includeFile("items/custom/av_21_powerplant.lua")
