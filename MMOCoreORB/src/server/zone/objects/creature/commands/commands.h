@@ -841,6 +841,9 @@
 #include "RequestSpaceTrainerCommand.h"
 //The Rising Commands
 #include "setPvp.h"
+#include "mutePlayer.h"
+#include "unmutePlayer.h"
+
 
 
 
