@@ -30,7 +30,9 @@ admin_general_admin_02 = {
 		"planetWarp",
 		"planetWarpTarget",
 		"freezePlayer",
-		"unfreezePlayer"
+		"unfreezePlayer",
+		"mutePlayer",
+		"unmutePlayer"
 	},
 	skillModifiers = {},
 	schematicsGranted = {},
