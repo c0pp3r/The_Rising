@@ -1207,6 +1207,7 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<MoveFurnitureCommand>(String("moveFurniture").toLowerCase());
 	commandFactory.registerCommand<MultiTargetPistolShotCommand>(String("multiTargetPistolShot").toLowerCase());
 	commandFactory.registerCommand<MultiTargetShotCommand>(String("multiTargetShot").toLowerCase());
+	commandFactory.registerCommand<MutePlayerCommand>(String("mutePlayer").toLowerCase());
 	commandFactory.registerCommand<NameStructureCommand>(String("nameStructure").toLowerCase());
 	commandFactory.registerCommand<NewbiehelperCommand>(String("newbiehelper").toLowerCase());
 	commandFactory.registerCommand<NewbieRequestStartingLocationsCommand>(String("newbieRequestStartingLocations").toLowerCase());
@@ -1521,6 +1522,7 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<UnfreezePlayerCommand>(String("unfreezePlayer").toLowerCase());
 	commandFactory.registerCommand<UninstallShipComponentCommand>(String("uninstallShipComponent").toLowerCase());
 	commandFactory.registerCommand<UninviteCommand>(String("uninvite").toLowerCase());
+	commandFactory.registerCommand<UnmutePlayerCommand>(String("unmutePlayer").toLowerCase());
 	commandFactory.registerCommand<UnsnoopCommand>(String("unsnoop").toLowerCase());
 	commandFactory.registerCommand<UseReconDroneCommand>(String("useReconDrone").toLowerCase());
 	commandFactory.registerCommand<UseSkillBuffCommand>(String("useSkillBuff").toLowerCase());
