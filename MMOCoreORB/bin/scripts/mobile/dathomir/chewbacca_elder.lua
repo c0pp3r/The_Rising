@@ -1,5 +1,7 @@
 chewbacca_elder = Creature:new {
 	customName = "Chewbacca (Elder)",
+	socialGroup = "gondula_tribe",
+	faction = "gondula_tribe",
 	level = 300,
 	chanceHit = 85,
 	damageMin = 3300,
