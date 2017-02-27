@@ -788,9 +788,9 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	}
 
 	if (attacker->getFaction() != 0) {
-		for (int i = 0; i < copythreatMap->size(); ++i) {
-			ThreatMapEntry* entry = &copythreatMap->elementAt(i).getValue();
-			CreatureObject* grpattacker = copythreatMap->elementAt(i).getKey();
+		for (int i = 0; i < threatMap->size(); ++i) {
+			ThreatMapEntry* entry = &threatMap->elementAt(i).getValue();
+			CreatureObject* grpattacker = threatMap->elementAt(i).getKey();
 			if (grpattacker->isPlayerCreature() || grpattacker->isPet()) {
 				CreatureObject* attackerCreature = grpattacker->asCreatureObject();
 
@@ -808,15 +808,15 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 						if (attackerCreature->isRebel() && player->isImperial()){
 							if (attackerCreature->hasSkill("force_rank_light_novice") && player->hasSkill("force_rank_dark_novice")){
 								awardExperience(attackerCreature, "force_rank_xp", 2500);
-								ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
-								playerManager->awardExperience(player, "force_rank_xp", -3000);
+								//ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
+								//playerManager->awardExperience(player, "force_rank_xp", -3000);
 
 							}
 						} else if (attackerCreature->isImperial() && player->isRebel()){
 							if (attackerCreature->hasSkill("force_rank_dark_novice") && player->hasSkill("force_rank_light_novice")){
 								awardExperience(attackerCreature, "force_rank_xp", 2500);
-								ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
-								playerManager->awardExperience(player, "force_rank_xp", -3000);
+								//ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
+								//playerManager->awardExperience(player, "force_rank_xp", -3000);
 
 							}
 
@@ -830,7 +830,7 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 
 	CombatManager::instance()->freeDuelList(player, false);
 
-	copythreatMap->removeAll(true);
+	threatMap->removeAll(true);
 	
 	player->removeDefenders();
 	player->dropFromDefenderLists();
