@@ -788,35 +788,39 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	}
 
 	if (attacker->getFaction() != 0) {
-		if (attacker->isPlayerCreature() || attacker->isPet()) {
-			CreatureObject* attackerCreature = attacker->asCreatureObject();
+		for (int i = 0; i < copythreatMap->size(); ++i) {
+			ThreatMapEntry* entry = &copythreatMap->elementAt(i).getValue();
+			CreatureObject* grpattacker = copythreatMap->elementAt(i).getKey();
+			if (grpattacker->isPlayerCreature() || grpattacker->isPet()) {
+				CreatureObject* attackerCreature = grpattacker->asCreatureObject();
 
-			if (attackerCreature->isPet()) {
-				CreatureObject* owner = attackerCreature->getLinkedCreature().get();
+				if (attackerCreature->isPet()) {
+					CreatureObject* owner = attackerCreature->getLinkedCreature().get();
 
-				if (owner != NULL && owner->isPlayerCreature()) {
-					attackerCreature = owner;
+					if (owner != NULL && owner->isPlayerCreature()) {
+						attackerCreature = owner;
+					}
 				}
-			}
 
-			if (attackerCreature->isPlayerCreature()) {
-				if (!CombatManager::instance()->areInDuel(attackerCreature, player)) {
-					FactionManager::instance()->awardPvpFactionPoints(attackerCreature, player);
-					if (attackerCreature->isRebel() && player->isImperial()){
-						if (attackerCreature->hasSkill("force_rank_light_novice") && player->hasSkill("force_rank_dark_novice")){
-							awardExperience(attackerCreature, "force_rank_xp", 2500);
-							ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
-							playerManager->awardExperience(player, "force_rank_xp", -3000);
+				if (attackerCreature->isPlayerCreature()) {
+					if (!CombatManager::instance()->areInDuel(attackerCreature, player)) {
+						FactionManager::instance()->awardPvpFactionPoints(attackerCreature, player);
+						if (attackerCreature->isRebel() && player->isImperial()){
+							if (attackerCreature->hasSkill("force_rank_light_novice") && player->hasSkill("force_rank_dark_novice")){
+								awardExperience(attackerCreature, "force_rank_xp", 2500);
+								ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
+								playerManager->awardExperience(player, "force_rank_xp", -3000);
+
+							}
+						} else if (attackerCreature->isImperial() && player->isRebel()){
+							if (attackerCreature->hasSkill("force_rank_dark_novice") && player->hasSkill("force_rank_light_novice")){
+								awardExperience(attackerCreature, "force_rank_xp", 2500);
+								ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
+								playerManager->awardExperience(player, "force_rank_xp", -3000);
+
+							}
 
 						}
-					} else if (attackerCreature->isImperial() && player->isRebel()){
-						if (attackerCreature->hasSkill("force_rank_dark_novice") && player->hasSkill("force_rank_light_novice")){
-							awardExperience(attackerCreature, "force_rank_xp", 2500);
-							ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
-							playerManager->awardExperience(player, "force_rank_xp", -3000);
-
-						}
-
 					}
 				}
 			}
@@ -826,7 +830,7 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 
 	CombatManager::instance()->freeDuelList(player, false);
 
-	threatMap->removeAll(true);
+	copythreatMap->removeAll(true);
 	
 	player->removeDefenders();
 	player->dropFromDefenderLists();
