@@ -802,10 +802,10 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 					}
 				}
 
-				/*if (attackerCreature->isPlayerCreature()) {
+				if (attackerCreature->isPlayerCreature()) {
 					if (!CombatManager::instance()->areInDuel(attackerCreature, player)) {
 						FactionManager::instance()->awardPvpFactionPoints(attackerCreature, player);
-						if (attackerCreature->isRebel() && player->isImperial()){
+						/*if (attackerCreature->isRebel() && player->isImperial()){
 							if (attackerCreature->hasSkill("force_rank_light_novice") && player->hasSkill("force_rank_dark_novice")){
 								awardExperience(attackerCreature, "force_rank_xp", 2500);
 								//ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
@@ -821,8 +821,8 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 							}
 
 						}
-					}
-				}*/
+					}*/
+				}
 			}
 		}
 	}
