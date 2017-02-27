@@ -802,7 +802,7 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 					}
 				}
 
-				if (attackerCreature->isPlayerCreature()) {
+				/*if (attackerCreature->isPlayerCreature()) {
 					if (!CombatManager::instance()->areInDuel(attackerCreature, player)) {
 						FactionManager::instance()->awardPvpFactionPoints(attackerCreature, player);
 						if (attackerCreature->isRebel() && player->isImperial()){
@@ -822,7 +822,7 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 
 						}
 					}
-				}
+				}*/
 			}
 		}
 	}
