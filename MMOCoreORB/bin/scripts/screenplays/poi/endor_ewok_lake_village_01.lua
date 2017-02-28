@@ -18,8 +18,8 @@ function EndorEwokLakeVillage01ScreenPlay:spawnMobiles()
 	spawnMobile("endor", "skilled_gondula_worker",300, 1549.6, 5.1, -3174.8, 141, 0)	
 	spawnMobile("endor", "skilled_gondula_worker",300, 1544.2, 5.1, -3180, 141, 0)
 
-	spawnMobile("endor", "gondula_ritualist",300, 1418.2, 1, -3164, -6, 0)
-	spawnMobile("endor", "gondula_ritualist",300, 1425.9, 1.1, -3164.3, -6, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shaman",1200, 1418.2, 1, -3164, -6, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shamant",1200, 1425.9, 1.1, -3164.3, -6, 0)
 
 	spawnMobile("endor", "gondula_matriarch",300, 1422, 1, -3221.4, -5, 0)
 
@@ -65,15 +65,15 @@ function EndorEwokLakeVillage01ScreenPlay:spawnMobiles()
 	spawnMobile("endor", "gondula_veteran",300, 1462.4, 2, -3356.6, 153, 0)
 	spawnMobile("endor", "gondula_veteran",300, 1461.3, 2, -3358.3, 142, 0)
 
-	spawnMobile("endor", "gondula_worker",300, 1486.1, 1, -3266.6, 87, 0)
-	spawnMobile("endor", "gondula_worker",300, 1486.1, 1, -3273.3, 81, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shaman",1200, 1486.1, 1, -3266.6, 87, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shaman",1200, 1486.1, 1, -3273.3, 81, 0)
 
 	spawnMobile("endor", "wise_gondula_ritualist",300, 1463.7, 1.9, -3259.8, 50, 0)
 	spawnMobile("endor", "wise_gondula_ritualist",300, 1463.3, 1.9, -3279.6, 131, 0)
 
-	spawnMobile("endor", "gondula_elite_matriarch",1801, 1413.7, 1, -3278.9, 62, 0)
+	spawnMobile("endor", "gifted_elite_gondula_shaman",1801, 1413.7, 1, -3278.9, 62, 0)
 	spawnMobile("endor", "gondula_elite_matriarch",1805, 1426.42, 1, -3270.41, 357, 0)
-	spawnMobile("endor", "gifted_elite_gondula_shaman",1799, 1429.74, 1.99609, -3277.29, 320, 0)
+	spawnMobile("endor", "gondula_elite_matriarch",1799, 1429.74, 1.99609, -3277.29, 320, 0)
 	spawnMobile("endor", "gifted_elite_gondula_shaman",1800, 1435.13, 1, -3261.81, 264, 0)
 	spawnMobile("endor", "chewbacca_elder", 1800, 1425.07, 1, -3270.31, 356, 0) 
 end
