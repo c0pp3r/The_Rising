@@ -1568,8 +1568,6 @@ void PlayerManagerImplementation::awardExperience(CreatureObject* player, const 
 		return;
 	int xp;
 	if (amount <= 0 || xpType == "force_rank_xp" || xpType == "jedi_general") {
-		if (xpType == "jedi_general")
-			amount = amount *2;
 		xp = playerObject->addExperience(xpType, amount);
 	} else if (xpType == "imagedesigner" ||
 		xpType == "music" ||
@@ -1596,7 +1594,7 @@ void PlayerManagerImplementation::awardExperience(CreatureObject* player, const 
 		xpType == "political" ||
 		xpType == "bountyhunter" ||
 		xpType == "shipwright") {
-		xp = playerObject->addExperience(xpType, (amount * 20));
+		xp = playerObject->addExperience(xpType, (amount * 10));
 	} else {
 		xp = playerObject->addExperience(xpType, (int) (amount * localMultiplier * globalExpMultiplier));
 	}
