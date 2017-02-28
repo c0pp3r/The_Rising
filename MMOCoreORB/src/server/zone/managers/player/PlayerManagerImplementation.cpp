@@ -788,6 +788,10 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	}
 
 	if (attacker->getFaction() != 0) {
+		if (attackerCreature->isPlayerCreature())
+			if (!CombatManager::instance()->areInDuel(attackerCreature, player)) 
+				FactionManager::instance()->awardPvpFactionPoints(attackerCreature, player);
+
 		for (int i = 0; i < threatMap->size(); ++i) {
 			ThreatMapEntry* entry = &threatMap->elementAt(i).getValue();
 			CreatureObject* grpattacker = threatMap->elementAt(i).getKey();
