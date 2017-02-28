@@ -644,9 +644,9 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 						owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, bBroadcast.toString());
 						if (target->hasSkill("force_rank_light_novice") || target->hasSkill("force_rank_dark_novice"))
 						{
-							owner->getZoneServer()->getPlayerManager()->awardExperience(target, "force_rank_xp", -500, true);
+							owner->getZoneServer()->getPlayerManager()->awardExperience(target, "force_rank_xp", -1500, true);
 							StringIdChatParameter message("base_player","prose_revoke_xp");
-							message.setDI(500);
+							message.setDI(1500);
 							message.setTO("exp_n", "force_rank_xp");
 							target->sendSystemMessage(message);
 						}
