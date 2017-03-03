@@ -39,11 +39,11 @@ public:
 
 		ChatManager* chatManager = server->getZoneServer()->getChatManager();
 
-		String messageType;
+		/*String messageType;
 		args.getStringToken(messageType);
 
 		//Command Options
-		/*if (messageType.charAt(0) == '-') {
+		if (messageType.charAt(0) == '-') {
 			//Help syntax
 			if (messageType.toLowerCase() == "-help" || messageType == "-H") {
 				creature->sendSystemMessage("Syntax: /mailGalaxy <message>");
