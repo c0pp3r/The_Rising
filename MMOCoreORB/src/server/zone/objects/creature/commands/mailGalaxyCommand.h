@@ -50,7 +50,7 @@ public:
 				return GENERALERROR;
 			}
 
-		//If no message type is specified, the rest of the arguments are broadcast as a string
+		//If no message type is specified, the rest of the arguments are mail as a string
 		//String message = messageType + " ";
 		String message;
 		while (args.hasMoreTokens()) {
@@ -65,4 +65,4 @@ public:
 
 };
 
-#endif //BROADCASTGALAXYCOMMAND_H_
+#endif //MAILGALAXYCOMMAND_H_
