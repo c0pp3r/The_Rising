@@ -59,7 +59,7 @@ public:
 			message = message + messageParts + " ";
 		}
 
-		chatManager->mailGalaxy(creature->getFirstName(), message);
+		chatManager->mailGalaxy(cast<CreatureObject*>(creature), message);
 		return SUCCESS;
 	}
 

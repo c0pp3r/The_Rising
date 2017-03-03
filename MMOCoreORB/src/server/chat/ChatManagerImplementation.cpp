@@ -2506,10 +2506,10 @@ void ChatManagerImplementation::sendChatOnBanResult(CreatureObject* banner, cons
 	banner->sendMessage(notification);
 }
 
-void ChatManagerImplementation::mailGalaxy(const String& senderName, const String& emailBody) {
+void ChatManagerImplementation::mailGalaxy(CreatureObject* creature, const String& emailBody) {
 	String firstName = "SKYNET";
-	if (senderName != NULL)
-		firstName = senderName;
+	if (creature != NULL)
+		firstName = creature->getFirstName();
 
 	StringBuffer fullMessage;
 	fullMessage <<  emailBody;
