@@ -54,6 +54,8 @@ public:
 		//If no message type is specified, the rest of the arguments are mail as a string
 		//String message = messageType + " ";
 		String message;
+		args.getStringToken(message);
+		message = message + " ";
 		while (args.hasMoreTokens()) {
 			String messageParts;
 			args.getStringToken(messageParts);
