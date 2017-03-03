@@ -932,7 +932,7 @@ void ChatManagerImplementation::mailGalaxy(const String& senderName, const Strin
 
 		//playerObject->sendSystemMessage(fullMessage.toString());
 		recipName = playerObject->getFirstName();
-		ChatManager::sendMail(senderName, subject, emailBody, recipName);
+		sendMail(senderName, subject, emailBody, recipName);
 	}
 }
 
