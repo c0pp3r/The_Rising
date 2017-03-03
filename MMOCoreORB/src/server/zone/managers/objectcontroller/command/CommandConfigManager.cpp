@@ -1153,6 +1153,7 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<LootCommand>(String("loot").toLowerCase());
 	commandFactory.registerCommand<LootPlayerCorpseCommand>(String("lootPlayerCorpse").toLowerCase());
 	commandFactory.registerCommand<LowBlowCommand>(String("lowBlow").toLowerCase());
+	commandFactory.registerCommand<MailGalaxyCommand>(String("mailGalaxy").toLowerCase());
 	commandFactory.registerCommand<MakeLeaderCommand>(String("makeLeader").toLowerCase());
 	commandFactory.registerCommand<MakeMasterLooterCommand>(String("makeMasterLooter").toLowerCase());
 	commandFactory.registerCommand<MakeSurveyCommand>(String("makeSurvey").toLowerCase());

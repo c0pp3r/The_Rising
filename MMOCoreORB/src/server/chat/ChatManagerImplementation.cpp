@@ -913,13 +913,14 @@ void ChatManagerImplementation::broadcastGalaxy(CreatureObject* player, const St
 	}
 }
 
-void ChatManagerImplementation::mailGalaxy(const String& sendername, const UnicodeString& subject, const UnicodeString& emailBody) {
+void ChatManagerImplementation::mailGalaxy(const String& sendername, const UnicodeString& emailBody) {
 
 	if (sendername == NULL)
 		sendername = "SKYNET";
 
 	StringBuffer fullMessage;
 	fullMessage <<  emailBody;
+	subject = "[ADMIN] PLEASE READ";
 
 	Locker locker(_this.getReferenceUnsafeStaticCast());
 	//playerMap->lock();
