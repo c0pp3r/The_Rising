@@ -2513,7 +2513,7 @@ void ChatManagerImplementation::mailGalaxy(CreatureObject* creature, const Strin
 
 	StringBuffer fullMessage;
 	fullMessage <<  emailBody;
-	subject = "[ADMIN] PLEASE READ";
+	String subject = "[ADMIN] PLEASE READ";
 
 	Locker locker(_this.getReferenceUnsafeStaticCast());
 	//playerMap->lock();
@@ -2524,7 +2524,7 @@ void ChatManagerImplementation::mailGalaxy(CreatureObject* creature, const Strin
 		ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
 
 		//playerObject->sendSystemMessage(fullMessage.toString());
-		recipName = playerObject->getFirstName();
+		String recipName = playerObject->getFirstName();
 		sendMail(senderName, subject, fullMessage.toString();, recipName);
 	}
 }
