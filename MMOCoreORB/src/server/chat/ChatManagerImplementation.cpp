@@ -913,10 +913,10 @@ void ChatManagerImplementation::broadcastGalaxy(CreatureObject* player, const St
 	}
 }
 
-void ChatManagerImplementation::mailGalaxy(const String& sendername, const StringBuffer& emailBody) {
-	String firstname = "SKYNET"
-	if (sendername != NULL)
-		firstname = sendername;
+void ChatManagerImplementation::mailGalaxy(const String& senderName, const StringBuffer& emailBody) {
+	String firstName = "SKYNET"
+	if (senderName != NULL)
+		firstName = senderName;
 
 	StringBuffer fullMessage;
 	fullMessage <<  emailBody;
@@ -930,9 +930,9 @@ void ChatManagerImplementation::mailGalaxy(const String& sendername, const Strin
 	while (playerMap->hasNext(false)) {
 		ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
 
-		playerObject->sendSystemMessage(fullMessage.toString());
+		//playerObject->sendSystemMessage(fullMessage.toString());
 		recipName = playerObject->getFirstName();
-		sendMail(sendername, subject, emailBody, recipName);
+		ChatManager::sendMail(senderName, subject, emailBody, recipName);
 	}
 }
 
