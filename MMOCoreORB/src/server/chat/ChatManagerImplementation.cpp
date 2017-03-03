@@ -913,8 +913,8 @@ void ChatManagerImplementation::broadcastGalaxy(CreatureObject* player, const St
 	}
 }
 
-void ChatManagerImplementation::mailGalaxy(const String& sendername, const UnicodeString& emailBody) {
-	firstname = "SKYNET"
+void ChatManagerImplementation::mailGalaxy(const String& sendername, const StringBuffer& emailBody) {
+	String firstname = "SKYNET"
 	if (sendername != NULL)
 		firstname = sendername;
 
