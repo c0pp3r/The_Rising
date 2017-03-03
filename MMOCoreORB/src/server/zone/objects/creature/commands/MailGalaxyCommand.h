@@ -53,7 +53,11 @@ public:
 
 		//If no message type is specified, the rest of the arguments are mail as a string
 		//String message = messageType + " ";
+<<<<<<< HEAD
 		String message = messageType + " ";
+=======
+		String message;
+>>>>>>> parent of 006ccfa... fix missing first word
 		while (args.hasMoreTokens()) {
 			String messageParts;
 			args.getStringToken(messageParts);
