@@ -49,6 +49,7 @@ public:
 				creature->sendSystemMessage("Syntax: /mailGalaxy <message>");
 				return GENERALERROR;
 			}
+		}
 
 		//If no message type is specified, the rest of the arguments are mail as a string
 		//String message = messageType + " ";
