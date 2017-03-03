@@ -913,28 +913,6 @@ void ChatManagerImplementation::broadcastGalaxy(CreatureObject* player, const St
 	}
 }
 
-void ChatManagerImplementation::mailGalaxy(const String& senderName, const String& emailBody) {
-	String firstName = "SKYNET";
-	if (senderName != NULL)
-		firstName = senderName;
-
-	StringBuffer fullMessage;
-	fullMessage <<  emailBody;
-	subject = "[ADMIN] PLEASE READ";
-
-	Locker locker(_this.getReferenceUnsafeStaticCast());
-	//playerMap->lock();
-
-	playerMap->resetIterator(false);
-
-	while (playerMap->hasNext(false)) {
-		ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
-
-		//playerObject->sendSystemMessage(fullMessage.toString());
-		recipName = playerObject->getFirstName();
-		sendMail(senderName, subject, fullMessage.toString();, recipName);
-	}
-}
 
 void ChatManagerImplementation::broadcastMessage(BaseMessage* message) {
 	Locker _lock(_this.getReferenceUnsafeStaticCast());
@@ -2526,6 +2504,29 @@ void ChatManagerImplementation::handleChatBanPlayer(CreatureObject* banner, cons
 void ChatManagerImplementation::sendChatOnBanResult(CreatureObject* banner, const String& baneeName, const String& roomPath, int error, int requestID) {
 	ChatOnBanFromRoom* notification = new ChatOnBanFromRoom(banner, baneeName, roomPath, error, requestID);
 	banner->sendMessage(notification);
+}
+
+void ChatManagerImplementation::mailGalaxy(const String& senderName, const String& emailBody) {
+	String firstName = "SKYNET";
+	if (senderName != NULL)
+		firstName = senderName;
+
+	StringBuffer fullMessage;
+	fullMessage <<  emailBody;
+	subject = "[ADMIN] PLEASE READ";
+
+	Locker locker(_this.getReferenceUnsafeStaticCast());
+	//playerMap->lock();
+
+	playerMap->resetIterator(false);
+
+	while (playerMap->hasNext(false)) {
+		ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
+
+		//playerObject->sendSystemMessage(fullMessage.toString());
+		recipName = playerObject->getFirstName();
+		sendMail(senderName, subject, fullMessage.toString();, recipName);
+	}
 }
 
 void ChatManagerImplementation::handleChatUnbanPlayer(CreatureObject* unbanner, const String& unbaneeName, const String& roomPath, int requestID) {
