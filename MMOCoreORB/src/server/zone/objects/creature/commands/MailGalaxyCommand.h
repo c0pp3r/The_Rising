@@ -33,7 +33,7 @@ public:
 
 		//Explain syntax
 		if (!args.hasMoreTokens()) {
-			creature->sendSystemMessage("Syntax: /mailGalaxy <message>");
+			creature->sendSystemMessage("Syntax: /mailGalaxy - <message>");
 			return INVALIDPARAMETERS;
 		}
 
