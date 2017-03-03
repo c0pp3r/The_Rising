@@ -843,7 +843,7 @@
 #include "setPvp.h"
 #include "MutePlayerCommand.h"
 #include "UnmutePlayerCommand.h"
-#include "mailGalaxyCommand.h"
+#include "MailGalaxyCommand.h"
 
 
 
