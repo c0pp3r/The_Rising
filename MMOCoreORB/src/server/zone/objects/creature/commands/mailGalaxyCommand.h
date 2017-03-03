@@ -39,6 +39,9 @@ public:
 
 		ChatManager* chatManager = server->getZoneServer()->getChatManager();
 
+		String messageType;
+		args.getStringToken(messageType);
+
 		//Command Options
 		if (messageType.charAt(0) == '-') {
 			//Help syntax
