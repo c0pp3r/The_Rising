@@ -2525,7 +2525,7 @@ void ChatManagerImplementation::mailGalaxy(CreatureObject* creature, const Strin
 
 		//playerObject->sendSystemMessage(fullMessage.toString());
 		String recipName = playerObject->getFirstName();
-		sendMail(senderName, subject, fullMessage.toString();, recipName);
+		sendMail(senderName, subject, fullMessage.toString(), recipName);
 	}
 }
 
