@@ -25,7 +25,8 @@ admin_server_admin_01 = {
 		"broadcast",
 		"broadcastArea",
 		"broadcastGalaxy",
-		"broadcastPlanet"
+		"broadcastPlanet",
+		"mailGalaxy"
 	},
 	skillModifiers = {},
 	schematicsGranted = {},
