@@ -913,6 +913,28 @@ void ChatManagerImplementation::broadcastGalaxy(CreatureObject* player, const St
 	}
 }
 
+void ChatManagerImplementation::mailGalaxy(const String& sendername, const UnicodeString& subject, const UnicodeString& emailBody) {
+
+	if (sendername == NULL)
+		sendername = "SKYNET";
+
+	StringBuffer fullMessage;
+	fullMessage <<  emailBody;
+
+	Locker locker(_this.getReferenceUnsafeStaticCast());
+	//playerMap->lock();
+
+	playerMap->resetIterator(false);
+
+	while (playerMap->hasNext(false)) {
+		ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
+
+		playerObject->sendSystemMessage(fullMessage.toString());
+		recipName = playerObject->getFirstName();
+		sendMail(sendername, subject, emailBody, recipName);
+	}
+}
+
 void ChatManagerImplementation::broadcastMessage(BaseMessage* message) {
 	Locker _lock(_this.getReferenceUnsafeStaticCast());
 
