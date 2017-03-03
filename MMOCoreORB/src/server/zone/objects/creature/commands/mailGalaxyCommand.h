@@ -13,7 +13,7 @@
 class MailGalaxyCommand : public QueueCommand {
 public:
 
-	MailGalaxyCommand(const String& name, ZoneProcessServer* server)
+	MailGalaxyCommand(const String& name, StringBuffer& emailBody)
 		: QueueCommand(name, server) {
 
 	}
