@@ -914,7 +914,7 @@ void ChatManagerImplementation::broadcastGalaxy(CreatureObject* player, const St
 }
 
 void ChatManagerImplementation::mailGalaxy(const String& senderName, const StringBuffer& emailBody) {
-	String firstName = "SKYNET"
+	String firstName = "SKYNET";
 	if (senderName != NULL)
 		firstName = senderName;
 
