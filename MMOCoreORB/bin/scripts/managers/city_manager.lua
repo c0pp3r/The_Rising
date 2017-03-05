@@ -235,10 +235,10 @@ CitySpecializations = {
 		}
 	},
 	{--Stronghold
-		name = "@city/city:city_spec_stronghold",
-		cost = 15000,
+		name = "DO NOT USE - DOES NOTHING",
+		cost = 0,
 		skillMods = {
-			{"private_defense", 60}
+			{"private_defense", 0}
 		}
 	},
 }
