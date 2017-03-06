@@ -297,10 +297,8 @@ public:
 			if (targetOwner != NULL && targetOwner->isPlayerCreature()) {
 				if (!combatManager->areInDuel(creature, targetOwner)) {
 					shouldTef = true;
-					if (creature->isInBountyMission(creature, targetOwner)){
-						PlayerObject* playerGhost = creature->getPlayerObject();
-						playerGhost->updateLastPvpCombatActionTimestamp();
-					}
+					PlayerObject* playerGhost = creature->getPlayerObject();
+					playerGhost->updateLastPvpCombatActionTimestamp();	
 				}
 			}
 		}
@@ -330,9 +328,11 @@ public:
 		// Update PvP TEF Duration
 		if (shouldTef && creature->isPlayerCreature()) {
 			PlayerObject* ghost = creature->getPlayerObject().get();
+			PlayerObject* playerGhost = creature->getPlayerObject();
 
 			if (ghost != NULL) {
 				ghost->updateLastPvpCombatActionTimestamp();
+				playerGhost->updateLastPvpCombatActionTimestamp();
 			}
 		} else if (shouldTef && creature->isPet()) {
 			ManagedReference<CreatureObject*> owner = creature->getLinkedCreature().get();
