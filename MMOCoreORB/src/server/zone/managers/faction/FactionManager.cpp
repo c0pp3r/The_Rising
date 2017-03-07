@@ -191,7 +191,7 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 				message.setTO("exp_n", "force_rank_xp");
 				destructedObject->sendSystemMessage(message);
 				zBroadcast << "\\#00e604" << "Jedi " << "\\#00bfff" << killerName << "\\#ffd700 has defeated" << "\\#e60000 Sith " << "\\#00bfff" << playerName << "\\#ffd700 in the FRS";
-			} else if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_title_rank_02")) {
+			} else if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_title_jedi_rank_02")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 2000);
 				zBroadcast << "\\#00e604" << "Jedi " << "\\#00bfff" << killerName << "\\#ffd700 has defeated" << "\\#e60000 Sith " << "\\#00bfff" << playerName << "\\#ffd700 in the GCW";
 			}
@@ -217,7 +217,7 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 				message.setTO("exp_n", "force_rank_xp");
 				destructedObject->sendSystemMessage(message);
 				zBroadcast << "\\#e60000" << "Sith " << "\\#00bfff" << killerName << "\\#ffd700 has defeated" << "\\#00e604 Jedi " << "\\#00bfff" << playerName << "\\#ffd700 in the FRS";
-			} else if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_title_rank_02")){
+			} else if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_title_jedi_rank_02")){
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 2000);
 				zBroadcast << "\\#e60000" << "Sith " << "\\#00bfff" << killerName << "\\#ffd700 has defeated" << "\\#00e604 Jedi " << "\\#00bfff" << playerName << "\\#ffd700 in the GCW";
 			}
