@@ -299,7 +299,7 @@ public:
 					shouldTef = true;
 					PlayerObject* playerGhost = creature->getPlayerObject();
 					playerGhost->updateLastPvpCombatActionTimestamp();
-					playerGhost->addToBountyLockList(creature->getObjectID());
+					playerGhost->addToBountyLockList(targetOwner->getObjectID());
 
 				}
 			}
