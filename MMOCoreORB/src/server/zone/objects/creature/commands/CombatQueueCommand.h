@@ -330,11 +330,9 @@ public:
 		// Update PvP TEF Duration
 		if (shouldTef && creature->isPlayerCreature()) {
 			PlayerObject* ghost = creature->getPlayerObject().get();
-			PlayerObject* playerGhost = creature->getPlayerObject();
 
 			if (ghost != NULL) {
 				ghost->updateLastPvpCombatActionTimestamp();
-				playerGhost->updateLastPvpCombatActionTimestamp();
 			}
 		} else if (shouldTef && creature->isPet()) {
 			ManagedReference<CreatureObject*> owner = creature->getLinkedCreature().get();
