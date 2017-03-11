@@ -297,7 +297,7 @@ public:
 			if (targetOwner != NULL && targetOwner->isPlayerCreature()) {
 				if (!combatManager->areInDuel(creature, targetOwner)) {
 					shouldTef = true;
-					if (creature->isInBountyMission(creature, targetOwner)){
+					if (creature->isInBountyMission(creature, targetCreature)){
 						PlayerObject* playerGhost = creature->getPlayerObject();
 						playerGhost->updateLastPvpCombatActionTimestamp();
 					}
