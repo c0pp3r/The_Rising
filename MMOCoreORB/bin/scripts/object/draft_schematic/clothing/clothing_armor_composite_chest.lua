@@ -73,6 +73,18 @@ object_draft_schematic_clothing_clothing_armor_composite_chest = object_draft_sc
    targetTemplate = "object/tangible/wearables/armor/composite/armor_composite_chest_plate.iff",
 
    additionalTemplates = {
+   "object/tangible/wearables/armor/chitin/armor_chitin_s01_chest_plate.iff",
+   "object/tangible/wearables/armor/marauder/armor_marauder_s01_chest_plate.iff",
+   "object/tangible/wearables/armor/marauder/armor_marauder_s02_chest_plate.iff",
+   "object/tangible/wearables/armor/marauder/armor_marauder_s03_chest_plate.iff",
+   "object/tangible/wearables/armor/marine/armor_marine_chest_plate.iff",
+   "object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_chest_plate.iff",
+   "object/tangible/wearables/armor/tantel/armor_tantel_skreej_chest_plate.iff",
+   "object/tangible/wearables/armor/ubese/armor_ubese_jacket.iff",
+   "object/tangible/wearables/armor/kashyyykian_black_mtn/armor_kashyyykian_black_mtn_chest_plate.iff",
+   "object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chest_plate.iff",
+   "object/tangible/wearables/armor/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff",
+
              }
 
 }
