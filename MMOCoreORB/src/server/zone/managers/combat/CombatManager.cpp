@@ -815,18 +815,15 @@ float CombatManager::getDefenderToughnessModifier(CreatureObject* attacker, Crea
 	ManagedReference<WeaponObject*> weapon = defender->getWeapon();
 
 	Vector<String>* defenseToughMods = weapon->getDefenderToughnessModifiers();
-
 	if (attackType == weapon->getAttackType()) {
 		for (int i = 0; i < defenseToughMods->size(); ++i) {
-			if (weapon->isMeleeWeapon() && attacker->isPlayerCreature() && defender->isPlayerCreature() && defenseToughMods->get(i) == "lightsaber_toughness") {
-				int bonusTough = (defender->getSkillMod(defenseToughMods->get(i)) - 55);
-				int toughMod = (defender->getSkillMod(defenseToughMods->get(i))) - (bonusTough * .5);
-				if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
-			}else{
-				int toughMod = defender->getSkillMod(defenseToughMods->get(i));
-				if (toughMod > 0) {damage *= 1.f - (toughMod / 100.f);}
+			int toughMod = defender->getSkillMod(defenseToughMods->get(i));
+			if (defenseToughMods->get(i) == "lightsaber_toughness"){
+				if (defender->isIntimidated()) {
+                toughMod = (toughMod / 2);
+            } 
 			}
-			//if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
+			if (toughMod > 0) damage *= 1.f - (toughMod / 100.f);
 		}
 	}
 
