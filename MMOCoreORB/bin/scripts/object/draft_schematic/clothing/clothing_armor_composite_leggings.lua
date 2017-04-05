@@ -73,16 +73,6 @@ object_draft_schematic_clothing_clothing_armor_composite_leggings = object_draft
    targetTemplate = "object/tangible/wearables/armor/composite/armor_composite_leggings.iff",
 
    additionalTemplates = {
-   "object/tangible/wearables/armor/chitin/armor_chitin_s01_leggings.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s01_leggings.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s02_leggings.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s03leggings.iff",
-   "object/tangible/wearables/armor/marine/armor_marine_leggings.iff",
-   "object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_leggings.iff",
-   "object/tangible/wearables/armor/ubese/armor_ubese_pants.iff",
-   "object/tangible/wearables/armor/kashyyykian_black_mtn/armor_kashyyykian_black_mtn_leggings.iff",
-   "object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_leggings.iff",
-   "object/tangible/wearables/armor/kashyyykian_hunting/armor_kashyyykian_hunting_leggings.iff",
              }
 
 }

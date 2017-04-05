@@ -73,15 +73,6 @@ object_draft_schematic_clothing_clothing_armor_composite_boots = object_draft_sc
    targetTemplate = "object/tangible/wearables/armor/composite/armor_composite_boots.iff",
 
    additionalTemplates = {
-   "object/tangible/wearables/armor/chitin/armor_chitin_s01_boots.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s01_boots.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s02_boots.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s03_boots.iff",
-   "object/tangible/wearables/armor/marine/armor_marine_boots.iff",
-   "object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_boots.iff",
-   "object/tangible/wearables/armor/tantel/armor_tantel_skreej_boots.iff",
-   "object/tangible/wearables/armor/ubese/armor_ubese_boots.iff",
-
              }
 
 }

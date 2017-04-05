@@ -73,13 +73,6 @@ object_draft_schematic_clothing_clothing_armor_composite_helmet = object_draft_s
    targetTemplate = "object/tangible/wearables/armor/composite/armor_composite_helmet.iff",
 
    additionalTemplates = {
-   "object/tangible/wearables/armor/composite/shared_armor_composite_helmet.iff",
-   "object/tangible/wearables/armor/chitin/shared_armor_chitin_s01_helmet.iff",
-   "object/tangible/wearables/armor/marauder/shared_armor_marauder_s01_helmet.iff",
-   "object/tangible/wearables/armor/stormtrooper/shared_armor_stormtrooper_helmet.iff",
-   "object/tangible/wearables/armor/marine/shared_armor_marine_helmet.iff",
-   "object/tangible/wearables/armor/tantel/shared_armor_tantel_skreej_helmet.iff",
-   "object/tangible/wearables/armor/ubese/shared_armor_ubese_helmet.iff",
              }
 
 }

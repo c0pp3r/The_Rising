@@ -73,15 +73,6 @@ object_draft_schematic_clothing_clothing_armor_composite_bracer_l = object_draft
    targetTemplate = "object/tangible/wearables/armor/composite/armor_composite_bracer_l.iff",
 
    additionalTemplates = {
-   "object/tangible/wearables/armor/chitin/armor_chitin_s01_bracer_l.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s01_bracer_l.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s02_bracer_l.iff",
-   "object/tangible/wearables/armor/marauder/armor_marauder_s03_bracer_l.iff",
-   "object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_l.iff",
-   "object/tangible/wearables/armor/ubese/armor_ubese_bracer_l.iff",
-   "object/tangible/wearables/armor/kashyyykian_black_mtn/armor_kashyyykian_black_mtn_bracer_l.iff",
-   "object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bracer_l.iff",
-   "object/tangible/wearables/armor/kashyyykian_hunting/armor_kashyyykian_hunting_bracer_l.iff",
 
              }
 
