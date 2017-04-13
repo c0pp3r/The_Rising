@@ -49,8 +49,8 @@ object_tangible_component_food_container_barrel = object_tangible_component_food
 	experimentalWeights = {1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "null"},
 	experimentalSubGroupTitles = {"null", "null", "quantity_bonus"},
-	experimentalMin = {0, 0, 4},
-	experimentalMax = {0, 0, 4},
+	experimentalMin = {0, 0, 3.5},
+	experimentalMax = {0, 0, 3.5},
 	experimentalPrecision = {0, 0, 0},
 	experimentalCombineType = {0, 0, 1},
 }
